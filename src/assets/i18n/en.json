@@ -1,0 +1,99 @@
+{
+    "brand" : "School Development Index",
+    "brandResponsive": "SDI",
+    "message" :{
+        "alertHeading" : "ALERT !!",
+        "imageHeading" : "Images",
+        "alertMessage" : "Mark as complete will be updated 'Are you sure to submit' ? ",
+        "noData" :"No data found",
+        "addCriteria" : "Adding a new Criteria",
+        "customizeQuestion":"Customize Question",
+        "goToProgramDashboard":"Go To Program Dashboard"
+
+    },
+    
+    
+    "buttons": {
+        "download" : "Download",
+        "update" : "Update",
+        "markasComplete" : "Mark As Complete",
+        "complete" : "Complete",
+        "cancel" : "Cancel",
+        "next": "Next",
+        "back":"Back",
+        "submit": "Submit",
+        "save": "Save",
+        "ok": "Ok",
+        "saveSurvey": "Save Survey",
+        "cancelSurvey": "Cancel Survey",
+        "addNew" : "Add New",
+        "removeAll" : "Remove All",
+        "upload" : "Upload"
+    },
+    "downloadReport":"Select a Evendince Method to Download",
+    "search": "Search",
+    "headings": {
+        "programs":"Programs",
+        "addQuestions": "Add New Question",
+        "parentInfoHeading" : "Parent Information",
+        "parentListHeading" : "Parent List",
+        "schoolListHeading" : "School List",
+        "ecmReportsHeading" : "ECM Reports",
+        "parentInterview":"Parent Interview",
+        "features" : "Features",
+        "survey": "Survey",
+        "reports" : "Reports",
+        "downloadReport" : "Download Evedince Report",
+        "configurations" : "WorkSpace",
+        "operations" : "Operations",
+        "questionFrameWorkHeading":"Questionary",
+        "criteriaFrameWorkHeading":"Criterias",
+        "criteriaList" : "Criteria List",
+        "dashBoard" : "Configuration Dashboard",
+        "dashboards":"Operations Dashboard",
+        "addRubric":"Add Levels To Rubric",
+        "fillCriteriaDetails":"Fill Criteria Details",
+        "panelEditHeading" : "Click on panel to Edit",
+        "general" : "General",
+        "choices" : "Choices",
+        "type" : "Type",
+        "uploadingCsv":"Uploading Csv",
+        "operationDashboardUpload":"Upload Csv"
+    },
+    "labels": {
+        "uploadCsv" : "Upload Csv"
+
+    },
+    "descriptions": {
+        "questionFrameWorkDescription":"list of questions.",
+        "criteriaFrameWorkDescription" : "criteria list and adding new criteria."
+    },
+    "sideNavLinks": {
+        
+    },
+    "menuDropdown" : {
+        "myApps" : "My Apps",
+        "signOut" :"Sign Out"
+
+    },
+    "tableLabel":{
+        "name" :"Name",
+        "studentName" : "Student Name",
+        "phone" : "Phone",
+        "gender":"Gender",
+        "grade":"Grade",
+        "typeLabel" : "Parent Type",
+        "address":"Address",
+        "city":"City",
+        "state":"State",
+        "externalId":"External-Id",
+        "callResponse" : "Status",
+        "_id":"Id",
+        "buttons":{
+            "clickHere" : "Click Here",
+            "edit" : "Profile Edit",
+            "startSurvey" : "Start Survey",
+            "complete" : "Completed"
+        }
+    }
+}

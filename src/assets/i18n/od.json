@@ -1,0 +1,64 @@
+{
+    "brand" : "ସ୍କୁଲ ଡେଭେଲପ୍ମେଣ୍ଟ ଇଣ୍ଡେକ୍ସ" ,
+    "brandResponsive": "ସଁ ଡ଼ ଈ",
+    "message" :{
+        "alertHeading" : "ସାବଧାନ !!",
+        "alertMessage" : " ଆପଣ ସାରିବାକୁ ନିଶ୍ଚିତ ଅଛନ୍ତି କି ? ",
+        "noData" :"କୋଣସି ଡାଟା ଉପଲବ୍ଧ ନାହିଁ"
+    },
+
+    
+    "buttons": {
+        "update" : " ଅଧୁନାତନ ତାଲିକା",
+        "markasComplete" : "ସାରିବା ଚୀନଠୋ",
+        "complete" : "ଶେଷ ",
+        "cancel" : "ନିରସିତ",
+        "next": "ପରବର୍ତ୍ତୀ",
+        "back":"ପୂର୍ବବର୍ତ୍ତୀ",
+        "submit": "ଉପସ୍ଥାପନା",
+        "save": "ସଂରକ୍ଷଣ",
+        "ok": "ଠିକ ଅଛି",
+        "saveSurvey": " ସଂରକ୍ଷଣ ସର୍ବେକ୍ଷଣ",
+        "cancelSurvey": "ନିରସିତ ସର୍ବେକ୍ଷଣ"
+    },
+    "search": "ସନ୍ଧାନ",
+    "headings": {
+        "parentInfoHeading" : "ପିତା ବା ମାତା ସୂଚନା",
+        "parentListHeading" : "ପିତା ବା ମାତା ତାଲିକା",
+        "schoolListHeading" : "ସ୍କୁଲ ତାଲିକା",
+        "ecmReportsHeading" : " ଇ ସି ମ  ରିପୋର୍ଟସ୍",
+        "parentInterview":"ପିତା ବା ମାତା Intereview",
+        "features" : "ସେବା ",
+        "survey": "ସର୍ବେକ୍ଷଣ",
+        "reports" : "ରିପୋର୍ଟସ୍"
+    },
+    "labels": {
+
+    },
+    "sideNavLinks": {
+        
+    },
+    "menuDropdown" : {
+        "myApps" : "ମୋ  ଆପ୍ସ",
+        "signOut" :"ସାଇନ୍ ଆଉଟ୍"
+
+    },
+    "tableLabel":{
+        "name" :"ନାମେ",
+        "studentName" : "ଛାତ୍ର  ନାମେ",
+        "phone" : "ଫୋନେ",
+        "gender":"ଲିଂଗ",
+        "grade":"ଶ୍ରେଣୀ",
+        "address":"ଠିକଣା",
+        "city":"ସହର",
+        "state":"ଷ୍ଟେଟ",
+        "externalId":"ବାହ୍ୟ ପରିଚୟ",
+        "buttons":{
+            "clickHere" : "ଏଠି ଦବାଅ",
+            "edit" : "ପରିଚ୍ଛେଦିକା ସଂପାଦନା",
+            "startSurvey" : "ସର୍ବେକ୍ଷଣ ଆରମ୍ଭ",
+            "complete" : "ସମ୍ପୂର୍ଣ୍ଣ"
+        }
+    }
+    
+}

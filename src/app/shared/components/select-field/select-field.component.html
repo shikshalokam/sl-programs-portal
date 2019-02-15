@@ -1,0 +1,5 @@
+<div [formGroup]="genericForm" >
+    <div class=" col-sm-6 fixSize _halfWidth">
+      <mat-checkbox  [disabled]="!genericData.editable" formControlName ="{{genericData.field}}" value="{{genericData.value}}" required>{{genericData.label}}</mat-checkbox>
+    </div>
+  </div>

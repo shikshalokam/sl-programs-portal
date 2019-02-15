@@ -1,0 +1,102 @@
+<app-loader></app-loader>
+
+<app-parent-heading [genericHeading]="headings" [schoolName]="schoolName"></app-parent-heading>
+<mat-tab-group *ngIf="ecmData" (selectedTabChange)="getIndex($event)">
+  <span *ngFor=" let evidences of ecmData ">
+    <mat-tab *ngIf="evidences.isSubmitted " label="{{evidences.name}}">
+      <div *ngIf="submissionData">
+        <div *ngFor="let submission of submissionData" class="wrapperExpansion" >
+          <mat-expansion-panel class="expansionCard">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="labels"> Submitted By : {{submission.submittedByName}} </span>
+              </mat-panel-title>
+              <mat-panel-description>
+                <span class="labels flex-1"> Start Time : {{submission.startTime | date }}</span>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-card class="col-xs-12 card  ">
+              <div *ngFor=" let key of objectKeys(submission)">
+                <span *ngIf=" key != 'answers' && key != 'isValid' && key != 'externalId' && key != 'submittedBy' && key != 'submittedByName' ">
+                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 infoAlingCenterLine">
+                    <div class="labels col-md-6 col-sm-12 col-xs-12 spaceBetween"> 
+                      <span>{{ key | camelcase}}</span>
+                      <span> : </span>
+                    </div>
+                    <div *ngIf=" key == 'endTime' || key == 'startTime' || key == 'submissionDate' ; else other" class="textOverflow  col-md-6 col-sm-12 col-xs-12">
+                      {{submission[key]| date :'medium'}}</div>
+                    <ng-template #other>
+                      <div class="textOverflow col-md-6 col-sm-12 col-xs-12 ">
+                        <span *ngIf="key == 'gpsLocation';else noLocation">
+                            <a href="https://www.google.com/maps/search/{{submission[key]}}" matTooltip="Loaction On Map" target="_blank">
+                                {{submission[key]}}
+                            </a>
+                        </span>
+                        <ng-template #noLocation>{{submission[key]}}</ng-template>
+                        
+                      </div>
+                    </ng-template>
+                  </div>
+                </span>
+              </div>
+              <div *ngFor=" let key of objectKeys(submission);let i = index" class="col-xs-12">
+                <div class="padding" *ngIf="i == 0">
+                  <mat-divider></mat-divider>
+                </div>
+                <span *ngIf=" key == 'answers'">
+                  <div *ngFor=" let answer of objectKeys(submission.answers); let j = index">
+                    <span *ngIf="submission.answers[answer].responseType == 'matrix'">
+                      <div class="alingCenterLine "> 
+                          {{questionNo+j}} .{{submission.answers[answer]['payload']['question'][0]}}</div>
+                      <div *ngFor=" let label of submission.answers[answer]['payload']['labels']">
+                        <div *ngFor="let keys of label ; let i = index " class="instanceQuestion">
+                          <div class="labels instanceLabel ">Instance - {{i+1}}</div>
+                          <div *ngFor="let key of keys" class="alingCenterLine ">
+                            <span class="flex-2">{{key.question[0]}}
+                            </span>
+                            <span *ngIf="key.responseType == 'radio';  else others ">
+                              <span *ngFor="let opt of key.options">
+                                <span *ngIf="opt.value == key.value">
+                                  <span class="flex-1">{{opt.label}}
+                                    <span *ngIf=" key.fileName[0]" (click)="openDialog(key.fileName)">
+                                      <i class="material-icons uploadImageIcon">
+                                        photo_library
+                                      </i>
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                            </span>
+                            <ng-template #others>
+                              <span class="flex-1">{{key.value}}</span>
+                            </ng-template>
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+                    <div *ngIf="submission.answers[answer].responseType != 'matrix'" class="alingCenterLine ">
+                      <div class="flex-2">{{questionNo+j}} . {{submission.answers[answer]['payload']['question'][0]}}
+                      </div>
+                      <div class="flex-1">{{submission.answers[answer]['payload']['labels']}}
+                        <span *ngIf=" submission.answers[answer]['fileName'][0]" (click)="openDialog(key.fileName)">
+                          <i class="material-icons uploadImageIcon">
+                            photo_library
+                          </i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </mat-card>
+          </mat-expansion-panel>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="!evidences.isSubmitted" label="{{evidences.name}}">
+      <div class="noDataFound">
+        {{'message.noData' | translate}}
+      </div>
+    </mat-tab>
+  </span>
+</mat-tab-group>

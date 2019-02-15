@@ -1,0 +1,180 @@
+@media only screen and (max-width: 600px){
+    // .sideDiv {
+    //     display: none !important;
+    // }
+    .nextButton{
+        width: 100% !important;
+    }
+    .colon{
+        display: none;
+    }
+    .routingDiv {
+        // position: relative;
+        // height: calc(100vh - 52px);
+        width: 100% !important;
+        // float: right;
+        // overflow-y: auto;
+    }
+    .criteriaCard{
+        margin : 10px  0px !important;
+        width:100% !important;
+    }
+    // .sideDiv{
+    //     display :none !important;
+    // }
+    .navbar{
+        display : none !important;
+    }
+    .responsiveNavbar{
+        display: flex !important;
+    }
+    .alingCenterlineParentHeading {
+        display: flex;
+        align-items: flex-start !important;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .infoAlingCenterLine{
+        display: inline !important;
+    }
+    .mat-content{
+        display :inline !important;
+    }
+    .bigTabel{
+        display: none !important;
+    }
+    ._responsiveTabel{
+        display:inline !important;
+    }
+    
+    .mat-expansion-panel-header{
+        align-items: baseline !important;
+    }
+    .widthAdj {
+        width: 200px !important;
+        font-size: 10px;
+    }
+    .notResponsiveSurveyButton{
+        display: none !important;
+    }
+    .responsiveSurveyButton{
+        display: flex !important;
+        margin-bottom: 15px;
+    }
+    .responsiveNextButton{
+        position: absolute !important;
+        display: flex!important;
+    }
+    .responsiveQuestion{
+        font-size: 15px;
+    }
+    .checkBoxAdj {
+        margin: 10px 10px!important ;
+    }
+    .radio{
+        font-size: 10px !important;
+    }
+    .checkBox{
+        font-size: 10px !important;
+    }
+    .select{
+        font-size: 10px !important;
+    }
+    .questionFooter {
+        z-index: 0 !important;
+        height: 0!important;
+        position: relative !important;
+    }
+    .card{
+        padding: 0px;
+    }
+    .justifyContentflexStart{
+        justify-content: flex-start !important;
+    }
+    ._halfWidth{
+        width: 100%;
+    }
+    .nextButton{
+    width: 100 !important;
+        right: 20px;
+    }
+        
+    
+}
+
+@media only screen and (min-width: 600px) {
+   
+}
+
+@media only screen and (max-width: 768px) {
+    .bigTabel{
+        display: none !important;
+    }
+    ._responsiveTabel{
+        display:inline !important;
+    }
+    .criteriaCard{
+        margin : 10px  0px !important;
+        width:100% !important;
+    }
+    .mat-expansion-panel-header{
+        align-items: baseline !important;
+    }
+    .widthAdj {
+        width: 200px !important;
+        font-size: 10px;
+    }
+    .notResponsiveSurveyButton{
+        display: none !important;
+    }
+    .responsiveSurveyButton{
+        display: flex !important;
+        margin-bottom: 15px;
+    }
+    .responsiveNextButton{
+        position: absolute !important;
+        display: flex!important;
+    }
+    .responsiveQuestion{
+        font-size: 15px;
+    }
+    .radio{
+        font-size: 10px !important;
+    }
+    .checkBox{
+        font-size: 10px !important;
+    }
+    .select{
+        font-size: 10px !important;
+    }
+    .questionFooter {
+        z-index: 0 !important;
+        height: 0!important;
+        position: relative !important;
+    }
+    .justifyContentflexStart{
+        justify-content: flex-start !important;
+    }
+    ._halfWidth{
+        width: 100%;
+    }
+    .bigScreenAddQuestion{
+        display: none!important;
+    }
+    .responsiveAddQuestion{
+        display : flex!important;
+        // width: 100% !important;
+    }
+        
+    .nextButton{
+        width: 100 !important;
+            right: 20px;
+        }
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+}

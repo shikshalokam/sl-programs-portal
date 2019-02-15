@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <app-parent-heading [genericHeading]="headings"></app-parent-heading>
+<div class="wrapperCenter">
+    <form [formGroup]="CsvFileForm">
+
+  <div class="_flex-box _justify-content-center _justify-content-space-between ">
+    <mat-form-field>
+        <mat-select placeholder="choose the type of upload csv" formControlName="name">
+          <mat-option  *ngFor="let upload of uploadOprions" [value]="upload.value" (click)="updateUploadType(upload.value)" >
+            {{upload.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <label for="file-upload" class="custom-file-upload _flexbox ">
+        <div>
+          <i class="material-icons paddingContent">
+            cloud_upload
+            </i>
+        </div>
+        <div class="paddingContent">
+          {{'labels.uploadCsv'| translate}}
+        </div>
+    </label>
+      <input  id="file-upload" [disabled]="!uploadTypeSelected" (change)="upload($event.target.files)"  type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" #files/>
+      <button mat-raised-button class="_primary-btn" [disabled]="!(fileSelected && uploadTypeSelected)" (click)="csvUpload(); files.value=null">{{'buttons.upload' | translate}}</button>
+</div>
+</form>
+
+<div class="fileList" *ngIf="showStatus"> 
+  <h5>Selected File List</h5> 
+  <div *ngFor="let fileitem of file ; let i = index">
+    <div class="_flex-box _justify-content-center _justify-content-space-between ">
+        <div>
+            {{i+1}}. &nbsp;&nbsp; {{fileitem.name}} 
+        </div>
+      <div>
+          <i class="material-icons" (click)="deleteFile(i , files)">
+              delete
+              </i>
+      </div>
+
+    </div>
+  </div>
+</div>
+<progress-bar *ngIf="fileUpload && showStatus " [progress]="percentDone" [color]="'#008000'">
+</progress-bar>
+</div>
+</div>

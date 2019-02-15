@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+          <ul class="unorder-list">
+            <li *ngFor="let operation of list" class="icons" routerLink="{{operation.anchorLink}}" [queryParams]="{programId:programId, assessmentId : assessmentId}">
+              <i class="material-icons">
+                    reorder
+                </i>
+                <div class="context">
+                  <div class="text-flow">
+                    {{operation.tooltip | translate}}
+                  </div>
+                </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+</div>

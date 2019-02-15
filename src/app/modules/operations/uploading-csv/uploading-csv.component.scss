@@ -1,0 +1,33 @@
+@import '../../../../assets/scss/varibles.scss';
+.wrapperCenter{
+    padding:50px;
+     margin:20px 0px;
+    background-color: $background-color;
+    border-radius: 5px;
+}
+.custom-file-upload {
+    border: 1px solid $border-color;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+.wrapper{
+    padding:0 20px
+}
+.custom-file-upload:hover{
+    background-color: $primary-color;
+    color:white
+}
+input[type="file"] {
+    display: none;
+}
+._flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.paddingContent{
+    padding: 0 10px
+}

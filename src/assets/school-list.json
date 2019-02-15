@@ -1,0 +1,3357 @@
+{
+    "message": "School list fetched successfully",
+    "status": 200,
+    "result": [
+        {
+            "_id": "5c0bbab781bdbe330655d156",
+            "externalId": "1001001",
+            "addressLine1": "Bhola Nath Nagar, Shahadara",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya (Babu Ram), Bhola Nath Nagar, Shahadara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": true
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d15f",
+            "externalId": "1001022",
+            "addressLine1": "C-Block, Vivek Vihar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, C-Block, Vivek Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d169",
+            "externalId": "1001111",
+            "addressLine1": "Jhilmil Colony",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Jhilmil Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d173",
+            "externalId": "1002005",
+            "addressLine1": "West Vinod Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, West Vinod Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d17d",
+            "externalId": "1002020",
+            "addressLine1": "Kalyan Puri",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Kalyanpuri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d187",
+            "externalId": "1002032",
+            "addressLine1": "West Vinod Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, West Vinod Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d191",
+            "externalId": "1002182",
+            "addressLine1": "Chilla Village,Near Parwana Aptts.,Mayur Vihar, Ph",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Chilla Village,Near Parwana Aptts.,Mayur Vihar, Phase I, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d19b",
+            "externalId": "1002193",
+            "addressLine1": "Madhuban Road, Shakarpur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya No.2, Madhuban Road, Shakarpur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1a5",
+            "externalId": "1002354",
+            "addressLine1": "Mayur Vihar, Phase III",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sec. School, Mayur Vihar, Phase III, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1af",
+            "externalId": "1003003",
+            "addressLine1": "Jheel Khurenja",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya No.1, Jheel Khurenja, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1b9",
+            "externalId": "1003028",
+            "addressLine1": "Laxmi Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Laxmi Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1c3",
+            "externalId": "1003205",
+            "addressLine1": "shiv puri delhi-51",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Shivpuri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d27a",
+            "externalId": "1104006",
+            "addressLine1": "Ghonda",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School No.1, Ghonda, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d284",
+            "externalId": "1104018",
+            "addressLine1": "Yamuna Vihar, C-Block",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya No.1, Yamuna Vihar, C-Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d28e",
+            "externalId": "1104028",
+            "addressLine1": "Mustufabad-Delhi-94",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sec. School, Mustufabad, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d298",
+            "externalId": "1104335",
+            "addressLine1": "Sonia Vihar,Delhi-94",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Sonia Vihar, 4 1/2 Pusta, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2a2",
+            "externalId": "1105003",
+            "addressLine1": "Braham Puri-Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Braham Puri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2ac",
+            "externalId": "1105015",
+            "addressLine1": "Welcome Colony , New Seelampur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sec. School, Welcome Colony , New Seelampur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2b6",
+            "externalId": "1105026",
+            "addressLine1": "Braham Puri,Gautampuri Gali No -7 Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Braham Puri, Gautampuri Gali No -7, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2bf",
+            "externalId": "1105114",
+            "addressLine1": "Jafrabad Ext.",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Jafrabad Extn. Shahdara Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78e38",
+            "externalId": "1105246",
+            "addressLine1": "Govt. Co-ed Middle School, Gurudwara Road, New Seelampur, Delhi-53",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Middle School, Gurudwara Road, New Seelampur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": true
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2d1",
+            "externalId": "1106010",
+            "addressLine1": "Mandoli Road, Ashok Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sec. School, Mandoli Road, Ashok Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2db",
+            "externalId": "1106024",
+            "addressLine1": "East of Loni Road, Delhi-93",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, DDA Flats, East of Loni Road, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2e5",
+            "externalId": "1106119",
+            "addressLine1": "Block-A, Nand Nagar, Near Sabzi Mandi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Block-A, Nand Nagar, Near Sabzi Mandi, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2ef",
+            "externalId": "1106264",
+            "addressLine1": "Sunder Nagri",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Sunder Nagari, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3b9",
+            "externalId": "1207014",
+            "addressLine1": "Gokhle Marg ,Delhi-6",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Mori Gate, Gokhle Marg, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3c2",
+            "externalId": "1207035",
+            "addressLine1": "Malka Ganj",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Malka Ganj, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3ca",
+            "externalId": "1207109",
+            "addressLine1": "Magazine Road",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Magazine Road, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3d4",
+            "externalId": "1207255",
+            "addressLine1": "GBSS, JAGATPUR, DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sec. School, Gali No.9, Jagatpur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3dc",
+            "externalId": "1208016",
+            "addressLine1": "Ahata Kedara, Idgah Road",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Ahata Kedara, Idgah Road Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78e44",
+            "externalId": "1208091",
+            "addressLine1": "Sushila Mohan Marg,Naya Bazar,Delhi-6",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed Sec. School, Sushila Mohan Marg, Naya Bazar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d469",
+            "externalId": "1309005",
+            "addressLine1": "BT-Block, Shalimar Bagh",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, BT-Block, Shalimar Bagh, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d473",
+            "externalId": "1309022",
+            "addressLine1": "Dhakka",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Dhakka, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d47d",
+            "externalId": "1309033",
+            "addressLine1": "AP-Block, Shalimar Bagh",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, AP-Block, Shalimar Bagh, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d487",
+            "externalId": "1309130",
+            "addressLine1": "Azadpur Village",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sec. School, Azadpur Village Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d491",
+            "externalId": "1309261",
+            "addressLine1": "J.J. Colony Bhalswa Dairy, Delhi-42",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sec. School No.1, J.J. Colony Bhalswa Dairy, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d49b",
+            "externalId": "1309271",
+            "addressLine1": "KALYAN VIHAR DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Kalyan Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4a5",
+            "externalId": "1310008",
+            "addressLine1": "Pooth Khurd,Delhi -39",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Pooth Khurd, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4af",
+            "externalId": "1310030",
+            "addressLine1": "Holambi Kalan",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Holambi Kalan, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4b9",
+            "externalId": "1310045",
+            "addressLine1": "Samaipur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Samaipur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4c3",
+            "externalId": "1310395",
+            "addressLine1": "Shahabad Dairy",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Shahabad Dairy, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4cc",
+            "externalId": "1310420",
+            "addressLine1": "Siraspur-GBSSS",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Siraspur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d61b",
+            "externalId": "1411007",
+            "addressLine1": "Pitampura, Block ZP",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Pitampura, ZP-Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d625",
+            "externalId": "1411022",
+            "addressLine1": "Wazirpur, JJ Colony",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Wazirpur, JJ Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d62f",
+            "externalId": "1411037",
+            "addressLine1": "Tri Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Tri Nagar, Narang Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d639",
+            "externalId": "1411178",
+            "addressLine1": "Sainik Vihar,Delhi-110034",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Sainik Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d643",
+            "externalId": "1412014",
+            "addressLine1": "Block-O, Mangolpuri",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Block-O, Mangolpuri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d64d",
+            "externalId": "1412030",
+            "addressLine1": "Block-U, Mangolpuri",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Block-U, Mangolpuri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d657",
+            "externalId": "1412086",
+            "addressLine1": "Block-E, Sultanpuri",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Block-E, Sultanpuri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d661",
+            "externalId": "1412131",
+            "addressLine1": "Village Nithari",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Nithari Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d66b",
+            "externalId": "1412290",
+            "addressLine1": "Govt. Co-ed Sarvodaya Vidyalaya, Sec-22, Rohini, New Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Sector-22 Rohini, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d675",
+            "externalId": "1413013",
+            "addressLine1": "Vill & P.O. Rithala",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Vill & P.O. Rithala, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d67f",
+            "externalId": "1413067",
+            "addressLine1": "Block-D, Sector-14, Prashant Vihar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Block-D, Sector-14, Prashant Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d688",
+            "externalId": "1413181",
+            "addressLine1": "Jaunti",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Jaunti, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d691",
+            "externalId": "1413323",
+            "addressLine1": "Sawada(Ghevra) Colony B-Block",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Sawda (Ghewara) J.J.Colonoy, B-Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d69b",
+            "externalId": "1514014",
+            "addressLine1": "Tilak Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School No.1, Tilak Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6a5",
+            "externalId": "1515001",
+            "addressLine1": "Jaidev Park",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Jaidev Park, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6af",
+            "externalId": "1515019",
+            "addressLine1": "Raghubir Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Raghubir Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6b9",
+            "externalId": "1515139",
+            "addressLine1": "Tagore Garden",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Tagore Garden, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6c3",
+            "externalId": "1516022",
+            "addressLine1": "Shadi Khampur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Shadi Khampur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d780",
+            "externalId": "1617001",
+            "addressLine1": "Tikri Kalan",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Tikri Kalan, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d78a",
+            "externalId": "1617011",
+            "addressLine1": "B-3, Paschim Vihar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, B-3, Paschim Vihar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d794",
+            "externalId": "1617025",
+            "addressLine1": "Nangloi Phase I , No. 3",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Nangloi Phase I, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d79e",
+            "externalId": "1617037",
+            "addressLine1": "J. J. Colony, Nangloi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, J. J. Colony, Nangloi, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7a8",
+            "externalId": "1618001",
+            "addressLine1": "Matiala, Near Uttam Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Matiala, Near Uttam Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7b2",
+            "externalId": "1618016",
+            "addressLine1": "Block-F, Vikas Puri",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sec. School, Block-F, Vikas Puri, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7bc",
+            "externalId": "1618060",
+            "addressLine1": "Near DDA Flats, Bindapur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Near DDA Flats, Bindapur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7c6",
+            "externalId": "1618192",
+            "addressLine1": "Govt. Co-ed. Sec. School, Razapur Khurd, New Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sec. School, Razapur Khurd, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7d0",
+            "externalId": "1618316",
+            "addressLine1": "Govt Co-ed Secondary School, Vipin Garden, New Delhi-110059",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sec. School, Vipin Garden, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7e0",
+            "externalId": "1719030",
+            "addressLine1": "Sector-4, R. K. Puram",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Sector-4, R. K. Puram, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7ea",
+            "externalId": "1719125",
+            "addressLine1": "Munirka",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Munirka New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7f4",
+            "externalId": "1720017",
+            "addressLine1": "IARI, Pusa",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, I.A.R.I. Campus, PUSA New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7fe",
+            "externalId": "1720030",
+            "addressLine1": "Rajokari",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Rajokari New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8be",
+            "externalId": "1821003",
+            "addressLine1": "Raj Nagar, Part-II Extension",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Raj Nagar Extension, Part-II New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8c8",
+            "externalId": "1821018",
+            "addressLine1": "Palam Enclave",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya No.1, Palam Enclave New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8d2",
+            "externalId": "1821031",
+            "addressLine1": "Dwarka, Sect-6, Pappan Kalan",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Sect-6, Site-2, Dwarka, Pappan Kalan, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8db",
+            "externalId": "1821136",
+            "addressLine1": "Mahavir Enclave",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sec. School, Mahavir Enclave New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8e5",
+            "externalId": "1821280",
+            "addressLine1": "Govt. Girls Sr. Sec. School, Samalka, New Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Samalka, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8ef",
+            "externalId": "1822010",
+            "addressLine1": "Vill & P. O. Ghuman Hera",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Vill & P. O. Ghuman Hera, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8f9",
+            "externalId": "1822033",
+            "addressLine1": "Kazipur, P. O. Ujwa",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sr. Sec. School, Kazipur, P.O. Ujwa, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d903",
+            "externalId": "1822056",
+            "addressLine1": "Khaira",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Khaira, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d90d",
+            "externalId": "1822176",
+            "addressLine1": "Deendar Pur, Najafgarh",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Deendar Pur, Najafgarh, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d917",
+            "externalId": "1923003",
+            "addressLine1": "Jonapur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya (Baba Neem Karoli), Jonapur Village, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d921",
+            "externalId": "1923015",
+            "addressLine1": "Near Police Station, Mehrauli",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School No.2, Main Bazar, Mehrauli, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d92b",
+            "externalId": "1923031",
+            "addressLine1": "Near IGNOU, Neb Sarai",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Co-ed. Sec. School, Near IGNOU, Neb Sarai New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d935",
+            "externalId": "1923047",
+            "addressLine1": "Sect-V, Dr. Ambedkar Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Sect-V, Dr. Ambedkar Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d93f",
+            "externalId": "1923060",
+            "addressLine1": "Sect-IV, Dr. Ambedkar Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School No.3, Sect-IV, Dr. Ambedkar Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d949",
+            "externalId": "1923071",
+            "addressLine1": "M. B. Road",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Kanya Vidyalaya, Sec-I, M.B.Road, Pushp Vihar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d953",
+            "externalId": "1923355",
+            "addressLine1": "SULTANPUR, DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Boys Sr. Sec. School, Sultanpur P.O. Mehrauli, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d95d",
+            "externalId": "1924009",
+            "addressLine1": "Sadiq Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Sadiq Nagar, Near Gargi College, New Delhi-",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d967",
+            "externalId": "1924038",
+            "addressLine1": "Tyagraj Nagar, Lodhi Rodhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Rajkiya Pratibha Vikas Vidyalaya, Tyagraj Nagar, Lodhi Road, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d971",
+            "externalId": "1925007",
+            "addressLine1": "Tughlakabad Extn.",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya (Sardar Vallabhbhai Patel), Tuglakabad Extn. New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d97b",
+            "externalId": "1925027",
+            "addressLine1": "Okhla Phase-I",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Tekhand, Okhla Phase-I, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d985",
+            "externalId": "1925041",
+            "addressLine1": "DDA Flats, Phase-II, Kalka JI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, DDA Flats, Phase-II, Kalkaji, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d98f",
+            "externalId": "1925054",
+            "addressLine1": "Badarpur",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School No.2, Badarpur New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d999",
+            "externalId": "1925246",
+            "addressLine1": "Masjid Moth, South Extn.-II,Delhi-110049",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Vidyalaya, Masjid Moth New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9a3",
+            "externalId": "1925341",
+            "addressLine1": "HARKESH NAGAR NEW DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School, Harkesh Nagar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9ad",
+            "externalId": "1925402",
+            "addressLine1": "SBV, No.2, Molar Band, New Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya No.2, Molar Band, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dabc",
+            "externalId": "2127002",
+            "addressLine1": "Jama Masjid",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya No.1 (Urdu Medium), Jama Masjid, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dac5",
+            "externalId": "2127018",
+            "addressLine1": "Ram Nagar, No. 1, Pahar Ganj",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sr. Sec. School No.1, Ram Nagar, Pahar Ganj, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dace",
+            "externalId": "2127031",
+            "addressLine1": "Lambi Gali, Hauz Kazi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Girls Sec. School, Lambi Gali, Hauz Qazi Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dad5",
+            "externalId": "2128014",
+            "addressLine1": "Ramjas Lane, Karol Bagh",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Govt. Sarvodaya Bal Vidyalaya, Ramjas Lane, Karol Bagh, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1c9",
+            "externalId": "1051002",
+            "addressLine1": "Trilokpuri, Block-22, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Trilokpuri, Block-22, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1d3",
+            "externalId": "1051013",
+            "addressLine1": "Kotla Village, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Kotla Village, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1dd",
+            "externalId": "1051023",
+            "addressLine1": "Trilokpuri, Block-16, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Trilokpuri, Block-16, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1e7",
+            "externalId": "1051035",
+            "addressLine1": "Kalyanwas, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.1 (Girls), Kalyanwas, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1f1",
+            "externalId": "1051047",
+            "addressLine1": "Kalyan Puri Block-5, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Kalyan Puri Block-5, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d1fb",
+            "externalId": "1051060",
+            "addressLine1": "Harijan Basti, Gharoli, Delhi-110096",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Harijan Basti, Gharoli, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d205",
+            "externalId": "1051074",
+            "addressLine1": "Shakar Pur Vill., Near MCD Community Hall, School Block, Delhi-110092",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Shakar Pur Vill., Near MCD Community Hall, School Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d20f",
+            "externalId": "1051084",
+            "addressLine1": "Mandawali, Delhi-110092",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Girls), Mandawali, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d219",
+            "externalId": "1051094",
+            "addressLine1": "East Vinod Nager, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), East Vinod Nager, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d223",
+            "externalId": "1051106",
+            "addressLine1": "South Gandhi Nagar, Delhi-110031",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), South Gandhi Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d22d",
+            "externalId": "1051121",
+            "addressLine1": "Kailash Nager, Gali No.12, Delhi-110031",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Kailash Nager, Gali No.12, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d237",
+            "externalId": "1051134",
+            "addressLine1": "East Old Seelam Pur, Delhi-110031",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), East Old Seelam Pur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d241",
+            "externalId": "1051147",
+            "addressLine1": "Krishna Nager, North-A Block, Delhi-110051",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Krishna Nager, North-A Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d24b",
+            "externalId": "1051160",
+            "addressLine1": "Khureji, Delhi-110051",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Khureji, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d255",
+            "externalId": "1051173",
+            "addressLine1": "Bheekam Singh Colony, Delhi-110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Bheekam Singh Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d25f",
+            "externalId": "1051184",
+            "addressLine1": "Pandav Road, Delhi-110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Pandav Road, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d269",
+            "externalId": "1051528",
+            "addressLine1": "Shastri Park Extn., Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Shastri Park Extn., Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d273",
+            "externalId": "1051573",
+            "addressLine1": "Chilla Saroda, Delhi-110091",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Chilla Saroda, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d2fa",
+            "externalId": "1152010",
+            "addressLine1": "Tahirpur Village, Delhi-110095",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Tahirpur Village, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d304",
+            "externalId": "1152020",
+            "addressLine1": "Nand Nagari B4 Block, Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Nand Nagari B4 Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d30e",
+            "externalId": "1152030",
+            "addressLine1": "Mandoli Ext., Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Mandoli Ext., Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d318",
+            "externalId": "1152041",
+            "addressLine1": "Harijan Besti East Gokalpur, Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Harijan Besti East Gokalpur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d322",
+            "externalId": "1152051",
+            "addressLine1": "Nand Nagari O Block, Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Nand Nagari O Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d32c",
+            "externalId": "1152061",
+            "addressLine1": "Nand Nagari F1 Block, Sunder Nagri, Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Nand Nagari F1 Block, Sunder Nagri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d336",
+            "externalId": "1152072",
+            "addressLine1": "Jagatpuri, Mandoli Road, Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Jagatpuri, Mandoli Road, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d340",
+            "externalId": "1152083",
+            "addressLine1": "Subhash Park, Shahdara, Delhi-110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Subhash Park, Shahdara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d34a",
+            "externalId": "1152095",
+            "addressLine1": "Jyoti Colony, Durga Puri Chowk, Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Jyoti Colony, Durga Puri Chowk, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d354",
+            "externalId": "1152107",
+            "addressLine1": "Aawasiya Parisar, Seelampur, Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya-Gen. (Co-ed), Aawasiya Parisar, Seelampur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d35e",
+            "externalId": "1152121",
+            "addressLine1": "Jafrabad, Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Jafrabad, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d368",
+            "externalId": "1152131",
+            "addressLine1": "Gamri, Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Gamri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d372",
+            "externalId": "1152141",
+            "addressLine1": "Bhajanpura D Block, Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Bhajanpura D Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d37c",
+            "externalId": "1152151",
+            "addressLine1": "Mohanpuri, Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Mohanpuri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d386",
+            "externalId": "1152161",
+            "addressLine1": "Karawal Nagar, Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Karawal Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d390",
+            "externalId": "1152171",
+            "addressLine1": "Sabhapur Village, Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Sabhapur Village, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d39a",
+            "externalId": "1152181",
+            "addressLine1": "Dayalpur, Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Dayalpur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3a4",
+            "externalId": "1152197",
+            "addressLine1": "Ram Nagar Extn., Delhi-110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-Gen. (Co-ed), Ram Nagar Extn., Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3ae",
+            "externalId": "1152533",
+            "addressLine1": "Janta Majdoor Colony, Jafarabad Extn Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.1 (Boys), Janta Majdoor Colony, Jafarabad Extn Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3eb",
+            "externalId": "1253007",
+            "addressLine1": "Jahangir Puri- J Block, Delhi-110033",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Jahangir Puri- J Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3f5",
+            "externalId": "1253017",
+            "addressLine1": "Qadi Pur Kushak, Delhi-110036",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Co-ed), Qadi Pur Kushak, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d3ff",
+            "externalId": "1253027",
+            "addressLine1": "Sant Nagar, Burari, Delhi-110084",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Sant Nagar, Burari, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d409",
+            "externalId": "1253039",
+            "addressLine1": "Jagat Pur, Delhi-110084",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Jagat Pur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d413",
+            "externalId": "1253054",
+            "addressLine1": "Sarai Pipal Thala, Delhi-110033",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Sarai Pipal Thala, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d41d",
+            "externalId": "1253072",
+            "addressLine1": "Ludlow Castle,Delhi-110054",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Ludlow Castle,Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d427",
+            "externalId": "1253086",
+            "addressLine1": "Wazirabad Village, Delhi-110084",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Wazirabad Village, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d431",
+            "externalId": "1253099",
+            "addressLine1": "Mukharji Park, Delhi-110009",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Mukharji Park, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d43b",
+            "externalId": "1253112",
+            "addressLine1": "Gurmandi, Rajpura, Delhi-110007",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Gurmandi, Rajpura, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d445",
+            "externalId": "1253124",
+            "addressLine1": "Mohan Park Model Town III, Delhi-110009",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Mohan Park Model Town III, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d44f",
+            "externalId": "1253160",
+            "addressLine1": "Samey Pur, Delhi-110042",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya-Old (Girls), Samey Pur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d459",
+            "externalId": "1253170",
+            "addressLine1": "Arya Pura, Delhi-110007",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Arya Pura, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d463",
+            "externalId": "1253408",
+            "addressLine1": "Lal Bagh, Azadpur, Delhi-110033",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-New (Boys), Lal Bagh, Azadpur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4da",
+            "externalId": "1354012",
+            "addressLine1": "A-1, Pratap Kunj Keshav Puram, Delhi-110035",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), A-1, Pratap Kunj Keshav Puram, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4e4",
+            "externalId": "1354022",
+            "addressLine1": "Shakur pur, I-Block,, Delhi-110034",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Shakur pur, I-Block,, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4ee",
+            "externalId": "1354034",
+            "addressLine1": "Saraswati Vihar, Delhi-110034",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Saraswati Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d4f8",
+            "externalId": "1354047",
+            "addressLine1": "Sahipur Vill., Delhi-110088",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Sahipur Vill., Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d502",
+            "externalId": "1354058",
+            "addressLine1": "Sec-5B, Rohini, Delhi-110085",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Sec-5B, Rohini, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab781bdbe330655d50c",
+            "externalId": "1354069",
+            "addressLine1": "Sec-16 J, Rohini Delhi-110085",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Sec-16 J, Rohini Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d516",
+            "externalId": "1354091",
+            "addressLine1": "Shalamar Vill., Delhi-110088",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Shalamar Vill., Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d520",
+            "externalId": "1354101",
+            "addressLine1": "Mangolpur Kalan Vill., Delhi-110085",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Mangolpur Kalan Vill., Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d52a",
+            "externalId": "1354111",
+            "addressLine1": "Krishna Vihar, Delhi-110086",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Krishna Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d534",
+            "externalId": "1354123",
+            "addressLine1": "Shahbad Dairy B-Block, Delhi-110042",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Shahbad Dairy B-Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d53e",
+            "externalId": "1354137",
+            "addressLine1": "Nimri Colony, Delhi-110052",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Nimri Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d548",
+            "externalId": "1354147",
+            "addressLine1": "A-1, Ashok Vihar, Delhi-110052",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), A-1, Ashok Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d552",
+            "externalId": "1354408",
+            "addressLine1": "Shahbad Dairy B Block, Delhi-110042",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Shahbad Dairy B Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d55c",
+            "externalId": "1354419",
+            "addressLine1": "Sultan Puri B2 Block, Delhi-110086",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Sultan Puri B2 Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d566",
+            "externalId": "1354429",
+            "addressLine1": "Sultan puri D Block, Delhi-110086",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Sultan puri D Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d570",
+            "externalId": "1354440",
+            "addressLine1": "Mangolpuri A Block, Delhi-110083",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Mangolpuri A Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d57a",
+            "externalId": "1354451",
+            "addressLine1": "Mangolpuri Y Block, Delhi-110083",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Mangolpuri Y Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d584",
+            "externalId": "1354464",
+            "addressLine1": "Mangolpuri P Block, Delhi-110083",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Mangolpuri P Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d58e",
+            "externalId": "1354475",
+            "addressLine1": "Mangolpuri S Block, Delhi-110083",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Mangolpuri S Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d598",
+            "externalId": "1355003",
+            "addressLine1": "Bawana, Delhi-110039",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-New (Boys), Bawana, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5a2",
+            "externalId": "1355018",
+            "addressLine1": "Harewali, Delhi-110039",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Harewali, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5ac",
+            "externalId": "1355029",
+            "addressLine1": "Jat Khor, Delhi-110039",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Jat Khor, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5b6",
+            "externalId": "1355041",
+            "addressLine1": "Karala Delhi-110081",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Karala Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5c0",
+            "externalId": "1355058",
+            "addressLine1": "Jind Pur, Delhi-110036",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Jind Pur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5ca",
+            "externalId": "1355068",
+            "addressLine1": "Palla, Delhi-110036",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Palla, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5d4",
+            "externalId": "1355079",
+            "addressLine1": "Khera kalan, Delhi-110082",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Khera kalan, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5de",
+            "externalId": "1355091",
+            "addressLine1": "Pana Udyan, Narela, Delhi-110040",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Pana Udyan, Narela, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5e8",
+            "externalId": "1355101",
+            "addressLine1": "Narela Colony, Delhi-110040",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Narela Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5f2",
+            "externalId": "1355111",
+            "addressLine1": "Sannoth, Delhi-110040",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Sannoth, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d5fc",
+            "externalId": "1355121",
+            "addressLine1": "Holambi Kalan Phase-2 Block-A1, Delhi-110082",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Holambi Kalan Phase-2 Block-A1, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d606",
+            "externalId": "1355403",
+            "addressLine1": "Bawana JJ Colony B2 Block, Delhi-110039",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Bawana JJ Colony B2 Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d610",
+            "externalId": "1355417",
+            "addressLine1": "Bawana JJ Colony B1 Block, Delhi-110039",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Bawana JJ Colony B1 Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6cf",
+            "externalId": "1556004",
+            "addressLine1": "Asalat Pur, New Delhi.-110058",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Asalat Pur, New Delhi.",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6d9",
+            "externalId": "1556019",
+            "addressLine1": "B-3A Janak Puri, New Delhi-110058",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), B-3A Janak Puri, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6e3",
+            "externalId": "1556031",
+            "addressLine1": "Pratap Nagar New Delhi-110064",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Pratap Nagar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6ed",
+            "externalId": "1556043",
+            "addressLine1": "Hari Nagar Ghanta Ghar, New Delhi-110064",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Hari Nagar Ghanta Ghar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d6f7",
+            "externalId": "1556053",
+            "addressLine1": "Chaukhandi, Tilak Nagar, New Delhi-110018",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya-New (Co-ed), Chaukhandi, Tilak Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d701",
+            "externalId": "1556063",
+            "addressLine1": "Janta Market, Rajouri Garden South, New Delhi-110027",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Janta Market, Rajouri Garden South, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d70b",
+            "externalId": "1556074",
+            "addressLine1": "M-Block Raghuubir Nagar, New Delhi-110027",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), M-Block Raghuubir Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d715",
+            "externalId": "1556084",
+            "addressLine1": "Madi Pur Village, New Delhi-110063",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.1 (Boys), Madi Pur Village, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d71f",
+            "externalId": "1556094",
+            "addressLine1": "Punjabi Bagh Vistar Road No-33, New Delhi-110063",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Punjabi Bagh Vistar Road No-33, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d729",
+            "externalId": "1556105",
+            "addressLine1": "Punjabi Market Vishnu Garden, New Delhi-110018",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Punjabi Market Vishnu Garden, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d733",
+            "externalId": "1556116",
+            "addressLine1": "Hastsal Village, New Delhi.-110059",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Girls), Hastsal Village, New Delhi.",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d73d",
+            "externalId": "1556126",
+            "addressLine1": "Baprola Village, New Delhi-110043",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Baprola Village, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d747",
+            "externalId": "1556137",
+            "addressLine1": "Binda Pur Village, New Delhi.-110059",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Binda Pur Village, New Delhi.",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d751",
+            "externalId": "1556149",
+            "addressLine1": "Moti Nagar East, New Delhi-110015",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Moti Nagar East, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d75b",
+            "externalId": "1556159",
+            "addressLine1": "Kirti Nagar Ind. Area, New Delhi-110015",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Kirti Nagar Ind. Area, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d765",
+            "externalId": "1556377",
+            "addressLine1": "Jwala Puri B Block, New Delhi-110087",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Jwala Puri B Block, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d76f",
+            "externalId": "1556387",
+            "addressLine1": "J.J Nangloi, Y-Block, Camp No.1, New Delhi-110041",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Boys), J.J Nangloi, Y-Block, Camp No.1, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d779",
+            "externalId": "1556406",
+            "addressLine1": "B.E.Block Hari Nagar New Delhi-110064",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), B.E.Block Hari Nagar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d7d4",
+            "externalId": "1700904",
+            "addressLine1": "Cantonment Board Sr. Sec. School, Mehram Nagar, Delhi Cantt, New Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Cantonment Board Sr. Sec. School, Mehram Nagar, Delhi Cantt, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d80e",
+            "externalId": "1757089",
+            "addressLine1": "Nangloi Main Delhi-110041",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Nangloi Main Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d818",
+            "externalId": "1757099",
+            "addressLine1": "Ghewara, Delhi-110081",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Ghewara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d822",
+            "externalId": "1757109",
+            "addressLine1": "Najafgarh New Delhi-110043",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Boys), Najafgarh New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d82c",
+            "externalId": "1757119",
+            "addressLine1": "Khaira, Najafgarh New Delhi-110043",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-Ed) No.-1, Khaira, Najafgarh New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d836",
+            "externalId": "1757129",
+            "addressLine1": "Ujjwa, New Delhi-110073",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Ujjwa, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d840",
+            "externalId": "1757141",
+            "addressLine1": "Mundhela Kalan, New Delhi-110073",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Mundhela Kalan, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d84a",
+            "externalId": "1757152",
+            "addressLine1": "Dichaon Kalan, New Delhi-110043",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Dichaon Kalan, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d854",
+            "externalId": "1757162",
+            "addressLine1": "Mahavir Enclave-II/III, New Delhi-110059",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Mahavir Enclave-II/III, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d85e",
+            "externalId": "1757173",
+            "addressLine1": "Nasirpur, New Delhi-110045",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Nasirpur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d868",
+            "externalId": "1757187",
+            "addressLine1": "Galibpur, New Delhi-110073",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Galibpur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d872",
+            "externalId": "1757199",
+            "addressLine1": "Palam Vill., New Delhi-110045",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Palam Vill., New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d87c",
+            "externalId": "1757209",
+            "addressLine1": "Rewla Khanpur, New Delhi-110043",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Rewla Khanpur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d886",
+            "externalId": "1757220",
+            "addressLine1": "Dwarka Sec.-1, New Delhi-110075",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Dwarka Sec.-1, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d890",
+            "externalId": "1757231",
+            "addressLine1": "Kapas Hera, New Delhi-110037",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.1 (Girls), Kapas Hera, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d89a",
+            "externalId": "1757241",
+            "addressLine1": "Shikarpur, New Delhi-110043",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Shikarpur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8a4",
+            "externalId": "1757256",
+            "addressLine1": "Rangpuri Pahar New Delhi-110037",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Rangpuri Pahar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8ae",
+            "externalId": "1757427",
+            "addressLine1": "Dwarka Sec.4, New Delhi-110075",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Dwarka Sec.4, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d8b8",
+            "externalId": "1757460",
+            "addressLine1": "J.J. Colony Sawda Ghewara, F- Block, Delhi-110081",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), J.J. Colony Sawda Ghewara, F- Block, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9b5",
+            "externalId": "1958007",
+            "addressLine1": "Bagh Nathu Singh Kotla Mubarak Pur, New Delhi-110003",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-Rented (Co-ed), Bagh Nathu Singh Kotla Mubarak Pur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9bf",
+            "externalId": "1958019",
+            "addressLine1": "Dayanand Colony Lajpat Nagar Part- IV New Delhi-110024",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Dayanand Colony Lajpat Nagar Part- IV New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9c9",
+            "externalId": "1958031",
+            "addressLine1": "Hari Nagar Ashram, New Delhi-110014",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Hari Nagar Ashram, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9d3",
+            "externalId": "1958045",
+            "addressLine1": "Khizrabad, New Delhi-110025",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-Hindi (Girls), Khizrabad, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9dd",
+            "externalId": "1958055",
+            "addressLine1": "Abul Fazal Enclave, Okhla, New Delhi-110025",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-Urdu (Girls), Abul Fazal Enclave, Okhla, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9e7",
+            "externalId": "1958065",
+            "addressLine1": "Water Sewage Treatment Plant, Okhla, New Delhi-110020",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Water Sewage Treatment Plant, Okhla, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9f1",
+            "externalId": "1958076",
+            "addressLine1": "DDA Flats, Kalkaji, New Delhi-110019",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Boys), DDA Flats, Kalkaji, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655d9fb",
+            "externalId": "1958088",
+            "addressLine1": "Giri Nagar, New Delhi-110019",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Giri Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da05",
+            "externalId": "1958100",
+            "addressLine1": "Tuglakabad Extn., New Delhi-110019",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (1st Shift) (Boys), Tuglakabad Extn., New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da0f",
+            "externalId": "1958110",
+            "addressLine1": "I-Block, Sangam Vihar New Delhi-110080",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), I-Block, Sangam Vihar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da19",
+            "externalId": "1958126",
+            "addressLine1": "Molarband, New Delhi-110044",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Molarband, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da23",
+            "externalId": "1958136",
+            "addressLine1": "Gautam Puri, Badarpur, New Delhi-110076",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.1 (Girls), Gautam Puri, Badarpur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da2d",
+            "externalId": "1958148",
+            "addressLine1": "Madanpur Khadar J.J. Phase – III, New Delhi-110076",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Madanpur Khadar J.J. Phase – III, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da37",
+            "externalId": "1958158",
+            "addressLine1": "Indira Kalyan Vihar,Okhla Phase-1, New Delhi-110020",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Indira Kalyan Vihar,Okhla Phase-1, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da41",
+            "externalId": "1958453",
+            "addressLine1": "Madanpur Khadar J.J. Phase – III, New Delhi-110076",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Madanpur Khadar J.J. Phase – III, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da4b",
+            "externalId": "1959010",
+            "addressLine1": "Malviya Nagar, New Delhi-110017",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Malviya Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da55",
+            "externalId": "1959023",
+            "addressLine1": "Himayun Pur New Delhi-110029",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Himayun Pur New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da5f",
+            "externalId": "1959037",
+            "addressLine1": "R.K.Puram, Sector-5, New Delhi-110022",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), R.K.Puram, Sector-5, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da69",
+            "externalId": "1959048",
+            "addressLine1": "R.K.Puram, Sector-3, New Delhi-110022",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), R.K.Puram, Sector-3, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da73",
+            "externalId": "1959063",
+            "addressLine1": "Lado Sarai, New Delhi-110030",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Lado Sarai, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da7d",
+            "externalId": "1959073",
+            "addressLine1": "Aya Nagar, New Delhi-110047",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Girls), Aya Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da87",
+            "externalId": "1959084",
+            "addressLine1": "Satbari, New Delhi-110074",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Satbari, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78d74",
+            "externalId": "1959094",
+            "addressLine1": "Sector-1, Pushap Vihar New Delhi-110017",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya No.1 (Co-ed), Sector-1, Pushap Vihar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78d7e",
+            "externalId": "1959105",
+            "addressLine1": "Sector-1, Dr. Ambedkar Nagar New Delhi-110062",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School No.2 (Boys), Sector-1, Dr. Ambedkar Nagar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78d88",
+            "externalId": "1959115",
+            "addressLine1": "Sangam Vihar- C Block, New Delhi-110080",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Sangam Vihar- C Block, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78d92",
+            "externalId": "1959125",
+            "addressLine1": "Sector-4, Dr. Ambedkar Nagar, New Delhi-110062",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya No.3 (Girls), Sector-4, Dr. Ambedkar Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78d9c",
+            "externalId": "1959137",
+            "addressLine1": "Khanpur, New Delhi-110062",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Khanpur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78da6",
+            "externalId": "1959149",
+            "addressLine1": "Ghitorni, New Delhi-110030",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Ghitorni, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78db0",
+            "externalId": "1959412",
+            "addressLine1": "Aya Nagar, New Delhi-110047",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Aya Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655da99",
+            "externalId": "2026073",
+            "addressLine1": "Kidwai Nagar New Delhi - 110023",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "NP Co-ed Sr. Secondary School, Kidwai Nagar New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655daa3",
+            "externalId": "2026090",
+            "addressLine1": "Netaji Nagar New Delhi - 110023",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "NP Co-Ed Secondary School, Netaji Nagar, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655daad",
+            "externalId": "2026104",
+            "addressLine1": "Havlock Square New Delhi - 110001",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "NP Co-Ed Sr. Secondary School, Havlock Square, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dab7",
+            "externalId": "2026143",
+            "addressLine1": "Lodhi Road New Delhi - 110003",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Navyug Sr. Secondary School, Lodhi Road, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dae4",
+            "externalId": "2160007",
+            "addressLine1": "DMS, Shadipur Depot - New Delhi-110008",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), DMS, Shadipur Depot - New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655daee",
+            "externalId": "2160017",
+            "addressLine1": "J J Shadipur, New Delhi-110008",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), J J Shadipur, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655daf8",
+            "externalId": "2160028",
+            "addressLine1": "Inderpuri, New Delhi-110012",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Inderpuri, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db02",
+            "externalId": "2160038",
+            "addressLine1": "Joshi Road, Karol Bagh New Delhi-110005",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Joshi Road, Karol Bagh New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db0c",
+            "externalId": "2160053",
+            "addressLine1": "Pyare Lal Road, Karol Bagh New Delhi-110005",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Pyare Lal Road, Karol Bagh New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db16",
+            "externalId": "2160065",
+            "addressLine1": "Harijan Basti New Rohtak Road, Anand Parvat Indl Area New Delhi-110005",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Girls), Harijan Basti New Rohtak Road, Anand Parvat Indl Area New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db20",
+            "externalId": "2160315",
+            "addressLine1": "Tulsi Nagar, Delhi-110035",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Boys), Tulsi Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db2a",
+            "externalId": "2161025",
+            "addressLine1": "Pahar Ganj, Kaseruwalan, New Delhi-110055",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya-New (Co-ed), Pahar Ganj, Kaseruwalan, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db34",
+            "externalId": "2161051",
+            "addressLine1": "Deputy Ganj, Delhi-110006",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Boys), Deputy Ganj, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db3e",
+            "externalId": "2161062",
+            "addressLine1": "7761/69, Ram Nagar, Gali No. 2, Paharganj, New Delhi-110055",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School- Old (Girls), 7761/69, Ram Nagar, Gali No. 2, Paharganj, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db48",
+            "externalId": "2161072",
+            "addressLine1": "Idgah Road, New Delhi-110055",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-New (Co-ed), Idgah Road, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db52",
+            "externalId": "2161084",
+            "addressLine1": "Motia Khan, New Delhi-110055",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Motia Khan, New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db5c",
+            "externalId": "2161413",
+            "addressLine1": "L- Block Shastri Nagar, Delhi-110052",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), L- Block Shastri Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db66",
+            "externalId": "2161423",
+            "addressLine1": "Bagh Kare Khan, Kishan Ganj, Delhi-110007",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Bagh Kare Khan, Kishan Ganj, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db70",
+            "externalId": "2161433",
+            "addressLine1": "Basti Chamelian, Rani Jhansi Road, Near Filmistan, Delhi-110006",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Basti Chamelian, Rani Jhansi Road, Near Filmistan, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db7a",
+            "externalId": "2162008",
+            "addressLine1": "Kotla Firoz Shah New Delhi-110002",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Kotla Firoz Shah New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db84",
+            "externalId": "2162031",
+            "addressLine1": "Kuncha Chelan, Darya Ganj New Delhi-110002",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School-New (Co-ed), Kuncha Chelan, Darya Ganj New Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db8e",
+            "externalId": "2162050",
+            "addressLine1": "Charkhe Walan, Gali Chameli Devi, Delhi-110006",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nigam Pratibha Vidyalaya (Co-ed), Charkhe Walan, Gali Chameli Devi, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655db98",
+            "externalId": "2162082",
+            "addressLine1": "Churiwalan, 3871,Sarak Prem Narain, Delhi-110006",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "MCD Primary School (Co-ed), Churiwalan, 3871,Sarak Prem Narain, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dba2",
+            "externalId": "1001144",
+            "addressLine1": "Jain Sec. School, Shahadara, Gali Jain Mandir, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Jain Sec. School, Shahadara, Gali Jain Mandir, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dbaa",
+            "externalId": "1001156",
+            "addressLine1": "PATEL STREET, VISHWAS NAGAR, DELHI - 110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Puneet Public School, Patel Street, Vishwas Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78e54",
+            "externalId": "1001174",
+            "addressLine1": "D-2/3 JHILMIL COLONY, DELHI - 110095",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Henry Dunant Public School, D-2/3 Jhilmil Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dbb7",
+            "externalId": "1001198",
+            "addressLine1": "PRIYA DARSHINI VIHAR, DELHI - 110092",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Lovely Public Sr. Secondary School, Priya Darshini Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78e59",
+            "externalId": "1002265",
+            "addressLine1": "MASTER BLOCK SHAERPUR DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Homely Public School, Master Block Shakarpur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab881bdbe330655dbc6",
+            "externalId": "1002277",
+            "addressLine1": "POCKET B, MAYUR VIHAR, PHASE-II, DELHI-91",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Bal Bhavan Public School, Pocket B, Mayur Vihar, Phase-II, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dbd0",
+            "externalId": "1002289",
+            "addressLine1": "PATPARGANJ, DELHI-92",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Bapu Public School, Patparganj, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dbd9",
+            "externalId": "1002303",
+            "addressLine1": "KONDLI, DELHI-96",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Gautam Public School, Kondli, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dbdf",
+            "externalId": "1002317",
+            "addressLine1": "GHARAULI, DELHI-91",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Sardar Patel Modern School, Gharoli, Mayur Vihar Ph-3, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dbe7",
+            "externalId": "1002355",
+            "addressLine1": "Main Rd.,No-56,DDA Residential Complex, Gazipur X-ing,ND-24,Gazipur,Delhi-96",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Kala Niketan International School, Main Rd.,No-56,DDA Residential Complex, Gazipur X-Ing, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dbef",
+            "externalId": "1002373",
+            "addressLine1": "C 374A NEW ASHOK NAGAR DELHI 96",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Indraprastha Modern Public School, C-374 A, New Ashok Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5bfe53ea1d0c350d61b78e66",
+            "externalId": "1002386",
+            "addressLine1": "New Ashok Nagar, Delhi-96",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "St. Soldier Public School, C-67, New Ashok Nagar Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dbfe",
+            "externalId": "1003197",
+            "addressLine1": "DAV Sr. Sec. School No.1, Gandhi Nagar, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "DAV Sr. Sec. School No.1, Gandhi Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc08",
+            "externalId": "1003212",
+            "addressLine1": "GEETA COLONY FACILITY CENTRE DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "St. Lawrence Convent, Geeta Colony Facility Centre, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc12",
+            "externalId": "1003225",
+            "addressLine1": "F-198 MANGAL BAZAR LAXMI NAGAR DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Vardhman Shiksha Niketan, F-198 Mangal Bazar Laxmi Nagar Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc1c",
+            "externalId": "1003238",
+            "addressLine1": "IX/635 MAIN ROAD, GANDHI NAGAR DELHI - 110031",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Sibal Public School, IX/1635 Main Road, Gandhi Nagar Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc26",
+            "externalId": "1051300",
+            "addressLine1": "Sunder Vidhya Mandir Public School, Gali No-3 Raghubar Pura No. 2 Gandhi Nagar, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Sunder Vidhya Mandir Public School, Gali No-3 Raghubar Pura No. 2 Gandhi Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc30",
+            "externalId": "1051312",
+            "addressLine1": "Bhagat Memorial Public School, 1466A/4, Shalimar Park, Near Bus Stand Shadara, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Bhagat Memorial Public School, 1466A/4, Shalimar Park, Near Bus Stand Shadara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc3a",
+            "externalId": "1051332",
+            "addressLine1": "Jhilmil Cly. Shahdara Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Shishu Bharti Shiv Mandir Vidyalaya, Jhilmil Colony Shahdara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc44",
+            "externalId": "1051350",
+            "addressLine1": "Shishu Snsar Public School, 9/3575, Jain Mohalla Dharampura Gandhi Nagar, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Shishu Snsar Public School, 9/3575, Jain Mohalla Dharampura Gandhi Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc4e",
+            "externalId": "1051361",
+            "addressLine1": "Children Welfare Public School, Gali No. 34, Shalimar Park Extn, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Children Welfare Public School, Gali No. 34, Shalimar Park Extn, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc58",
+            "externalId": "1051374",
+            "addressLine1": "A.N Memorial Convent School, 7/13, East Azad Nagar Main Road, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "A.N Memorial Convent School, 7/13, East Azad Nagar Main Road, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc62",
+            "externalId": "1051386",
+            "addressLine1": "Rishi Convent School, E-65, New Ashok Nagar Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Rishi Convent School, E-65, New Ashok Nagar Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc6c",
+            "externalId": "1051400",
+            "addressLine1": "Eastern Delhi Public School, Khichri Pur, Opp Blk-10, Khichripur Colony, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Eastern Delhi Public School, Khichri Pur, Opp Blk-10, Khichripur Colony, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc76",
+            "externalId": "1051410",
+            "addressLine1": "Baptist Mission School, A-6/181, Farash Bazar, Shahdara Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Baptist Mission School, A-6/181, Farash Bazar, Shahdara Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc80",
+            "externalId": "1051513",
+            "addressLine1": "Sunbro Public School, B-356 A, Sangam Street, New Ashok Nagar, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Sunbro Public School, B-356 A, Sangam Street, New Ashok Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc8a",
+            "externalId": "1051544",
+            "addressLine1": "S.D. Devnagari Pathshala, Shahadara, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "S.D. Devnagari Pathshala, Shahadara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc94",
+            "externalId": "1051562",
+            "addressLine1": "B56B & 56B/1 Mandawali",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "New Balvikas Vidyalaya, B56B - Mandawali, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dc9e",
+            "externalId": "1051584",
+            "addressLine1": "F-65, Jagat Puri, New Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "A B C Public School, F-65, Jagat Puri, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dca8",
+            "externalId": "1051599",
+            "addressLine1": "108 Village Chilla Sarroda ,Mayur Vihar Extn",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Sardar Patel Public School, 108, Village Chilla Sarroda, Mayur Vihar Extn, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcb2",
+            "externalId": "1104263",
+            "addressLine1": "Ch. S.R.R Marg Sonia Vihar Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Yamuna Public School, Ch. S.R.R Marg, Sonia Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcbc",
+            "externalId": "1104273",
+            "addressLine1": "Main Karawal Nagar Rd Chandu Nagar Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "New Sandhya Public School, Main Karawal Nagar Rd, Chandu Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcc6",
+            "externalId": "1104283",
+            "addressLine1": "E-II/12 Nehru Vihar (Dayalpur) Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "K.L.V Convent School, E-II/12 Nehru Vihar (Dayalpur), Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcd0",
+            "externalId": "1104296",
+            "addressLine1": "16-B Near Post Office Bhajanpura Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "S.D.Public Secondary School, 16-B, Near Post Office, Bhajanpura, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcda",
+            "externalId": "1104307",
+            "addressLine1": "H-14 Jai Prakash Nagar Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Holy Home Public School, H-14 Jai Prakash Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dce4",
+            "externalId": "1104319",
+            "addressLine1": "F-229 Khajoori Khas Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nav Bharat Adarsh Public School, F-229 Khajoori Khas, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcee",
+            "externalId": "1104330",
+            "addressLine1": "33 Road Gali No-8 E-Block Nehru Vihar Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Golden Star Modern School, 33 Road, Gali No-8, E-Block, Nehru Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dcf8",
+            "externalId": "1104344",
+            "addressLine1": "Pusta Road West Karawal Nagar Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Vidya International Public School, Pusta Road West Karawal Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd02",
+            "externalId": "1104357",
+            "addressLine1": "Pusta Road West Karawal Nagar Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Himalyan Public School, Pusta Road West Karawal Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd0c",
+            "externalId": "1104367",
+            "addressLine1": "C-9, YAMUNA VIHAR, DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nav Jeewan Adarsh Public School, C-9, Yamuna Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd16",
+            "externalId": "1104378",
+            "addressLine1": "33 FT. ROAD, NEHRU VIHAR, DAYALPUR ROAD, DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nav Adarsh Model School, 33 Ft. Road, Nehru Vihar, Dayalpur Road, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd20",
+            "externalId": "1104390",
+            "addressLine1": "Sonia Vihar Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "New Era Convent School, E-I Sonia Vihar, 5th Pusta, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd2a",
+            "externalId": "1104403",
+            "addressLine1": "Parkash Vihar,Karawal Nagar",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "M.R.L. Secondary School, Parkash Vihar, Karawal Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd34",
+            "externalId": "1104414",
+            "addressLine1": "E-88,Maa Rama Bai Mohalla,Johripur, Delhi-94",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Vimal Convent Public School, E-88,Maa Rama Bai Mohalla,Johripur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd3e",
+            "externalId": "1104429",
+            "addressLine1": "A 1 LAL BAHADUR SHASTRI MARG KARAWAL NAGAR",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Green Meadows Public School, A-1,Lal Bhadur Shastri Marg, Karawal Nagar Extn. Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd48",
+            "externalId": "1104439",
+            "addressLine1": "A BLOCK MILAN GARDEN SABHAPUR DELHI 94",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "N.D. Model Public School, A-Block Milan Garden Sabhapur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd52",
+            "externalId": "1104449",
+            "addressLine1": "A 143 R.C.Gali No.5 Sonia Vihar, D 94",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "R.C.Memorial Public School, A-143, R.C.Gali No.5, Sonia Vihar, Delhi- 94",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd5c",
+            "externalId": "1104459",
+            "addressLine1": "C 1/1 Milan Garden Sabha Pur, D 94",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Saraswati Vidya Public School, C 1/1 Milan Garden Sabha Pur, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd66",
+            "externalId": "1104469",
+            "addressLine1": "C-5, Yamuna Vihar, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Nav Jeevan Adarsh Public School, C-5, Yamuna Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd70",
+            "externalId": "1104481",
+            "addressLine1": "A-4, 33ft., Main Road, Panchal Vihar, Shiv Vihar, Karawal Nagar, DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Bright Way Public School, A-4, 33Foota Main Road, Panchal Vihar, Shiv Vihar, Karawal Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd7a",
+            "externalId": "1105182",
+            "addressLine1": "459-C CHHAJJUPUR SHAHDARA DELHI",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "G.A.P. School, 459-C Chhajjupur Shahdara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd84",
+            "externalId": "1105196",
+            "addressLine1": "Shivaji Park Shahdra Delhi-110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Uma Devi Public School, 1/7412 Shiv marg, Shivaji Park Shahdra, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd8e",
+            "externalId": "1105214",
+            "addressLine1": "Shivaji Park shahdra Delhi-110032",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Little Flowers Public Sr.Sec. School, Shivaji Park Shahdra Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dd98",
+            "externalId": "1105237",
+            "addressLine1": "Gali No-13, Brahmpuri Delhi-110053",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "New Bal Jyoti Public School, L-55, Gali No-13 Brahmpuri Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dda2",
+            "externalId": "1106186",
+            "addressLine1": "10-A Hardev Puri Shahdra Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Mount Everest Public School, 10-A Hardev Puri Shahdra Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655ddac",
+            "externalId": "1106196",
+            "addressLine1": "Pkt-B East of Loni Road Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Siddharth International Public School, Pkt-B East of Loni Road Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655ddb6",
+            "externalId": "1106207",
+            "addressLine1": "East Gokal Pur Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Shiv Memorial Public School, East Gokal Pur Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655ddc0",
+            "externalId": "1106218",
+            "addressLine1": "Meet Nagar East Gokal Pur Delhi-110094",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Prabhu Atma Prakash Public School, Meet Nagar East Gokal Pur Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655ddca",
+            "externalId": "1106255",
+            "addressLine1": "B-3/411, 33 Foota Road,Harsh Vihar,Delhi-110093",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Hindon Public School, B-3/411, 33 Foota Road, Harsh Vihar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655ddd4",
+            "externalId": "1106272",
+            "addressLine1": "A 31 St. No.2 Rajiv Ngr D 93",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Rajiv Public School, A 31, St. No.2, Rajeev Nagar, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655ddde",
+            "externalId": "1152302",
+            "addressLine1": "Alpana Public School, Harsh Vihar, Near Bank Colony Mandoli Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Alpana Public School, Harsh Vihar, Near Bank Colony Mandoli Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        },
+        {
+            "_id": "5c0bbab981bdbe330655dde8",
+            "externalId": "1152316",
+            "addressLine1": "Vivekanand Vidhyapeeth Public School, A-31/17-D Main Road Maujpur Shahdara, Delhi",
+            "addressLine2": "",
+            "city": "Urban",
+            "name": "Vivekanand Vidhyapeeth Public School, A-31/17-D Main Road Maujpur Shahdara, Delhi",
+            "state": "Delhi",
+            "isParentInterviewCompleted": false
+        }
+
+    ]
+}

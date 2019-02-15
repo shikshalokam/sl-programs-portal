@@ -1,0 +1,66 @@
+@import '../../../../assets/scss/varibles.scss';
+table {
+    width: 100%;
+  }
+
+.capitalise{
+    text-transform: capitalize;
+    padding: 0px 10px  0px 0px;   
+}
+.complete{
+    border-radius: 12px; 
+    border:1px solid $green-color; 
+    padding:2px 8px; 
+    background-color:$green-color;
+    color : $white-color;
+    white-space: nowrap;
+    width: fit-content;
+    margin: 0px 10px;
+    
+}
+.search{
+    padding: 0px 15px;
+}
+.active{
+    border-radius: 12px; 
+    border:1px solid $primary-color; 
+    padding:2px 8px; 
+    background-color: $button-background-color; 
+    cursor: pointer;
+    margin: 0px 10px;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.spaceBetween{
+    display:flex;
+    justify-content: space-between;
+}
+.example-container {
+    height: calc(100vh - 160px) !important;
+  }
+.tableContainer{
+    height: calc(100vh - 216px) !important;
+    overflow: auto;
+}
+
+.mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }
+  .middle{
+    padding: 30vh 0 0 40%;
+ }
+ .margin{
+     margin-bottom: 15px;
+ }
+ .flexRight{
+     display: flex;
+     justify-content: center;
+     margin-top: 15px;
+ }
+ .textOverflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

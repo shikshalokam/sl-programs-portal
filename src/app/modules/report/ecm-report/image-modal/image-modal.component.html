@@ -1,0 +1,16 @@
+<div mat-dialog-title class="alingItem noMargin">
+  <h1 class="noMargin">
+    {{'message.imageHeading' | translate}}
+  </h1>
+  <div mat-dialog-actions class="noMargin">
+    <button mat-icon-button  (click)="onCancel()">
+          <i class="material-icons">
+            close
+          </i>
+        </button>
+      </div>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <app-image-card [imageUrl]="data.fileName"></app-image-card>
+</div>

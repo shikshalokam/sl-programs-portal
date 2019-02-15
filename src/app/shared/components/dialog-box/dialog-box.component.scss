@@ -1,0 +1,14 @@
+@import '../../../../assets/scss/varibles.scss';
+
+.btnColor{
+    background-color: $primary-color;
+    color :white;
+}
+.alingCenterline{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.margin {
+    margin: 15px 0px 0px 10px;
+}

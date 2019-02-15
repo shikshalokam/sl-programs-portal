@@ -1,0 +1,10 @@
+<div class="heading">
+    {{ 'headings.programs' | translate }}
+</div>
+<div class="subHeading" *ngFor="let results of result; let i=index" (click)="programSelect(results, i)">
+    <span class="sideNavSubheading" [ngClass]="{'active': currentProgramIndex === i}">
+        <div>
+            {{results.name}}
+        </div>
+    </span>
+</div>

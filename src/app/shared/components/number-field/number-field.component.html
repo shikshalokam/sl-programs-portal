@@ -1,0 +1,11 @@
+<div [formGroup]="genericForm">
+  <mat-form-field *ngIf="genericData.validation.required" class="col-sm-6 fixSize _halfWidth">
+    <span *ngIf="genericData.input == 'number'" matPrefix>+91 &nbsp;</span>
+    <input [disabled]="!genericData.editable" type="number"  pattern="^[0-9]{10}$" placeholder="{{genericData.label}} " formControlName="{{genericData.field}}" matInput required > 
+  </mat-form-field>
+
+  <mat-form-field  *ngIf="!genericData.validation.required" class="col-sm-6 fixSize _halfWidth">
+      <span *ngIf="genericData.input == 'number'" matPrefix>+91 &nbsp;</span>
+      <input type="number"  [disabled]="!genericData.editable" placeholder="{{genericData.label}} " formControlName="{{genericData.field}}" matInput  > 
+    </mat-form-field>
+</div>

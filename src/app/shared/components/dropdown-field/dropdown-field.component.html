@@ -1,0 +1,17 @@
+<div [formGroup]="genericForm" >
+  <mat-form-field class=" col-sm-6 fixSize _halfWidth" *ngIf="genericData.input == 'radio' ||genericData.input == 'dropdown'">
+    <mat-select [disabled]="!genericData.editable" placeholder="{{genericData.label}}" formControlName="{{genericData.field}}" required >
+        <mat-option *ngFor="let opt of genericData.options" [value]="opt.value" (click)="changeResponseType(opt.value)" >
+          {{opt.label}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class=" col-sm-6 fixSize _halfWidth"  *ngIf="genericData.input == 'multiselect' ">
+      <mat-select [disabled]="!genericData.editable" placeholder="{{genericData.label}}" formControlName="{{genericData.field}}" required multiple >
+          <mat-option *ngFor="let opt of genericData.options" [value]="opt.value" (click)="changeResponseType">
+            {{opt.label}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>

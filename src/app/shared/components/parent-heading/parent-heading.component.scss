@@ -1,0 +1,52 @@
+@import '../../../../assets/scss/varibles.scss';
+.heading{
+   margin-top: 0px;
+   font-size: 18px;
+}
+.btnColor{
+    background-color: $primary-color;
+    color :white;
+    margin-left: 30px;
+}
+.alingCenterlineParentHeading{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.active{
+    border-radius: 12px; 
+    border:1px solid $primary-color; 
+    padding:2px 8px; 
+    background-color: #e5f2fe; 
+    cursor: pointer;
+    margin-left: 25px;
+}
+.horizontalLine{
+    display:flex;
+    flex-direction: column;
+}
+// .space{
+//     // padding-left:10px ;
+// }
+.noPadding{
+    padding: 0px;
+}
+.noMargin{
+    margin: 0px;
+}
+.Margin{
+    margin: 0px -20px;
+}
+// .smallMargin{
+//     margin-left: -10px;
+// }
+.primaryColor{
+    color: $primary-color;
+
+}
+
+
+
+// .smallMargin{
+//     margin-left:20px;
+// }

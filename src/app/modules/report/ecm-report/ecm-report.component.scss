@@ -1,0 +1,74 @@
+@import '../../../../assets/scss/varibles.scss';
+.alingCenterLine{
+    display : flex;
+    align-items: center;
+    padding: 5px 0px;
+}
+.infoAlingCenterLine{
+        display : flex;
+        align-items: center;
+        padding: 5px 0px;
+}
+.wrapper{
+    padding:20px 2px;
+}
+.wrapperExpansion{
+    padding:15px 2px 5px 0px;
+}
+.card{
+    margin-bottom: 15px;
+}
+.labels{
+    text-transform: capitalize;
+    font-weight: 550;
+}
+.padding{
+    padding: 10px 0px !important;
+}
+.instanceQuestion{
+    padding: 10px;
+    width:100%;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    box-shadow: 1px;
+    margin: 10px;
+}
+.flex-1{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.flex-2{
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+.instanceLabel{
+    font-weight: 500;
+    padding :10px;
+    border-bottom:  1px solid #bababa;
+    margin-bottom: 10px;
+   display: flex;
+}
+.uploadImageIcon{
+    padding-left: 20px;
+}
+.expansionCard{
+    background-color: $background-color;
+}
+.noDataFound{
+    height: calc(100vh - 200px) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spaceBetween{
+    display: flex;
+    justify-content: space-between;
+}
+.textOverflow{
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}

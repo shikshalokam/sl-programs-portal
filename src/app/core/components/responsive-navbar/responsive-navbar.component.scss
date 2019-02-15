@@ -1,0 +1,66 @@
+@import '../../../../assets/scss/varibles.scss';
+
+.noMarginPadding{
+    margin: 0px;
+    padding: 0px;
+}
+
+.icon{
+    font-size: 16px;
+    padding-right: 10px;
+}
+._flexEnd{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.responsiveNavbar{
+    display: none;
+    align-items: center;
+    height: 51px;
+}
+.line{
+    line-height: 12px;
+}
+.pageBrand{
+    font-size :18px;
+    padding: 0px 10px;
+    margin-bottom: -4px;
+    display: flex;
+    justify-content: center;
+}
+.pageMenu{
+    margin-top: 0px;
+}
+
+.alingCenterline{
+    display:flex; 
+    align-items:center;
+}
+.dropdownIcon{
+    top:1px;
+    margin-top: 7px;
+    font-weight: 700;
+}
+.active{
+    background-color: $primary-color;
+    color: $white-color; 
+}
+.matmenuIcon{
+    display:flex;
+    align-items:center;
+    color:#bababa;
+}
+.padding{
+    padding-left:10px; 
+}
+.bigPadding{
+    padding-left:40px; 
+}
+.black{
+    color:#4c4c4c;
+}
+.responsiveLogo{
+    margin-top :-5px;
+}
