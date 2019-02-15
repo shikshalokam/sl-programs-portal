@@ -1,23 +1,24 @@
 <nav class="responsiveNavbar noMarginPadding">
   <body class=" col-xs-12 noMarginPadding alingCenterline" >
-      <span class="col-xs-4 alingCenterline">
+      <span class="col-xs-4 alingCenterline noMarginPadding">
+          <button mat-icon-button>
           <i class="material-icons" (click)="openSideNav()">
             menu
               </i>
+              </button>
       </span>
     
     <mat-card-title class="pageBrand col-xs-4 alingCenterline">
-      <img class="responsiveLogo" src = "../../../../assets/logo.png">
-      <strong>{{ 'brandResponsive' | translate }}</strong>
+        <img  class="logo" src =" ./assets/shikshalokam.png" >
+      <!-- <strong>{{ 'brandResponsive' | translate }}</strong> -->
     </mat-card-title>
 
     <span class="col-xs-4 noMarginPadding _flexEnd">
-        <span mat-button [matMenuTriggerFor]="menu" class=" _cursor-pointer">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class=" _cursor-pointer">
           <i class="material-icons dropdownIcon">
-              settings
+              person
               </i>
-        </span>
-  
+        </button>
         <mat-menu #menu="matMenu">
           <span mat-menu-item class="matmenuIcon">
             <i class="material-icons">

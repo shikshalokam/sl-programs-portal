@@ -18,6 +18,7 @@ export class ProgramsDashboardComponent implements OnInit {
 
 
   constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router) {
+    console.log(localStorage.getItem('dataSource'));
 
   }
 
@@ -41,6 +42,9 @@ export class ProgramsDashboardComponent implements OnInit {
   }
   programClick(assessment){
     this.currentAssessmentId=assessment._id;
+    localStorage.setItem('programId',this.currentProgramId);
+    localStorage.setItem('assessmentId',this.currentAssessmentId);
+
     this.router.navigate(['/assessments'],
     {
       queryParams:{
@@ -49,6 +53,7 @@ export class ProgramsDashboardComponent implements OnInit {
       },
        queryParamsHandling: 'merge' 
     }
+
     );
   }
 

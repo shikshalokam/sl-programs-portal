@@ -45,6 +45,8 @@ export class AuthService {
   }
 
   getLogout(){
+    // localStorage.clear();
+    console.log(localStorage.getItem('dataSource'));
    return this.keycloakAuth.logout();
   }
 
