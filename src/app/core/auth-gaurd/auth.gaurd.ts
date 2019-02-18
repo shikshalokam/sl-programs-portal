@@ -17,14 +17,28 @@ import { MatSnackBar } from '@angular/material';
 export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService,private snackBar: MatSnackBar, private router: Router) { }
-
+  url ;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     let url: string = state.url;
+    this.url = state.url;
+    return this.checkProgarmId(url);
+    // return this.checkUser(url)
+  }
+  checkProgarmId(url){
+    if(url.includes('/assessments') ){
+      if(localStorage.getItem('currentProgram') === null){
+        this.router.navigate(['/programs']);
+        return false;
+      }
+      return true;
+    }
+
+    //   return true;
+    // }
+    return true;
     
-    // return   this.checkLogin(url);
-    return this.checkUser(url)
   }
   checkUser(url: string) {
     if (url.includes("parent")) {

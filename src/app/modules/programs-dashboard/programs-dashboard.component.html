@@ -16,19 +16,15 @@
               </div>
           </div>
           <div class="container">
-                <div class="ass-heading">Assessments</div>
-              <div class="row">
-                  <div class="col">
-                      <ul class="unorder-list" >
-                          <li *ngFor="let assessment of currentAssesssment; let i=index" class="icons">
-                                <i class="material-icons" (click)="programClick(assessment)">done</i>
-                                <div class="context">
-                                    {{assessment?.name}}
-                                </div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+            <div class="ass-heading">{{'headings.assessments' | translate}}</div>
+              <mat-card *ngFor="let assessment of currentAssesssment; let i=index" class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 margin" (click)="programClick(assessment)">
+                    <mat-card-title _ngcontent-c15="" class="mat-card-title flex-box-justify-content-center">
+                        <i class="material-icons iconSize" >assessment</i>
+                    </mat-card-title>
+                    <mat-card-content _ngcontent-c15="" class="docs-component-category-list-card-summary mat-card-content">
+                            {{assessment?.name}}
+                    </mat-card-content>
+            </mat-card>
           </div>   
       </div>
   </div>
