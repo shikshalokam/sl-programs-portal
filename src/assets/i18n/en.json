@@ -33,6 +33,7 @@
     "downloadReport":"Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "assessments":"Assessments",
         "programs":"Programs",
         "addQuestions": "Add New Question",
         "parentInfoHeading" : "Parent Information",
