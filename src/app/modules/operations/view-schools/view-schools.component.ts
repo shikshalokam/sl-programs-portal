@@ -37,8 +37,8 @@ export class ViewSchoolsComponent implements OnInit {
     //   this.assessmentId = params['assessmentId']
 
     // });
-    this.programId = localStorage.getItem('currentProgram')['_id'];
-    this.assessmentId = localStorage.getItem('currentAssessments')['_id'];
+    this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
     this.getViewSchool()
   }
   getViewSchool() {

@@ -43,8 +43,8 @@ export class ProgramsDashboardComponent implements OnInit {
   }
   programClick(assessment){
     this.currentAssessmentId=assessment._id;
-    localStorage.setItem('currentProgram',this.currentProgram);
-    localStorage.setItem('currentAssessment',this.currentAssesssment);
+    localStorage.setItem('currentProgram',JSON.stringify(this.currentProgram));
+    localStorage.setItem('currentAssessments',JSON.stringify(assessment));
     localStorage.setItem('programId',this.currentProgramId);
     localStorage.setItem('assessmentId',this.currentAssessmentId);
 
