@@ -45,8 +45,7 @@ export class ProgramsDashboardComponent implements OnInit {
     this.currentAssessmentId=assessment._id;
     localStorage.setItem('currentProgram',JSON.stringify(this.currentProgram));
     localStorage.setItem('currentAssessments',JSON.stringify(assessment));
-    localStorage.setItem('programId',this.currentProgramId);
-    localStorage.setItem('assessmentId',this.currentAssessmentId);
+   
 
     this.router.navigate(['/assessments'],
     {
