@@ -49,8 +49,8 @@ export class UploadingCsvComponent implements OnInit {
     //   this.assessmentId = params['assessmentId']
 
     // });
-    this.programId = localStorage.getItem('programId');
-    this.assessmentId = localStorage.getItem('assessmentId');
+    this.programId = localStorage.getItem('currentProgram')['_id'];
+    this.assessmentId = localStorage.getItem('currentAssessments')['_id'];
 
   }
 

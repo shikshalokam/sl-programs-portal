@@ -21,13 +21,15 @@ export class OperationsService {
     }
     return this.http.post(environment.apibaseurl + this.Url+"programId="+programId+"&componentId="+componentId, csvFile , {reportProgress: true, observe: 'events'});
   }
-  getSchools(programId,componentId,search,pageIndex,pageSize){
-    if(pageIndex === undefined){
-      pageIndex = 1;
-      pageSize = 4;
+  // getSchools(programId,componentId,search,pageIndex,pageSize){
+  getSchools(...args){
+    console.log(args)
+    if(args[3] === undefined){
+      args[3] = 0;
+      args[4] = 50;
     }
-    pageIndex++;
-    return this.http.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+programId+"&componentId="+componentId+"&search="+search+"&pageIndex="+pageIndex+"&pageSize="+pageSize);
+    args[3]++;
+    return this.http.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&pageIndex="+args[3]+"&pageSize="+args[4]);
   }
 
 }

@@ -37,8 +37,8 @@ export class ViewSchoolsComponent implements OnInit {
     //   this.assessmentId = params['assessmentId']
 
     // });
-      this.assessmentId = localStorage.getItem('assessmentId');
-      this.programId = localStorage.getItem('programId');
+    this.programId = localStorage.getItem('currentProgram')['_id'];
+    this.assessmentId = localStorage.getItem('currentAssessments')['_id'];
     this.getViewSchool()
   }
   getViewSchool() {
@@ -86,10 +86,10 @@ export class ViewSchoolsComponent implements OnInit {
   }
   pageEvent(event){
    
-    if(this.pageSize !== event.pageSize)
-    {
-      this.pageSize = event.pageSize;
-    }
+    if(this.pageSize !== event.pageSize ?  this.pageSize : event.pageSize  )
+    // {
+    //   this.pageSize = event.pageSize;
+    // }
     this.pageIndex = event.pageIndex;
     this.getViewSchool();
   }
