@@ -29,7 +29,6 @@ export class OperationsDashboardComponent implements OnInit {
  
 
   ngOnInit() {
-    console.log(localStorage.getItem('assessmentId'));
   }
 
   

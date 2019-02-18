@@ -10,7 +10,6 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./programs-dashboard.component.scss']
 })
 export class ProgramsDashboardComponent implements OnInit {
-
   programData;
   currentAssesssment: any;
   currentAssessmentId;
