@@ -13,7 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule } from '@angular/material';
 
 
 export function authFactory(authService: AuthService) {
@@ -35,6 +35,7 @@ export function authFactory(authService: AuthService) {
     BrowserAnimationsModule,
     CommonModule,
     MatToolbarModule,
+    MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
