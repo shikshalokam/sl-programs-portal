@@ -14,7 +14,6 @@ export class AssessmentDashboardComponent implements OnInit {
   constructor(private route : ActivatedRoute) {
     if (window.screen.width < 760) { // 768px portrait
       this.opened = false;
-      console.log(this.opened)
     }
    
       // this.programId = localStorage.getItem('programId')

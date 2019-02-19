@@ -15,8 +15,12 @@ export class ProgramsDashboardComponent implements OnInit {
   currentAssessmentId;
   currentProgramId;
   currentProgram;
-
+  opened = true;
   constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router) {
+    if (window.screen.width < 760) { // 768px portrait
+      this.opened = false;
+      console.log(this.opened)
+    }
   }
 
 
