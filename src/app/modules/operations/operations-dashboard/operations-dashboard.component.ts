@@ -22,6 +22,11 @@ export class OperationsDashboardComponent implements OnInit {
           icons:"done",
           tooltip:"headings.schoolListHeading",
           anchorLink: "/assessments/operations/view-schools"
+        },
+        {
+          icons:"done",
+          tooltip:"headings.assessorListHeading",
+          anchorLink: "/assessments/operations/view-assessors"
         }
       ]
   }
