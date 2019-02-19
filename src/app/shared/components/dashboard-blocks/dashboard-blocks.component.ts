@@ -7,18 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard-blocks.component.scss']
 })
 export class DashboardBlocksComponent implements OnInit {
- programId: string;
- assessmentId: string;
-
-  constructor(private route : ActivatedRoute) { 
-    this.route.parent.queryParams.subscribe(params =>{
-     this.programId = params['programId'];
-     this.assessmentId = params['assessmentId']
-   })
+ 
+  constructor() { 
   }
   @Input() list: any;
 
    ngOnInit() {
+     console.log(this.list)
    }
 
 }
