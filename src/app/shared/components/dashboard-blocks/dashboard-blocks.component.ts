@@ -13,7 +13,7 @@ export class DashboardBlocksComponent implements OnInit {
   @Input() list: any;
 
    ngOnInit() {
-     console.log(this.list)
+     console.log(this.list, "list")
    }
 
 }
