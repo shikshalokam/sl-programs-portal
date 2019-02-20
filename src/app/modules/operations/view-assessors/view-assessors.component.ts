@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransitionCheckState, MatTableDataSource } from '@angular/material';
 import { OperationsService, UtilityService } from 'src/app/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-assessors',
@@ -27,7 +26,6 @@ export class ViewAssessorsComponent implements OnInit {
 
   constructor(private operationsService: OperationsService,
     private utility :UtilityService,
-    private route:ActivatedRoute
     ) { 
       this.programId= JSON.parse( localStorage.getItem('currentProgram'))['_id'];
       this.assessmentId= JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
