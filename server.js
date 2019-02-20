@@ -6,10 +6,10 @@ var path = require("path");
 
 
 
-app.use('/portal/assessments/', express.static('dist/sl-assessments-portal'))
-app.get("/portal/assessments/*", function (req, res) {
+app.use('/programs/', express.static('dist/sl-programs-portal'))
+app.get("/programs/*", function (req, res) {
   console.log(__dirname)
-  res.sendFile(path.join(__dirname, "/dist/sl-assessments-portal/index.html"));
+  res.sendFile(path.join(__dirname, "/dist/sl-programs-portal/index.html"));
 });
 
 //listen to given port
@@ -17,5 +17,5 @@ app.listen(4300, () => {
   console.log(
     "Environment: " + "development"
   );
-  console.log("Application is running on the port:" + 4300);
+  console.log("Application is running on the port:" + 4400);
 });
