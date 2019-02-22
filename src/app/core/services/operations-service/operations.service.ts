@@ -23,7 +23,6 @@ export class OperationsService {
   }
   // getSchools(programId,componentId,search,pageIndex,pageSize){
   getSchools(...args){
-    console.log(args)
     if(args[3] === undefined){
       args[3] = 0;
       args[4] = 50;

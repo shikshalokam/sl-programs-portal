@@ -9,7 +9,7 @@
       <mat-divider class="noMarginPadding"></mat-divider>
       <mat-drawer-container class="example-container bodyDiv" autosize>
             
-        <mat-drawer  #drawer class="example-sidenav sideDiv" mode="side" [(opened)]="opened"> 
+        <mat-drawer  #drawer class="example-sidenav sideDiv" [(mode)]="pushMode" [(opened)]="opened" (window:resize)="onResize($event)"> 
                     <div *ngFor= "let link of links" > 
                             <app-sidenav [link] = "link" ></app-sidenav>
                     </div>

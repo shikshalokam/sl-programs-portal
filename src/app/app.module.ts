@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
 import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 
 export function authFactory(authService: AuthService) {
@@ -37,6 +41,13 @@ export function authFactory(authService: AuthService) {
     MatCardModule,
     MatToolbarModule,
     MatSidenavModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['example.com'],
+        blacklistedRoutes: ['example.com/examplebadroute/']
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

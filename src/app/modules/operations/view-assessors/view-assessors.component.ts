@@ -59,8 +59,10 @@ export class ViewAssessorsComponent implements OnInit {
     this.utility.loaderShow();
   }
   onResize(event){
-    if(event.target.innerWidth > 760){
+    if(event.target.innerWidth < 760){
       this.smallScreen = true;
+    }else{
+      this.smallScreen = false;
     }
   }
  

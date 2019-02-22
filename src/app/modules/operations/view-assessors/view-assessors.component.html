@@ -1,9 +1,8 @@
- <div class="wrapper">
     <app-loader></app-loader>
     <div *ngIf="!error">
       <app-parent-heading [genericHeading]="headings"></app-parent-heading>
       <div *ngIf=" result > 0  && !smallScreen" class="bigTabel" (window:resize)="onResize($event)">
-        <mat-form-field [floatLabel]="'never'" class="_contentMiddle _full-width">
+        <mat-form-field [floatLabel]="'never'" class=" _full-width">
           <input class="filterInput" id="search" matInput  appSearch [searchValue]="searchValue" (sendSearchValue)="searchInApi($event)" placeholder="{{'search'| translate}}" (keyup)="applyFilter($event.target.value)" >
         </mat-form-field>
         <div class="example-container mat-elevation-z8 ">
@@ -62,4 +61,3 @@
         </div>
       </div>
     </div>
-  </div>

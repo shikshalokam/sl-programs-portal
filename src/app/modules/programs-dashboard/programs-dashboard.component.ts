@@ -16,10 +16,11 @@ export class ProgramsDashboardComponent implements OnInit {
   currentProgramId;
   currentProgram;
   opened = true;
+  pushMode = 'side';
   constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router) {
     if (window.screen.width < 760) { // 768px portrait
       this.opened = false;
-      console.log(this.opened)
+      this.pushMode = 'push';
     }
   }
 
@@ -35,6 +36,19 @@ export class ProgramsDashboardComponent implements OnInit {
       this.utilityService.loaderHide();
       this.snackBar.open(error['message'], "Ok", {duration: 9000});
       })
+  }
+  onResize(event)
+  {
+    if(event.target.innerWidth < 760)
+    {
+      this.opened = false;
+      this.pushMode = 'push';
+    }
+    else{
+      this.opened = true;
+      this.pushMode = 'side';
+
+    }
   }
 
   setCurrentAssessment(assessment) {

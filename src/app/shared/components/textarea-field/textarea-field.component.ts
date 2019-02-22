@@ -16,6 +16,5 @@ export class TextareaFieldComponent implements OnInit {
   ngOnInit() {
   }
   check(val){
-    console.dir(val);
   }
 }

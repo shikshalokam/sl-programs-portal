@@ -23,7 +23,6 @@ export class ResponsiveNavbarComponent implements OnInit {
     return this.authService.getLogout();
   }
   openSideNav(){
-    console.log("emitted")
     this.openDrawer.emit(true);
   }
 

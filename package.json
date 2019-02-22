@@ -24,6 +24,7 @@
     "@angular/pwa": "^0.11.3",
     "@angular/router": "~7.0.0",
     "@angular/service-worker": "~7.0.0",
+    "@auth0/angular-jwt": "^2.1.0",
     "angular-material-fileupload": "^1.0.3",
     "angular-progress-bar": "^1.0.9",
     "bit-bin": "^13.0.4",
