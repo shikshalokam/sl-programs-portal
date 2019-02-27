@@ -1,5 +1,5 @@
 {
-  "name": "sl-assessments-portal",
+  "name": "sl-programs-portal",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -40,6 +40,8 @@
     "ngx-spinner": "^6.1.2",
     "node-sass": "^4.10.0",
     "rxjs": "^6.3.3",
+    "shikshalokamcoremodule": "^0.1.1",
+    "shikshalokamsharedmodule": "0.0.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { MatTableDataSource, MatPaginator,  } from '@angular/material';
-import { UtilityService } from 'src/app/core/services/utility-service/utility.service';
-import { OperationsService } from 'src/app/core';
+import { UtilityService } from 'shikshalokamcoremodule';
 import { ActivatedRoute } from '@angular/router';
+import { OperationsService } from '../operations-service/operations.service';
 
 @Component({
   selector: 'app-view-schools',

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProgramsDashboardService } from 'src/app/core/services/programs-dashboard-service/programs-dashboard.service';
-import { UtilityService } from 'src/app/core';
+import { UtilityService } from 'shikshalokamcoremodule';;
 import { MatSnackBar } from '@angular/material';
+import { ProgramsDashboardService } from './programs-dashboard-service/programs-dashboard.service';
+import { AuthService } from '../private-modules/auth-service/auth.service';
 
 @Component({
   selector: 'app-programs-dashboard',
@@ -17,14 +18,20 @@ export class ProgramsDashboardComponent implements OnInit {
   currentProgram;
   opened = true;
   pushMode = 'side';
-  constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router) {
+  currentUser;
+  logo =" ./assets/shikshalokam.png";
+  constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router , private authService  :AuthService) {
     if (window.screen.width < 760) { // 768px portrait
       this.opened = false;
       this.pushMode = 'push';
     }
+    this.currentUser = this.authService.getCurrentUserDetails();
+
   }
 
-
+  onLogout(){
+    this.authService.getLogout();
+  }
   ngOnInit() {
     this.utilityService.loaderShow();
     this.programService.getProgramList()
