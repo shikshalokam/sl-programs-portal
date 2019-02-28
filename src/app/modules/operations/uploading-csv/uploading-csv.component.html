@@ -3,14 +3,15 @@
 <div class="wrapperCenter">
     <form [formGroup]="CsvFileForm">
 
-  <div class="_flex-box _justify-content-center _justify-content-space-between ">
-    <mat-form-field>
+  <div >
+    <mat-form-field class="_flex-box _justify-content-center _justify-content-space-between  col-sm-4">
         <mat-select placeholder="choose the type of upload csv" formControlName="name">
           <mat-option  *ngFor="let upload of uploadOprions" [value]="upload.value" (click)="updateUploadType(upload.value)" >
             {{upload.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <div class="_flex-box _justify-content-center _justify-content-space-between  col-sm-4">
       <label for="file-upload" class="custom-file-upload _flexbox ">
         <div>
           <i class="material-icons paddingContent">
@@ -21,8 +22,11 @@
           {{'labels.uploadCsv'| translate}}
         </div>
     </label>
-      <input  id="file-upload" [disabled]="!uploadTypeSelected" (change)="upload($event.target.files)"  type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" #files/>
+    <input  id="file-upload" [disabled]="!uploadTypeSelected" (change)="upload($event.target.files)"  type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" #files/>
+    </div>
+    <div class="_flex-box _justify-content-center _justify-content-space-between  col-sm-4">
       <button mat-raised-button class="_primary-btn" [disabled]="!(fileSelected && uploadTypeSelected)" (click)="csvUpload(); files.value=null">{{'buttons.upload' | translate}}</button>
+      </div>
 </div>
 </form>
 

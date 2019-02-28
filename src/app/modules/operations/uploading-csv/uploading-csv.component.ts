@@ -1,5 +1,5 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { HttpEventType } from '@angular/common/http';
 import { OperationsService } from 'src/app/core';
 import { MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -20,7 +20,7 @@ export class UploadingCsvComponent implements OnInit {
   file = [];
   headings='headings.uploadingCsv'
   uploadtype = '';
-  percentDone: number;
+  percentDone: number = 0;
   uploadSuccess: boolean;
   fileSelected = false;
   uploadTypeSelected = false;
@@ -44,12 +44,13 @@ export class UploadingCsvComponent implements OnInit {
       name: [""],
       fileName: [""]
     });
-    this.route.parent.queryParams.subscribe(params => {
-      this.programId = params['programId'];
-      this.assessmentId = params['assessmentId']
+    // this.route.parent.queryParams.subscribe(params => {
+    //   this.programId = params['programId'];
+    //   this.assessmentId = params['assessmentId']
 
-    });
-
+    // });
+    this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
   }
 
   version = VERSION
@@ -105,6 +106,7 @@ export class UploadingCsvComponent implements OnInit {
       this.showStatus = false;
       this.fileSelected = false;
       this.uploadTypeSelected = false;
+      this.percentDone = 0;
     }, 3000);
   }
 }

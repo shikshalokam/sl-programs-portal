@@ -9,42 +9,42 @@ import { ActivatedRoute } from '@angular/router';
 export class AssessmentDashboardComponent implements OnInit {
   programId;
   assessmentId;
-  links ;
+  // links ;
   opened = true;
   constructor(private route : ActivatedRoute) {
     if (window.screen.width < 760) { // 768px portrait
       this.opened = false;
-      console.log(this.opened)
     }
    
-      this.route.queryParams.subscribe(params => {
-        this.programId= params['programId'];
-        this.assessmentId = params['assessmentId']
-        this.links = [  
-          { 
-            linkHeading : "headings.features",
-            options:[
+      // this.programId = localStorage.getItem('programId')
+      // this.route.queryParams.subscribe(params => {
+      //   this.programId= params['programId'];
+      //   this.assessmentId = params['assessmentId']
+      //   this.links = [  
+      //     { 
+      //       linkHeading : "headings.features",
+      //       options:[
               
-              {
-                value :"headings.reports",
-                link :{
-                  programId:this.programId,
-                  assessmentId :this.assessmentId,
-                  anchorLink:"report"
-                }
-              },
-                            {
-                value:"headings.operations",
-                link :{
-                  programId:this.programId,
-                  assessmentId :this.assessmentId,
-                anchorLink:"operations"
-                }
-              }
-            ]
-            }
-        ] ;
-      })
+      //         {
+      //           value :"headings.reports",
+      //           link :{
+      //             programId:this.programId,
+      //             assessmentId :this.assessmentId,
+      //             anchorLink:"report"
+      //           }
+      //         },
+      //                       {
+      //           value:"headings.operations",
+      //           link :{
+      //             programId:this.programId,
+      //             assessmentId :this.assessmentId,
+      //           anchorLink:"operations"
+      //           }
+      //         }
+      //       ]
+      //       }
+      //   ] ;
+      // })
     
    }
 
@@ -53,4 +53,21 @@ export class AssessmentDashboardComponent implements OnInit {
   }
    
 
+  links = [  
+        { 
+          linkHeading : "headings.features",
+          options:[
+            
+            {
+              value :"headings.reports",
+                anchorLink:"report"
+            },
+                          {
+              value:"headings.operations",
+             
+              anchorLink:"operations"
+            }
+          ]
+          }
+      ] ;
 }

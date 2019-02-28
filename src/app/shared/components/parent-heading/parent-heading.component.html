@@ -10,13 +10,11 @@
   <mat-divider *ngIf="schoolName || schoolNameDivider" class="Margin noPadding"></mat-divider>
   <!-- <span class="alingCenterline smallMargin"  *ngIf="!showControl"> -->
   <span class="alingCenterline smallMargin">
-    <span *ngIf="!showControl">
-    <button class="noPadding" mat-button (click)="onBack()"><i class="material-icons">
+    <button  *ngIf="!showControl" class="noPadding" mat-button (click)="onBack()"><i class="material-icons">
         keyboard_arrow_left
       </i>
       <span>Back</span>
     </button>
-  </span>
     <span class="heading  space noMargin space" *ngIf="genericHeading">
       {{ genericHeading | translate}}
     </span>

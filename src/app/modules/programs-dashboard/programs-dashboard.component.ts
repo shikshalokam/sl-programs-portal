@@ -10,15 +10,17 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./programs-dashboard.component.scss']
 })
 export class ProgramsDashboardComponent implements OnInit {
-
   programData;
   currentAssesssment: any;
   currentAssessmentId;
   currentProgramId;
-
-
+  currentProgram;
+  opened = true;
   constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router) {
-
+    if (window.screen.width < 760) { // 768px portrait
+      this.opened = false;
+      console.log(this.opened)
+    }
   }
 
 
@@ -36,21 +38,17 @@ export class ProgramsDashboardComponent implements OnInit {
   }
 
   setCurrentAssessment(assessment) {
+    this.currentProgram = assessment;
     this.currentProgramId= assessment._id;
+    this.currentProgram =assessment;
     this.currentAssesssment = assessment.assessments;
   }
   programClick(assessment){
     this.currentAssessmentId=assessment._id;
-    this.router.navigate(['/assessments'],
-    {
-      queryParams:{
-        programId:this.currentProgramId,
-        assessmentId:this.currentAssessmentId,
-      },
-       queryParamsHandling: 'merge' 
-    }
-    );
+    localStorage.setItem('currentProgram',JSON.stringify(this.currentProgram));
+    localStorage.setItem('currentAssessments',JSON.stringify(assessment));
+   
+
+    this.router.navigate(['/assessments']);
   }
-
-
 }

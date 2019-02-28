@@ -8,11 +8,14 @@
       </mat-toolbar>
       <mat-divider class="noMarginPadding"></mat-divider>
       <mat-drawer-container class="example-container bodyDiv" autosize>
-            <mat-drawer #drawer class="example-sidenav sideDiv" mode="side" [(opened)]="opened"> 
+            
+        <mat-drawer  #drawer class="example-sidenav sideDiv" mode="side" [(opened)]="opened"> 
                     <div *ngFor= "let link of links" > 
                             <app-sidenav [link] = "link" ></app-sidenav>
                     </div>
             </mat-drawer>
+
+           
             <div class="example-sidenav-content ">
               <router-outlet></router-outlet>
             </div>

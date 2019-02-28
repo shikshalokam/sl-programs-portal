@@ -1,41 +1,54 @@
 @import '../../../../assets/scss/varibles.scss';
-
-.container{
-    height:100%;
-}
-.unorder-list{
-    list-style: none;
+.flex-box{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    padding:0px;
-    flex-wrap: wrap;
-    margin-top:50px;
-    li{
-       margin-right:5%;
-       margin-left:5%;
-       margin-bottom: 8%;
-       vertical-align: middle;
-       border-radius: 30px;
-        height:150px;
-        width:150px;
-        text-align: center;
-        font-size:1.2em;
-        color:$primary-color;
-       background-image: linear-gradient(to top,#e8eced 10%,$white-color);
-       border: 1px solid $grey-color;
-        cursor: pointer;
-        i{
-            font-size:5em;
-            vertical-align: middle;
-            line-height: 150px;
-       }
-    }
+    align-items: center;
+    cursor: pointer;
 }
-
-.context{
+.description{
     color:$grey-color;
-    font-size:1em;
-    margin-top:20px;
-    width:150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 110px;
+    text-align: center;
+}
+.dashBoardIcon{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    // border :1px solid #bababa;
+    border-radius: 20px;
+    margin : 0px 20px;
+}
+.margin-top{
+margin-top:20px;
+}
+.folderIcon{
+    font-size: 70px;
+    color:$primary-color;
+    display: flex;
+    align-items: center;
+}
+.wrapper{
+    padding:0px 20px;
+}
+.box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.iconBox{
+    width: 100%;
+    background-image: linear-gradient(to top,#e8eced 10%,white 90%);
+    height: 120px;
+    width: 120px;
+    border: 1px solid $grey-color;
+    border-radius: 15px;
+
 }
