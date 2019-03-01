@@ -63,6 +63,7 @@ export class ViewAssessorsComponent implements OnInit {
   }
   onResize(event)
   {
+    console.log(event, "event 1");
     if(event.target.innerWidth < 760)
     {
       this.smallScreen = true;
@@ -73,7 +74,7 @@ export class ViewAssessorsComponent implements OnInit {
   }
  
   pageEvent(event){
-   
+   console.log(event, "event 2");
     if(this.pageSize !== event.pageSize ?  this.pageSize : event.pageSize  )
     this.pageIndex = event.pageIndex;
     this.getAssessorlist();

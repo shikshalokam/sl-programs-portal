@@ -23,7 +23,7 @@ import { ProgramSidenavComponent } from './components/program-sidenav/program-si
     NavbarComponent,
     SidenavComponent,
     ResponsiveNavbarComponent,
-    ProgramSidenavComponent
+    ProgramSidenavComponent,
   ],
   imports: [
     NgxSpinnerModule,
