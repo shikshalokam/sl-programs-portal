@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AssessmentDashboardComponent } from './assessment-dashboard.component';
+import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 
 const routes: Routes = [
   {
     path: '',
     component: AssessmentDashboardComponent,
+    canActivate : [AuthGuard],
     children: [
       // {
       //   path: 'parent',
@@ -13,15 +15,12 @@ const routes: Routes = [
       // },
       {
         path: 'report',
-        // data: { programId: progId, assessmentId: assId},
-
         loadChildren: '../report/report.module#ReportModule'
       },
      
       {
         path: 'operations',
         loadChildren: '../operations/operations.module#OperationsModule'
-
       },
       {
         path: '',

@@ -1,10 +1,11 @@
-<div class="wrapper">
   <app-loader></app-loader>
   <div *ngIf="!error">
     <app-parent-heading [genericHeading]="headings"></app-parent-heading>
+
+
     <div *ngIf=" result > 0  && !smallScreen" class="bigTabel" (window:resize)="onResize($event)">
-      <mat-form-field [floatLabel]="'never'" class=" _full-width">
-        <input class="filterInput" matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'search'| translate}}">
+      <mat-form-field [floatLabel]="'never'" class="_full-width">
+        <input class="filterInput" id="search" matInput  appSearch [searchValue]="searchValue" (sendSearchValue)="searchInApi($event)" placeholder="{{'search'| translate}}" (keyup)="applyFilter($event.target.value)" >
       </mat-form-field>
       <div class="example-container mat-elevation-z8 ">
         <div class="tableContainer">
@@ -29,9 +30,12 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
-        <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[100,50,500]" showFirstLastButtons></mat-paginator>
+        <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[100,50,500]" showFirstLastButtons [pageIndex]="pageIndex" [pageSize]="pageSize" [length]="length" (page)="pageEvent($event)"></mat-paginator>
       </div>
     </div>
+
+
+
     <div *ngIf=" result > 0 && smallScreen" class="_responsiveTabel" (window:resize)="onResize($event)">
       <div *ngFor="let school of schoolList" class=" margin">
         <mat-expansion-panel>
@@ -66,4 +70,3 @@
       </div>
     </div>
   </div>
-</div>

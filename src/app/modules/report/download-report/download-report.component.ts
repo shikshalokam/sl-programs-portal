@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ReportService } from 'src/app/core';
 import { MatSnackBar } from '@angular/material';
+import { ReportService } from '../report-service/report.service';
 
 @Component({
   selector: 'app-download-report',

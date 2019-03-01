@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
-import { UtilityService } from 'src/app/core/services/utility-service/utility.service';
-import { ReportService } from 'src/app/core';
+import { UtilityService } from 'shikshalokam';
+import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute } from '@angular/router';
 
 elementData: {
@@ -34,6 +34,17 @@ export class SchoolListComponent implements OnInit {
     });
     
   }
+  
+  onResize(event)
+  {
+    if(event.target.innerWidth < 760)
+    {
+      this.smallScreen = true;
+    }
+    else{
+      this.smallScreen = false;
+    }
+  }
   showConfig() {
     this.reportService.getSchoolList()
       .subscribe(data => {
@@ -55,7 +66,7 @@ export class SchoolListComponent implements OnInit {
   }
   ngOnInit() {
     this.utility.loaderShow();
-    if (window.screen.width < 760) { // 768px portrait
+    if (window.innerWidth < 760) { // 768px portrait
       this.smallScreen = true;
     }
   }

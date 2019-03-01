@@ -1,3 +1,4 @@
+
 @import '../../../../assets/scss/varibles.scss';
 table {
     width: 100%;
@@ -37,7 +38,7 @@ table {
     justify-content: space-between;
 }
 .example-container {
-    height: calc(100vh - 175px) !important;
+    height: calc(100vh - 175px ) !important;
   }
 .tableContainer{
     height: calc(100vh - 230px) !important;

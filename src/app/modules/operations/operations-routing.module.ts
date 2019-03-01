@@ -1,14 +1,15 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OperationsComponent } from './operations.component';
 import { UploadingCsvComponent } from './uploading-csv/uploading-csv.component';
 import { ViewSchoolsComponent } from './view-schools/view-schools.component';
 import { OperationsDashboardComponent } from './operations-dashboard/operations-dashboard.component';
+import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
+import { OperationsComponent } from './operations.component';
 
 const routes: Routes = [
   {  path: '', 
     // canActivate: [AuthGuard],
-    // component:OperationsComponent,
+    component:OperationsComponent,
     data: {},
     children: [
       {
@@ -18,6 +19,10 @@ const routes: Routes = [
       { 
         path:'view-schools',
         component:ViewSchoolsComponent
+      },
+      { 
+        path:'view-assessors',
+        component:ViewAssessorsComponent
       },
      {
         path:'operations-dashboard',

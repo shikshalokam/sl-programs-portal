@@ -4,7 +4,7 @@
 <div *ngIf="!error">
   <app-parent-heading [genericHeading]="headings" [showControl]="true" ></app-parent-heading>
 
-  <div *ngIf=" result > 0 && !smallScreen" class="bigTabel" >
+  <div *ngIf=" result > 0 && !smallScreen" class="bigTabel"  (window:resize)="onResize($event)">
     <mat-form-field [floatLabel]="'never'" class=" _full-width">
       <input class="filterInput" matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'search'| translate}}">
     </mat-form-field>
@@ -50,8 +50,7 @@
     
 
   </div>
-  <div *ngIf=" result > 0 && smallScreen && schoolList" class="_responsiveTabel col-sm-12 ">
-    {{smallScreen}}
+  <div *ngIf=" result > 0 && smallScreen && schoolList" class="_responsiveTabel col-sm-12 " (window:resize)="onResize($event)">
       <div *ngFor="let school of schoolList" class="margin">
           <mat-expansion-panel >
               <mat-expansion-panel-header>
@@ -68,7 +67,7 @@
                  </div>
                </div>
                <div class="flexRight">
-               <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,school.name,school._id ]">
+               <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" [routerLink]="['/assessments/report/ecm-report' ,school.name,school._id ]">
                 {{'tableLabel.buttons.clickHere'| translate}}</div>
                 <ng-template #complete>
                     <div  class="complete">

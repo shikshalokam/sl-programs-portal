@@ -33,11 +33,13 @@
     "downloadReport":"Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "assessments":"Assessments",
         "programs":"Programs",
         "addQuestions": "Add New Question",
         "parentInfoHeading" : "Parent Information",
         "parentListHeading" : "Parent List",
-        "schoolListHeading" : "School List",
+        "schoolListHeading" : "View List",
+        "assessorListHeading":"View Assessors",
         "ecmReportsHeading" : "ECM Reports",
         "parentInterview":"Parent Interview",
         "features" : "Features",
@@ -58,7 +60,8 @@
         "choices" : "Choices",
         "type" : "Type",
         "uploadingCsv":"Uploading Csv",
-        "operationDashboardUpload":"Upload Csv"
+        "operationDashboardUpload":"Upload Csv",
+        "viewSchools": "View Schools"
     },
     "labels": {
         "uploadCsv" : "Upload Csv"
@@ -87,6 +90,7 @@
         "city":"City",
         "state":"State",
         "externalId":"External-Id",
+        "role":"Role",
         "callResponse" : "Status",
         "_id":"Id",
         "buttons":{
