@@ -38,10 +38,12 @@ table {
     justify-content: space-between;
 }
 .example-container {
-    height: calc(100vh - 160px) !important;
+    // height: calc(100vh - 160px) !important;
+    height: calc(100vh - 228px) !important;
   }
 .tableContainer{
-    height: calc(100vh - 216px) !important;
+    // height: calc(100vh - 216px) !important;
+    height: calc(100vh - 285px) !important;
     overflow: auto;
 }
 

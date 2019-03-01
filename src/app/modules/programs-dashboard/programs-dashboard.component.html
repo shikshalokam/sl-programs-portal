@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <div class="row completeDiv">
       <mat-toolbar class="toolBar noMarginPadding">
@@ -9,6 +8,10 @@
       </mat-toolbar>
       <mat-divider class="noMarginPadding"></mat-divider>
       <mat-drawer-container class="example-container bodyDiv" autosize>
+
+      <div class="assessmentHeading">
+       <app-parent-heading [genericHeading]="headings" [showControl]="true"></app-parent-heading>
+      </div>
             <mat-drawer #drawer class="example-sidenav sideDiv" mode="side" [(opened)]="opened"> 
               <div *ngIf="programData"> 
                 <app-program-sidenav  [result] = "programData" (program)="setCurrentAssessment($event)"></app-program-sidenav>
@@ -24,11 +27,10 @@
               </mat-card-content>
             </mat-card>
            </div>
-            
-          </mat-drawer-container>
-
-          
+      </mat-drawer-container>
+      <footer></footer>
   </div>
+
 </div>
 
 

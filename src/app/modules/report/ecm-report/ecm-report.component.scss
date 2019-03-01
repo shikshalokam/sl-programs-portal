@@ -5,9 +5,9 @@
     padding: 5px 0px;
 }
 .infoAlingCenterLine{
-        display : flex;
-        align-items: center;
-        padding: 5px 0px;
+    display : flex;
+    align-items: center;
+    padding: 5px 0px;
 }
 .wrapper{
     padding:20px 2px;
@@ -49,7 +49,7 @@
     padding :10px;
     border-bottom:  1px solid #bababa;
     margin-bottom: 10px;
-   display: flex;
+    display: flex;
 }
 .uploadImageIcon{
     padding-left: 20px;
@@ -58,7 +58,8 @@
     background-color: $background-color;
 }
 .noDataFound{
-    height: calc(100vh - 200px) !important;
+    // height: calc(100vh - 200px) !important;
+    height: calc(100vh - 268px) !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,6 +70,5 @@
 }
 .textOverflow{
     overflow: hidden;
-
     text-overflow: ellipsis;
 }

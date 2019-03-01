@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-schools.component.scss']
 })
 export class ViewSchoolsComponent implements OnInit {
-  displayedColumns: string[] = ['externalId', 'name', '_id'];
+  displayedColumns: string[] = ['name'];
   dataSource;
   schoolList;
   result;

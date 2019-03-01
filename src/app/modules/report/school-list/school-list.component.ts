@@ -13,7 +13,7 @@ elementData: {
   styleUrls: ['./school-list.component.scss']
 })
 export class SchoolListComponent implements OnInit {
-  displayedColumns: string[] = ['externalId', 'name', 'city', 'state', 'isParentInterviewCompleted'];
+  displayedColumns: string[] = ['name', 'city', 'state', 'isParentInterviewCompleted'];
   dataSource;
   schoolList;
   result;
@@ -27,7 +27,6 @@ export class SchoolListComponent implements OnInit {
   constructor(private route :ActivatedRoute,private reportService: ReportService, private utility: UtilityService) {
     this.showConfig();
     this.route.parent.queryParams.subscribe(params => {
-      // console.log(params);
       this.programId = params['programId'];
       this.assessmentId = params['assessmentId']
 

@@ -15,6 +15,7 @@ import { AuthGuard } from '../core/auth-gaurd/auth.gaurd'
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ProgramSidenavComponent } from './components/program-sidenav/program-sidenav.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     TranslatePipe,
@@ -24,6 +25,7 @@ import { ProgramSidenavComponent } from './components/program-sidenav/program-si
     SidenavComponent,
     ResponsiveNavbarComponent,
     ProgramSidenavComponent,
+    FooterComponent,
   ],
   imports: [
     NgxSpinnerModule,
@@ -51,6 +53,7 @@ import { ProgramSidenavComponent } from './components/program-sidenav/program-si
     TranslatePipe,
     NavbarComponent,
     SidenavComponent,
+    FooterComponent,
     ResponsiveNavbarComponent,
     CamelCasePipe,
     NoValuePipe,

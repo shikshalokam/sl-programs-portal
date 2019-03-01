@@ -44,7 +44,7 @@
 }
 
 .completeDiv {
-    height: 100vh;
+     height: 100vh;
 }
 .flex-box-justify-content-center{
     display: flex !important;
@@ -56,7 +56,8 @@
 }
 
 .bodyDiv {
-    height: calc(100vh - 52px) !important;
+    // height: calc(100vh - 52px) !important; 
+    height: calc(100vh - 92px) !important;
 }
 
 .container{
@@ -80,7 +81,9 @@
     font-size: 40px;
     color:$grey-color;
 }
-
+.assessmentHeading{
+    padding-left:20px;
+}
 
 
 

@@ -39,6 +39,7 @@
         "parentInfoHeading" : "Parent Information",
         "parentListHeading" : "Parent List",
         "schoolListHeading" : "School List",
+        "programAssessmentHeading":"Program Details",
         "assessorListHeading":"Assessors List",
         "ecmReportsHeading" : "ECM Reports",
         "parentInterview":"Parent Interview",
@@ -52,15 +53,15 @@
         "criteriaFrameWorkHeading":"Criterias",
         "criteriaList" : "Criteria List",
         "dashBoard" : "Configuration Dashboard",
-        "dashboards":"Operations Dashboard",
+        "dashboards":"Operations Dashboard Modules",
         "addRubric":"Add Levels To Rubric",
         "fillCriteriaDetails":"Fill Criteria Details",
         "panelEditHeading" : "Click on panel to Edit",
         "general" : "General",
         "choices" : "Choices",
         "type" : "Type",
-        "uploadingCsv":"Uploading Csv",
-        "operationDashboardUpload":"Upload Csv"
+        "uploadingCsv":"Uploading Csv List",
+        "operationDashboardUpload":"Upload Details List"
     },
     "labels": {
         "uploadCsv" : "Upload Csv"

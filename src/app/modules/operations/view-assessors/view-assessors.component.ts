@@ -8,7 +8,7 @@ import { OperationsService, UtilityService } from 'src/app/core';
   styleUrls: ['./view-assessors.component.scss']
 })
 export class ViewAssessorsComponent implements OnInit {
-  displayedColumns: string[]=['externalId','role','_id'];
+  displayedColumns: string[]=['role'];
   headings = 'headings.assessorListHeading';
   smallScreen = false;
   search='';
