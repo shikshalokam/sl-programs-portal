@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../private-modules/auth-service/auth.service';
 
 @Component({
   selector: 'app-assessment-dashboard',
@@ -11,48 +12,38 @@ export class AssessmentDashboardComponent implements OnInit {
   assessmentId;
   // links ;
   opened = true;
-  constructor(private route : ActivatedRoute) {
+  pushMode = 'side';
+  currentUser;
+  logo =" ./assets/shikshalokam.png";
+
+  constructor(private route : ActivatedRoute,private authService :AuthService) {
     if (window.screen.width < 760) { // 768px portrait
       this.opened = false;
+      this.pushMode = 'push';
     }
-   
-      // this.programId = localStorage.getItem('programId')
-      // this.route.queryParams.subscribe(params => {
-      //   this.programId= params['programId'];
-      //   this.assessmentId = params['assessmentId']
-      //   this.links = [  
-      //     { 
-      //       linkHeading : "headings.features",
-      //       options:[
-              
-      //         {
-      //           value :"headings.reports",
-      //           link :{
-      //             programId:this.programId,
-      //             assessmentId :this.assessmentId,
-      //             anchorLink:"report"
-      //           }
-      //         },
-      //                       {
-      //           value:"headings.operations",
-      //           link :{
-      //             programId:this.programId,
-      //             assessmentId :this.assessmentId,
-      //           anchorLink:"operations"
-      //           }
-      //         }
-      //       ]
-      //       }
-      //   ] ;
-      // })
-    
+    this.currentUser = this.authService.getCurrentUserDetails();
    }
 
   ngOnInit() {
 
   }
    
+  onLogout(){
+    this.authService.getLogout();
+  }
+  onResize(event)
+  {
+    if(event.target.innerWidth < 760)
+    {
+      this.opened = false;
+      this.pushMode = 'push';
+    }
+    else{
+      this.opened = true;
+      this.pushMode = 'side';
 
+    }
+  }
   links = [  
         { 
           linkHeading : "headings.features",

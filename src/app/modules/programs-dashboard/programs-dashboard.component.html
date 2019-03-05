@@ -3,19 +3,18 @@
   <div class="row completeDiv">
       <mat-toolbar class="toolBar noMarginPadding">
           <div class="col-xs-12 ">
-                <app-navbar ></app-navbar>
-                <app-responsive-navbar  (openDrawer)="drawer.toggle()"></app-responsive-navbar>
-          </div>
+              <app-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" ></app-navbar>
+              <app-responsive-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" (openDrawer)="drawer.toggle()"></app-responsive-navbar>          </div>
       </mat-toolbar>
       <mat-divider class="noMarginPadding"></mat-divider>
       <mat-drawer-container class="example-container bodyDiv" autosize>
-            <mat-drawer #drawer class="example-sidenav sideDiv" mode="side" [(opened)]="opened"> 
+            <mat-drawer #drawer class="example-sidenav sideDiv" [(mode)]="pushMode" [(opened)]="opened" (window:resize)="onResize($event)"> 
               <div *ngIf="programData"> 
                 <app-program-sidenav  [result] = "programData" (program)="setCurrentAssessment($event)"></app-program-sidenav>
               </div>
             </mat-drawer>
            <div class="margin">
-            <mat-card *ngFor="let assessment of currentAssesssment; let i=index" class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 marginTop" (click)="programClick(assessment)">
+            <mat-card *ngFor="let assessment of currentAssesssment; let i=index" class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 marginTop _cursor-pointer" (click)="programClick(assessment)">
               <mat-card-title _ngcontent-c15="" class="mat-card-title flex-box-justify-content-center">
                   <i class="material-icons iconSize" >assessment</i>
               </mat-card-title>

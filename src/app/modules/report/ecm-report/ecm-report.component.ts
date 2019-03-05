@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {  UtilityService, ReportService } from 'src/app/core';
+import {  UtilityService } from 'shikshalokam';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { ImageModalComponent } from '../ecm-report/image-modal/image-modal.component';
+import { ReportService } from '../report-service/report.service';
 export interface DialogData {
   fileName: any;
 }

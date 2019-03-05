@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AssessmentDashboardComponent } from './assessment-dashboard.component';
-import { AuthGuard } from 'src/app/core/auth-gaurd/auth.gaurd';
+import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 
 const routes: Routes = [
   {

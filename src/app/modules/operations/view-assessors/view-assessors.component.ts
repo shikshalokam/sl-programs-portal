@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransitionCheckState, MatTableDataSource } from '@angular/material';
-import { OperationsService, UtilityService } from 'src/app/core';
+import {  UtilityService } from 'shikshalokam';
+import { OperationsService } from '../operations-service/operations.service';
 
 @Component({
   selector: 'app-view-assessors',
@@ -59,8 +60,10 @@ export class ViewAssessorsComponent implements OnInit {
     this.utility.loaderShow();
   }
   onResize(event){
-    if(event.target.innerWidth > 760){
+    if(event.target.innerWidth < 760){
       this.smallScreen = true;
+    }else{
+      this.smallScreen = false;
     }
   }
  
