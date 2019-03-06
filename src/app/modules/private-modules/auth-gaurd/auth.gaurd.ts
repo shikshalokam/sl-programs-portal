@@ -8,24 +8,46 @@ import {
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../auth-service/auth.service';
+import { SidenavComponent } from 'shikshalokam';
 
 
 @Injectable({
   providedIn: 'root',
 })
-// export class AuthGuard implements CanActivate, CanActivateChild {
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate ,CanActivateChild {
 
   constructor(private authService: AuthService,private snackBar: MatSnackBar, private router: Router) { }
   url ;
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canAcess ;
+  canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     let url: string = state.url;
     this.url = state.url;
-    return this.checkProgarmId(url);
-    // return this.checkUser(url)
+    this.canAcess = JSON.parse(localStorage.getItem('canAcess'));
+    console.log(route.data.id + "parent")
+    return ( this.roleAecss(route.data.id ) )
   }
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    let url: string = state.url;
+    this.url = state.url;
+    console.log(route.data.id + "child")
+
+    this.canAcess = JSON.parse(localStorage.getItem('canAcess'));
+    return ( this.roleAecss(route.data.id ) )
+  }
+
+  
+  
+  roleAecss(url){
+    let flag = false ;  
+    // console.log(url)
+    this.canAcess.forEach(element => {
+      if(url.includes(element))  {
+        flag =true;
+      }
+    });
+    return flag;
+  }
+
   checkProgarmId(url){
     if(url.includes('/assessments') ){
       if(localStorage.getItem('currentProgram') === null){
@@ -34,12 +56,9 @@ export class AuthGuard implements CanActivate {
       }
       return true;
     }
-
-    //   return true;
-    // }
     return true;
-    
   }
+
   checkUser(url: string) {
     if (url.includes("parent")) {
       if (this.authService.userName == 'Sandeep') {

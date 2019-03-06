@@ -70,6 +70,6 @@ export class ProgramsDashboardComponent implements OnInit {
     localStorage.setItem('currentAssessments',JSON.stringify(assessment));
    
 
-    this.router.navigate(['/assessments']);
+    // this.router.navigate(['/assessments']);
   }
 }

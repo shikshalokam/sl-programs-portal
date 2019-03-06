@@ -10,19 +10,25 @@ const routes: Routes = [
   {
     path: '', component: ReportComponent,
     // canActivate: [AuthGuard],
-    data: {},
+    // data: {id:'report'},
     children: [
       {
         path: 'school-list',
+        data: {id:'schoolList'},
+        canActivateChild:[AuthGuard],
         component: SchoolListComponent,
       },
       {
         path: 'ecm-report/:name/:id',
+        data: {id:'ecmReport'},
+        canActivateChild:[AuthGuard],
         component: EcmReportComponent,
        
       },
       {
         path: 'download-evedince-report',
+        data: {id:'downloadEvedienceReport'},
+        canActivateChild:[AuthGuard],
         component: DownloadReportComponent,
        
       },
