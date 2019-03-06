@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { OperationsComponent } from './operations.component';
 import { OperationsRoutingModule } from './operations-routing.module';
 import { UploadingCsvComponent } from './uploading-csv/uploading-csv.component';
-import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule } from '@angular/material';
-import { CoreModule } from 'shikshalokam';
+import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule, MatDialogModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgressBarModule} from "angular-progress-bar"
-import { SharedModule } from 'shikshalokam';
+import { SharedModule,CoreModule } from 'shikshalokam';
 import { ViewSchoolsComponent } from './view-schools/view-schools.component';
 import { OperationsDashboardComponent } from './operations-dashboard/operations-dashboard.component';
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
+import { SelectProgramComponent } from './operations-dashboard/select-program/select-program.component';
 
 @NgModule({
-  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent],
+  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent],
   imports: [
     CommonModule,
     OperationsRoutingModule,
@@ -27,9 +27,13 @@ import { ViewAssessorsComponent } from './view-assessors/view-assessors.componen
     SharedModule,
     MatPaginatorModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
+
   ]
 ,
+
+entryComponents:[SelectProgramComponent]
 // providers:[MatFileUploadModule]
 })
 export class OperationsModule { }

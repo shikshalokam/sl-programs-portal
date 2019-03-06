@@ -5,29 +5,39 @@ import { ViewSchoolsComponent } from './view-schools/view-schools.component';
 import { OperationsDashboardComponent } from './operations-dashboard/operations-dashboard.component';
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
 import { OperationsComponent } from './operations.component';
+import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 
 const routes: Routes = [
+
   {  path: '', 
-    // canActivate: [AuthGuard],
-    component:OperationsComponent,
-    data: {},
-    children: [
+      data :{id :'operations'},
+      component : OperationsComponent,
+      canActivate : [AuthGuard],
+      children: [
       {
           path:'upload-csv',
+          data:{id : 'uploadCsv'},
+          canActivate : [AuthGuard],
           component : UploadingCsvComponent
       },
       { 
         path:'view-schools',
+        data:{id:'viewSchools'},
+        canActivate : [AuthGuard],
         component:ViewSchoolsComponent
       },
       { 
         path:'view-assessors',
+        data:{id:'viewAssessors'},
+        canActivate: [AuthGuard],
+
         component:ViewAssessorsComponent
       },
      {
         path:'operations-dashboard',
         component: OperationsDashboardComponent
       },
+
       {
         path:'',
         redirectTo : 'operations-dashboard',
