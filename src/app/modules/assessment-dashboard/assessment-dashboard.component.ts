@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../private-modules/auth-service/auth.service';
 
+
 @Component({
   selector: 'app-assessment-dashboard',
   templateUrl: './assessment-dashboard.component.html',
@@ -48,6 +49,10 @@ export class AssessmentDashboardComponent implements OnInit {
         { 
           linkHeading : "headings.features",
           options:[
+            {
+              value:"headings.homes",
+              anchorLink:"Home"
+            },
             
             {
               value :"headings.reports",

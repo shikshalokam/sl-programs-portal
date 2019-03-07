@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AssessmentDashboardComponent } from './assessment-dashboard.component';
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
-
+import{AssessmentHomeComponent}from './assessment-home/assessment-home.component';
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +17,11 @@ const routes: Routes = [
         path: 'report',
         loadChildren: '../report/report.module#ReportModule'
       },
+      {
+      path:'Home',
+      pathMatch:'full',
+      component: AssessmentHomeComponent,
+    },
      
       {
         path: 'operations',
@@ -24,16 +29,21 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'report',
+        redirectTo: 'Home',
         pathMatch: 'full'
       },
       {
         path: '**',
-        redirectTo: 'operations',
+        redirectTo: 'Home',
         pathMatch: 'full'
+      },
+      {
+        path: 'Home', component: AssessmentHomeComponent,
+        
       }
     ]
   }
+  
 ];
 
 @NgModule({
@@ -44,3 +54,4 @@ export class AssessmentRoutingModule {
   constructor(){
   }
  }
+
