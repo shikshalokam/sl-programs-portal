@@ -34,7 +34,7 @@ export class OperationsDashboardComponent implements OnInit {
   openProgramDialogBox(event): void {
     const dialogRef = this.dialog.open(SelectProgramComponent, {
       width: '700px',
-      height:'400px',
+      height:'420px',
       data : {event}
     });
 

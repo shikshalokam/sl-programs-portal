@@ -37,7 +37,7 @@ export class ProgramsDashboardComponent implements OnInit {
     this.programService.getProgramList()
       .subscribe(data => {
         this.programData = data['result'];
-        this.setCurrentAssessment(this.programData[0]);
+        
         this.utilityService.loaderHide();
       }, error => {
       this.utilityService.loaderHide();
@@ -58,18 +58,18 @@ export class ProgramsDashboardComponent implements OnInit {
     }
   }
 
-  setCurrentAssessment(assessment) {
-    this.currentProgram = assessment;
-    this.currentProgramId= assessment._id;
-    this.currentProgram =assessment;
-    this.currentAssesssment = assessment.assessments;
-  }
-  programClick(assessment){
-    this.currentAssessmentId=assessment._id;
-    localStorage.setItem('currentProgram',JSON.stringify(this.currentProgram));
-    localStorage.setItem('currentAssessments',JSON.stringify(assessment));
+  // setCurrentAssessment(assessment) {
+  //   this.currentProgram = assessment;
+  //   this.currentProgramId= assessment._id;
+  //   this.currentProgram =assessment;
+  //   this.currentAssesssment = assessment.assessments;
+  // }
+  // programClick(assessment){
+  //   this.currentAssessmentId=assessment._id;
+  //   localStorage.setItem('currentProgram',JSON.stringify(this.currentProgram));
+  //   localStorage.setItem('currentAssessments',JSON.stringify(assessment));
    
 
-    // this.router.navigate(['/assessments']);
-  }
+  //   // this.router.navigate(['/assessments']);
+  // }
 }
