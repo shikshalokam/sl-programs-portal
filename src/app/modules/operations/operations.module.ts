@@ -11,9 +11,11 @@ import { ViewSchoolsComponent } from './view-schools/view-schools.component';
 import { OperationsDashboardComponent } from './operations-dashboard/operations-dashboard.component';
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
 import { SelectProgramComponent } from './operations-dashboard/select-program/select-program.component';
+import { InsideReportComponent } from './inside-report/inside-report.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
-  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent],
+  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent, InsideReportComponent],
   imports: [
     CommonModule,
     OperationsRoutingModule,
@@ -28,8 +30,8 @@ import { SelectProgramComponent } from './operations-dashboard/select-program/se
     MatPaginatorModule,
     MatExpansionModule,
     MatTableModule,
-    MatDialogModule
-
+    MatDialogModule,
+    GoogleChartsModule.forRoot('AIzaSyCpjV3kqGWqhqzG0pyftqcwIEG1y3nVFW0'),
   ]
 ,
 

@@ -24,7 +24,7 @@ export const GlobalConfig = {
           icons:"done",
           tooltip:"headings.operationDashboardUpload",
           anchorLink:"/operations/upload-csv",
-          id:'uploadCsv'
+          id:'uploadcsv'
         },
         {
           icons:"done",
@@ -36,7 +36,13 @@ export const GlobalConfig = {
           icons:"done",
           tooltip:"headings.assessorListHeading",
           anchorLink: "/operations/view-assessors",
-          id:'viewAssessors'
+          id:'viewAcessor'
+        },
+        {
+          icons:"done",
+          tooltip:"headings.insideReport",
+          anchorLink: "/operations/inside-report",
+          id:'insideReport'
         }
       ]
     }

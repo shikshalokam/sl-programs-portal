@@ -1,27 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-   
-// const routes: Routes = [
-//   {
-//     // path: 'assesments/:programId/:assesmentId',
-//     path: 'assessments',
-//     // component: AssessmentDashboardComponent
-    
-//     loadChildren: './modules/assessment-dashboard/assessment-dashboard.module#AssessmentDashboardModule'
-//   },
-//   // {
-//   //   path: 'programs',
-//   //   component : ProgramsDashboardComponent
-//   // },
-//   {
-//     path: '',
-//     redirectTo: 'assessments',
-//     pathMatch: 'full'
-//   }
-// ];
-
-
 const routes: Routes = [
   {
     path: '',

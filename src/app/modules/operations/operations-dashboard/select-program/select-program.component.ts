@@ -17,7 +17,7 @@ export class SelectProgramComponent implements OnInit {
     ,private snackBar :MatSnackBar,private router : Router) {
 
     }
-
+    headings="headings.programList";
   onChoose(): void {
     this.dialogRef.close(true);
   }
