@@ -8,7 +8,8 @@
         "noData" :"No data found",
         "addCriteria" : "Adding a new Criteria",
         "customizeQuestion":"Customize Question",
-        "goToProgramDashboard":"Go To Program Dashboard"
+        "goToProgramDashboard":"Go To Program Dashboard",
+        "selectPrograms":"Select a program to continue"
 
     },
     
@@ -61,7 +62,9 @@
         "type" : "Type",
         "uploadingCsv":"Uploading Csv",
         "operationDashboardUpload":"Upload Csv",
-        "viewSchools": "View Schools"
+        "viewSchools": "View Schools",
+        "programList":"Programs List",
+        "insightReport":"Insight Reports"
     },
     "labels": {
         "uploadCsv" : "Upload Csv"

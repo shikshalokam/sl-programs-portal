@@ -1,5 +1,5 @@
 <div class="wrapper">
 <app-parent-heading [genericHeading]="headings" [showControl]="true"></app-parent-heading>
 </div>
-<dashboard-blocks [list]="dashboards"></dashboard-blocks>
+<dashboard-blocks [list]="dashboards" (sendNavigationLink)="navigateLink($event)" ></dashboard-blocks>
 
