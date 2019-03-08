@@ -15,7 +15,12 @@ export const GlobalConfig = {
               value:"headings.operations",
               id:'operations',
               anchorLink:"operations"
-            }
+            },
+            {
+              value:"headings.homes",
+              id:'home',
+              anchorLink:"home"
+            },
           ]
           }
       ] ,

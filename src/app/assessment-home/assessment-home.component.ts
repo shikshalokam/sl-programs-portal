@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../private-modules/auth-service/auth.service';
+import { AuthService } from '../modules/private-modules/auth-service/auth.service';
 @Component({
   selector: 'app-assessment-home',
   templateUrl: './assessment-home.component.html',

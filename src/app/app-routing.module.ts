@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AssessmentHomeComponent } from './assessment-home/assessment-home.component';
 const routes: Routes = [
   {
     path: '',
@@ -18,13 +19,17 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'operations',
+        redirectTo: 'home',
         pathMatch: 'full'
       },
       {
         path: '**',
-        redirectTo: 'operations',
+        redirectTo: 'home',
         pathMatch: 'full'
+      },
+      {
+        path: 'home', component: AssessmentHomeComponent,
+        
       }
     ]
   }

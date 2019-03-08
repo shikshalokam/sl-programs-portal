@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'shikshalokam';;
 import { MatSnackBar } from '@angular/material';
@@ -11,6 +11,7 @@ import { AuthService } from '../private-modules/auth-service/auth.service';
   styleUrls: ['./programs-dashboard.component.scss']
 })
 export class ProgramsDashboardComponent implements OnInit {
+  isLoggedIn:boolean;
   programData;
   currentAssesssment: any;
   currentAssessmentId;
@@ -26,6 +27,13 @@ export class ProgramsDashboardComponent implements OnInit {
       this.pushMode = 'push';
     }
     this.currentUser = this.authService.getCurrentUserDetails();
+    if(this.currentUser){
+      this.isLoggedIn=true;
+    }
+    else{
+      this.isLoggedIn=false;
+    }
+
 
   }
 
