@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../private-modules/auth-service/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-assessment-dashboard',
@@ -15,16 +16,25 @@ export class AssessmentDashboardComponent implements OnInit {
   pushMode = 'side';
   currentUser;
   logo =" ./assets/shikshalokam.png";
+  baseUrl;
 
   constructor(private route : ActivatedRoute,private authService :AuthService) {
     if (window.screen.width < 760) { // 768px portrait
       this.opened = false;
       this.pushMode = 'push';
     }
+
     this.currentUser = this.authService.getCurrentUserDetails();
+    this.baseUrl = environment.base_url;
+    console.log(this.baseUrl)
+
+
    }
 
+
+
   ngOnInit() {
+
 
   }
    

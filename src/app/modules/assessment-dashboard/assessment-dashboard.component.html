@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="baseUrl">
   <div class="row completeDiv">
       <mat-toolbar class="toolBar noMarginPadding">
-          <div class="col-xs-12 ">
-                <app-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" ></app-navbar>
+          <div class="col-xs-12" >
+                <app-navbar [currentUser]="currentUser" (Logout)="onLogout()" [url]="baseUrl" [logo]="logo" ></app-navbar>
                 <app-responsive-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" (openDrawer)="drawer.toggle()"></app-responsive-navbar>
           </div>
       </mat-toolbar>
@@ -14,8 +14,6 @@
                             <app-sidenav [link] = "link" ></app-sidenav>
                     </div>
             </mat-drawer>
-
-           
             <div class="example-sidenav-content ">
               <router-outlet></router-outlet>
             </div>

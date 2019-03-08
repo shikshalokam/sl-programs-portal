@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from 'shikshalokam';
 
 @Component({
@@ -7,7 +7,6 @@ import { TranslateService } from 'shikshalokam';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
  
  
 
@@ -17,7 +16,6 @@ export class AppComponent implements OnInit {
     });
   }
   ngOnInit(){
-  
   }
  
       
