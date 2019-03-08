@@ -9,6 +9,7 @@ import { AuthService } from '../private-modules/auth-service/auth.service';
   styleUrls: ['./assessment-dashboard.component.scss']
 })
 export class AssessmentDashboardComponent implements OnInit {
+   isLoggedIn: boolean;
   programId;
   assessmentId;
   // links ;
@@ -23,15 +24,24 @@ export class AssessmentDashboardComponent implements OnInit {
       this.pushMode = 'push';
     }
     this.currentUser = this.authService.getCurrentUserDetails();
+    if(this.currentUser){
+      this.isLoggedIn=true;
+    }
+    else{
+      this.isLoggedIn=false;
+    }
+
    }
 
   ngOnInit() {
-
+  
   }
    
   onLogout(){
     this.authService.getLogout();
   }
+  
+
   onResize(event)
   {
     if(event.target.innerWidth < 760)

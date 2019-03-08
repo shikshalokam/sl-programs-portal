@@ -3,7 +3,7 @@
   <div class="row completeDiv">
       <mat-toolbar class="toolBar noMarginPadding">
           <div class="col-xs-12 ">
-              <app-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" ></app-navbar>
+              <app-navbar [currentUser]="currentUser" [isLoggedIn]="isLoggedIn" (Logout)="onLogout()" [logo]="logo" ></app-navbar>
               <app-responsive-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" (openDrawer)="drawer.toggle()"></app-responsive-navbar>          </div>
       </mat-toolbar>
       <mat-divider class="noMarginPadding"></mat-divider>
