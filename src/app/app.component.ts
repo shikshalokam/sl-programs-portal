@@ -11,7 +11,7 @@ import { GlobalConfig } from './global-config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
+  isLoggedIn:boolean;
   programId;
   assessmentId;
   // links ;
@@ -29,6 +29,12 @@ export class AppComponent implements OnInit {
       this.pushMode = 'push';
     }
     this.currentUser = this.authService.getCurrentUserDetails();
+    if(this.currentUser){
+      this.isLoggedIn = true;
+    }else{
+      this.isLoggedIn = false;
+    }
+    console.log(this.isLoggedIn)
     this.getRoleAcess();
    }
 
@@ -60,6 +66,7 @@ export class AppComponent implements OnInit {
             this.roleAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
             localStorage.setItem('canAcess',JSON.stringify(this.roleAcess));
             this.links = GlobalConfig.programPortalLinks;
+            console.log(this.links)
             console.log(this.roleAcess)
           },
             error => {
