@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { copyStyles } from '@angular/animations/browser/src/util';
 
 @Component({
-  selector: 'app-inside-report',
-  templateUrl: './inside-report.component.html',
-  styleUrls: ['./inside-report.component.scss']
+  selector: 'app-insight-report',
+  templateUrl: './insight-report.component.html',
+  styleUrls: ['./insight-report.component.scss']
 })
-export class InsideReportComponent implements OnInit {
+export class InsightReportComponent implements OnInit {
 
   schoolGraph ;
   assessorGraph ;

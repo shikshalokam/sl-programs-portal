@@ -11,11 +11,12 @@ import { ViewSchoolsComponent } from './view-schools/view-schools.component';
 import { OperationsDashboardComponent } from './operations-dashboard/operations-dashboard.component';
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
 import { SelectProgramComponent } from './operations-dashboard/select-program/select-program.component';
-import { InsideReportComponent } from './inside-report/inside-report.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { environment } from 'src/environments/environment';
+import { InsightReportComponent } from './insight-report/insight-report.component';
 
 @NgModule({
-  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent, InsideReportComponent],
+  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent, InsightReportComponent],
   imports: [
     CommonModule,
     OperationsRoutingModule,
@@ -31,7 +32,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatExpansionModule,
     MatTableModule,
     MatDialogModule,
-    GoogleChartsModule.forRoot('AIzaSyCpjV3kqGWqhqzG0pyftqcwIEG1y3nVFW0'),
+    GoogleChartsModule.forRoot(environment.google_api_map),
   ]
 ,
 

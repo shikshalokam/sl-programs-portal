@@ -28,7 +28,7 @@
 }
 .horizontalLine:after {
     content: "";
-    background: lightgrey;
+    background: var(--light-grey-color);
     position: absolute;
     top: 0%;
     right: 0px;

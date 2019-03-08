@@ -40,9 +40,9 @@ export const GlobalConfig = {
         },
         {
           icons:"done",
-          tooltip:"headings.insideReport",
-          anchorLink: "/operations/inside-report",
-          id:'insideReport'
+          tooltip:"headings.insightReport",
+          anchorLink: "/operations/insight-report",
+          id:'insightReport'
         }
       ]
     }

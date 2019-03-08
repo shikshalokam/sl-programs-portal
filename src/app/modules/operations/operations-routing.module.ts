@@ -6,7 +6,7 @@ import { OperationsDashboardComponent } from './operations-dashboard/operations-
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
 import { OperationsComponent } from './operations.component';
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
-import { InsideReportComponent } from './inside-report/inside-report.component';
+import { InsightReportComponent } from './insight-report/insight-report.component';
 
 const routes: Routes = [
 
@@ -35,11 +35,11 @@ const routes: Routes = [
         component:ViewAssessorsComponent
       },
       { 
-        path:'inside-report',
-        data:{id:'insideReport'},
+        path:'insight-report',
+        data:{id:'insightReport'},
         canActivate: [AuthGuard],
 
-        component:InsideReportComponent
+        component:InsightReportComponent
       },
      {
         path:'operations-dashboard',
