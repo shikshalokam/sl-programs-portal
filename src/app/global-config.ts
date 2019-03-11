@@ -46,9 +46,9 @@ export const GlobalConfig = {
         },
         {
           icons:"done",
-          tooltip:"headings.insightReport",
-          anchorLink: "/operations/insight-report",
-          id:'insightReport'
+          tooltip:"headings.opsReport",
+          anchorLink: "/operations/reports",
+          id:'"insightReport"'
         }
       ]
     }
