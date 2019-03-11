@@ -34,6 +34,7 @@
     "downloadReport":"Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "homes":"Home",
         "assessments":"Assessments",
         "programs":"Programs",
         "addQuestions": "Add New Question",

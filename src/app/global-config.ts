@@ -7,6 +7,11 @@ export const GlobalConfig = {
           linkHeading : "headings.features",
           options:[
             {
+              value:"headings.homes",
+              id:'home',
+              anchorLink:"home"
+            },
+            {
               value :"headings.reports",
               id : 'report',
               anchorLink:"report"
@@ -15,7 +20,8 @@ export const GlobalConfig = {
               value:"headings.operations",
               id:'operations',
               anchorLink:"operations"
-            }
+            },
+            
           ]
           }
       ] ,

@@ -12,7 +12,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
 import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
-import { AuthGuard } from './modules/private-modules/auth-gaurd/auth.gaurd';
+import { HomeComponent } from './home/home.component';
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -25,7 +26,8 @@ export function authFactory(authService: AuthService) {
 @NgModule({
   declarations: [
     AppComponent,
-    ProgramsDashboardComponent,
+    HomeComponent
+   
   ],
   imports: [
     AppRoutingModule,
