@@ -26,9 +26,6 @@ export class AssessmentDashboardComponent implements OnInit {
 
     this.currentUser = this.authService.getCurrentUserDetails();
     this.baseUrl = environment.base_url;
-    console.log(this.baseUrl)
-
-
    }
 
 
