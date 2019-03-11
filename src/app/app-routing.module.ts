@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AssessmentHomeComponent } from './assessment-home/assessment-home.component';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +28,7 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'home', component: AssessmentHomeComponent,
+        path: 'home', component: HomeComponent,
         
       }
     ]
