@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OperationsComponent } from './operations.component';
 import { OperationsRoutingModule } from './operations-routing.module';
 import { UploadingCsvComponent } from './uploading-csv/uploading-csv.component';
-import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule, MatDialogModule } from '@angular/material';
+import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule, MatDialogModule, MatCardModule, MatDividerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgressBarModule} from "angular-progress-bar"
 import { SharedModule,CoreModule } from 'shikshalokam';
@@ -12,11 +12,10 @@ import { OperationsDashboardComponent } from './operations-dashboard/operations-
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
 import { SelectProgramComponent } from './operations-dashboard/select-program/select-program.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { environment } from 'src/environments/environment';
-import { InsightReportComponent } from './insight-report/insight-report.component';
+import { OpsReportComponent } from './ops-report/ops-report.component';
 
 @NgModule({
-  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent, InsightReportComponent],
+  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent, OpsReportComponent],
   imports: [
     CommonModule,
     OperationsRoutingModule,
@@ -32,7 +31,9 @@ import { InsightReportComponent } from './insight-report/insight-report.componen
     MatExpansionModule,
     MatTableModule,
     MatDialogModule,
-    GoogleChartsModule.forRoot(environment.google_api_map),
+    MatCardModule,
+    MatDividerModule,
+    GoogleChartsModule.forRoot(),
   ]
 ,
 
