@@ -54,7 +54,8 @@
         "criteriaFrameWorkHeading":"Criterias",
         "criteriaList" : "Criteria List",
         "dashBoard" : "Configuration Dashboard",
-        "dashboards":"Operations Dashboard",
+        "reportDashboards":"Report Dashboard",
+        "operationDashboards":"Operations Dashboard",
         "addRubric":"Add Levels To Rubric",
         "fillCriteriaDetails":"Fill Criteria Details",
         "panelEditHeading" : "Click on panel to Edit",
@@ -66,9 +67,10 @@
         "viewSchools": "View Schools",
         "programList":"Programs List",
         "opsReport":"Reports",
-        "schoolReports" : "Schools Reports :-",
-        "assessorReports":"Assessor Reports :-",
-        "summary":"Summary :-"
+        "schoolReports" : "Schools Reports ",
+        "assessorReports":"Assessor Reports ",
+        "summary":"Summary ",
+        "reportEntityReport":"Entity Report"
         
     },
     "labels": {

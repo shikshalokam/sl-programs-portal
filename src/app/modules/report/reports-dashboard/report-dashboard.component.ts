@@ -5,18 +5,19 @@ import { MatDialog } from '@angular/material';
 import { SelectProgramComponent } from './select-program/select-program.component';
 
 @Component({
-  selector: 'app-operations-dashboard',
-  templateUrl: './operations-dashboard.component.html',
-  styleUrls: ['./operations-dashboard.component.scss']
+  selector: 'app-report-dashboard',
+  templateUrl: './report-dashboard.component.html',
+  styleUrls: ['./report-dashboard.component.scss']
 })
-export class OperationsDashboardComponent implements OnInit {
-   headings= 'headings.operationDashboards'
+export class ReportDashboardComponent implements OnInit {
+   headings= 'headings.reportDashboards'
    operation;
 
    dashboards;
   canAcess = localStorage.getItem('canAcess');
   constructor(private router :Router,private dialog :MatDialog) { 
-     this.dashboards = GlobalConfig.operationsDashBoardLinks;
+     this.dashboards = GlobalConfig.ReportDashBoardLinks;
+     console.log(this.dashboards)
   }
 
  
@@ -33,10 +34,11 @@ export class OperationsDashboardComponent implements OnInit {
   
   openProgramDialogBox(event): void {
     const dialogRef = this.dialog.open(SelectProgramComponent, {
-      width: '700px',
+      width: '600px',
       height:'420px',
       data : {event},
       disableClose: true
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

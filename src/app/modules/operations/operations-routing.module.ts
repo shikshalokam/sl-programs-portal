@@ -36,7 +36,7 @@ const routes: Routes = [
       },
       { 
         path:'reports',
-        data:{id:'insightReport'},
+        data:{id:'opsReport'},
         canActivate: [AuthGuard],
 
         component:OpsReportComponent

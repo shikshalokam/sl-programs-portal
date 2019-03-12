@@ -47,7 +47,21 @@ export const GlobalConfig = {
           icons:"done",
           tooltip:"headings.opsReport",
           anchorLink: "/operations/reports",
-          id:'"insightReport"'
+          id:'opsReport'
+        }
+      ],
+      ReportDashBoardLinks : [
+        {
+          icons:"done",
+          tooltip:"headings.reportEntityReport",
+          anchorLink:"/report/entity-report",
+          id:'entityReport'
+        },
+        {
+          icons:"done",
+          tooltip:"headings.schoolListHeading",
+          anchorLink:"/report/school-list",
+          id:'schoolList'
         }
       ]
     }
