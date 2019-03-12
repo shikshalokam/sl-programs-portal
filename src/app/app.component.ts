@@ -64,6 +64,7 @@ export class AppComponent implements OnInit {
           .subscribe(data => {
             console.log(data);
             this.roleAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
+            this.roleAcess.push('home');
             localStorage.setItem('canAcess',JSON.stringify(this.roleAcess));
             this.links = GlobalConfig.programPortalLinks;
             console.log(this.links)
