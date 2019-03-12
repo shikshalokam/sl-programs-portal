@@ -30,7 +30,6 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
     let url: string = state.url;
     this.url = state.url;
     console.log(route.data.id + "child")
-
     this.canAcess = JSON.parse(localStorage.getItem('canAcess'));
     return ( this.roleAecss(route.data.id ) )
   }
@@ -39,12 +38,13 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
   
   roleAecss(url){
     let flag = false ;  
-    // console.log(url)
+    console.log(url)
     this.canAcess.forEach(element => {
       if(url.includes(element))  {
         flag =true;
       }
     });
+    console.log(url)
     return flag;
   }
 
