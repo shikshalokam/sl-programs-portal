@@ -21,7 +21,6 @@ export const GlobalConfig = {
               id:'operations',
               anchorLink:"operations"
             },
-            
           ]
           }
       ] ,
