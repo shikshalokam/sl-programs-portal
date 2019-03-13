@@ -11,31 +11,47 @@ import { EntityReportComponent } from './entity-report/entity-report.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
-    // canActivate: [AuthGuard],
-    // data: {id:'report'},
+    canActivate: [AuthGuard],
+    data: {
+      id:'report',
+      breadcrumb:'headings.reports'
+  },
     children: [
       {
         path: 'school-list',
-        data: {id:'schoolList'},
+        data: {
+          id:'schoolList',
+          breadcrumb:'headings.schoolListHeading'
+        },
         canActivateChild:[AuthGuard],
         component: SchoolListComponent,
       },
       {
         path: 'ecm-report/:name/:id',
-        data: {id:'ecmReport'},
+        data: {
+          id:'ecmReport',
+          breadcrumb:'headings.ecmReportsHeading'
+        },
         canActivateChild:[AuthGuard],
         component: EcmReportComponent,
        
       },
       {
         path: 'download-evedince-report',
-        data: {id:'downloadEvedienceReport'},
+        data: {
+          id:'downloadEvedienceReport',
+          breadcrumb:'headings.downloadReport'
+        },
         canActivateChild:[AuthGuard],
         component: DownloadReportComponent,
        
       },
       {
         path:'report-dashboard',
+        data:{
+          id:"reportDashBoard",
+          // breadcrumb:'Report DashBoard'
+        },
         component:ReportDashboardComponent,
       },
       {
@@ -44,6 +60,10 @@ const routes: Routes = [
       },
       {
         path:'entity-report',
+        data:{
+          id:"entityReport",
+          breadcrumb:'headings.reportEntityReport'
+        },
         component:EntityReportComponent,
       },
       

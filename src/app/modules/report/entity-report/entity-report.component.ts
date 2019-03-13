@@ -192,9 +192,6 @@ reportStatus = {};
       assessorOptions: {
         colors: ['red', 'black', 'green', '#f3b49f', '#f6c7b6'],
         isStacked: true,
-       
-       
-
       }
     });
     Object.assign(objAssessor, { assessorColumnNames: ['Assessor Name', 'Assigned ', 'Completed'] });

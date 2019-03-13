@@ -69,7 +69,9 @@
         "schoolReports" : "Schools Reports ",
         "assessorReports":"Assessor Reports ",
         "summary":"Summary ",
-        "reportEntityReport":"Entity Report"
+        "reportEntityReport":"Entity Report",
+        "uploadAssessorCsv":"Add Assessor",
+        "uploadSchoolCsv":"Add Schools"
         
     },
     "labels": {
