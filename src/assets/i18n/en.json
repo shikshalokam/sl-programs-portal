@@ -64,7 +64,11 @@
         "operationDashboardUpload":"Upload Csv",
         "viewSchools": "View Schools",
         "programList":"Programs List",
-        "insightReport":"Insight Reports"
+        "opsReport":"Reports",
+        "schoolReports" : "Schools Reports :-",
+        "assessorReports":"Assessor Reports :-",
+        "summary":"Summary :-"
+        
     },
     "labels": {
         "uploadCsv" : "Configurations"
