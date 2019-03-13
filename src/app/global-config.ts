@@ -9,17 +9,21 @@ export const GlobalConfig = {
             {
               value:"headings.homes",
               id:'home',
-              anchorLink:"home"
+              anchorLink:"home",
+              icon:"home"
+              
             },
             {
               value :"headings.reports",
               id : 'report',
-              anchorLink:"report"
+              anchorLink:"report",
+              icon:"insert_comment "
             },
                           {
               value:"headings.operations",
               id:'operations',
-              anchorLink:"operations"
+              anchorLink:"operations",
+              icon:"build"
             },
             
           ]
@@ -30,25 +34,29 @@ export const GlobalConfig = {
           icons:"done",
           tooltip:"headings.operationDashboardUpload",
           anchorLink:"/operations/upload-csv",
-          id:'uploadCsv'
+          id:'uploadCsv',
+          icon:"insert_comment"
         },
         {
           icons:"done",
           tooltip:"headings.schoolListHeading",
           anchorLink: "/operations/view-schools",
-          id:'viewSchools'
+          id:'viewSchools',
+          icon:"school"
         },
         {
           icons:"done",
           tooltip:"headings.assessorListHeading",
           anchorLink: "/operations/view-assessors",
-          id:'viewAcessor'
+          id:'viewAcessor',
+          icon:"people"
         },
         {
           icons:"done",
           tooltip:"headings.insightReport",
           anchorLink: "/operations/insight-report",
-          id:'insightReport'
+          id:'insightReport',
+          icon:"report"
         }
       ]
     }
