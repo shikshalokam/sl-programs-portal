@@ -40,7 +40,7 @@
         "addQuestions": "Add New Question",
         "parentInfoHeading" : "Parent Information",
         "parentListHeading" : "Parent List",
-        "schoolListHeading" : "View List",
+        "schoolListHeading" : "School List",
         "assessorListHeading":"View Assessors",
         "ecmReportsHeading" : "ECM Reports",
         "parentInterview":"Parent Interview",
@@ -70,7 +70,9 @@
         "schoolReports" : "Schools Reports ",
         "assessorReports":"Assessor Reports ",
         "summary":"Summary ",
-        "reportEntityReport":"Entity Report"
+        "reportEntityReport":"Entity Report",
+        "uploadAssessorCsv":"Add Assessor",
+        "uploadSchoolCsv":"Add Schools"
         
     },
     "labels": {

@@ -17,7 +17,6 @@ export class ReportDashboardComponent implements OnInit {
   canAcess = localStorage.getItem('canAcess');
   constructor(private router :Router,private dialog :MatDialog) { 
      this.dashboards = GlobalConfig.ReportDashBoardLinks;
-     console.log(this.dashboards)
   }
 
  
@@ -42,7 +41,6 @@ export class ReportDashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 

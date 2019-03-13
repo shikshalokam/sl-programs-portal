@@ -29,7 +29,7 @@ export const GlobalConfig = {
           icons:"done",
           tooltip:"headings.operationDashboardUpload",
           anchorLink:"/operations/upload-csv",
-          id:'uploadCsv'
+          id:'uploadcsv'
         },
         {
           icons:"done",
