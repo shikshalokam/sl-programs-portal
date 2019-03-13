@@ -48,7 +48,7 @@ export const GlobalConfig = {
           icon:"people"
         },
         {
-          icon:"report"
+          icon:"report",
           tooltip:"headings.opsReport",
           anchorLink: "/operations/reports",
           id:'opsReport'
