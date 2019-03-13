@@ -13,7 +13,6 @@
 
     },
     
-    
     "buttons": {
         "download" : "Download",
         "update" : "Update",
@@ -40,8 +39,8 @@
         "addQuestions": "Add New Question",
         "parentInfoHeading" : "Parent Information",
         "parentListHeading" : "Parent List",
-        "schoolListHeading" : "View List",
-        "assessorListHeading":"View Assessors",
+        "schoolListHeading" : "Schools",
+        "assessorListHeading":"Assessors",
         "ecmReportsHeading" : "ECM Reports",
         "parentInterview":"Parent Interview",
         "features" : "Features",
@@ -72,7 +71,7 @@
         
     },
     "labels": {
-        "uploadCsv" : "Upload Csv"
+        "uploadCsv" : "Configurations"
 
     },
     "descriptions": {
