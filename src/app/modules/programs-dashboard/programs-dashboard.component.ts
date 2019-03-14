@@ -22,6 +22,7 @@ export class ProgramsDashboardComponent implements OnInit {
   currentUser;
   logo =" ./assets/shikshalokam.png";
   baseUrl;
+  portalName;
 
 
   constructor(private utilityService :UtilityService,private snackBar :MatSnackBar,private programService: ProgramsDashboardService,private router :Router , private authService  :AuthService) {
@@ -31,6 +32,7 @@ export class ProgramsDashboardComponent implements OnInit {
     }
     this.currentUser = this.authService.getCurrentUserDetails();
     this.baseUrl = environment.base_url;
+    this.portalName = environment.portal_name;
 
   }
 

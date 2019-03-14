@@ -7,13 +7,12 @@ import { TranslateService } from 'shikshalokam';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
- 
- 
 
   constructor(private translate: TranslateService) {
     translate.use('en').then(() => {
       
     });
+
   }
   ngOnInit(){
   }

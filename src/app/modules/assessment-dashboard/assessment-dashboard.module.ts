@@ -17,4 +17,6 @@ import { CoreModule } from 'shikshalokam';
 
   ]
 })
-export class AssessmentDashboardModule { }
+export class AssessmentDashboardModule {
+
+ }
