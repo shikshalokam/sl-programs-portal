@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {  ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-operations',
@@ -10,11 +9,8 @@ import {  ActivatedRoute } from '@angular/router';
 export class OperationsComponent implements OnInit {
   programId;
   assessmentId;
-  constructor(private route : ActivatedRoute) { 
-    this.route.params.subscribe(params => {
-      this.programId = params["programId"];
-      this.assessmentId = params["assessmentId"];
-    });
+  constructor() { 
+    
   }
 
   ngOnInit() {

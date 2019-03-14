@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { MatTableDataSource, MatPaginator,  } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
-import { ActivatedRoute } from '@angular/router';
 import { OperationsService } from '../operations-service/operations.service';
 
 @Component({
@@ -28,15 +27,9 @@ export class ViewSchoolsComponent implements OnInit {
 
   constructor(private operationsService: OperationsService,
      private utility: UtilityService,
-     private route :ActivatedRoute
 
     ) {
-    // this.route.parent.queryParams.subscribe(params => {
-    //   console.log(params);
-    //   this.programId = params['programId'];
-    //   this.assessmentId = params['assessmentId']
-
-    // });
+  
     console.log(JSON.parse( localStorage.getItem('currentAssessments'))['_id'])
     this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
     this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];

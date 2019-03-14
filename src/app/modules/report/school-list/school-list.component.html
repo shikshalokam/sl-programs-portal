@@ -31,7 +31,7 @@
           <ng-container matColumnDef="isParentInterviewCompleted">
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
-                  <div class="active" *ngIf="!(element.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,element.name,element._id ]" [queryParams]="{programId :programId , assessmentId : assessmentId}">
+                  <div class="active" *ngIf="!(element.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,element.name,element._id ]">
                     {{'tableLabel.buttons.clickHere'| translate}}</div>
                     <ng-template #complete>
                         <div  class="complete">

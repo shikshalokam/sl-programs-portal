@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
-import { ActivatedRoute } from '@angular/router';
 
 elementData: {
 
@@ -24,14 +23,9 @@ export class SchoolListComponent implements OnInit {
     assessmentId;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private route :ActivatedRoute,private reportService: ReportService, private utility: UtilityService) {
+  constructor(private reportService: ReportService, private utility: UtilityService) {
     this.showConfig();
-    this.route.parent.queryParams.subscribe(params => {
-      // console.log(params);
-      this.programId = params['programId'];
-      this.assessmentId = params['assessmentId']
-
-    });
+    
     
   }
   
