@@ -17,6 +17,7 @@ export class AssessmentDashboardComponent implements OnInit {
   currentUser;
   logo =" ./assets/shikshalokam.png";
   baseUrl;
+  portalName;
 
   constructor(private route : ActivatedRoute,private authService :AuthService) {
     if (window.screen.width < 760) { // 768px portrait
@@ -26,6 +27,7 @@ export class AssessmentDashboardComponent implements OnInit {
 
     this.currentUser = this.authService.getCurrentUserDetails();
     this.baseUrl = environment.base_url;
+    this.portalName = environment. portal_name;
    }
 
 
@@ -58,12 +60,13 @@ export class AssessmentDashboardComponent implements OnInit {
             
             {
               value :"headings.reports",
-                anchorLink:"report"
+                anchorLink:"report",
+                id:'report',
             },
-                          {
+            {
               value:"headings.operations",
-             
-              anchorLink:"operations"
+              anchorLink:"operations",
+              id:'operations'
             }
           ]
           }
