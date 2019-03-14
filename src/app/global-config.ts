@@ -32,7 +32,7 @@ export const GlobalConfig = {
         {
           tooltip:"headings.operationDashboardUpload",
           anchorLink:"/operations/upload-csv",
-          id:'uploadCsv',
+          id:'uploadcsv',
           icon:"insert_comment"
         },
         {
@@ -51,7 +51,21 @@ export const GlobalConfig = {
           icon:"report",
           tooltip:"headings.opsReport",
           anchorLink: "/operations/reports",
-          id:'"insightReport"'
+          id:'opsReport'
+        }
+      ],
+      ReportDashBoardLinks : [
+        {
+          icons:"done",
+          tooltip:"headings.reportEntityReport",
+          anchorLink:"/report/entity-report",
+          id:'entityReport'
+        },
+        {
+          icons:"done",
+          tooltip:"headings.schoolListHeading",
+          anchorLink:"/report/school-list",
+          id:'schoolList'
         }
       ]
     }

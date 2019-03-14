@@ -1,11 +1,19 @@
 <app-loader></app-loader>
-<div class="_flex-box _justify-content-space-between">
-    <div>
-         <app-parent-heading [genericHeading]="headings" [showControl]="true"></app-parent-heading>
-    </div>    
-    <div >
-                {{'message.selectPrograms'|translate}}
+<div class="flex-start">
+        <div class="_flex-box _justify-content-space-between">
+            <div>
+               <h4>{{headings | translate}}</h4>
+            </div>
+            <div>
+                <button mat-icon-button (click)="onChoose()" >
+                    <i class="material-icons">
+                        close
+                    </i>
+                </button>
+            </div>
+        </div>
+        <div class="messageAlert">
+            {{'message.selectPrograms'|translate}}
+        </div>
     </div>
-</div>
-
 <app-programsDashboard [programsList]="programData" (emitCurrentProgram)="programClick($event)"></app-programsDashboard>

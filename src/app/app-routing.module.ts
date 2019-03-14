@@ -5,16 +5,24 @@ const routes: Routes = [
   {
     path: '',
     // component: AppComponent,
+    data:{breadcrumb : ""},
     children: [
       {
         path: 'report',
-        data:{id:'report'},
+        data:{
+          id:'report',
+          // breadcrumb:'Reports'
+
+      },
         loadChildren: './modules/report/report.module#ReportModule'
       },
      
       {
         path: 'operations',
-        data:{id:'operations'},
+        data:{
+          id:'operations',
+          // breadcrumb:'Operations'
+      },
         loadChildren: './modules/operations/operations.module#OperationsModule'
       },
       {
@@ -29,6 +37,9 @@ const routes: Routes = [
       },
       {
         path: 'home', component: HomeComponent,
+        data:{
+          // breadcrumb :'Home'
+        }
         
       }
     ]

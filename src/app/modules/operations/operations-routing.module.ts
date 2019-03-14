@@ -11,38 +11,58 @@ import { OpsReportComponent } from './ops-report/ops-report.component';
 const routes: Routes = [
 
   {  path: '', 
-      data :{id :'operations'},
+      data :{
+        id :'operations',
+        breadcrumb:'headings.operations'
+    },
       component : OperationsComponent,
       canActivate : [AuthGuard],
       children: [
       {
           path:'upload-csv',
-          data:{id : 'uploadCsv'},
+          data:{
+            id : 'uploadcsv',
+            breadcrumb:'headings.uploadingCsv'
+
+          },
           canActivate : [AuthGuard],
           component : UploadingCsvComponent
       },
       { 
         path:'view-schools',
-        data:{id:'viewSchools'},
+        data:{
+          id:'viewSchools',
+          breadcrumb:'headings.viewSchools'
+      },
         canActivate : [AuthGuard],
         component:ViewSchoolsComponent
+
       },
       { 
         path:'view-assessors',
-        data:{id:'viewAssessors'},
+        data:{
+          id:'viewAcessor',
+          breadcrumb:'headings.assessorListHeading'
+      },
         canActivate: [AuthGuard],
 
         component:ViewAssessorsComponent
       },
       { 
         path:'reports',
-        data:{id:'insightReport'},
+        data:{
+          id:'opsReport',
+          breadcrumb:'headings.opsReport'
+        },
         canActivate: [AuthGuard],
 
         component:OpsReportComponent
       },
      {
         path:'operations-dashboard',
+        data:{
+          // breadcrumb:'Operations Dashboard'
+        },
         component: OperationsDashboardComponent
       },
 

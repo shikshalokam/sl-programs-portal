@@ -3,19 +3,23 @@ import { CommonModule } from '@angular/common';
 import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report-routing.module';
 import { SchoolListComponent } from './school-list/school-list.component';
-import { SharedModule } from 'shikshalokam';
-import { CoreModule } from 'shikshalokam';
+import { CoreModule ,SharedModule } from 'shikshalokam';
 import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule } from '@angular/material';
 import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { ImageModalComponent } from './ecm-report/image-modal/image-modal.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
+import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
+import { SelectProgramComponent } from './reports-dashboard/select-program/select-program.component';
+import { EntityReportComponent } from './entity-report/entity-report.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 @NgModule({
   declarations: [
     ReportComponent,
     SchoolListComponent,
     EcmReportComponent,
     ImageModalComponent,
-    DownloadReportComponent
+    DownloadReportComponent,
+    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent
   ],
   imports: [
     // CommonModule,
@@ -33,10 +37,12 @@ import { DownloadReportComponent } from './download-report/download-report.compo
     SharedModule,
     CoreModule,
     MatPaginatorModule,
-    ReportRoutingModule
+    ReportRoutingModule,
+    GoogleChartsModule.forRoot(),
+
 
   ],
-  entryComponents: [ImageModalComponent],
+  entryComponents: [ImageModalComponent , SelectProgramComponent],
 
   providers: [
   ],

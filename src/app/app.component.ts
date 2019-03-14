@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
     }else{
       this.isLoggedIn = false;
     }
-    console.log(this.isLoggedIn)
     this.getRoleAcess();
    }
 
@@ -71,13 +70,10 @@ export class AppComponent implements OnInit {
       getRoleAcess() {
         this.globalConfigService.getRolePermission(environment.apibaseurl + GlobalConfig.acessAccordingRole)
           .subscribe(data => {
-            console.log(data);
             this.roleAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
             this.roleAcess.push('home');
             localStorage.setItem('canAcess',JSON.stringify(this.roleAcess));
             this.links = GlobalConfig.programPortalLinks;
-            console.log(this.links)
-            console.log(this.roleAcess)
           },
             error => {
     
