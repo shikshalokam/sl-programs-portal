@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
   opened = true;
   pushMode = 'side';
   currentUser;
+  baseUrl;
+  portalName;
+
+
   logo =" ./assets/shikshalokam.png";
   roleAcess=[];
   constructor(private translate: TranslateService,private route : ActivatedRoute,private authService :AuthService , private globalConfigService:GlobalConfigurationService) {
@@ -29,6 +33,10 @@ export class AppComponent implements OnInit {
       this.pushMode = 'push';
     }
     this.currentUser = this.authService.getCurrentUserDetails();
+    this.baseUrl=environment.base_url;
+    this.portalName = environment.portal_name;
+
+
     if(this.currentUser){
       this.isLoggedIn = true;
     }else{
@@ -39,6 +47,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     
+
   }
    
   onLogout(){
