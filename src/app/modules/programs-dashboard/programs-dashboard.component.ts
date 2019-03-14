@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'shikshalokam';;
 import { MatSnackBar } from '@angular/material';
@@ -32,6 +32,8 @@ export class ProgramsDashboardComponent implements OnInit {
       this.pushMode = 'push';
     }
     this.currentUser = this.authService.getCurrentUserDetails();
+    this.baseUrl = environment.base_url;
+    this.portalName = environment.portal_name;
 
     if(this.currentUser){
       this.isLoggedIn=true;
