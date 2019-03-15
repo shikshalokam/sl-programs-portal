@@ -17,7 +17,7 @@ export const GlobalConfig = {
               value :"headings.reports",
               id : 'report',
               anchorLink:"report",
-              icon:"insert_comment "
+              icon:"description"
             },
                           {
               value:"headings.operations",
@@ -33,7 +33,7 @@ export const GlobalConfig = {
           tooltip:"headings.operationDashboardUpload",
           anchorLink:"/operations/upload-csv",
           id:'uploadcsv',
-          icon:"insert_comment"
+          icon:"settings"
         },
         {
           tooltip:"headings.schoolListHeading",
@@ -48,7 +48,7 @@ export const GlobalConfig = {
           icon:"people"
         },
         {
-          icon:"report",
+          icon:"description",
           tooltip:"headings.opsReport",
           anchorLink: "/operations/reports",
           id:'opsReport'
@@ -59,13 +59,15 @@ export const GlobalConfig = {
           icons:"done",
           tooltip:"headings.reportEntityReport",
           anchorLink:"/report/entity-report",
-          id:'entityReport'
+          id:'entityReport',
+          icon:"description",
         },
         {
           icons:"done",
           tooltip:"headings.schoolListHeading",
           anchorLink:"/report/school-list",
-          id:'schoolList'
+          id:'schoolList',
+          icon:"school",
         }
       ]
     }

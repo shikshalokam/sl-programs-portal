@@ -62,7 +62,7 @@
         "choices" : "Choices",
         "type" : "Type",
         "uploadingCsv":"Uploading Csv",
-        "operationDashboardUpload":"Upload Csv",
+        "operationDashboardUpload":"Configurations",
         "viewSchools": "View Schools",
         "programList":"Programs List",
         "opsReport":"Reports",

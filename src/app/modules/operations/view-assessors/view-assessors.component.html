@@ -7,17 +7,17 @@
         </mat-form-field>
         <div class="example-container mat-elevation-z8 ">
           <div class="tableContainer">
-            <table mat-table [dataSource]="dataSource" class="_contentMiddle ">
+            <table mat-table [dataSource]="dataSource" matSort class="_contentMiddle ">
               <ng-container matColumnDef="role">
-                <th mat-header-cell *matHeaderCellDef> {{'tableLabel.role'| translate}} </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.role'| translate}} </th>
                 <td mat-cell *matCellDef="let element"><div class="capitalise"> {{element.role | blank}} </div></td>
               </ng-container>
               <ng-container matColumnDef="_id">
-                <th mat-header-cell *matHeaderCellDef> {{'tableLabel._id'| translate}} </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel._id'| translate}} </th>
                 <td mat-cell *matCellDef="let element"><div class="capitalise">  {{element._id | blank}}</div> </td>
               </ng-container>
               <ng-container matColumnDef="externalId">
-                <th mat-header-cell *matHeaderCellDef> {{'tableLabel.externalId'| translate}}</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.externalId'| translate}}</th>
                 <td mat-cell *matCellDef="let element"><div class="capitalise"> {{element.externalId | blank}}</div></td>
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>

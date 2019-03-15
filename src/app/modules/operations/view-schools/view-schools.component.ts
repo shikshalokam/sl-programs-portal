@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
-import { MatTableDataSource, MatPaginator,  } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
 
@@ -23,6 +23,7 @@ export class ViewSchoolsComponent implements OnInit {
   pageSize:number=50;
   length:number;
   searchValue='';
+  @ViewChild(MatSort) sort:MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private operationsService: OperationsService,
@@ -43,6 +44,8 @@ export class ViewSchoolsComponent implements OnInit {
         this.result = data['result']['schoolInformation'].length;
         this.length = data['result']['totalCount'];
         this.dataSource = new MatTableDataSource(data['result']['schoolInformation']);
+        setTimeout(() => this.dataSource.sort = this.sort);
+        console.log(this.dataSource+"hhhhhhhhh");
         this.utility.loaderHide()
       },
         (error) => {
@@ -60,6 +63,7 @@ export class ViewSchoolsComponent implements OnInit {
     if (window.innerWidth < 760) { // 768px portrait
       this.smallScreen = true;
     }
+    
   }
 
   objectKeys(obj) {
