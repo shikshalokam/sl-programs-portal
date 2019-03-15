@@ -60,7 +60,70 @@ export class OpsReportComponent implements OnInit {
         schoolsCompleted: 20,
         schoolCompletedInPercent: 60,
         averageDaysTaken: 3
-      }
+      },
+      {
+        name: "Ajith",
+        schoolsAssigned: 50,
+        schoolsCompleted: 40,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Aman",
+        schoolsAssigned: 50,
+        schoolsCompleted: 30,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Akash",
+        schoolsAssigned: 50,
+        schoolsCompleted: 20,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Ajith",
+        schoolsAssigned: 50,
+        schoolsCompleted: 40,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Aman",
+        schoolsAssigned: 50,
+        schoolsCompleted: 30,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Akash",
+        schoolsAssigned: 50,
+        schoolsCompleted: 20,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Ajith",
+        schoolsAssigned: 50,
+        schoolsCompleted: 40,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Aman",
+        schoolsAssigned: 50,
+        schoolsCompleted: 30,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
+      {
+        name: "Akash",
+        schoolsAssigned: 50,
+        schoolsCompleted: 20,
+        schoolCompletedInPercent: 60,
+        averageDaysTaken: 3
+      },
     ],
     schoolsReport: [
       {
@@ -82,28 +145,28 @@ export class OpsReportComponent implements OnInit {
         schoolStatus: "In Progress",
         daysElapsed: 50,
         schoolsCompleted: 30,
-        assessmentCompletedInPercent: 90
+        assessmentCompletedInPercent: 49
       },
       {
         schoolName: "Kamaraj  school",
         status: "In Progress",
         daysElapsed: 50,
         completed: 30,
-        assessmentCompletedInPercent: 60
+        assessmentCompletedInPercent: 75
       },
       {
         schoolName: "Government school",
         schoolStatus: "In Progress",
         daysElapsed: 50,
         schoolsCompleted: 30,
-        assessmentCompletedInPercent: 20
+        assessmentCompletedInPercent: 30
       },
       {
         schoolName: "Kumutha matric higher secondary school",
         schoolStatus: "In Progress",
         daysElapsed: 50,
         schoolsCompleted: 30,
-        assessmentCompletedInPercent: 90
+        assessmentCompletedInPercent: 50
       }
     ]
   }
