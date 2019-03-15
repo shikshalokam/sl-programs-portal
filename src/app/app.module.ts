@@ -10,7 +10,7 @@ import { AuthService } from './modules/private-modules/auth-service/auth.service
 import { MatDividerModule } from '@angular/material/divider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
+// import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
 import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 

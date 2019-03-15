@@ -30,6 +30,7 @@ export class UploadingCsvComponent implements OnInit {
   formData;
   showSchoolStatus = false;
   showAssessorStatus = false;
+  files = {value: ""};
 
   programId;
   assessmentId;

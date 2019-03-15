@@ -12,6 +12,17 @@ export class EntityReportComponent implements OnInit {
   schoolGraph;
   assessorGraph;
   currentUser ;
+  dynamicResize;
+  data:  [
+    ['Task', 'Hours per Day'],
+    ['Work', 11],
+    ['Eat', 2]
+  ];
+  width ="200%";
+  columnNames = ['Lead', 'Number Of school Assigned','Number of school completed'];
+  type="PieChart";
+  reportStatus = {}
+
   constructor(private authService :AuthService) { }
 
   ngOnInit() {
@@ -121,17 +132,12 @@ export class EntityReportComponent implements OnInit {
   // };
   // schoolType="ColumnChart"
 
-  data:  [
-    ['Task', 'Hours per Day'],
-    ['Work', 11],
-    ['Eat', 2]
-  ];
-  width:"200%";
+
 
   // acessorRoles = [
   //   { role: 'style', type: 'string', index: 2 }
   // ];
-  columnNames = ['Lead', 'Number Of school Assigned','Number of school completed'];
+
 
   // myData = [
   //   ['Element', 10.5, '#ffaaff'] // The last entry in the array is the role
@@ -143,10 +149,9 @@ export class EntityReportComponent implements OnInit {
   //   // ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180] // display labels every 10
 
   // };
-  type="PieChart"
 
 
-reportStatus = {};
+// reportStatus = {};
   mapGraphObject() {
     const reportStatus = {};
     const objSchool = {};
