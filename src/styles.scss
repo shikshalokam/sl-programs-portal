@@ -45,7 +45,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
-$primary-color: #46a9ff;
+$primary-color:var(--primary-color);
 $black-color: #4c4c4c;
 $blue-gradient: #1AC6FC;
 $grey-color: #bababa;
@@ -63,7 +63,7 @@ $app-blue-color:var(--app-blue-color);
 $app-darkBlue-color:var(--app-darkBlue-color);
 
 :root{
---primary-color:#46a9ff;
+--primary-color:#A63936;
 --black-color:#4c4c4c;
 --blue-gradient-color:#1AC6FC;
 --grey-color:#bababa;
@@ -76,10 +76,10 @@ $app-darkBlue-color:var(--app-darkBlue-color);
 --white-color:#fff;
 --background-color:#f2f2f2;
 --button-background-color:: #e5f2fe;
---dark-blue-color:#1d73f0;
+--dark-blue-color:rgb(143, 56, 53);
 --darkBlack-color:#000;
 --app-blue-color:#1cdffe;
---app-darkBlue-color:#2462e9;
+--app-darkBlue-color:rgb(146, 54, 50);
 
 }
 body {
@@ -123,6 +123,13 @@ body {
     width: 100%;
 }
 
+._half-width {
+    width: 40%;
+}
+._noMarginPadding{
+    padding: 0;
+    margin: 0;
+}
 ._cursor-pointer {
     cursor: pointer;
 }
@@ -137,8 +144,8 @@ body {
 ._primary-btn {
     // background: $primary-color;
     // color: $white-color;
-    background: var(--primary-color);
-    color: var(--white-color);
+    background: $primary-color;
+    color: $white-color;
 }
 span:focus {
     outline: none;
