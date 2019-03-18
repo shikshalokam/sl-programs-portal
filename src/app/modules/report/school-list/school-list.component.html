@@ -10,21 +10,21 @@
     </mat-form-field>
     <div class="example-container mat-elevation-z8 ">
       <div class="tableContainer">
-        <table mat-table [dataSource]="dataSource" class="_contentMiddle ">
+        <table mat-table [dataSource]="dataSource" matSort class="_contentMiddle ">
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> {{'tableLabel.name'| translate}} </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.name'| translate}} </th>
             <td mat-cell *matCellDef="let element"><div class="capitalise"> {{element.name | blank}} </div></td>
           </ng-container>
           <ng-container matColumnDef="city">
-            <th mat-header-cell *matHeaderCellDef> {{'tableLabel.city'| translate}} </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.city'| translate}} </th>
             <td mat-cell *matCellDef="let element"><div class="capitalise">  {{element.city | blank}}</div> </td>
           </ng-container>
           <ng-container matColumnDef="state">
-            <th mat-header-cell *matHeaderCellDef> {{'tableLabel.state'| translate}} </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.state'| translate}} </th>
             <td mat-cell *matCellDef="let element"><div class="capitalise">  {{element.state | blank}}</div> </td>
           </ng-container>
           <ng-container matColumnDef="externalId">
-            <th mat-header-cell *matHeaderCellDef> {{'tableLabel.externalId'| translate}}</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.externalId'| translate}}</th>
             <td mat-cell *matCellDef="let element"><div class="capitalise"> {{element.externalId | blank}}</div></td>
           </ng-container>
 

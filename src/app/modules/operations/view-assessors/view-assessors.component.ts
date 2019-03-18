@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TransitionCheckState, MatTableDataSource } from '@angular/material';
+import { Component, OnInit ,ViewChild} from '@angular/core';
+import { TransitionCheckState, MatTableDataSource, MatSort } from '@angular/material';
 import {  UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
 
@@ -23,7 +23,7 @@ export class ViewAssessorsComponent implements OnInit {
   error:any;
   pageIndex:number=0;
   pageSize:number=50;
-  
+  @ViewChild (MatSort) sort: MatSort;
 
   constructor(private operationsService: OperationsService,
     private utility :UtilityService,
@@ -41,6 +41,7 @@ export class ViewAssessorsComponent implements OnInit {
       this.result = data['result']['assessorInformation'].length;
       this.length = data['result']['totalCount'];
       this.dataSource = new MatTableDataSource(data['result']['assessorInformation']);
+      setTimeout(() => this.dataSource.sort = this.sort);
       this.utility.loaderHide()
     },
     (error)=>{
