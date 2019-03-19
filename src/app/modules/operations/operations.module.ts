@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OperationsComponent } from './operations.component';
 import { OperationsRoutingModule } from './operations-routing.module';
 import { UploadingCsvComponent } from './uploading-csv/uploading-csv.component';
-import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule, MatDialogModule, MatCardModule, MatDividerModule,MatSortModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule, MatDialogModule, MatCardModule, MatDividerModule,MatSortModule, MatDatepickerModule, MatNativeDateModule, MatAutocompleteModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgressBarModule} from "angular-progress-bar"
 import { SharedModule,CoreModule } from 'shikshalokam';
@@ -36,6 +36,7 @@ import { OpsReportComponent } from './ops-report/ops-report.component';
     MatNativeDateModule ,
     MatDividerModule,
     MatSortModule,
+    MatAutocompleteModule,
     GoogleChartsModule.forRoot(),
   ]
 ,

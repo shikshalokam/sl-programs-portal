@@ -41,5 +41,9 @@ export class OperationsService {
     args[3]++;
     return this.apiService.get(environment.apibaseurl + OperationConfig.viewAssessors+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&pageIndex="+args[3]+"&pageSize="+args[4]);
   }
+  getSummary(url){
+    return this.apiService.get(environment.apibaseurl + OperationConfig.reportSummary + url);
+  }
+
 
 }
