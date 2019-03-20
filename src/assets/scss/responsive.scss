@@ -179,13 +179,17 @@
 
         .dropdownDiv{
             width:300px !important;
-            display: flex;
+            display: flex !important;
         }
+
+        .dropdownDiv:before {
+            right: 20px !important;
+          }
 
         .dropdownFeature{
            width:100% !important;
             justify-content: center !important;
-            
+            padding-left:0px !important;
         }
 
         
@@ -199,4 +203,11 @@
 }
 
 @media only screen and (min-width: 1200px) {
+}
+
+@media only screen and (max-width: 320px) {
+    .dropdownDiv{
+        width:200px !important;
+        display:flex !important;
+    }
 }
