@@ -1,0 +1,301 @@
+{
+    "schoolName":"Sujana Convent School",
+    "generatedAt":"22-03-2019",
+    "results": [
+        {
+            "keydomainName": "Themes",
+            "reportType": "tableGraph",
+            "graphData": {
+                "data": [
+                    [
+                        "Teaching Learning ",
+                        75
+                    ],
+                    [
+                        "Community",
+                        64
+                    ],
+                    [
+                        "Safety & Security",
+                        81
+                    ]
+                ],
+                "columnName": [
+                    "Theme Name",
+                    "Performance Index"
+                ],
+                "chartType": "ColumnChart",
+                "chartOptions": {
+                    "colors": [
+                        "red",
+                        "black",
+                        "green"
+                    ],
+                    "is3D": true,
+                    "vAxis": {
+                        "title": "Preformance Index (%)",
+                        "minValue": 0
+                    },
+                    "hAxis": {
+                        "title": "Themes",
+                        "showTextEvery": 1
+                    }
+                }
+            },
+            "tabularData": {
+                "valueColumn": "Performance Index ",
+                "data": [
+                    {
+                        "domainName": "Teaching Learning ",
+                        "value": "90%"
+                    },
+                    {
+                        "domainName": "Community",
+                        "value": "64%"
+                    },
+                    {
+                        "domainName": "Safety & Security",
+                        "value": "81%"
+                    }
+                ]
+            }
+        },
+        {
+            "keydomainName": "AOI",
+            "reportType": "tableGraph",
+            "graphData": {
+                "data": [
+                    [
+                        "Categories within teaching and learning", 68 , 78,70,65,82
+                    ]
+                ],
+                "columnName": [
+                    "Area Of Enquiry",
+                    "Resources (Human and Material)",
+                    "Learning Spaces(Classrooms, halls, corridors, labs, libraries)",
+                    "Classroom management and student development",
+                    "Teacher Professional Development",
+                    "Student Learning"
+                ],
+                "chartType": "ColumnChart",
+
+                "chartOptions": {
+                    "colors": ["red", "black", "green", "#f3b49f", "#f6c7b6"],
+                 "is3D": true,
+                 "isStacked": "precent",
+                    "vAxis": {
+                        "title": "Preformance Index (%)",
+                        "minValue": 0
+                    },
+                    "hAxis": {
+                        "title": "Area Of Enquiry",
+                        "showTextEvery": 1
+                    }
+                }
+            },
+            "tabularData": {
+                "valueColumn": "Performance Index ",
+                "data": [
+                    {
+                        "domainName": "Performance Index",
+                        "value": "68%"
+                    },
+                    {
+                        "domainName": "Learning Spaces(Classrooms, halls, corridors, labs, libraries)",
+                        "value": "78%"
+                    },
+                    {
+                        "domainName": "Teacher Professional Development",
+                        "value": "65%"
+                    },
+                    {
+                        "domainName": "Student Learning",
+                        "value": "82%"
+                    }
+                ]
+            }
+        },
+        {
+            "reportType": "tableGraph",
+            "keydomainName": "Criteria",
+            "graphData": {
+                "data": [
+                    [
+                        "Availability of school leadership",
+                        1
+                    ],
+                    [
+                        "Availability of teachers in school",
+                        3
+                    ],
+                    [
+                        "Availability, adequacy and professional qualification of special educator",
+                        2
+                    ],
+                    [
+                        "Career Counseling",
+                        1
+                    ],
+                    [
+                        "Availability of non-teaching staff - Maintenance manager (repair and upkeep)",
+                        2
+                    ],
+                    [
+                        "Availability of books[Remarks]",
+                        3
+                    ],
+                    [
+                        "Well equipped and used Library/Reading Corner or Class library (in the case of primary schools)",
+                        4
+                    ],
+                    [
+                        "Well equipped and used Labs (for higher secondary and secondary schools only)",
+                        1
+                    ],
+                    [
+                        "Sports facilities",
+                        2
+                    ],
+                    [
+                        "Music, Dance and Theatre facilities",
+                        2
+                    ],
+                    [
+                        "Arts / Drawing facilities",
+                        2
+                    ],
+                    [
+                        "Computer literacy",
+                        3
+                    ]
+                ],
+                "columnName": [
+                    "Criteria Name",
+                    "criterias"
+                ],
+                "chartType": "ColumnChart",
+                "chartOptions": {
+                    "is3D": true,
+                    "vAxis": {
+                        "title": "Levels",
+                        "minValue": 0
+                    },
+                    "hAxis": {
+                        "title": "Criteria",
+                        "showTextEvery": 1
+                    }
+                }
+            },
+            "tabularData": {
+                "valueColumn": "Performance Index ",
+                "data": [
+                    {
+                        "domainName": "Availability of school leadership",
+                        "value": "1"
+                    },
+                    {
+                        "domainName": "Availability of teachers in school",
+                        "value": "3"
+                    },
+                    {
+                        "domainName": "Availability, adequacy and professional qualification of special educator",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Career Counseling",
+                        "value": "1"
+                    },
+                    {
+                        "domainName": "Availability of non-teaching staff - Maintenance manager (repair and upkeep)",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Availability of books[Remarks]",
+                        "value": "3"
+                    },
+                    {
+                        "domainName": "Well equipped and used Library/Reading Corner or Class library (in the case of primary schools)",
+                        "value": "4"
+                    },
+                    {
+                        "domainName": "Well equipped and used Labs (for higher secondary and secondary schools only)",
+                        "value": "1"
+                    },
+                    {
+                        "domainName": "Sports facilities",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Music, Dance and Theatre facilities",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Arts / Drawing facilities",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Computer literacy",
+                        "value": "3"
+                    }
+                ]
+            }
+        },
+        {
+            "reportType": "table",
+            "keydomainName": "Theme",
+            "tabularData": {
+                "valueColumn": "Performance Index ",
+                "data": [
+                    {
+                        "domainName": "Availability of school leadership",
+                        "value": "1"
+                    },
+                    {
+                        "domainName": "Availability of teachers in school",
+                        "value": "3"
+                    },
+                    {
+                        "domainName": "Availability, adequacy and professional qualification of special educator",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Career Counseling",
+                        "value": "1"
+                    },
+                    {
+                        "domainName": "Availability of non-teaching staff - Maintenance manager (repair and upkeep)",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Availability of books[Remarks]",
+                        "value": "3"
+                    },
+                    {
+                        "domainName": "Well equipped and used Library/Reading Corner or Class library (in the case of primary schools)",
+                        "value": "4"
+                    },
+                    {
+                        "domainName": "Well equipped and used Labs (for higher secondary and secondary schools only)",
+                        "value": "1"
+                    },
+                    {
+                        "domainName": "Sports facilities",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Music, Dance and Theatre facilities",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Arts / Drawing facilities",
+                        "value": "2"
+                    },
+                    {
+                        "domainName": "Computer literacy",
+                        "value": "3"
+                    }
+                ]
+            }
+        }
+    ]
+}

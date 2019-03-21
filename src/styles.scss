@@ -47,7 +47,7 @@
 
 $primary-color:var(--primary-color);
 $black-color: #4c4c4c;
-$blue-gradient: #1AC6FC;
+$blue-gradient:#b35754 ;
 $grey-color: #bababa;
 $light-grey-color:#e0e0e0;
 $regular-font: 'SF-ui-text-regular';
@@ -61,11 +61,12 @@ $button-background-color: #e5f2fe;
 $dark-blue:var(--dark-blue-color);
 $app-blue-color:var(--app-blue-color);
 $app-darkBlue-color:var(--app-darkBlue-color);
+$faded-label-color:var(--faded-label-color);
 
 :root{
 --primary-color:#A63936;
 --black-color:#4c4c4c;
---blue-gradient-color:#1AC6FC;
+--blue-gradient-color:#b35754;
 --grey-color:#bababa;
 --light-grey-color:#e0e0e0;
 --regular-font:'SF-ui-text-regular';
@@ -78,8 +79,9 @@ $app-darkBlue-color:var(--app-darkBlue-color);
 --button-background-color:: #e5f2fe;
 --dark-blue-color:rgb(143, 56, 53);
 --darkBlack-color:#000;
---app-blue-color:#1cdffe;
+--app-blue-color:#c17472;
 --app-darkBlue-color:rgb(146, 54, 50);
+--faded-label-color:rgba(0,0,0,.5);
 
 }
 body {

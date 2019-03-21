@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../private-modules/auth-service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { OperationsService } from '../operations-service/operations.service';
 
 @Component({
   selector: 'app-ops-report',
@@ -183,11 +184,13 @@ export class OpsReportComponent implements OnInit {
   };
   filterForm: FormGroup;
   queryParamsUrl = '';
+  searchValue: any;
   constructor(
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private operationService:OperationsService
   ) {
     this.filterForm = this._fb.group({
       formDate: ['', Validators.required],
@@ -261,8 +264,8 @@ export class OpsReportComponent implements OnInit {
       },
       {
         name: "Aman",
-        schoolsAssigned: 50,
-        schoolsCompleted: 30,
+        schoolsAssigned: null,
+        schoolsCompleted: 40,
         schoolCompletedInPercent: 60,
         averageDaysTaken: 3
       },
@@ -294,6 +297,7 @@ export class OpsReportComponent implements OnInit {
         schoolCompletedInPercent: 60,
         averageDaysTaken: 3
       },
+      
     ],
     schoolsReport: [
       {
@@ -341,47 +345,7 @@ export class OpsReportComponent implements OnInit {
     ]
   }
 
-  //   schoolData = [
-  //     ['London',  82136000 ,136000,622000 ],
-  //     ['London',  81326000 ,136000,326000 ],
-
-
-  //   ];
-
-  // schoolRoles = [
-  //   { role: 'style', type: 'string', index: 2 }
-  // ];
-  // schoolColumnNames = ['Lead Acessor Name', 'Inhabitants','test','test2'];
-
-  // myData = [
-  //   ['Element', 10.5, '#ffaaff'] // The last entry in the array is the role
-  // ];
-  // schoolOptions = {
-  //   colors: ['red', 'black', 'green', '#f3b49f'],
-  //   is3D: true,
-  //   isStacked: true,
-  //   // ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180] // display labels every 10
-
-  // };
-  // schoolType="ColumnChart"
-
-
-
-  // acessorRoles = [
-  //   { role: 'style', type: 'string', index: 2 }
-  // ];
-
-  // myData = [
-  //   ['Element', 10.5, '#ffaaff'] // The last entry in the array is the role
-  // ];
-  // acessorOptions = {
-  //   colors: ['red', 'black', 'green', '#f3b49f', '#f6c7b6'],
-  //   is3D: true,
-  //   // isStacked: true,
-  //   // ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180] // display labels every 10
-
-  // };
-
+  
 
   reportStatus = {};
 
@@ -416,7 +380,10 @@ export class OpsReportComponent implements OnInit {
     Object.assign(objSchool, {
       schoolOptions: {
         colors: ['red', 'black', 'green', '#f3b49f', '#f6c7b6'],
-        is3D: true,
+        // is3D: true,
+        isStacked:'percent',
+        vAxis:{"title":"# of movies","minValue":0},
+        hAxis:{"title":"Ratings",showTextEvery:1},
       }
     });
     Object.assign(objSchool, { schoolColumnNames: ['School Name', '% Completion of Assessments'] });
@@ -435,8 +402,9 @@ export class OpsReportComponent implements OnInit {
         colors: ['red', 'black', 'green', '#f3b49f', '#f6c7b6'],
         is3D: true,
         isStacked: true,
-        width: '100%',
-        heigth: '50vh'
+        // isStacked: 'percent',
+        vAxis:{"title":"# of movies","minValue":0},
+      hAxis:{"title":"Ratings",showTextEvery:0},
       }
     });
     Object.assign(objAssessor, { assessorColumnNames: ['Assessor Name', 'Assigned ', 'Completed'] });
@@ -497,12 +465,47 @@ export class OpsReportComponent implements OnInit {
       index++;
     })
     console.log(this.queryParamsUrl)
+    this.reportsDataFetch();
     this.reportGenerate = true;
   }
   pageResponse(event) {
     console.log(event)
   }
+  reportsDataFetch(){
+   this.filters();
+   this.getUserSummary();
+   this.getSchoolReport();
+   this.getAssessorReport();
+  }
+
+  filters(){
+    this.operationService.applyFilters(this.queryParamsUrl).subscribe( data => {
+      console.log(data);
+    });
+  }
+  getUserSummary(){
+    this.operationService.getUserSummary(this.queryParamsUrl).subscribe( data => {
+      console.log(data);
+
+    });
+  }
+  getSchoolReport(){
+
+    this.operationService.getSchoolReport(this.queryParamsUrl).subscribe( data => {
+      console.log(data);
+
+    });
+  }
+  getAssessorReport(){
+    this.operationService.getAssessorReport(this.queryParamsUrl).subscribe( data => {
+      console.log(data);
+
+    });
+  }
   searchSchoolIdInApi(searchId){
     console.log(searchId)
+  }
+  searchVal(searchValue){
+    this.searchValue = searchValue;
   }
 }

@@ -31,8 +31,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/scss/responsive.scss",
               "src/assets/scss/varibles.scss",
-              "src/theme.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme.scss"
+
             ],
             "scripts": [
               "./node_modules/keycloak-js/dist/keycloak.min.js"

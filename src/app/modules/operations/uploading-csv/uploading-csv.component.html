@@ -21,7 +21,7 @@
           #assessorfiles />
       </div>
       <div class="_flex-box  _flex-end col-sm-6">
-        <button mat-raised-button class="_primary-btn" [disabled]="!(assessorFileSelected)"
+        <button mat-raised-button color="primary" [disabled]="!(assessorFileSelected)"
           (click)="csvUpload('assessors'); files.value=null">{{'buttons.upload' | translate}}</button>
       </div>
       <div class="fileList" *ngIf="showAssessorStatus">
@@ -64,7 +64,7 @@
           #schoolfiles />
       </div>
       <div class="_flex-box  _flex-end  col-sm-6">
-        <button mat-raised-button class="_primary-btn" [disabled]="!(schoolFileSelected)"
+        <button mat-raised-button color="primary" [disabled]="!(schoolFileSelected)"
           (click)="csvUpload('schools'); files.value=null">{{'buttons.upload' | translate}}</button>
       </div>
       <div class="fileList" *ngIf="showSchoolStatus">

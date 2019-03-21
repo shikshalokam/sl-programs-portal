@@ -7,7 +7,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button class="btns _primary-btn LoadingButton"  [disabled]="showLoader || !activeButton" (click)="downloadEvedinceReport()">
+  <button mat-raised-button class="btns LoadingButton" color="primary" [disabled]="showLoader || !activeButton" (click)="downloadEvedinceReport()">
       <div class="_flex-box">
           <span >{{'buttons.download'| translate}}</span>
           <div *ngIf="showLoader" class="loader" ></div>

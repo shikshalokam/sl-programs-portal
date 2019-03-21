@@ -3,9 +3,9 @@ export const OperationConfig = {
    uploadAcessors : 'assessors/uploadForPortal?',
    viewSchools: 'programs/schoolList?',
    viewAssessors:'programs/userList?',
-   reportSummary:'programs/schoolReport/',
-   assessorReport:'programs/assessorReport/',
-   schoolReport:'programs/schoolSummary/',
-   reportFilter:'rograms/reportFilters/'
+   reportSummary:'programOperations/schoolReport/',
+   assessorReport:'programOperations/assessorReport/',
+   schoolReport:'programOperations/schoolSummary/',
+   reportFilter:'programOperations/reportFilters/'
     
 }
