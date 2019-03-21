@@ -41,5 +41,48 @@ export class OperationsService {
     args[3]++;
     return this.apiService.get(environment.apibaseurl + OperationConfig.viewAssessors+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&pageIndex="+args[3]+"&pageSize="+args[4]);
   }
+  getSummary(url){
+    return this.apiService.get("http://localhost:4201"+ OperationConfig.reportSummary + url);
+  }
+  applyFilters(url){
+    console.log(environment.apibaseurl + OperationConfig.reportFilter+url);
+
+    return this.apiService.get(environment.apibaseurl + OperationConfig.reportFilter+url);
+  }
+  getUserSummary(url){
+    console.log(environment.apibaseurl + OperationConfig.reportSummary+url);
+
+    return this.apiService.get(environment.apibaseurl + OperationConfig.reportSummary+url);
+  }
+  getSchoolReport(url){
+    console.log(environment.apibaseurl + OperationConfig.schoolReport+url);
+
+    return this.apiService.get(environment.apibaseurl + OperationConfig.schoolReport+url);
+  }
+  getAssessorReport(url){
+    console.log(environment.apibaseurl + OperationConfig.assessorReport+url);
+
+    return this.apiService.get(environment.apibaseurl + OperationConfig.assessorReport+url);
+  }
+  // applyFilters(url){
+  //   console.log(environment.apibaseurl + OperationConfig.reportFilter+url);
+    
+  //   return this.apiService.get("http://localhost:4201/" + OperationConfig.reportFilter+url);
+  // }
+  // getUserSummary(url){
+  //   console.log("http://localhost:4201/" + OperationConfig.reportSummary+url);
+
+  //   return this.apiService.get("http://localhost:4201/" + OperationConfig.reportSummary+url);
+  // }
+  // getSchoolReport(url){
+  //   console.log("http://localhost:4201/" + OperationConfig.schoolReport+url);
+
+  //   return this.apiService.get("http://localhost:4201/" + OperationConfig.schoolReport+url);
+  // }
+  // getAssessorReport(url){
+  //   console.log("http://localhost:4201/" + OperationConfig.assessorReport+url);
+
+  //   return this.apiService.get("http://localhost:4201/" + OperationConfig.assessorReport+url);
+  // }
 
 }
