@@ -30,6 +30,18 @@
             </google-chart>
       
         </mat-card>
+
+        <mat-card *ngIf="chart.reportType === 'table'">
+          <table>
+            <tr>
+              <th *ngFor="let label of chart.keydomainName">{{label}}</th>
+            </tr>
+            <tr *ngFor="let tableData of chart.tabularData">
+              <td>{{tableData.valueColumn}}</td>
+              <td *ngFor="let tableValue of tableData.levels">{{tableValue.value}}</td>
+            </tr>
+          </table>
+        </mat-card>
     </span>
    
 

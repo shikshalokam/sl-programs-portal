@@ -1,6 +1,6 @@
 {
-    "schoolName":"Sujana Convent School",
-    "generatedAt":"22-03-2019",
+    "schoolName": "Sujana Convent School",
+    "generatedAt": "22-03-2019",
     "results": [
         {
             "keydomainName": "Themes",
@@ -66,7 +66,12 @@
             "graphData": {
                 "data": [
                     [
-                        "Categories within teaching and learning", 68 , 78,70,65,82
+                        "Categories within teaching and learning",
+                        68,
+                        78,
+                        70,
+                        65,
+                        82
                     ]
                 ],
                 "columnName": [
@@ -78,11 +83,16 @@
                     "Student Learning"
                 ],
                 "chartType": "ColumnChart",
-
                 "chartOptions": {
-                    "colors": ["red", "black", "green", "#f3b49f", "#f6c7b6"],
-                 "is3D": true,
-                 "isStacked": "precent",
+                    "colors": [
+                        "red",
+                        "black",
+                        "green",
+                        "#f3b49f",
+                        "#f6c7b6"
+                    ],
+                    "is3D": true,
+                    "isStacked": "precent",
                     "vAxis": {
                         "title": "Preformance Index (%)",
                         "minValue": 0
@@ -242,60 +252,209 @@
         },
         {
             "reportType": "table",
-            "keydomainName": "Theme",
-            "tabularData": {
-                "valueColumn": "Performance Index ",
-                "data": [
-                    {
-                        "domainName": "Availability of school leadership",
-                        "value": "1"
-                    },
-                    {
-                        "domainName": "Availability of teachers in school",
-                        "value": "3"
-                    },
-                    {
-                        "domainName": "Availability, adequacy and professional qualification of special educator",
-                        "value": "2"
-                    },
-                    {
-                        "domainName": "Career Counseling",
-                        "value": "1"
-                    },
-                    {
-                        "domainName": "Availability of non-teaching staff - Maintenance manager (repair and upkeep)",
-                        "value": "2"
-                    },
-                    {
-                        "domainName": "Availability of books[Remarks]",
-                        "value": "3"
-                    },
-                    {
-                        "domainName": "Well equipped and used Library/Reading Corner or Class library (in the case of primary schools)",
-                        "value": "4"
-                    },
-                    {
-                        "domainName": "Well equipped and used Labs (for higher secondary and secondary schools only)",
-                        "value": "1"
-                    },
-                    {
-                        "domainName": "Sports facilities",
-                        "value": "2"
-                    },
-                    {
-                        "domainName": "Music, Dance and Theatre facilities",
-                        "value": "2"
-                    },
-                    {
-                        "domainName": "Arts / Drawing facilities",
-                        "value": "2"
-                    },
-                    {
-                        "domainName": "Computer literacy",
-                        "value": "3"
-                    }
-                ]
-            }
+            "keydomainName": ["Themes","level 1","level 2","level3","level4"],
+            "tabularData": [
+                {
+                    "valueColumn": "Theme 1 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                        
+                    ]
+                },
+                {
+                    "valueColumn": "theme 2 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                },{
+                    "valueColumn": "theme 3 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },{
+                            "domainName":"level4",
+                            "value":"5"
+                        }
+                       
+                    ]
+                }
+            ]
+        },
+        {
+            "reportType": "table",
+            "keydomainName":[ "Area of Enquiry", "level 1","level 2","level3","level4"],
+            "tabularData": [
+                {
+                    "valueColumn": "AOI 1 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                },
+                {
+                    "valueColumn": "AO! 2 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                },{
+                    "valueColumn": "AOI 3 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "reportType": "table",
+            "keydomainName": ["Critria","level 1","level 2","level3","level4"],
+            "tabularData": [
+                {
+                    "valueColumn": "Criteria1 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                },
+                {
+                    "valueColumn": "Criteria 2 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                },{
+                    "valueColumn": "Criteria 3 ",
+                    "levels": [
+                        {
+                            "domainName": "level1",
+                            "value": "1"
+                        },
+                        {
+                            "domainName": "level2",
+                            "value": "2"
+                        },
+                        {
+                            "domainName": "level3",
+                            "value": "3"
+                        },
+                        {
+                            "domainName": "level4",
+                            "value": "3"
+                        }
+                    ]
+                }
+            ]
         }
+        
     ]
 }

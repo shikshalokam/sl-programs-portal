@@ -16,5 +16,7 @@
         {{'message.selectPrograms'|translate}}
     </div>
 </div>
-
+<span *ngIf="programData">
 <app-programsDashboard [programsList]="programData" (emitCurrentProgram)="programClick($event)"></app-programsDashboard>
+
+</span>

@@ -67,7 +67,7 @@ export class OperationsService {
   // applyFilters(url){
   //   console.log(environment.apibaseurl + OperationConfig.reportFilter+url);
     
-  //   return this.apiService.get("http://localhost:4201/" + OperationConfig.reportFilter+url);
+  //   return this.apiService.get("http://localhost:4201/assessment/api/v1/" + OperationConfig.reportFilter+url);
   // }
   // getUserSummary(url){
   //   console.log("http://localhost:4201/" + OperationConfig.reportSummary+url);
