@@ -47,7 +47,6 @@ export class EntityReportComponent implements OnInit {
     });
   }
   onReady(){
-    console.log("graph ready");
     this.utility.loaderHide();
   }
    getRandomColor() {

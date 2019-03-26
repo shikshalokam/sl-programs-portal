@@ -67,14 +67,12 @@ export class AppComponent implements OnInit {
   }
   links;
       getRoleAcess() {
-        console.log("called")
         this.globalConfigService.getRolePermission(environment.apibaseurl + GlobalConfig.acessAccordingRole)
           .subscribe(data => {
             this.roleAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
             this.roleAcess.push('home');
             localStorage.setItem('canAcess',JSON.stringify(this.roleAcess));
             this.links = GlobalConfig.programPortalLinks;
-            console.log(this.links)
           },
             error => {
     

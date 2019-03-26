@@ -33,7 +33,6 @@ export class OperationsService {
   }
 
   getAssessors(...args){
-    console.log(args)
     if(args[3] === undefined){
       args[3] = 0;
       args[4] = 50;
@@ -45,42 +44,34 @@ export class OperationsService {
     return this.apiService.get("http://localhost:4201"+ OperationConfig.reportSummary + url);
   }
   applyFilters(url){
-    console.log(environment.apibaseurl + OperationConfig.reportFilter+url);
 
     return this.apiService.get(environment.apibaseurl + OperationConfig.reportFilter+url);
   }
   getUserSummary(url){
-    console.log(environment.apibaseurl + OperationConfig.reportSummary+url);
 
     return this.apiService.get(environment.apibaseurl + OperationConfig.reportSummary+url);
   }
   getSchoolReport(url){
-    console.log(environment.apibaseurl + OperationConfig.schoolReport+url);
 
     return this.apiService.get(environment.apibaseurl + OperationConfig.schoolReport+url);
   }
   getAssessorReport(url){
-    console.log(environment.apibaseurl + OperationConfig.assessorReport+url);
 
     return this.apiService.get(environment.apibaseurl + OperationConfig.assessorReport+url);
   }
   // applyFilters(url){
-  //   console.log(environment.apibaseurl + OperationConfig.reportFilter+url);
     
   //   return this.apiService.get("http://localhost:4201/assessment/api/v1/" + OperationConfig.reportFilter+url);
   // }
   // getUserSummary(url){
-  //   console.log("http://localhost:4201/" + OperationConfig.reportSummary+url);
 
   //   return this.apiService.get("http://localhost:4201/" + OperationConfig.reportSummary+url);
   // }
   // getSchoolReport(url){
-  //   console.log("http://localhost:4201/" + OperationConfig.schoolReport+url);
 
   //   return this.apiService.get("http://localhost:4201/" + OperationConfig.schoolReport+url);
   // }
   // getAssessorReport(url){
-  //   console.log("http://localhost:4201/" + OperationConfig.assessorReport+url);
 
   //   return this.apiService.get("http://localhost:4201/" + OperationConfig.assessorReport+url);
   // }

@@ -59,14 +59,12 @@ export class UploadingCsvComponent implements OnInit {
 
   uploadAssessor(files:File[]) {
     this.assessorFile = files;
-    console.log(files)
     this.assessorFileSelected = true;
     this.showAssessorStatus = true;
 
   }
   uploadSchools(files:File[]) {
     this.schoolFile = files;
-    console.log(files)
     this.schoolFileSelected = true;
     this.showSchoolStatus = true;
 

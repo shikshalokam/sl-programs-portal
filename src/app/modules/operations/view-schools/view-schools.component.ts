@@ -31,7 +31,6 @@ export class ViewSchoolsComponent implements OnInit {
 
     ) {
   
-    console.log(JSON.parse( localStorage.getItem('currentAssessments'))['_id'])
     this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
     this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
     this.getViewSchool()
@@ -45,7 +44,6 @@ export class ViewSchoolsComponent implements OnInit {
         this.length = data['result']['totalCount'];
         this.dataSource = new MatTableDataSource(data['result']['schoolInformation']);
         setTimeout(() => this.dataSource.sort = this.sort);
-        console.log(this.dataSource+"hhhhhhhhh");
         this.utility.loaderHide()
       },
         (error) => {
