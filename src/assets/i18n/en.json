@@ -24,15 +24,18 @@
         "submit": "Submit",
         "save": "Save",
         "ok": "Ok",
+        "reset":"Reset",
         "saveSurvey": "Save Survey",
         "cancelSurvey": "Cancel Survey",
         "addNew" : "Add New",
         "removeAll" : "Remove All",
-        "upload" : "Upload"
+        "upload" : "Upload",
+        "apply":"Apply"
     },
     "downloadReport":"Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "filters":"Applied Filters",
         "homes":"Home",
         "assessments":"Assessments",
         "programs":"Programs",

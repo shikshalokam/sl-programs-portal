@@ -14,6 +14,7 @@ import { getToken } from '@angular/router/src/utils/preactivation';
 })
 export class OpsReportComponent implements OnInit {
   reportGenerate = false;
+  pageIndex = 0;
   schoolGraph;
   assessorGraph;
   headings = 'headings.opsReport'
@@ -28,12 +29,15 @@ export class OpsReportComponent implements OnInit {
   searchSchoolValue: string = '';
   searchAssessorName: string = '';
   filterObject: any;
-  filterArray: [string, {}][];
+  filterArray ;
   schoolReport: Object;
-  itemsPerPage=[1,2,3];
+  itemsPerPage=[1,5,10];
   searchParam: string = '';
   assessorReport: any;
   summaryData: any;
+  pageParam: any;
+  summaryGraph: object = {};
+  pageLimit: any;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -46,15 +50,22 @@ export class OpsReportComponent implements OnInit {
       formDate: ['', Validators.required],
       toDate: ['', Validators.required]
     });
-    this.route.queryParams.subscribe(params =>{
-      this.filters(params['ProgramId']);
-      this.getUserSummary(params['ProgramId']);
-
-    })
+    
   }
 
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUserDetails();
+    this.route.queryParams.subscribe(params=>{
+      this.pageParam = params;
+      this.utility.loaderShow();
+      this.filters(params['ProgramId']);
+      this.getUserSummary(params['ProgramId']);
+      if(Object.keys(params).length > 1 ){
+        this.filterApply('apply');
+        this.reportGenerate = true;
+
+      }
+    })
   }
 
   step = 0;
@@ -63,11 +74,17 @@ export class OpsReportComponent implements OnInit {
     this.step = index;
   }
 
-  nextStep() {
-  this.filterObject= this.filterForm.getRawValue();
-  for (let filter in this.filterObject) { 
+  filterApply(condition) {
     
-
+    if(condition === 'reset'){
+      this.filterForm.reset();
+      this.router.navigate(['/operations/reports'],{ queryParams: {ProgramId: this.pageParam['ProgramId'] } });
+      this.reportGenerate =false;
+      this.filterArray = [];
+    }
+    else{
+    this.filterObject= this.filterForm.getRawValue();
+    for (let filter in this.filterObject) { 
     if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
       delete this.filterObject[filter];
     }
@@ -80,6 +97,7 @@ export class OpsReportComponent implements OnInit {
   this.filterArray = Object.entries(this.filterObject)
   // this.filterArray = Object.keys(this.filterObject).map(i => this.filterObject[i])
   this.buildqueryParams();
+}
   }
   buildqueryParams(){
 
@@ -92,33 +110,43 @@ export class OpsReportComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  remove(filter): void {
-    const index = this.filterArray.indexOf(filter);
 
+  remove(filter): void {
+    let param ;
+    const index = this.filterArray.indexOf(filter);
+    this.route.queryParams.subscribe(params =>{
+      param = params;
+      // delete param['ProgramId'];
+      // this.generateReport(param);
+    })
     if (index >= 0) {
       this.filterArray.splice(index, 1);
     }
+
+
   }
-  mapGraphObject(object) {
-    
+  mapGraphObject(data) {
+    data.forEach(( object , ind) =>{
     for(let i = 0;i< object.graphData.length;i++)
      {
        const dataArray = this.getData(object,i)
-      Object.assign(object.graphData[i], {
+      Object.assign(data[ind].graphData[i], {
         data : dataArray 
       })
-      Object.assign(object.graphData[i].chartOptions,{legend: { position: 'top', alignment: 'end' }})
+      Object.assign(data[ind].graphData[i].chartOptions,{legend: { position: 'top', alignment: 'end' }})
 
     }
     object.graphData.forEach((item,index )=> {
       if(object.graphData[index].data.length > 2 && object.graphData[index].chartType ==='ColumnChart'){
-        Object.assign(object.graphData[index].chartOptions,{isStack:true})
+        Object.assign(data[ind].graphData[index].chartOptions,{isStack:true})
       }
     });
     
     const headers= this.getTableHeader(object);
-    Object.assign(object,{tableHeader:headers})
-    return object;
+    Object.assign(data[ind],{tableHeader:headers})
+  });
+    return data;
+    
   }
   getTableHeader(object){
     let headingArray = []
@@ -152,13 +180,16 @@ export class OpsReportComponent implements OnInit {
     return val;
   }
   applyFilter(obj) {
+  
     this.router.navigate(['.'], {
-      relativeTo: this.route, queryParams: obj, queryParamsHandling: "merge",
+      relativeTo: this.route, queryParams: obj,queryParamsHandling: "merge",
       preserveFragment: true
     });
+    let param;
     this.route.queryParams.subscribe(params => {
+      param = params;
     });
-    this.generateReport();
+    this.generateReport(param);
   }
 
   inputChange(key, event) {
@@ -171,11 +202,11 @@ export class OpsReportComponent implements OnInit {
     this.applyFilter({ [key]: value })
 
   }
-  generateReport() {
-    let param;
-    this.route.queryParams.subscribe(params => {
-      param = params
-    });
+  generateReport(param) {
+    // let param;
+    // this.route.queryParams.subscribe(params => {
+    //   param = params
+    // });
 
     this.queryParamsUrl = param['ProgramId'] + "?";
     let paramKey = Object.keys(param);
@@ -202,7 +233,10 @@ export class OpsReportComponent implements OnInit {
   }
   pageResponse(event) {
    this.searchParam= this.setSearchParam(event.pageIndex + 1 , event.pageLimit);
+   this.pageLimit = event.pageLimit;
+   this.pageIndex = event.pageIndex;
     this.getSchoolReport();
+    this.getAssessorReport();
   }
   reportsDataFetch(){
    this.getSchoolReport();
@@ -210,32 +244,81 @@ export class OpsReportComponent implements OnInit {
   }
 
   filters(url){
+    
     this.operationService.applyFilters(url).subscribe( data => {
 
-      this.filterData = data['result'];
-
-     this.filterForm= this.utility.toGroup(data['result']);
-
+    this.filterData = this.mapQueryParams(data['result']);
+     this.filterForm= this.utility.toGroup(this.filterData);
+     this.filterObject = this.filterForm.getRawValue()
+     for (let filter in this.filterObject) { 
+      if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
+        delete this.filterObject[filter];
+      }
+    }
+      this.filterArray = Object.entries(this.filterObject);
     });
+  }
+  mapQueryParams(data){
+    let param;
+    this.route.queryParams.subscribe(params =>{
+      param = params;
+    })
+    let paramKey = Object.keys(param);
+    paramKey.forEach( paramLabel => {
+      data.forEach((element,index) => {
+       if(element.field === paramLabel)
+       {
+         data[index].value = param[paramLabel];
+       }
+      });
+    });
+    return data;
   }
   getUserSummary(url){
     this.operationService.getUserSummary(url).subscribe( data => {
       this.summaryData=data['result'];
-      console.log(this.summaryData)
-    });
+     
+      const arrayToObject = (array, keyField) =>
+      array.reduce((obj, item) => {
+      obj[item[keyField]] = item
+      return obj
+      }, {})
+    this.summaryData = arrayToObject(this.summaryData, "label")
+  
+    console.log(this.summaryData['schoolsCompleted']['label'])
+    Object.assign(this.summaryGraph ,{data:[ [this.summaryData['schoolsCompleted']['label'],this.summaryData['schoolsCompleted']['value'] ] , [this.summaryData['schoolsInporgress']['label'],this.summaryData['schoolsInporgress']['value'] ] ]});
+    Object.assign(this.summaryGraph ,{ chartColumnNames :[this.summaryData['schoolsCompleted']['label'] ,this.summaryData['schoolsInporgress']['label']] });
+    Object.assign(this.summaryGraph ,{ chartType : 'PieChart'});
+    Object.assign(this.summaryGraph ,{ chartOptions : 
+     { colors: [
+          "red",
+          "yellow",
+      ],
+      legend: { position: 'top', maxLines: 3 },
+      is3D: true,
+    }
+
+  }
+
+      );
+      this.utility.loaderHide();
+
+});
   }
   getSchoolReport(){
     this.operationService.getSchoolReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
-       this.schoolReport = this.mapGraphObject(data['result']['sections'][0]);
-       this.schoolGraph=this.schoolReport['graphData'];
-      
+       this.schoolReport = this.mapGraphObject(data['result']['sections']);
+      //  this.schoolGraph=this.schoolReport['graphData'];
+        console.log(this.schoolReport);
     });
   }
 
   getAssessorReport(){
     this.operationService.getAssessorReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
-      this.assessorReport = this.mapGraphObject(data['result']['sections'][0]);
-       this.assessorGraph=this.assessorReport['graphData'];
+      this.assessorReport = this.mapGraphObject(data['result']['sections']);
+      //  this.assessorGraph=this.assessorReport['graphData'];
+       console.log(this.assessorReport);
+
     });
   }
   searchSchoolIdInApi(searchId){

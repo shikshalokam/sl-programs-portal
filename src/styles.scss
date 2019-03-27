@@ -104,7 +104,18 @@ body {
 ._flex-direction-column {
     flex-direction: column;
 }
-
+._padding-left{
+    padding-left: 20px !important;
+}
+._padding-right{
+    padding-right: 20px !important;
+}
+._padding-top{
+    padding-top: 20px !important;
+}
+._padding-bottom{
+    padding-bottom: 20px !important;
+}
 ._justify-content-center {
     justify-content: center;
 }
@@ -164,4 +175,16 @@ span:focus {
  }
 ._margin{
     margin: 20px 20px !important;
+}
+._margin-left{
+    margin-left: 20px !important;
+}
+._margin-right{
+    margin-right: 20px !important;
+}
+._margin-top{
+    margin-top: 20px !important;
+}
+._margin-bottom{
+    margin-bottom: 20px !important;
 }
