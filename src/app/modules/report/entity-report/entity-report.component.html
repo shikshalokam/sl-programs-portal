@@ -2,35 +2,36 @@
 
 <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
 
-  <div *ngIf="entityResult"  >
-    <div class="col-xs-12">
-        <h3>{{summary.schoolName}}</h3>
-        <h6>Date of Assignment :-  {{summary.generatedAt}}</h6>
-    </div>
-   
-    <span class="col-xs-12 marginTop" *ngFor="let chart of entityResult">
-        <mat-card *ngIf="chart.reportType === 'tableGraph'">
-
-            <table>
-                <tr>
-                  <th>{{chart.keydomainName}}</th>
-                  <th>{{chart.tabularData.valueColumn}}</th>
-                  
-                </tr>
-                <tr *ngFor="let tableData of chart.tabularData.data">
-                  <td>{{tableData.domainName}}</td>
-                  <td>{{tableData.value}}</td>
-                </tr>
-              </table>
-
-            <google-chart  (ready)="onReady()" class="marginChart" [options]="chart.graphData.chartOptions"  style="width : 100%; height: 500px;" 
-            [title]="'Schools Chart'"
-              [data]="chart.graphData.data" [type]="chart.graphData.chartType"
-              [columnNames]="chart.graphData.columnName">
-            </google-chart>
-      
-        </mat-card>
-    </span>
-   
-
+<div *ngIf="entityResult">
+  <div class="col-xs-12">
+    <h3>{{summary.schoolName}}</h3>
+    <h6>Date of Assignment :- {{summary.generatedAt}}</h6>
   </div>
+
+  <span class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
+    <mat-card >
+
+      <!-- <table>
+        <tr>
+          <th>{{chart.keydomainName}}</th>
+          <th>{{chart.tabularData.valueColumn}}</th>
+
+        </tr>
+        <tr *ngFor="let tableData of chart.tabularData.data">
+          <td>{{tableData.domainName}}</td>
+          <td>{{tableData.value}}</td>
+        </tr>
+      </table> -->
+      <div *ngIf="insightReport">
+          <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data"></app-table-component>
+        </div>
+      <!-- <google-chart (ready)="onReady()" class="marginChart" [options]="chart.graphData.chartOptions"
+        style="width : 100%; height: 500px;" [title]="'Schools Chart'" [data]="chart.graphData.data"
+        [type]="chart.graphData.chartType" [columnNames]="chart.graphData.columnName">
+      </google-chart> -->
+
+    </mat-card>
+  </span>
+
+
+</div>

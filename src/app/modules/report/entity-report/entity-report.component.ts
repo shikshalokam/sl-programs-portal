@@ -11,6 +11,7 @@ export class EntityReportComponent implements OnInit {
 
   headings= 'headings.reportEntityReport'
   entityResult;
+  insightReport;
   summary;
   constructor(private authService :AuthService , private apiService :ApiService,private utility :UtilityService) {
     
@@ -18,6 +19,7 @@ export class EntityReportComponent implements OnInit {
 
   ngOnInit() {
     this.utility.loaderShow();
+    this.getEntityReport();
 
   
     this.apiService.get("assets/temp.json").subscribe(data =>{
@@ -57,6 +59,18 @@ export class EntityReportComponent implements OnInit {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  }
+
+  getEntityReport() {
+    this.apiService.get("assets/insight.json").subscribe(data =>{
+      this.insightReport = data['result'];
+    this.utility.loaderHide();
+
+      // this.summary=data;
+      // this.entityResult = data['results'];
+      // this.setColor();
+
+    })
   }
   
   

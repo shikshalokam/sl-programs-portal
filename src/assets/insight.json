@@ -1,0 +1,103 @@
+{
+    "status": 200,
+    "result": {
+        "title": "Program Operations Report for DCPCR",
+        "summary": [
+            {
+                "label": "Name of the Manager",
+                "value": "Akshara"
+            },
+            {
+                "label": "Name of the Program",
+                "value": "DCPCR"
+            },
+            {
+                "label": "Date of report generation",
+                "value": "26-03-2019"
+            }
+        ],
+        "sections": [
+            {
+                "table": true,
+                "graph": true,
+                "totalCount": 2,
+                "graphData": [
+                    {
+                        "title": "School's Report",
+                        "subTitle": "",
+                        "chartType": "ColumnChart",
+                        "columnNames": [
+                            "name",
+                            "daysElapsed"
+                        ],
+                        "chartOptions": {
+                            "is3D": true,
+                            "vAxis": {
+                                "title": "completed in (%)",
+                                "minValue": 0
+                            },
+                            "hAxis": {
+                                "title": "School Name",
+                                "showTextEvery": 1
+                            }
+                        }
+                    },
+                    {
+                        "title": "School's Report",
+                        "subTitle": "Number of schools completed,Number of schools assigned,& average days taken for school assessments",
+                        "chartType": "LineChart",
+                        "columnNames": [
+                            "name",
+                            "assessmentCompletionPercent"
+                        ],
+                        "chartOptions": {
+                            "is3D": true,
+                            "vAxis": {
+                                "title": "completed in numbers",
+                                "minValue": 0
+                            },
+                            "hAxis": {
+                                "title": "School Name",
+                                "showTextEvery": 1
+                            }
+                        }
+                    }
+                ],
+                "data": [
+                    {
+                        "name": "GHPS, Muttanallur",
+                        "status": "In Progress",
+                        "daysElapsed": 11,
+                        "assessmentCompletionPercent": 90.91
+                    },
+                    {
+                        "name": "Sujana Convent School",
+                        "status": "In Progress",
+                        "daysElapsed": 11,
+                        "assessmentCompletionPercent": 90.91
+                    }
+                ],
+                "tabularData": {
+                    "headers": [
+                        {
+                            "name": "name",
+                            "label": "Name"
+                        },
+                        {
+                            "name": "status",
+                            "label": "Status"
+                        },
+                        {
+                            "name": "daysElapsed",
+                            "label": "Days Elapsed"
+                        },
+                        {
+                            "name": "assessmentCompletionPercent",
+                            "label": "Assessment Completion Percent"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

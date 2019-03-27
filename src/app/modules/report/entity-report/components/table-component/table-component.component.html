@@ -1,0 +1,10 @@
+<div>
+  <table class="customTable">
+    <tr>
+      <th *ngFor="let header of headers">{{header?.label}}</th>
+    </tr>
+    <tr *ngFor="let data of datas">
+      <td *ngFor="let header of headers">{{data[header?.name]}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,6 +1,6 @@
 
 export const GlobalConfig = {
-    acessAccordingRole : 'configurations/sideBar',
+    acessAccordingRole : 'configurations/navigation',
     currentPortal : 'program',
     programPortalLinks : [  
         { 
