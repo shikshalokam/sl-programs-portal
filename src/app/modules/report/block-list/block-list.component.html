@@ -1,0 +1,27 @@
+<app-loader></app-loader>
+<app-parent-heading [genericHeading]="headings" [showControl]="true" ></app-parent-heading>
+
+  <!-- <div *ngFor="let block of blockList" class="margin" [routerLink]="['/report/block-list',block.id]"> -->
+  <div *ngFor="let block of blockList" class="margin">
+    <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="textOverflow title">
+        Name : {{block.label}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <!-- Displaying of table inside the expansion panel -->
+
+  <div *ngFor="let school of schoolList">
+   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef> {{'tableLabel.name'| translate}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+   </mat-expansion-panel>
+  </div>
+

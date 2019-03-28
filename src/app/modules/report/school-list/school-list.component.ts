@@ -43,8 +43,10 @@ export class SchoolListComponent implements OnInit {
   showConfig() {
     this.reportService.getSchoolList()
       .subscribe(data => {
+        console.log(data, "data in school-list");
         this.result = data['result']['length'];
         this.dataSource = new MatTableDataSource(data['result']);
+        console.log(this.dataSource, "data source in school list")
         setTimeout(() => this.dataSource.sort = this.sort);
         this.schoolList = data['result'];
         this.utility.loaderHide()

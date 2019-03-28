@@ -7,6 +7,7 @@ import { DownloadReportComponent } from './download-report/download-report.compo
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
 import { EntityReportComponent } from './entity-report/entity-report.component';
+import { BlockListComponent } from './block-list/block-list.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,15 @@ const routes: Routes = [
         },
         canActivateChild:[AuthGuard],
         component: SchoolListComponent,
+      },
+      {
+        path: 'block-list',
+        data: {
+          id:'blockList',
+          breadcrumb:'headings.blockListHeading'
+        },
+        canActivateChild:[AuthGuard],
+        component: BlockListComponent,
       },
       {
         path: 'ecm-report/:name/:id',

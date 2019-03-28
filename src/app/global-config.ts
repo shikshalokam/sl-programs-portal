@@ -1,6 +1,6 @@
 
 export const GlobalConfig = {
-    acessAccordingRole : 'configurations/sideBar',
+    acessAccordingRole : 'configurations/navigation',
     currentPortal : 'program',
     programPortalLinks : [  
         { 
@@ -11,7 +11,6 @@ export const GlobalConfig = {
               id:'home',
               anchorLink:"home",
               icon:"home"
-              
             },
             {
               value :"headings.reports",
@@ -19,7 +18,7 @@ export const GlobalConfig = {
               anchorLink:"report",
               icon:"description"
             },
-                          {
+            {
               value:"headings.operations",
               id:'operations',
               anchorLink:"operations",
@@ -68,6 +67,13 @@ export const GlobalConfig = {
           anchorLink:"/report/school-list",
           id:'schoolList',
           icon:"school",
-        }
+        },
+        {
+          icons:"done",
+          tooltip:"headings.blockListHeading",
+          anchorLink:"/report/block-list",
+          id:'schoolList',
+          icon:"business",
+        },
       ]
     }
