@@ -3,5 +3,6 @@ export const ReportConfig = {
    ecmReportGetSubmissionId : 'schools/assessments/',
    GetSubmission : 'submissions/status/',
    downloadReport :'reports/programsSubmissionStatus/DCPCR?evidenceId=',
-   userSchoolsInProgram:"programs/userSchoolList?programId="
+   userSchoolsInProgram:"programs/userSchoolList?programId=",
+   singleEntityReport:"insights/singleEntityReport/"
 }

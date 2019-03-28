@@ -14,6 +14,7 @@ import { EntityReportComponent } from './entity-report/entity-report.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { TableComponentComponent } from './entity-report/components/table-component/table-component.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
+import { ColumnGraphComponent } from './entity-report/components/column-graph/column-graph.component';
 @NgModule({
   declarations: [
     ReportComponent,
@@ -21,7 +22,7 @@ import { SchoolsComponent } from './entity-report/components/schools/schools.com
     EcmReportComponent,
     ImageModalComponent,
     DownloadReportComponent,
-    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, TableComponentComponent, SchoolsComponent
+    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, TableComponentComponent, SchoolsComponent, ColumnGraphComponent
   ],
   imports: [
     // CommonModule,

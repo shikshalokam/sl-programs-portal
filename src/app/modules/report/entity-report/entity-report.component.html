@@ -10,18 +10,6 @@
 
   <span class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
     <mat-card >
-
-      <!-- <table>
-        <tr>
-          <th>{{chart.keydomainName}}</th>
-          <th>{{chart.tabularData.valueColumn}}</th>
-
-        </tr>
-        <tr *ngFor="let tableData of chart.tabularData.data">
-          <td>{{tableData.domainName}}</td>
-          <td>{{tableData.value}}</td>
-        </tr>
-      </table> -->
       <div *ngIf="insightReport">
           <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data"></app-table-component>
         </div>

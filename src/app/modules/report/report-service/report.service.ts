@@ -23,4 +23,9 @@ export class ReportService {
   getUserSchoolsInProgram(programId) {
     return this.apiService.get(environment.apibaseurl + ReportConfig.userSchoolsInProgram+programId);
   }
+
+  getSingleEntityReport(programId, schoolId) {
+    return this.apiService.get(environment.apibaseurl + ReportConfig.singleEntityReport+programId + '?school=' + schoolId);
+
+  }
 }

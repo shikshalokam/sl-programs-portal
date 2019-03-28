@@ -59,7 +59,7 @@ const routes: Routes = [
         redirectTo: 'report-dashboard'
       },
       {
-        path:'entity-report',
+        path:'entity-report/:schoolId',
         data:{
           id:"entityReport",
           breadcrumb:'headings.reportEntityReport'
