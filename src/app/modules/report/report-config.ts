@@ -2,5 +2,6 @@ export const ReportConfig = {
    schoolListFind : 'assessors/schools',
    ecmReportGetSubmissionId : 'schools/assessments/',
    GetSubmission : 'submissions/status/',
-   downloadReport :'reports/programsSubmissionStatus/DCPCR?evidenceId='
+   downloadReport :'reports/programsSubmissionStatus/DCPCR?evidenceId=',
+   userSchoolsInProgram:"programs/userSchoolList?programId="
 }

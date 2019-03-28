@@ -1,0 +1,17 @@
+@import '../../../../../../assets/scss/varibles.scss';
+.mat-column-action {
+    width: 100px;
+    margin-top: 15px;
+}
+.container {
+    height: calc(100vh - 175px) !important;
+    margin-top: 15px;
+    background: $white-color;
+    margin-right: 10px;
+}
+
+.errorMsg {
+    height: 60vh;
+    justify-content: center;
+    font-size: 12px;
+}
