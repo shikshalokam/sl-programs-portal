@@ -31,7 +31,7 @@ export const GlobalConfig = {
     operationsDashBoardLinks :[
         {
           tooltip:"headings.operationDashboardUpload",
-          anchorLink:"/operations/upload-csv",
+          anchorLink:"/operations",
           id:'uploadcsv',
           icon:"settings"
         },

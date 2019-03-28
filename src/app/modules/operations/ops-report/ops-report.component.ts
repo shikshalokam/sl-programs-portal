@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../private-modules/auth-service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationsService } from '../operations-service/operations.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material';
 import { UtilityService, CamelCasePipe } from 'shikshalokam';
-import { getToken } from '@angular/router/src/utils/preactivation';
+import {MatAccordion} from '@angular/material';
+
 @Component({
   selector: 'app-ops-report',
   templateUrl: './ops-report.component.html',
@@ -43,6 +43,7 @@ export class OpsReportComponent implements OnInit {
   expandedFilters :boolean = true;
   schoolLoading: boolean;
   assessorLoading: boolean;
+  @ViewChild('myaccordion') filterPanel: MatAccordion;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -66,7 +67,8 @@ export class OpsReportComponent implements OnInit {
       this.filters(params['ProgramId']);
       this.getUserSummary(params['ProgramId']);
       if(Object.keys(params).length > 1 ){
-        this.filterApply('apply');
+        this.filterApply('apply'); 
+        this.expandedFilters = false;
         this.reportGenerate = true;
 
       }
@@ -88,7 +90,9 @@ export class OpsReportComponent implements OnInit {
       this.filterArray = [];
     }
     else{
-      this.expandedFilters =  !this.expandedFilters;
+      this.filterPanel.closeAll();
+      this.expandedFilters = !this.expandedFilters;
+      console.log(this.expandedFilters)
     this.filterObject= this.filterForm.getRawValue();
     for (let filter in this.filterObject) { 
     if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
@@ -207,6 +211,7 @@ export class OpsReportComponent implements OnInit {
     const val = [day, mnth, date.getFullYear()].join("-");
     return val;
   }
+  
   applyFilter(obj) {
   
     this.router.navigate(['.'], {

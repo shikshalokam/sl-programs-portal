@@ -67,7 +67,7 @@ $faded-label-color:var(--faded-label-color);
 --primary-color:#A63936;
 --black-color:#4c4c4c;
 --blue-gradient-color:#b35754;
---grey-color:#bababa;
+--grey-color:#575555;
 --light-grey-color:#e0e0e0;
 --regular-font:'SF-ui-text-regular';
 --light-font:'SF-ui-text-light';
@@ -103,6 +103,12 @@ body {
 }
 ._flex-direction-column {
     flex-direction: column;
+}
+._small-Bottom-Margin{
+    margin : 0 0 10px 0 !important;
+}
+._no-wrap{
+    white-space: nowrap;
 }
 ._padding-left{
     padding-left: 20px !important;
