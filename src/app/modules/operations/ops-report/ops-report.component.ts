@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationsService } from '../operations-service/operations.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material';
-import { UtilityService } from 'shikshalokam';
+import { UtilityService, CamelCasePipe } from 'shikshalokam';
 import { getToken } from '@angular/router/src/utils/preactivation';
 @Component({
   selector: 'app-ops-report',
@@ -14,7 +14,8 @@ import { getToken } from '@angular/router/src/utils/preactivation';
 })
 export class OpsReportComponent implements OnInit {
   reportGenerate = false;
-  pageIndex = 0;
+  schoolPageIndex = 0;
+  assessorPageIndex = 0;
   schoolGraph;
   assessorGraph;
   headings = 'headings.opsReport'
@@ -31,13 +32,17 @@ export class OpsReportComponent implements OnInit {
   filterObject: any;
   filterArray ;
   schoolReport: Object;
-  itemsPerPage=[1,5,10];
+  itemsPerPage=[5,10,20];
   searchParam: string = '';
   assessorReport: any;
   summaryData: any;
   pageParam: any;
   summaryGraph: object = {};
-  pageLimit: any;
+  schoolPageLimit: any;
+  assessorPageLimit:any ;
+  expandedFilters :boolean = true;
+  schoolLoading: boolean;
+  assessorLoading: boolean;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -73,7 +78,7 @@ export class OpsReportComponent implements OnInit {
   setStep(index: number) {
     this.step = index;
   }
-
+ 
   filterApply(condition) {
     
     if(condition === 'reset'){
@@ -83,6 +88,7 @@ export class OpsReportComponent implements OnInit {
       this.filterArray = [];
     }
     else{
+      this.expandedFilters =  !this.expandedFilters;
     this.filterObject= this.filterForm.getRawValue();
     for (let filter in this.filterObject) { 
     if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
@@ -140,8 +146,17 @@ export class OpsReportComponent implements OnInit {
       if(object.graphData[index].data.length > 2 && object.graphData[index].chartType ==='ColumnChart'){
         Object.assign(data[ind].graphData[index].chartOptions,{isStack:true})
       }
+      if(data[ind].graphData[index].data.length > 10 ){
+        Object.assign(data[ind].graphData[index].chartOptions.hAxis,{textPosition: 'none'});
+      }
+      let colNameArray=[]
+      data[ind].graphData[index].columnNames.forEach(column => {
+        colNameArray.push(new CamelCasePipe().transform(column));
+      });
+      Object.assign(data[ind].graphData[index] ,{columnNames : colNameArray});
     });
-    
+  
+   new CamelCasePipe().transform('schoolList')
     const headers= this.getTableHeader(object);
     Object.assign(data[ind],{tableHeader:headers})
   });
@@ -166,8 +181,21 @@ export class OpsReportComponent implements OnInit {
   }
   getColumn(object,i,j){
       let colArray = [];
-    object.graphData[i].columnNames.forEach(column => {
+    object.graphData[i].columnNames.forEach((column,index) => {
+      column = column.trim();
+      if(index > 0){
+        if( object.data[j][column] === ""){
+        
+          colArray.push(0);
+        }
+        else {
+          colArray.push(object.data[j][column]);
+        }
+      }
+      else{
         colArray.push(object.data[j][column]);
+      }
+     
       }
     );
     return colArray;
@@ -222,24 +250,53 @@ export class OpsReportComponent implements OnInit {
       index++;
     })
     this.queryParamsUrl+='csv='+false;
-      this.searchParam = this.setSearchParam();
+     
       
     this.reportsDataFetch();
     this.reportGenerate = true;
   }
-  setSearchParam(index: number = 1 , size : number = this.itemsPerPage[0] ){
-    const  url ='&page='+index+'&limit='+size+'&schoolName='+this.searchSchoolValue+'&assessorName='+this.searchAssessorName;
+  setSearchParam(index: number = 1 , size : number = this.itemsPerPage[0] ,label  ){
+    if(label === 'school'){
+    console.log(label);
+
+      const  url ='&page='+index+'&limit='+size+'&schoolName='+this.searchSchoolValue;
     return url;
+    }
+    else if(label === 'assessor'){
+      const  url ='&page='+index+'&limit='+size+'&assessorName='+this.searchAssessorName;
+    return url;
+    }
+    
   }
   pageResponse(event) {
-   this.searchParam= this.setSearchParam(event.pageIndex + 1 , event.pageLimit);
-   this.pageLimit = event.pageLimit;
-   this.pageIndex = event.pageIndex;
+    if (event.label === 'school'){
+    console.log(event)
+
+   this.schoolPageLimit = event.pageLimit;
+   this.schoolPageIndex = event.pageIndex;
+   this.searchParam= this.setSearchParam(this.schoolPageIndex +1,  this.schoolPageLimit , 'school');
+      console.log(this.searchParam)
     this.getSchoolReport();
-    this.getAssessorReport();
+    }
+
+    else if ( event.label === 'assessor' ){
+    console.log(event)
+
+      this.assessorPageIndex = event.pageIndex ;
+      this.assessorPageLimit = event.pageLimit ;
+      this.searchParam= this.setSearchParam(this.assessorPageIndex +1 , this.assessorPageLimit , 'assessor');
+      this.getAssessorReport();
+    }
+
+   
+   
   }
   reportsDataFetch(){
+    this.searchParam = this.setSearchParam(this.schoolPageIndex,this.schoolPageLimit,'school');
+    console.log(this.searchParam)
    this.getSchoolReport();
+   this.searchParam = this.setSearchParam(this.assessorPageIndex,this.assessorPageLimit,'assessor');
+
    this.getAssessorReport();
   }
 
@@ -286,38 +343,37 @@ export class OpsReportComponent implements OnInit {
     this.summaryData = arrayToObject(this.summaryData, "label")
   
     console.log(this.summaryData['schoolsCompleted']['label'])
-    Object.assign(this.summaryGraph ,{data:[ [this.summaryData['schoolsCompleted']['label'],this.summaryData['schoolsCompleted']['value'] ] , [this.summaryData['schoolsInporgress']['label'],this.summaryData['schoolsInporgress']['value'] ] ]});
-    Object.assign(this.summaryGraph ,{ chartColumnNames :[this.summaryData['schoolsCompleted']['label'] ,this.summaryData['schoolsInporgress']['label']] });
+    Object.assign(this.summaryGraph ,{data:[ [ new CamelCasePipe().transform(this.summaryData['schoolsCompleted']['label']),this.summaryData['schoolsCompleted']['value'] ? this.summaryData['schoolsCompleted']['value']  : 0 ], [ new CamelCasePipe().transform(this.summaryData['schoolsInporgress']['label']),this.summaryData['schoolsInporgress']['value']  ? this.summaryData['schoolsInporgress']['value'] : 0 ] ]});
+    Object.assign(this.summaryGraph ,{ chartColumnNames :[new CamelCasePipe().transform(this.summaryData['schoolsCompleted']['label']) ,new CamelCasePipe().transform(this.summaryData['schoolsInporgress']['label'])] });
     Object.assign(this.summaryGraph ,{ chartType : 'PieChart'});
-    Object.assign(this.summaryGraph ,{ chartOptions : 
-     { colors: [
+    Object.assign(this.summaryGraph ,{ chartOptions :  { colors: [
           "red",
-          "yellow",
+          "green",
       ],
       legend: { position: 'top', maxLines: 3 },
       is3D: true,
-    }
-
-  }
-
-      );
+    }});
       this.utility.loaderHide();
-
 });
   }
   getSchoolReport(){
+    this.schoolLoading = true;
+    console.log(this.searchParam)
     this.operationService.getSchoolReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
        this.schoolReport = this.mapGraphObject(data['result']['sections']);
       //  this.schoolGraph=this.schoolReport['graphData'];
-        console.log(this.schoolReport);
+    this.schoolLoading = false;
+        
     });
   }
 
   getAssessorReport(){
+    this.assessorLoading = true;
     this.operationService.getAssessorReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
       this.assessorReport = this.mapGraphObject(data['result']['sections']);
       //  this.assessorGraph=this.assessorReport['graphData'];
        console.log(this.assessorReport);
+    this.assessorLoading = false;
 
     });
   }
@@ -332,9 +388,15 @@ export class OpsReportComponent implements OnInit {
        this.searchAssessorName = searchValue;
      }
   }
-  searchInApi(){
-    this.searchParam=this.setSearchParam();
-    this.getSchoolReport();
-    this.getAssessorReport();
+  searchInApi(label){
+    if (label ==='school'){
+      this.searchParam=this.setSearchParam(this.schoolPageIndex , this.schoolPageLimit , 'school');
+      this.getSchoolReport();
+    }
+    else if ( label === 'assessor'){
+      this.searchParam=this.setSearchParam(this.assessorPageIndex , this.assessorPageLimit , 'assessor');
+      this.getAssessorReport();
+    }
+    
   }
 }
