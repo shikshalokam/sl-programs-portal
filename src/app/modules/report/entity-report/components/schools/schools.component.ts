@@ -32,7 +32,7 @@ export class SchoolsComponent implements OnInit {
 
   navigateToEntityReport(schoolId) {
     // this.route.n
-    this.route.navigate(['/report/entity-report'], { queryParams: {ProgramId: this.programId, schoolId: schoolId } });
+    this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {ProgramId: this.programId} });
   }
 
 }
