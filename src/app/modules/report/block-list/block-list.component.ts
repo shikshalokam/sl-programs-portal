@@ -3,6 +3,9 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { ProgramsDashboardService } from '../../programs-dashboard/programs-dashboard-service/programs-dashboard.service';
+
 
 
 @Component({
@@ -21,21 +24,18 @@ export class BlockListComponent implements OnInit {
   programId;
   blockId;
   error: any;
+  data;
+
+  // currentProgram= 6;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator : MatPaginator;
-  router: any;
   
-  constructor(private route: ActivatedRoute ,private reportService: ReportService,private utility: UtilityService) { 
-    this.programId = JSON.parse( localStorage.getItem('currentProgram'))['externalId'];
+  constructor(private route: ActivatedRoute ,private reportService: ReportService,private utility: UtilityService, private router : Router, private programService:ProgramsDashboardService) { 
     this.blockId;
-    // this.route.params.subscribe(params => {
-    //   console.log(params, "params");
-    //   this.programId = params["Id"];
-    // });
-
-
-
+    this.route.queryParams.subscribe(params => {
+      this.programId = params.ProgramId;
+    });
     this.showConfig();
     this.showSchool();
   }
@@ -52,17 +52,16 @@ export class BlockListComponent implements OnInit {
     }
   }
 
+  // test(currentProgram){
+  //   console.log("clicked....")
+  //   console.log(currentProgram, "current pgm")
+  //   this.router.navigate([this.data],{ queryParams: {ProgramId: currentProgram.externalId} })
+  // }
+
 
   showConfig(){
     this.reportService.getListOfBlock(this.programId)
     .subscribe(data => {
-      console.log(data, "data");
-      // this.result = data['result']['zones']['length'];
-      // console.log(this.result,"result");
-      // this.dataSource = new MatTableDataSource(data['result']['zones']);
-      // console.log(this.dataSource, "data source in school list")
-      // setTimeout(() => this.dataSource.sort = this.sort);
-
       this.blockList = data['result']['zones'];
       this.utility.loaderHide()
     },
@@ -74,7 +73,6 @@ export class BlockListComponent implements OnInit {
     );
 
   }
-
 
   showSchool(){
     this.reportService.getListOfSchool(this.programId)
@@ -94,11 +92,5 @@ export class BlockListComponent implements OnInit {
     );
 
   }
-
-  // programClick(currentProgram){
-  //   console.log("clicked");
-  //   this.router.navigate({ queryParams: {ProgramId: currentProgram.externalId} })
-  // }
-  
 
 }
