@@ -10,24 +10,25 @@ import { GlobalConfig } from 'src/app/global-config';
   styleUrls: ['./view-schools.component.scss']
 })
 export class ViewSchoolsComponent implements OnInit {
-  displayedColumns: string[] = ['externalId', 'name', '_id'];
+  displayedColumns: string[] = ['name'];
   dataSource;
   schoolList;
   result;
   error: any;
   smallScreen = false;
-  programId ;
-  assessmentId ;
+  programId;
+  assessmentId;
   headings = 'headings.viewSchools';
-  search='';
-  pageIndex:number=0;
-  pageSize:number=50;
-  length:number;
-  searchValue='';
-  @ViewChild(MatSort) sort:MatSort;
+  search = '';
+  pageIndex: number = 0;
+  pageSize: number = 50;
+  length: number;
+  searchValue = '';
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private operationsService: OperationsService,
+<<<<<<< HEAD
     private snackBar : MatSnackBar,
      private utility: UtilityService,
 
@@ -35,11 +36,20 @@ export class ViewSchoolsComponent implements OnInit {
   
     this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
     this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
+=======
+    private utility: UtilityService,
+
+  ) {
+
+    console.log(JSON.parse(localStorage.getItem('currentAssessments'))['_id'])
+    this.programId = JSON.parse(localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
+>>>>>>> made assessments as hide and lists in schools in program-portal
     this.getViewSchool()
   }
   getViewSchool() {
     this.utility.loaderShow();
-    this.operationsService.getSchools(this.programId,this.assessmentId,this.search,this.pageIndex,this.pageSize)
+    this.operationsService.getSchools(this.programId, this.assessmentId, this.search, this.pageIndex, this.pageSize)
       .subscribe(data => {
         this.schoolList = data['result']['schoolInformation'];
         this.result = data['result']['schoolInformation'].length;
@@ -57,41 +67,39 @@ export class ViewSchoolsComponent implements OnInit {
       );
   }
   applyFilter(filterValue: string) {
-    this.searchValue = filterValue ;
+    this.searchValue = filterValue;
   }
   ngOnInit() {
     this.utility.loaderShow();
     if (window.innerWidth < 760) { // 768px portrait
       this.smallScreen = true;
     }
-    
+
   }
 
   objectKeys(obj) {
     return Object.keys(obj);
   }
-  onResize(event)
-  {
-    
-    if(event.target.innerWidth < 760)
-    {
+  onResize(event) {
+
+    if (event.target.innerWidth < 760) {
       this.smallScreen = true;
     }
-    else{
+    else {
       this.smallScreen = false;
     }
   }
-  pageEvent(event){
-   
-    if(this.pageSize !== event.pageSize ?  this.pageSize : event.pageSize  )
-    // {
-    //   this.pageSize = event.pageSize;
-    // }
-    this.pageIndex = event.pageIndex;
+  pageEvent(event) {
+
+    if (this.pageSize !== event.pageSize ? this.pageSize : event.pageSize)
+      // {
+      //   this.pageSize = event.pageSize;
+      // }
+      this.pageIndex = event.pageIndex;
     this.getViewSchool();
   }
-  searchInApi(event){
-    this.search=event;
+  searchInApi(event) {
+    this.search = event;
     this.pageIndex = 0;
     this.getViewSchool();
   }
