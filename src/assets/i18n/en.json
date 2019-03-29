@@ -9,8 +9,9 @@
         "addCriteria" : "Adding a new Criteria",
         "customizeQuestion":"Customize Question",
         "goToProgramDashboard":"Go To Program Dashboard",
-        "selectPrograms":"Select a program to continue"
-
+        "selectPrograms":"Select a program to continue",
+        "downloadCsv":"Download as CSV",
+        "downloadChart":"Download Chart as PDF"
     },
     
     "buttons": {
@@ -24,15 +25,18 @@
         "submit": "Submit",
         "save": "Save",
         "ok": "Ok",
+        "reset":"Reset",
         "saveSurvey": "Save Survey",
         "cancelSurvey": "Cancel Survey",
         "addNew" : "Add New",
         "removeAll" : "Remove All",
-        "upload" : "Upload"
+        "upload" : "Upload",
+        "apply":"Apply"
     },
     "downloadReport":"Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "filters":"Filters",
         "homes":"Home",
         "assessments":"Assessments",
         "programs":"Programs",

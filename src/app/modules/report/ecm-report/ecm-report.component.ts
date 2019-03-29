@@ -4,6 +4,7 @@ import {  UtilityService } from 'shikshalokam';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { ImageModalComponent } from '../ecm-report/image-modal/image-modal.component';
 import { ReportService } from '../report-service/report.service';
+import { GlobalConfig } from 'src/app/global-config';
 export interface DialogData {
   fileName: any;
 }
@@ -52,7 +53,7 @@ export class EcmReportComponent implements OnInit {
           },
           (error) => {
             this.error = error;
-            this.snackBar.open(error['message'], "Ok", { duration: 9000 });
+            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
             this.utility.loaderHide();
           }
         )
@@ -60,7 +61,7 @@ export class EcmReportComponent implements OnInit {
       },
       (error) => {
         this.error = error;
-        this.snackBar.open(error['message'], "Ok", { duration: 9000 });
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
         this.utility.loaderHide();
       }
     );
@@ -84,7 +85,6 @@ export class EcmReportComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 

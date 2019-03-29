@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../private-modules/auth-service/auth.service';
 import { ApiService, UtilityService } from 'shikshalokam';
+import { MatSnackBar } from '@angular/material';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-entity-report',
@@ -12,7 +14,7 @@ export class EntityReportComponent implements OnInit {
   headings= 'headings.reportEntityReport'
   entityResult;
   summary;
-  constructor(private authService :AuthService , private apiService :ApiService,private utility :UtilityService) {
+  constructor(private authService :AuthService ,private snackBar : MatSnackBar, private apiService :ApiService,private utility :UtilityService) {
     
    }
 
@@ -25,7 +27,10 @@ export class EntityReportComponent implements OnInit {
       this.entityResult = data['results'];
       this.setColor();
 
-    })
+    },error =>{
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+    }
+     )
   }
   setColor(){
     let index =0;
@@ -47,7 +52,6 @@ export class EntityReportComponent implements OnInit {
     });
   }
   onReady(){
-    console.log("graph ready");
     this.utility.loaderHide();
   }
    getRandomColor() {
