@@ -35,14 +35,14 @@ export const GlobalConfig = {
           anchorLink:"/operations/upload-csv",
           id:'uploadcsv',
           icon:"settings",
-          disabled:true
+          disabled:false
         },
         {
           tooltip:"headings.schoolListHeading",
           anchorLink: "/operations/view-schools",
           id:'viewSchools',
           icon:"school",
-          disabled:false
+          disabled:true
         },
         {
           tooltip:"headings.assessorListHeading",
@@ -56,7 +56,7 @@ export const GlobalConfig = {
           tooltip:"headings.opsReport",
           anchorLink: "/operations/reports",
           id:'opsReport',
-          disabled:false
+          disabled:true
         }
       ],
       ReportDashBoardLinks : [
