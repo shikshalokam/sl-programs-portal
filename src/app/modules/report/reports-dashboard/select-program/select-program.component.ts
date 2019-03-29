@@ -4,6 +4,7 @@ import { DialogData } from 'src/app/modules/report/ecm-report/ecm-report.compone
 import { UtilityService } from 'shikshalokam';
 import { ProgramsDashboardService } from 'src/app/modules/programs-dashboard/programs-dashboard-service/programs-dashboard.service';
 import { Router } from '@angular/router';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-select-program',
@@ -30,7 +31,7 @@ export class SelectProgramComponent implements OnInit {
         this.utilityService.loaderHide();
       }, error => {
       this.utilityService.loaderHide();
-      this.snackBar.open(error['message'], "Ok", {duration: 9000});
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
       })
   }
   

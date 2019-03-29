@@ -4,6 +4,7 @@ import { OperationsService } from '../operations-service/operations.service';
 import { MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-uploading-csv',
@@ -100,7 +101,7 @@ export class UploadingCsvComponent implements OnInit {
         }
       },
         error => {
-          this.snackBar.open(error['message'], "Ok", { duration: 9000 });
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
         });
     setTimeout(() => {
       if(uploadType == 'schools'){

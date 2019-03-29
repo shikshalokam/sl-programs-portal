@@ -9,8 +9,9 @@
         "addCriteria" : "Adding a new Criteria",
         "customizeQuestion":"Customize Question",
         "goToProgramDashboard":"Go To Program Dashboard",
-        "selectPrograms":"Select a program to continue"
-
+        "selectPrograms":"Select a program to continue",
+        "downloadCsv":"Download as CSV",
+        "downloadChart":"Download Chart as PDF"
     },
     
     "buttons": {

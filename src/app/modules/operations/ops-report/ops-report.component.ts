@@ -5,8 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationsService } from '../operations-service/operations.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { UtilityService, CamelCasePipe } from 'shikshalokam';
-import {MatAccordion} from '@angular/material';
-
+import {MatAccordion, MatSnackBar} from '@angular/material';
+import * as jspdf from 'jspdf';  
+  
+import html2canvas from 'html2canvas';
+import { GlobalConfig } from 'src/app/global-config';
 @Component({
   selector: 'app-ops-report',
   templateUrl: './ops-report.component.html',
@@ -18,6 +21,7 @@ export class OpsReportComponent implements OnInit {
   assessorPageIndex = 0;
   schoolGraph;
   assessorGraph;
+  
   headings = 'headings.opsReport'
   currentUser;
   dynamicResize;
@@ -50,7 +54,8 @@ export class OpsReportComponent implements OnInit {
     private route: ActivatedRoute,
     private _fb: FormBuilder,
     private operationService:OperationsService,
-    private utility :UtilityService
+    private utility :UtilityService,
+    private snackBar :MatSnackBar
   ) {
     this.filterForm = this._fb.group({
       formDate: ['', Validators.required],
@@ -58,7 +63,21 @@ export class OpsReportComponent implements OnInit {
     });
     
   }
-
+  pdf(id){
+    var data = document.getElementById(id);  
+    html2canvas(data).then(canvas => {  
+      var imgWidth = 208;   
+      var pageHeight = 295;    
+      var imgHeight = canvas.height * imgWidth / canvas.width;  
+      var heightLeft = imgHeight;  
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new jspdf('p', 'mm', 'a4'); 
+      var position = 0;  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.save(id+'.pdf');  
+    });  
+  
+  }
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUserDetails();
     this.route.queryParams.subscribe(params=>{
@@ -92,16 +111,16 @@ export class OpsReportComponent implements OnInit {
     else{
       this.filterPanel.closeAll();
       this.expandedFilters = !this.expandedFilters;
-      console.log(this.expandedFilters)
     this.filterObject= this.filterForm.getRawValue();
     for (let filter in this.filterObject) { 
     if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
       delete this.filterObject[filter];
     }
   }
- if(this.filterObject.formDate){
-  this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate);
+ if(this.filterObject.toDate){
+  this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate)
   this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
+  
  }
   this.applyFilter(this.filterObject)
   this.filterArray = Object.entries(this.filterObject)
@@ -139,6 +158,7 @@ export class OpsReportComponent implements OnInit {
     data.forEach(( object , ind) =>{
     for(let i = 0;i< object.graphData.length;i++)
      {
+       
        const dataArray = this.getData(object,i)
       Object.assign(data[ind].graphData[i], {
         data : dataArray 
@@ -147,9 +167,13 @@ export class OpsReportComponent implements OnInit {
 
     }
     object.graphData.forEach((item,index )=> {
+
       if(object.graphData[index].data.length > 2 && object.graphData[index].chartType ==='ColumnChart'){
-        Object.assign(data[ind].graphData[index].chartOptions,{isStack:true})
+        Object.assign(data[ind].graphData[index].chartOptions,{
+          isStack:true ,
+        })
       }
+     
       if(data[ind].graphData[index].data.length > 10 ){
         Object.assign(data[ind].graphData[index].chartOptions.hAxis,{textPosition: 'none'});
       }
@@ -158,8 +182,10 @@ export class OpsReportComponent implements OnInit {
         colNameArray.push(new CamelCasePipe().transform(column));
       });
       Object.assign(data[ind].graphData[index] ,{columnNames : colNameArray});
+      
+      
     });
-  
+
    new CamelCasePipe().transform('schoolList')
     const headers= this.getTableHeader(object);
     Object.assign(data[ind],{tableHeader:headers})
@@ -260,9 +286,70 @@ export class OpsReportComponent implements OnInit {
     this.reportsDataFetch();
     this.reportGenerate = true;
   }
+  downloadCsv(id){
+    if(id === 'school')
+    {
+      this.operationService.getSchoolReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
+
+      },
+      error=>{
+        if(error.status==200){
+          const blob = new Blob([error.error.text], { type: 'csv' });
+          const url = window.URL.createObjectURL(blob);
+          let a = document.createElement('a');
+          a.href = url;
+          a.download = `${id}-Report.csv`;
+          document.body.appendChild(a);
+          a.click();        
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }else{
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+        }
+      });
+    }
+    else if(id === 'assessor') {
+      this.operationService.getAssessorReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
+
+      },
+      error=>{
+        if(error.status==200){
+          const blob = new Blob([error.error.text], { type: 'csv' });
+          const url = window.URL.createObjectURL(blob);
+          let a = document.createElement('a');
+          a.href = url;
+          a.download = `${id}-Report.csv`;
+          document.body.appendChild(a);
+          a.click();        
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }else{
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+        }
+      });
+      this.operationService.getAssessorReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
+
+      },
+      error=>{
+        if(error.status==200){
+          const blob = new Blob([error.error.text], { type: 'csv' });
+          const url = window.URL.createObjectURL(blob);
+          let a = document.createElement('a');
+          a.href = url;
+          a.download = `${id}-Report.csv`;
+          document.body.appendChild(a);
+          a.click();        
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }else{
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+        }
+      });
+    }
+    
+  }
   setSearchParam(index: number = 1 , size : number = this.itemsPerPage[0] ,label  ){
     if(label === 'school'){
-    console.log(label);
 
       const  url ='&page='+index+'&limit='+size+'&schoolName='+this.searchSchoolValue;
     return url;
@@ -275,18 +362,13 @@ export class OpsReportComponent implements OnInit {
   }
   pageResponse(event) {
     if (event.label === 'school'){
-    console.log(event)
-
    this.schoolPageLimit = event.pageLimit;
    this.schoolPageIndex = event.pageIndex;
    this.searchParam= this.setSearchParam(this.schoolPageIndex +1,  this.schoolPageLimit , 'school');
-      console.log(this.searchParam)
     this.getSchoolReport();
     }
 
     else if ( event.label === 'assessor' ){
-    console.log(event)
-
       this.assessorPageIndex = event.pageIndex ;
       this.assessorPageLimit = event.pageLimit ;
       this.searchParam= this.setSearchParam(this.assessorPageIndex +1 , this.assessorPageLimit , 'assessor');
@@ -298,7 +380,6 @@ export class OpsReportComponent implements OnInit {
   }
   reportsDataFetch(){
     this.searchParam = this.setSearchParam(this.schoolPageIndex,this.schoolPageLimit,'school');
-    console.log(this.searchParam)
    this.getSchoolReport();
    this.searchParam = this.setSearchParam(this.assessorPageIndex,this.assessorPageLimit,'assessor');
 
@@ -311,6 +392,7 @@ export class OpsReportComponent implements OnInit {
 
     this.filterData = this.mapQueryParams(data['result']);
      this.filterForm= this.utility.toGroup(this.filterData);
+     console.log(this.filterForm)
      this.filterObject = this.filterForm.getRawValue()
      for (let filter in this.filterObject) { 
       if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
@@ -318,6 +400,9 @@ export class OpsReportComponent implements OnInit {
       }
     }
       this.filterArray = Object.entries(this.filterObject);
+    }, 
+    error =>{
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
     });
   }
   mapQueryParams(data){
@@ -328,12 +413,22 @@ export class OpsReportComponent implements OnInit {
     let paramKey = Object.keys(param);
     paramKey.forEach( paramLabel => {
       data.forEach((element,index) => {
+        console.log(paramLabel)
        if(element.field === paramLabel)
        {
+         if(element.input === 'date'){
+        
+        let date = [ param[paramLabel].substring(6) ,param[paramLabel].substring(3,5) ,param[paramLabel].substring(0,2) ] .join("-");
+        data[index].value = date + 'T00:00:00.000Z';
+         }
+         else{
          data[index].value = param[paramLabel];
+
+         }
        }
       });
     });
+    console.log(data)
     return data;
   }
   getUserSummary(url){
@@ -346,30 +441,25 @@ export class OpsReportComponent implements OnInit {
       return obj
       }, {})
     this.summaryData = arrayToObject(this.summaryData, "label")
-  
-    console.log(this.summaryData['schoolsCompleted']['label'])
-    Object.assign(this.summaryGraph ,{data:[ [ new CamelCasePipe().transform(this.summaryData['schoolsCompleted']['label']),this.summaryData['schoolsCompleted']['value'] ? this.summaryData['schoolsCompleted']['value']  : 0 ], [ new CamelCasePipe().transform(this.summaryData['schoolsInporgress']['label']),this.summaryData['schoolsInporgress']['value']  ? this.summaryData['schoolsInporgress']['value'] : 0 ] ]});
-    Object.assign(this.summaryGraph ,{ chartColumnNames :[new CamelCasePipe().transform(this.summaryData['schoolsCompleted']['label']) ,new CamelCasePipe().transform(this.summaryData['schoolsInporgress']['label'])] });
-    Object.assign(this.summaryGraph ,{ chartType : 'PieChart'});
-    Object.assign(this.summaryGraph ,{ chartOptions :  { colors: [
-          "red",
-          "green",
-      ],
-      legend: { position: 'top', maxLines: 3 },
-      is3D: true,
-    }});
+    
       this.utility.loaderHide();
-});
+},
+error =>{
+  this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+}
+);
   }
   getSchoolReport(){
     this.schoolLoading = true;
-    console.log(this.searchParam)
     this.operationService.getSchoolReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
        this.schoolReport = this.mapGraphObject(data['result']['sections']);
       //  this.schoolGraph=this.schoolReport['graphData'];
     this.schoolLoading = false;
         
-    });
+    },error =>{
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+    }
+    );
   }
 
   getAssessorReport(){
@@ -377,10 +467,12 @@ export class OpsReportComponent implements OnInit {
     this.operationService.getAssessorReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
       this.assessorReport = this.mapGraphObject(data['result']['sections']);
       //  this.assessorGraph=this.assessorReport['graphData'];
-       console.log(this.assessorReport);
     this.assessorLoading = false;
 
-    });
+    },error =>{
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+    }
+    );
   }
   searchSchoolIdInApi(searchId){
   }

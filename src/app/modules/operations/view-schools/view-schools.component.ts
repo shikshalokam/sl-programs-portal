@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-view-schools',
@@ -27,6 +28,7 @@ export class ViewSchoolsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private operationsService: OperationsService,
+    private snackBar : MatSnackBar,
      private utility: UtilityService,
 
     ) {
@@ -48,6 +50,7 @@ export class ViewSchoolsComponent implements OnInit {
       },
         (error) => {
           this.error = error;
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
           this.utility.loaderHide();
           ;
         }

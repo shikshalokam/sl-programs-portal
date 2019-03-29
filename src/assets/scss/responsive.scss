@@ -186,18 +186,18 @@
         }
 
         .dropdownDiv:before {
-            right: 20px !important;
+            right: 21px !important;
+          }
+        .dropdownDiv:after {
+            right: 21px !important;
           }
 
         .dropdownFeature{
            width:100% !important;
-            justify-content: center !important;
+            justify-content: left !important;
             padding-left:0px !important;
         }
-
-        
-
-}
+    }
 
 
 
@@ -213,4 +213,9 @@
         width:200px !important;
         display:flex !important;
     }
+    .dropdownFeature{
+        justify-content: center !important;
+    }
+
+      
 }

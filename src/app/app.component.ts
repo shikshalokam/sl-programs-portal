@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from './modules/private-modules/auth-service/auth.service';
 import { environment } from 'src/environments/environment';
 import { GlobalConfig } from './global-config';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,9 @@ export class AppComponent implements OnInit {
 
   logo =" ./assets/shikshalokam.png";
   roleAcess=[];
-  constructor(private translate: TranslateService,private route : ActivatedRoute,private authService :AuthService , private globalConfigService:GlobalConfigurationService) {
+  constructor(private translate: TranslateService,private route : ActivatedRoute,
+    private authService :AuthService , private globalConfigService:GlobalConfigurationService
+    ,private snackBar : MatSnackBar) {
     translate.use('en').then(() => {
       
     });
@@ -75,7 +78,7 @@ export class AppComponent implements OnInit {
             this.links = GlobalConfig.programPortalLinks;
           },
             error => {
-    
+              this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
             }
           )
     
