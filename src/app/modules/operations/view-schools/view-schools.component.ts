@@ -28,23 +28,16 @@ export class ViewSchoolsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private operationsService: OperationsService,
-<<<<<<< HEAD
-    private snackBar : MatSnackBar,
-     private utility: UtilityService,
-
-    ) {
-  
-    this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
-    this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
-=======
+    private snackBar: MatSnackBar,
     private utility: UtilityService,
-
   ) {
+
+    this.programId = JSON.parse(localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
 
     console.log(JSON.parse(localStorage.getItem('currentAssessments'))['_id'])
     this.programId = JSON.parse(localStorage.getItem('currentProgram'))['_id'];
     this.assessmentId = JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
->>>>>>> made assessments as hide and lists in schools in program-portal
     this.getViewSchool()
   }
   getViewSchool() {
@@ -60,7 +53,7 @@ export class ViewSchoolsComponent implements OnInit {
       },
         (error) => {
           this.error = error;
-          this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
           this.utility.loaderHide();
           ;
         }

@@ -1,39 +1,18 @@
-<<<<<<< HEAD
-  <app-loader></app-loader>
-  <app-parent-heading [genericHeading]="headings"></app-parent-heading>
-
-  <div *ngIf="!error">
-
-
-    <div *ngIf=" result > 0  && !smallScreen" class="bigTabel" (window:resize)="onResize($event)">
-      <mat-form-field [floatLabel]="'never'" class="_full-width">
-          <button mat-button  matPrefix mat-icon-button aria-label="Clear" >
-              <i class="material-icons">
-                  search
-                  </i>
-            </button>
-        <input class="filterInput"  matInput  appDebounceSearch [searchValue]="searchValue" (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}" (keyup)="applyFilter($event.target.value)" >
-      </mat-form-field>
-      <div class="example-container mat-elevation-z8 ">
-        <div class="tableContainer">
-          <table mat-table [dataSource]="dataSource" matSort class="_contentMiddle ">
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.name'| translate}} </th>
-              <td mat-cell *matCellDef="let element"><div class="capitalise"> {{element.name | blank}} </div></td>
-            </ng-container>
-            <ng-container matColumnDef="_id">
-=======
 <app-loader></app-loader>
+<app-parent-heading [genericHeading]="headings"></app-parent-heading>
+
 <div *ngIf="!error">
-  <app-parent-heading [genericHeading]="headings"></app-parent-heading>
 
 
   <div *ngIf=" result > 0  && !smallScreen" class="bigTabel" (window:resize)="onResize($event)">
     <mat-form-field [floatLabel]="'never'" class="_full-width">
+      <button mat-button matPrefix mat-icon-button aria-label="Clear">
+        <i class="material-icons">
+          search
+        </i>
+      </button>
       <input class="filterInput" matInput appDebounceSearch [searchValue]="searchValue" (debounceSearch)="searchInApi($event)"
         placeholder="{{'search'| translate}}" (keyup)="applyFilter($event.target.value)">
-
-
     </mat-form-field>
     <div class="example-container mat-elevation-z8 ">
       <div class="tableContainer">
@@ -44,17 +23,20 @@
               <div class="capitalise"> {{element.name | blank}} </div>
             </td>
           </ng-container>
-          <!-- <ng-container matColumnDef="_id">
->>>>>>> made assessments as hide and lists in schools in program-portal
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel._id'| translate}} </th>
-              <td mat-cell *matCellDef="let element"><div class="capitalise">  {{element._id | blank}}</div> </td>
-            </ng-container> -->
+          <ng-container matColumnDef="_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel._id'| translate}} </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="capitalise"> {{element._id | blank}}</div>
+            </td>
+          </ng-container>
 
 
-          <!-- <ng-container matColumnDef="externalId">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.externalId'| translate}}</th>
-              <td mat-cell *matCellDef="let element"><div class="capitalise"> {{element.externalId | blank}}</div></td>
-            </ng-container> -->
+          <ng-container matColumnDef="externalId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'tableLabel.externalId'| translate}}</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="capitalise"> {{element.externalId | blank}}</div>
+            </td>
+          </ng-container>
 
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>

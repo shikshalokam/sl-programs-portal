@@ -1,20 +1,9 @@
 {
     "brand": "School Development Index",
     "brandResponsive": "SDI",
-<<<<<<< HEAD
-    "message" :{
-        "alertHeading" : "ALERT !!",
-        "imageHeading" : "Images",
-        "alertMessage" : "Mark as complete will be updated 'Are you sure to submit' ? ",
-        "noData" :"No data found",
-        "addCriteria" : "Adding a new Criteria",
-        "customizeQuestion":"Customize Question",
-        "goToProgramDashboard":"Go To Program Dashboard",
-        "selectPrograms":"Select a program to continue",
-        "downloadCsv":"Download as CSV",
-        "downloadChart":"Download Chart as PDF"
-=======
     "message": {
+        "downloadCsv": "Download as CSV",
+        "downloadChart": "Download Chart as PDF",
         "alertHeading": "ALERT !!",
         "imageHeading": "Images",
         "alertMessage": "Mark as complete will be updated 'Are you sure to submit' ? ",
@@ -23,7 +12,6 @@
         "customizeQuestion": "Customize Question",
         "goToProgramDashboard": "Go To Program Dashboard",
         "selectPrograms": "Select a program to continue"
->>>>>>> made assessments as hide and lists in schools in program-portal
     },
     "buttons": {
         "download": "Download",
@@ -36,33 +24,21 @@
         "submit": "Submit",
         "save": "Save",
         "ok": "Ok",
-        "reset":"Reset",
+        "reset": "Reset",
         "saveSurvey": "Save Survey",
         "cancelSurvey": "Cancel Survey",
-<<<<<<< HEAD
-        "addNew" : "Add New",
-        "removeAll" : "Remove All",
-        "upload" : "Upload",
-        "apply":"Apply"
-=======
+        "apply": "Apply",
         "addNew": "Add New",
         "removeAll": "Remove All",
         "upload": "Upload"
->>>>>>> made assessments as hide and lists in schools in program-portal
     },
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
-<<<<<<< HEAD
-        "filters":"Filters",
-        "homes":"Home",
-        "assessments":"Assessments",
-        "programs":"Programs",
-=======
+        "filters": "Filters",
         "homes": "Home",
         "assessments": "Assessments",
         "programs": "Programs",
->>>>>>> made assessments as hide and lists in schools in program-portal
         "addQuestions": "Add New Question",
         "parentInfoHeading": "Parent Information",
         "parentListHeading": "Parent List",
