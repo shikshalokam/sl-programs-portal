@@ -1,14 +1,17 @@
-<app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
+<app-loader></app-loader>
+<div class="_margin-bottom">
+  <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
+</div>
 <div class="reportDashboard">
 
   <div class="_flex-box _justify-content-center ">
 
     <div class="_full-width">
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
-        <mat-card class=" profileHeight col-xs-12 " [formGroup]="filterForm">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  _noMarginPadding ">
+        <!-- <mat-card class=" profileHeight col-xs-12 " [formGroup]="filterForm" *ngIf="summaryData">
 
-          <div class="col-xs-12">
+          <div class="col-xs-12 _flex-box">
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4  _flex-box _justify-content-center  userIcon ">
               <i class="material-icons profileIcon">
                 account_circle
@@ -17,22 +20,22 @@
             <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8   profileContent  flex-direction-column">
               <div class="flexBox _justify-content-center">
                 <span>
-                  <h5>{{currentUser.name |camelcase }} .</h5>
+                  <h4>{{summaryData.managerName.value |camelcase }} .</h4>
                 </span>
                 <span class="_flex-box _justify-content-space-between horizontalLine flexWarp">
-                  <span class="subHeading col-xs-12 col-md-4 col-lg-4">{{dummyObject.userRole | camelcase }} .</span>
-                  <span class="subHeading col-xs-12 col-md-4 col-lg-4"> {{currentUser.email |camelcase }} .</span>
-                  <span class="subHeading col-xs-12 col-md-4 col-lg-4">{{currentUser.preferred_username }} .</span>
+                  <span class="subHeading col-xs-12 col-md-4 col-lg-4">{{summaryData.role.value | camelcase }} .</span>
+                  <span class="subHeading col-xs-12 col-md-4 col-lg-4"> {{summaryData.email.value  }} .</span>
+                  <span class="subHeading col-xs-12 col-md-4 col-lg-4">{{summaryData.userName.value }} .</span>
                 </span>
 
               </div>
               <div class="_flexbox _justify-content-space-between flexWarp">
                 <div class="flexBox _justify-content-center col-xs-12 col-md-4 col-lg-4">
                   <span>
-                    <h6>Program Name :</h6>
+                    <h6>{{summaryData.programName.label | camelcase}}</h6>
                   </span>
                   <span>
-                    <h6 class="subHeading">{{dummyObject.programName | camelcase}}</h6>
+                    <h6 class="subHeading">{{summaryData.programName.value | camelcase}}</h6>
                   </span>
                 </div>
                 <div class="flexBox _justify-content-center col-xs-12 col-md-4 col-lg-4">
@@ -45,205 +48,268 @@
                 </div>
                 <div class="flexBox _justify-content-center col-xs-12 col-md-4 col-lg-4">
                   <span>
-                    <h6>Date of report generation :</h6>
+                    <h6>{{summaryData.createdDate.label | camelcase}}:</h6>
                   </span>
                   <span>
-                    <h6 class="subHeading">{{dummyObject.reportGeneratedDate }}</h6>
+                    <h6 class="subHeading">{{summaryData.createdDate.value}}</h6>
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12 _noMarginPadding">
-            <div>
-              <mat-divider></mat-divider>
+        </mat-card>  -->
+        <h4 class="_flex-box  _small-Bottom-Margin">Program Operations Report </h4>
+        <mat-card *ngIf="summaryData">
+          <div class="_flexbox _justify-content-space-between flexWarp">
+            <div class="flexBox col-xs-12 col-md-4 col-lg-4 _justify-content-center">
+              <span>
+                <h6 class="_no-wrap">{{summaryData.nameOfTheProgram.label | camelcase}} <span
+                    class="_padding-left _padding-right">:</span></h6>
+              </span>
+              <span>
+                <h6 class="subHeading">{{summaryData.nameOfTheProgram.value}}</h6>
+              </span>
             </div>
-            <div class="_flex-box _justify-content-center col-xs-12 col-md-12 col-lg-12 marginTop">
-              <div class=" _flex-box col-xs-12 col-md-3 col-lg-3 _noMarginPadding">
-                <mat-form-field class="  col-xs-6 ">
-                  <mat-label>Start</mat-label>
-                  <input matInput [matDatepicker]="picker1" formControlName="formDate" [max]="maxDate"
-                    (dateInput)="applyDate('fromDate' , $event)" (dateChange)="applyDate('fromDate' , $event.value)"
-                    (click)="picker1.open()" required>
-                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                  <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field class="  col-xs-6 ">
-                  <mat-label>End</mat-label>
-                  <input matInput [matDatepicker]="picker2" (click)="picker2.open()"
-                    [disabled]="!filterForm.controls.formDate.valid" formControlName="toDate" [max]="maxDate"
-                    [min]="filterForm.controls.formDate.value" (dateInput)="applyDate('toDate' , $event.value )"
-                    (dateChange)="applyDate('toDate' , $event.value)" required>
-                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                  <mat-datepicker #picker2 color="primary"></mat-datepicker>
-                </mat-form-field>
-              </div>
-              <div class=" col-xs-12 col-md-2 col-lg-2 ">
-                <mat-form-field class="col-xs-12">
-                  <mat-select placeholder="Type">
-                    <mat-option *ngFor="let type of filterResult.type" [value]="type.value"
-                      (click)="selectType('type', type.value)">
-                      {{type.key}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div class="col-xs-12 col-md-2 col-lg-2 ">
-                <mat-form-field class="col-xs-12 _noMarginPadding">
-                  <mat-select placeholder="Administration :-">
-                    <mat-option *ngFor="let admin of filterResult.administration" [value]="admin.value"
-                      (click)="selectType('administration', admin.value)">
-                      {{admin.key}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div class=" col-xs-12 col-md-2 col-lg-2">
-                <mat-form-field class="col-xs-12 _noMarginPadding">
-                  <input matInput placeholder="School ID" (keyup)="inputChange('schoolId',$event)"
-                    [matAutocomplete]="auto" appDebounceSearch (debounceSearch)="searchSchoolIdInApi($event)"
-                    [debounceTime]="2000" [searchValue]="searchSchoolId">
-                  <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of options" [value]="option.id">
-                      {{option.id}} - {{option.name}}
-                    </mat-option>
-                  </mat-autocomplete>
-                </mat-form-field>
-              </div>
-              <div class="col-xs-12 col-md-2 col-lg-2">
-                <mat-form-field class="col-xs-12 _noMarginPadding">
-                  <input matInput placeholder="Address" (change)="inputChange('address',$event)">
-                </mat-form-field>
-              </div>
-              <div class="col-xs-12 col-md-1 col-lg-1 _flex-box _flex-end">
-                <button mat-raised-button color="primary" [disabled]="!filterForm.valid"
-                  (click)="generateReport()">Apply</button>
-              </div>
+            <div class="flexBox  col-xs-12 col-md-4 col-lg-4 _justify-content-center">
+              <span>
+                <h6 class="_no-wrap">{{summaryData.nameOfTheManager.label | camelcase}} <span
+                    class="_padding-left _padding-right">:</span></h6>
+              </span>
+              <span>
+                <h6 class="subHeading">{{summaryData.nameOfTheManager.value | camelcase}}</h6>
+              </span>
+            </div>
+            <!-- <div class="flexBox  col-xs-12 col-md-4 col-lg-4 _justify-content-center">
+                  <span>
+                    <h6 class="_no-wrap">For the period <span class="_padding-left _padding-right">:</span></h6>
+                  </span>
+                  <span>
+                    <h6 class="subHeading"> - NA - </h6>
+                  </span>
+                </div> -->
+            <div class="flexBox  col-xs-12 col-md-4 col-lg-4 _justify-content-center">
+              <span>
+                <h6 class="_no-wrap">{{summaryData.dateOfReportGeneration.label | camelcase}} <span
+                    class="_padding-left _padding-right">:</span></h6>
+              </span>
+              <span>
+                <h6 class="subHeading">{{summaryData.dateOfReportGeneration.value}}</h6>
+              </span>
             </div>
 
           </div>
         </mat-card>
+        <div class="col-xs-12 _noMarginPadding">
+          <mat-accordion class="example-headers-align " #myaccordion="matAccordion">
+
+            <mat-expansion-panel class="marginTop"  [expanded]="expandedFilters">
+              <mat-expansion-panel-header (click)=" expandedFilters = !expandedFilters">
+                <span class="_flex-box">
+                  <i class="material-icons _padding-right">
+                    filter_list
+                  </i>
+                  {{'headings.filters' | translate}}
+                  <span class="_padding-left">
+                    <mat-chip *ngIf=" filterArray?.length"> {{filterArray?.length }} </mat-chip>
+                    <mat-chip *ngIf="! filterArray?.length"> 0 </mat-chip>
+                  </span>
+                </span>
+              </mat-expansion-panel-header>
+              <div class="marginTop" *ngIf="filterArray">
+                <mat-chip-list #chipList>
+                  <!-- <mat-chip *ngFor="let filter of filterArray" [selectable]="selectable"
+                 >
+                  {{filter[0]}} : {{filter[1]}} -->
+                  <mat-chip *ngFor="let filter of filterArray">
+                    {{filter[0] | camelcase}} : {{filter[1] | date: 'shortDate'}}
+                  </mat-chip>
+
+                </mat-chip-list>
+              </div>
+              <app-dynamic-form [genericData]="filterData" [genericForm]="filterForm" [genericEdit]="true">
+              </app-dynamic-form>
+
+              <mat-action-row>
+                <button mat-raised-button (click)="filterApply('reset')">{{'buttons.reset'|translate}}</button>
+                <button mat-raised-button color="primary" (click)="filterApply('apply')" class="_margin-left"
+                  [disabled]="!filterForm.valid">{{'buttons.apply'|translate}}</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 marginTop" *ngIf="reportGenerate">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 _noMarginPadding " *ngIf="reportGenerate && summaryData">
         <mat-card class="_flex-box _justify-content-center col-xs-12">
-          <h4>{{'headings.summary' | translate}} :-</h4>
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 marginTop">
-            <table>
-              <tr>
-                <td>Total Schools Assigned :</td>
-                <td>{{dummyObject.schoolsAssigned}}</td>
-              </tr>
-              <tr>
-                <td>Schools in progress :</td>
-                <td>{{dummyObject.schoolsInporgress}}</td>
-              </tr>
-              <tr>
-                <td>Schools completed :</td>
-                <td>{{dummyObject.schoolsCompleted}}</td>
-              </tr>
-              <tr>
-                <td>Average Time Taken for each school :</td>
-                <td>{{dummyObject.averageTimeTakenForSchools}}</td>
-              </tr>
-            </table>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 marginTop" *ngIf="reportStatus">
-            <google-chart class="marginChart" [options]="reportStatus.options"
-              [title]="'Schools ( completed / Inporgress )'" style="width : 100%; height: 100%;"
-              [data]="reportStatus.data" [dynamicResize]="dynamicResize" [type]="reportStatus.type"
-              [columnNames]="reportStatus.columnNames">
-            </google-chart>
-            <!-- <div class="_flex-box _justify-content-center">
-              <span>Total School Assigned : </span>
-              <span>{{dummyObject.schoolsAssigned}} .</span>
+          <h4>{{'headings.summary' | translate}} </h4>
+          <div class="_flex-box flexWarp">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+              <table>
+                <tr>
+                  <td>{{summaryData.schoolsAssigned.label | camelcase}}</td>
+                  <td>{{summaryData.schoolsAssigned.value}}</td>
+                </tr>
+                <tr>
+                  <td>{{summaryData.schoolsCompleted.label | camelcase}}</td>
+                  <td>{{summaryData.schoolsCompleted.value}}</td>
+                </tr>
+                <tr>
+                  <td>{{summaryData.schoolsInporgress.label | camelcase}}</td>
+                  <td>{{summaryData.schoolsInporgress.value}}</td>
+                </tr>
+                <tr>
+                  <td>{{summaryData.averageTimeTakenInDays.label | camelcase}}</td>
+                  <td>{{summaryData.averageTimeTakenInDays.value}}</td>
+                </tr>
+              </table>
             </div>
-            <div class="_flex-box _justify-content-center">
-              <span>Average time taken : </span>
-              <span>{{dummyObject.averageTimeTakenForSchools}} .</span>
-            </div> -->
+            <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 marginTop" *ngIf="summaryGraph">
+            <google-chart class="marginChart" [options]="summaryGraph.chartOptions"
+              [title]="summaryGraph.title" style="width : 100%; height: 100%;"
+              [data]="summaryGraph.data" [type]="summaryGraph.chartType"
+              [columnNames]="summaryGraph.chartColumnNames">
+            </google-chart>
+          </div> -->
           </div>
         </mat-card>
       </div>
-      <div class="col-lg-12 col-md-22 col-sm-12 col-xs-12 marginTop " *ngIf="reportGenerate">
 
-        <mat-card class="flex-direction-column col-xs-12">
+      <div class="col-lg-12 col-md-22 col-sm-12 col-xs-12 marginTop _noMarginPadding"
+        *ngIf=" reportGenerate && assessorReport">
+        <div *ngFor="let assessorGraph of assessorReport ; let index = index">
+          <mat-card class="flex-direction-column col-xs-12">
+            <h4 class="_flex-box _justify-content-space-between"> {{'headings.assessorReports'| translate}} <div
+                *ngIf="assessorLoading">
+                <app-individual-loader></app-individual-loader>
+              </div>
+            </h4>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  _noMarginPadding ">
+              <mat-form-field class=" _full-width">
+                <input class="filterInput" matInput appDebounceSearch [searchValue]="searchAssessorName"
+                  [value]="searchAssessorName" (debounceSearch)="searchInApi('assessor',$event)"
+                  placeholder="{{'search'| translate}}" [debounceTime]="1000"
+                  (keyup)="searchVal('assessor',$event.target.value)">
+                <button mat-button matPrefix mat-icon-button aria-label="Clear">
+                  <i class="material-icons">
+                    search
+                  </i>
+                </button>
+                <button  matSuffix matTooltip="{{'message.downloadCsv' | translate}}" mat-icon-button aria-label="Clear" (click)="downloadCsv('assessor')">
+                  <i class="material-icons">
+                    file_download
+                  </i>
+                </button>
+              </mat-form-field>
+            </div>
+            <div *ngIf="assessorGraph.data.length > 0">
+              <table>
+                <tr>
+                  <th *ngFor="let heading of assessorGraph.tabularData.headers">{{heading.label}}</th>
+                </tr>
+                <tr *ngFor="let assessor of assessorGraph.data">
+                  <td *ngFor="let heading of assessorGraph.tableHeader">{{assessor[heading] | blank}}</td>
+                </tr>
+              </table>
+              <div class=" col-xs-12 _border _small-Top-Margin">
+                <div class=" col-xs-12 _flex-box _flex-end">
+                  <button mat-button (click)="pdf('assessorGraph'+index)">
+                      {{'message.downloadChart' | translate}}<i class="material-icons">
+                      file_download
+                    </i>
+                  </button>
+                </div>
+                <div class="col-xs-12" id="assessorGraph{{index}}">
+                  <div *ngFor="let Chart of assessorGraph.graphData">
 
-          <h4> {{'headings.schoolReports'| translate}} :-</h4>
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
-            <mat-form-field [floatLabel]="'never'" class=" _full-width">
-              <input class="filterInput" id="search" matInput appDebounceSearch [searchValue]="searchValue"
-                (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}"
-                (keyup)="searchVal($event.target.value)">
-            </mat-form-field>
-            <table>
-              <tr>
-                <th>School Name</th>
-                <th>School Status</th>
-                <th> Days elapsed since assessment started</th>
-                <th>% completion of assessment</th>
-              </tr>
-              <tr *ngFor="let school of dummyObject.schoolsReport">
-                <td>{{school.schoolName}}</td>
-                <td>{{school.status}}</td>
-                <td>{{school.daysElapsed}}</td>
-                <td>{{school.assessmentCompletedInPercent}}</td>
-              </tr>
-            </table>
-            <app-pagination [length]="100" [itemsPerPage]="[3,5,7,10]" (paginationResponse)="pageResponse($event)"
+                    <h4 class="_flex-box _justify-content-center">{{Chart.title}}</h4>
+                    <google-chart class="marginChart" [options]="Chart.chartOptions"
+                      style="width : 100%; min-height: 300px;" [data]="Chart.data" [type]="Chart.chartType"
+                      [columnNames]="Chart.columnNames">
+                    </google-chart>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!(assessorGraph.data.length > 0)">
+              <div class="middle">
+                {{'message.noData' | translate}}
+              </div>
+            </div>
+            <app-pagination [length]="assessorGraph.totalCount" [pageLimit]="assessorPageLimit"
+              [pageIndex]="assessorPageIndex" [itemsPerPage]="itemsPerPage" (paginationResponse)="pageResponse($event)"
+              [paginationLabel]="'assessor'"></app-pagination>
+          </mat-card>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-22 col-sm-12 col-xs-12 marginTop _noMarginPadding"
+        *ngIf="reportGenerate && schoolReport">
+        <div *ngFor="let schoolGraph of schoolReport ; let index = index ">
+          <mat-card class="flex-direction-column col-xs-12 _noMarginPadding">
+            <h4 class="_flex-box _justify-content-space-between"> {{'headings.schoolReports'| translate}} <div
+                *ngIf="schoolLoading">
+                <app-individual-loader></app-individual-loader>
+              </div>
+            </h4>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
+              <mat-form-field class=" _full-width">
+                <input class="filterInput" matInput appDebounceSearch [searchValue]="searchSchoolValue"
+                  [value]="searchSchoolValue" (debounceSearch)="searchInApi('school',$event)"
+                  placeholder="{{'search'| translate}}" [debounceTime]="1000"
+                  (keyup)="searchVal('school',$event.target.value)">
+                <button mat-button matPrefix mat-icon-button aria-label="Clear">
+                  <i class="material-icons">
+                    search
+                  </i>
+                </button>
+                <button mat-button matSuffix matTooltip="{{'message.downloadCsv' | translate}}" mat-icon-button aria-label="Clear"
+                  (click)="downloadCsv('school')"> 
+                  <i class="material-icons">
+                    file_download
+                  </i>
+                </button>
+              </mat-form-field>
+            </div>
+            <div *ngIf="schoolGraph.data.length > 0">
+              <table>
+                <tr>
+                  <th *ngFor="let heading of schoolGraph.tabularData.headers">{{heading.label}}</th>
+                </tr>
+                <tr *ngFor="let school of schoolGraph.data">
+                  <td *ngFor="let heading of schoolGraph.tableHeader">{{school[heading] | blank}}</td>
+                </tr>
+              </table>
+              <div class=" col-xs-12 _border _small-Top-Margin">
+                <div class=" col-xs-12 _flex-box _flex-end">
+                  <button mat-button (click)="pdf('SchoolGraph'+index)"> 
+                    {{'message.downloadChart' | translate}}<i class="material-icons">
+                      file_download
+                    </i>
+                  </button>
+                </div>
+                <div class="col-xs-12" id="SchoolGraph{{index}}">
+
+                  <div *ngFor="let Chart of schoolGraph.graphData">
+                    <h4 class="_flex-box _justify-content-center">{{Chart.title}}</h4>
+
+                    <google-chart class="marginChart" [options]="Chart.chartOptions"
+                      style="width : 100%; min-height: 300px;" [data]="Chart.data" [type]="Chart.chartType"
+                      [columnNames]="Chart.columnNames">
+                    </google-chart>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!(schoolGraph.data.length > 0)">
+              <div class="middle">
+                {{'message.noData' | translate}}
+              </div>
+            </div>
+            <app-pagination [length]="schoolGraph.totalCount" [pageLimit]="schoolPageLimit"
+              [pageIndex]="schoolPageIndex" [itemsPerPage]="itemsPerPage" (paginationResponse)="pageResponse($event)"
               [paginationLabel]="'school'"></app-pagination>
-
-          </div>
-          <google-chart class="marginChart" [options]="schoolGraph.schoolOptions" style="width : 100%; height: 100%;"
-            [title]="'Schools Chart'" [data]="schoolGraph.schoolData" [type]="schoolGraph.schoolType"
-            [columnNames]="schoolGraph.schoolColumnNames">
-          </google-chart>
-        </mat-card>
+          </mat-card>
+        </div>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 marginTop " *ngIf="reportGenerate">
 
-        <mat-card class="flex-direction-column col-xs-12">
-
-          <h4> {{'headings.assessorReports'| translate}} :-</h4>
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
-            <table>
-              <tr>
-                <th>Lead Assessor Name</th>
-                <th>Number of schools assigned</th>
-                <th> Number of schools Completed</th>
-                <th> % of schools completed</th>
-                <th>Average days taken for school assessment</th>
-              </tr>
-              <tr *ngFor="let asessor of dummyObject.assessorsReport">
-                <td>{{asessor.name}}</td>
-                <td>{{asessor.schoolsAssigned}}</td>
-                <td>{{asessor.schoolsCompleted}}</td>
-                <td>{{asessor.schoolCompletedInPercent}}</td>
-                <td>{{asessor.averageDaysTaken}}</td>
-              </tr>
-            </table>
-          </div>
-          <google-chart class="marginChart" [options]="assessorGraph.assessorOptions"
-            style="width : 100%; height: 100%;" [title]="'Acessor Graph'" [data]="assessorGraph.assessorData"
-            [type]="assessorGraph.assessorType" [columnNames]="assessorGraph.assessorColumnNames"></google-chart>
-        </mat-card>
-      </div>
     </div>
   </div>
-
-  <!-- <div class="paddingTop">
-    <h4> {{'headings.schoolReports'| translate}} </h4>
-    <google-chart [options]="schoolGraph.schoolOptions" [title]="'School List'" [data]="schoolGraph.schoolData"
-      [type]="schoolGraph.schoolType" [columnNames]="schoolGraph.schoolColumnNames">
-    </google-chart>
-  </div>
-
-  <div class="paddingTop">
-    <h4> {{'headings.assessorReports'| translate}} </h4>
-
-    <google-chart [options]="assessorGraph.assessorOptions" [height]=450 [width]=1024 [title]="'Acessor Graph'"
-      [data]="assessorGraph.assessorData" [type]="assessorGraph.assessorType"
-      [columnNames]="assessorGraph.assessorColumnNames"></google-chart>
-  </div>
-
-</div> -->

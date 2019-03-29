@@ -5,7 +5,7 @@
   <div *ngIf="entityResult"  >
     <div class="col-xs-12">
         <h3>{{summary.schoolName}}</h3>
-        <h6>Date of Assignment :-  {{summary.generatedAt}}</h6>
+        <h6>Date of Assignment   {{summary.generatedAt}}</h6>
     </div>
    
     <span class="col-xs-12 marginTop" *ngFor="let chart of entityResult">
@@ -29,6 +29,18 @@
               [columnNames]="chart.graphData.columnName">
             </google-chart>
       
+        </mat-card>
+
+        <mat-card *ngIf="chart.reportType === 'table'">
+          <table>
+            <tr>
+              <th *ngFor="let label of chart.keydomainName">{{label}}</th>
+            </tr>
+            <tr *ngFor="let tableData of chart.tabularData">
+              <td>{{tableData.valueColumn}}</td>
+              <td *ngFor="let tableValue of tableData.levels">{{tableValue.value}}</td>
+            </tr>
+          </table>
         </mat-card>
     </span>
    

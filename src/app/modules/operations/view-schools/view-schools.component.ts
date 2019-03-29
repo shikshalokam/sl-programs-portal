@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-view-schools',
@@ -27,11 +28,11 @@ export class ViewSchoolsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private operationsService: OperationsService,
+    private snackBar : MatSnackBar,
      private utility: UtilityService,
 
     ) {
   
-    console.log(JSON.parse( localStorage.getItem('currentAssessments'))['_id'])
     this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
     this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
     this.getViewSchool()
@@ -45,11 +46,11 @@ export class ViewSchoolsComponent implements OnInit {
         this.length = data['result']['totalCount'];
         this.dataSource = new MatTableDataSource(data['result']['schoolInformation']);
         setTimeout(() => this.dataSource.sort = this.sort);
-        console.log(this.dataSource+"hhhhhhhhh");
         this.utility.loaderHide()
       },
         (error) => {
           this.error = error;
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
           this.utility.loaderHide();
           ;
         }

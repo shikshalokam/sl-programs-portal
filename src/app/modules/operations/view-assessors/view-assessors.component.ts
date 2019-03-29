@@ -1,7 +1,8 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
-import { TransitionCheckState, MatTableDataSource, MatSort } from '@angular/material';
+import { TransitionCheckState, MatTableDataSource, MatSort, MatSnackBar } from '@angular/material';
 import {  UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-view-assessors',
@@ -22,10 +23,11 @@ export class ViewAssessorsComponent implements OnInit {
   dataSource;
   error:any;
   pageIndex:number=0;
-  pageSize:number=50;
+  pageSize:number=20;
   @ViewChild (MatSort) sort: MatSort;
 
   constructor(private operationsService: OperationsService,
+    private snackBar : MatSnackBar,
     private utility :UtilityService,
     ) { 
       this.programId= JSON.parse( localStorage.getItem('currentProgram'))['_id'];
@@ -46,6 +48,7 @@ export class ViewAssessorsComponent implements OnInit {
     },
     (error)=>{
       this.error = error;
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
       this.utility.loaderHide();
     }
     );

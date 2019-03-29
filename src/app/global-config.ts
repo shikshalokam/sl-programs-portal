@@ -2,6 +2,7 @@
 export const GlobalConfig = {
     acessAccordingRole : 'configurations/navigation',
     currentPortal : 'program',
+    errorMessage:"Some thing went Wrong..",
     programPortalLinks : [  
         { 
           linkHeading : "headings.features",
@@ -32,25 +33,29 @@ export const GlobalConfig = {
           tooltip:"headings.operationDashboardUpload",
           anchorLink:"/operations/upload-csv",
           id:'uploadcsv',
-          icon:"settings"
+          icon:"settings",
+          disabled:false
         },
         {
           tooltip:"headings.schoolListHeading",
           anchorLink: "/operations/view-schools",
           id:'viewSchools',
-          icon:"school"
+          icon:"school",
+          disabled:true
         },
         {
           tooltip:"headings.assessorListHeading",
           anchorLink: "/operations/view-assessors",
           id:'viewAcessor',
-          icon:"people"
+          icon:"people",
+          disabled:false
         },
         {
           icon:"description",
           tooltip:"headings.opsReport",
           anchorLink: "/operations/reports",
-          id:'opsReport'
+          id:'opsReport',
+          disabled:true
         }
       ],
       ReportDashBoardLinks : [
