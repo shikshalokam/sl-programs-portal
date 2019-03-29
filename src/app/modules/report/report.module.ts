@@ -4,7 +4,7 @@ import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report-routing.module';
 import { SchoolListComponent } from './school-list/school-list.component';
 import { CoreModule ,SharedModule } from 'shikshalokam';
-import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule,MatSortModule } from '@angular/material';
+import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule,MatSortModule, MatListModule } from '@angular/material';
 import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { ImageModalComponent } from './ecm-report/image-modal/image-modal.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
@@ -15,6 +15,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { TableComponentComponent } from './entity-report/components/table-component/table-component.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 import { ColumnGraphComponent } from './entity-report/components/column-graph/column-graph.component';
+
 @NgModule({
   declarations: [
     ReportComponent,
@@ -42,6 +43,7 @@ import { ColumnGraphComponent } from './entity-report/components/column-graph/co
     MatPaginatorModule,
     ReportRoutingModule,
     MatSortModule,
+    MatListModule,
     GoogleChartsModule.forRoot(),
 
 

@@ -2,24 +2,38 @@
 
 <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
 
-<div *ngIf="entityResult">
-  <div class="col-xs-12">
-    <h3>{{summary.schoolName}}</h3>
-    <h6>Date of Assignment :- {{summary.generatedAt}}</h6>
+<div>
+  <h3 class="_text-center marginTop">{{insightReport?.Headings}}</h3>
+  <div>
+    <mat-card>
+      <mat-list class="middle">
+        <mat-list-item *ngFor="let item of insightReport?.summary;let last = last;">
+          <div class="_flex-box _full-width">
+            <div style="flex:1">
+              {{item?.title}}
+            </div>
+            <div style="flex:2">
+              <b>{{item?.value}}</b>
+            </div>
+          </div>
+          <mat-divider *ngIf="!last"></mat-divider>
+
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
   </div>
 
-  <span class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
-    <mat-card >
-      <div *ngIf="insightReport">
-          <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data"></app-table-component>
-        </div>
-      <!-- <google-chart (ready)="onReady()" class="marginChart" [options]="chart.graphData.chartOptions"
-        style="width : 100%; height: 500px;" [title]="'Schools Chart'" [data]="chart.graphData.data"
-        [type]="chart.graphData.chartType" [columnNames]="chart.graphData.columnName">
-      </google-chart> -->
-
+  <div class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
+    <mat-card class="containerAdj">
+      <div>
+        <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data" *ngIf="section?.table">
+        </app-table-component>
+      </div>
+      <div class="marginTop">
+        <app-column-graph [datas]="section?.data" [configs]="section?.graphData" *ngIf="section?.graph"></app-column-graph>
+      </div>
     </mat-card>
-  </span>
+  </div>
 
 
 </div>

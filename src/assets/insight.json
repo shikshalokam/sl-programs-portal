@@ -1,102 +1,71 @@
 {
+    "message": "Insights report fetched successfully.",
     "status": 200,
     "result": {
-        "title": "Program Operations Report for DCPCR",
+        "Headings": "Performance Report for Entity Name",
         "summary": [
             {
-                "label": "Name of the Manager",
-                "value": "Akshara"
+                "title": "Name of Entity",
+                "value": "Guru Harkrishan Public School, Hargobind Enclave Delhi"
             },
             {
-                "label": "Name of the Program",
-                "value": "DCPCR"
-            },
-            {
-                "label": "Date of report generation",
-                "value": "26-03-2019"
+                "title": "Date of Assessment",
+                "value": "2019-03-28T14:10:21.635Z"
             }
         ],
         "sections": [
             {
+                "subTitle": {},
                 "table": true,
                 "graph": true,
-                "totalCount": 2,
-                "graphData": [
-                    {
-                        "title": "School's Report",
-                        "subTitle": "",
-                        "chartType": "ColumnChart",
-                        "columnNames": [
-                            "name",
-                            "daysElapsed"
-                        ],
-                        "chartOptions": {
-                            "is3D": true,
-                            "vAxis": {
-                                "title": "completed in (%)",
-                                "minValue": 0
-                            },
-                            "hAxis": {
-                                "title": "School Name",
-                                "showTextEvery": 1
-                            }
-                        }
-                    },
-                    {
-                        "title": "School's Report",
-                        "subTitle": "Number of schools completed,Number of schools assigned,& average days taken for school assessments",
-                        "chartType": "LineChart",
-                        "columnNames": [
-                            "name",
-                            "assessmentCompletionPercent"
-                        ],
-                        "chartOptions": {
-                            "is3D": true,
-                            "vAxis": {
-                                "title": "completed in numbers",
-                                "minValue": 0
-                            },
-                            "hAxis": {
-                                "title": "School Name",
-                                "showTextEvery": 1
-                            }
+                "graphData": {
+                    "title": "Perfomance by themes",
+                    "subTitle": "Perfomance of a school across themes in the school development Framework",
+                    "chartType": "ColumnChart",
+                    "chartOptions": {
+                        "is3D": true,
+                        "isStack": true,
+                        "vAxis": {
+                            "title": "Performance index(%)",
+                            "minValue": 0
+                        },
+                        "hAxis": {
+                            "title": "Themes",
+                            "showTextEvery": 1
                         }
                     }
-                ],
-                "data": [
-                    {
-                        "name": "GHPS, Muttanallur",
-                        "status": "In Progress",
-                        "daysElapsed": 11,
-                        "assessmentCompletionPercent": 90.91
-                    },
-                    {
-                        "name": "Sujana Convent School",
-                        "status": "In Progress",
-                        "daysElapsed": 11,
-                        "assessmentCompletionPercent": 90.91
-                    }
-                ],
+                },
                 "tabularData": {
                     "headers": [
                         {
-                            "name": "name",
-                            "label": "Name"
+                            "name": "theme",
+                            "label": "Themes"
                         },
                         {
-                            "name": "status",
-                            "label": "Status"
-                        },
-                        {
-                            "name": "daysElapsed",
-                            "label": "Days Elapsed"
-                        },
-                        {
-                            "name": "assessmentCompletionPercent",
-                            "label": "Assessment Completion Percent"
+                            "name": "value",
+                            "label": "Performance index(%)"
                         }
                     ]
-                }
+                },
+                "data": [
+                    {
+                        "theme": "Teaching and Learning",
+                        "value": 62.06,
+                        "SAMPLE":20
+                    },
+                    {
+                        "theme": "Safety and Security",
+                        "value": 59.60,
+                        "SAMPLE":20
+
+                    },
+                    {
+                        "theme": "Community Participation and EWS/DG Integration ",
+                        "value": 69.80,
+                        "SAMPLE":20
+
+                    }
+                ]
             }
         ]
     }

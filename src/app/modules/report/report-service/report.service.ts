@@ -26,6 +26,7 @@ export class ReportService {
 
   getSingleEntityReport(programId, schoolId) {
     return this.apiService.get(environment.apibaseurl + ReportConfig.singleEntityReport+programId + '?school=' + schoolId);
+    // return this.apiService.get('/assests/insight.json');
 
   }
 }
