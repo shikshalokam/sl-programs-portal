@@ -31,7 +31,6 @@ export class ViewAssessorsComponent implements OnInit {
     private utility :UtilityService,
     ) { 
       this.programId= JSON.parse( localStorage.getItem('currentProgram'))['_id'];
-      this.assessmentId= JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
       this.getAssessorlist()
   }
 

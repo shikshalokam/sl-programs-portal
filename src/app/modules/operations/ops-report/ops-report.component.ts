@@ -36,14 +36,14 @@ export class OpsReportComponent implements OnInit {
   filterObject: any;
   filterArray ;
   schoolReport: Object;
-  itemsPerPage=[5,10,20];
+  itemsPerPage=[10,15,20];
   searchParam: string = '';
   assessorReport: any;
   summaryData: any;
   pageParam: any;
   summaryGraph: object = {};
-  schoolPageLimit: any;
-  assessorPageLimit:any ;
+  schoolPageLimit: any = 10;
+  assessorPageLimit:any = 10 ;
   expandedFilters :boolean = true;
   schoolLoading: boolean;
   assessorLoading: boolean;
@@ -190,6 +190,7 @@ export class OpsReportComponent implements OnInit {
     const headers= this.getTableHeader(object);
     Object.assign(data[ind],{tableHeader:headers})
   });
+  console.log(data)
     return data;
     
   }
@@ -280,7 +281,7 @@ export class OpsReportComponent implements OnInit {
       }
       index++;
     })
-    this.queryParamsUrl+='csv='+false;
+    this.queryParamsUrl+='&csv='+false;
      
       
     this.reportsDataFetch();
@@ -379,6 +380,7 @@ export class OpsReportComponent implements OnInit {
    
   }
   reportsDataFetch(){
+    this.getUserSummary(this.queryParamsUrl);
     this.searchParam = this.setSearchParam(this.schoolPageIndex,this.schoolPageLimit,'school');
    this.getSchoolReport();
    this.searchParam = this.setSearchParam(this.assessorPageIndex,this.assessorPageLimit,'assessor');
@@ -487,10 +489,12 @@ error =>{
   }
   searchInApi(label){
     if (label ==='school'){
+      this.schoolPageIndex = 1;
       this.searchParam=this.setSearchParam(this.schoolPageIndex , this.schoolPageLimit , 'school');
       this.getSchoolReport();
     }
     else if ( label === 'assessor'){
+      this.assessorPageIndex = 1;
       this.searchParam=this.setSearchParam(this.assessorPageIndex , this.assessorPageLimit , 'assessor');
       this.getAssessorReport();
     }

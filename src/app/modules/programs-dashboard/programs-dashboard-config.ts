@@ -1,5 +1,5 @@
 export const ProgramsDashboardConfig = {
-    programList:'programs/list/'
-    // programList:'programOperations/listByUser/'
+    // programList:'programs/list/'
+    programList:'programOperations/listByUser'
 
  }

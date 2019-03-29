@@ -29,7 +29,7 @@ export class OperationsService {
       args[4] = 50;
     }
     args[3]++;
-    return this.apiService.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&pageIndex="+args[3]+"&pageSize="+args[4]);
+    return this.apiService.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+args[0]+"&search="+args[1]+"&componentId="+args[2]+"&page="+args[3]+"&limit="+args[4]);
   }
 
   getAssessors(...args){
@@ -38,7 +38,7 @@ export class OperationsService {
       args[4] = 50;
     }
     args[3]++;
-    return this.apiService.get(environment.apibaseurl + OperationConfig.viewAssessors+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&pageIndex="+args[3]+"&pageSize="+args[4]);
+    return this.apiService.get(environment.apibaseurl + OperationConfig.viewAssessors+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&page="+args[3]+"&limit="+args[4]);
   }
   getSummary(url){
     return this.apiService.get("http://localhost:4201"+ OperationConfig.reportSummary + url);
