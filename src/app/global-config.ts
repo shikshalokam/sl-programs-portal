@@ -66,6 +66,8 @@ export const GlobalConfig = {
       anchorLink: "/report/entity-report",
       id: 'entityReport',
       icon: "description",
+      disabled: true
+
     },
     {
       icons: "done",
@@ -73,6 +75,8 @@ export const GlobalConfig = {
       anchorLink: "/report/school-list",
       id: 'schoolList',
       icon: "school",
+      disabled: true
+
     }
   ]
 }

@@ -118,8 +118,13 @@ export class OpsReportComponent implements OnInit {
     }
   }
  if(this.filterObject.toDate){
-  this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate)
+  // this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate)
   this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
+  
+ }
+ if(this.filterObject.fromDate){
+  this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate);
+  // this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
   
  }
   this.applyFilter(this.filterObject)
@@ -313,7 +318,8 @@ export class OpsReportComponent implements OnInit {
       this.operationService.getAssessorReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
 
       },
-      error=>{
+      error=>{ 
+        console.log(error.status)
         if(error.status==200){
           const blob = new Blob([error.error.text], { type: 'csv' });
           const url = window.URL.createObjectURL(blob);
@@ -328,24 +334,7 @@ export class OpsReportComponent implements OnInit {
         this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
         }
       });
-      this.operationService.getAssessorReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
-
-      },
-      error=>{
-        if(error.status==200){
-          const blob = new Blob([error.error.text], { type: 'csv' });
-          const url = window.URL.createObjectURL(blob);
-          let a = document.createElement('a');
-          a.href = url;
-          a.download = `${id}-Report.csv`;
-          document.body.appendChild(a);
-          a.click();        
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }else{
-        this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
-        }
-      });
+      
     }
     
   }
@@ -419,7 +408,6 @@ export class OpsReportComponent implements OnInit {
        if(element.field === paramLabel)
        {
          if(element.input === 'date'){
-        
         let date = [ param[paramLabel].substring(6) ,param[paramLabel].substring(3,5) ,param[paramLabel].substring(0,2) ] .join("-");
         data[index].value = date + 'T00:00:00.000Z';
          }

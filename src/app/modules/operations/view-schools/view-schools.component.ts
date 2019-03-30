@@ -10,7 +10,7 @@ import { GlobalConfig } from 'src/app/global-config';
   styleUrls: ['./view-schools.component.scss']
 })
 export class ViewSchoolsComponent implements OnInit {
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name','status','administration'];
   dataSource;
   schoolList;
   result;

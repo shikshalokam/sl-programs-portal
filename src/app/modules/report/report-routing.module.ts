@@ -39,7 +39,7 @@ const routes: Routes = [
       {
         path: 'download-evedince-report',
         data: {
-          id:'downloadEvedienceReport',
+          id:"downloadEvidienceReport",
           breadcrumb:'headings.downloadReport'
         },
         canActivateChild:[AuthGuard],
