@@ -29,7 +29,7 @@ export class OperationsService {
       args[4] = 50;
     }
     args[3]++;
-    return this.apiService.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+args[0]+"&search="+args[1]+"&componentId="+args[2]+"&page="+args[3]+"&limit="+args[4]);
+    return this.apiService.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&page="+args[3]+"&limit="+args[4]);
   }
 
   getAssessors(...args){

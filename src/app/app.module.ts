@@ -4,7 +4,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule,TranslateService,SharedModule } from 'shikshalokam';
 import { AuthService } from './modules/private-modules/auth-service/auth.service';
 import { MatDividerModule } from '@angular/material/divider';
@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 // import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
 import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
+import { ApiInterceptor } from './modules/private-modules/interceptor-service/interceptor.service';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -32,7 +33,7 @@ export function authFactory(authService: AuthService) {
   imports: [
     AppRoutingModule,
     SharedModule,
-    CoreModule,
+    // CoreModule,
     MatDividerModule,
     CoreModule.forRoot(),
     HttpClientModule,
@@ -56,6 +57,11 @@ export function authFactory(authService: AuthService) {
       useFactory: authFactory,
       multi: true,
       deps: [AuthService]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
     },
 
   ],

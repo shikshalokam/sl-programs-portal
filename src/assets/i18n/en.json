@@ -89,6 +89,8 @@
         "signOut": "Sign Out"
     },
     "tableLabel": {
+        "status":"Status",
+        "administration":"Administration",
         "name": "Name",
         "studentName": "Student Name",
         "phone": "Phone",
