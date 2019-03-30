@@ -3,11 +3,11 @@ import { AuthService } from '../../private-modules/auth-service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationsService } from '../operations-service/operations.service';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { UtilityService, CamelCasePipe } from 'shikshalokam';
-import {MatAccordion, MatSnackBar} from '@angular/material';
-import * as jspdf from 'jspdf';  
-  
+import { MatAccordion, MatSnackBar } from '@angular/material';
+import * as jspdf from 'jspdf';
+
 import html2canvas from 'html2canvas';
 import { GlobalConfig } from 'src/app/global-config';
 @Component({
@@ -21,7 +21,7 @@ export class OpsReportComponent implements OnInit {
   assessorPageIndex = 0;
   schoolGraph;
   assessorGraph;
-  
+
   headings = 'headings.opsReport'
   currentUser;
   dynamicResize;
@@ -34,17 +34,17 @@ export class OpsReportComponent implements OnInit {
   searchSchoolValue: string = '';
   searchAssessorName: string = '';
   filterObject: any;
-  filterArray ;
+  filterArray;
   schoolReport: Object;
-  itemsPerPage=[10,15,20];
+  itemsPerPage = [10, 15, 20];
   searchParam: string = '';
   assessorReport: any;
   summaryData: any;
   pageParam: any;
   summaryGraph: object = {};
   schoolPageLimit: any = 10;
-  assessorPageLimit:any = 10 ;
-  expandedFilters :boolean = true;
+  assessorPageLimit: any = 10;
+  expandedFilters: boolean = true;
   schoolLoading: boolean;
   assessorLoading: boolean;
   @ViewChild('myaccordion') filterPanel: MatAccordion;
@@ -53,40 +53,40 @@ export class OpsReportComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private _fb: FormBuilder,
-    private operationService:OperationsService,
-    private utility :UtilityService,
-    private snackBar :MatSnackBar
+    private operationService: OperationsService,
+    private utility: UtilityService,
+    private snackBar: MatSnackBar
   ) {
     this.filterForm = this._fb.group({
       formDate: ['', Validators.required],
       toDate: ['', Validators.required]
     });
-    
+
   }
-  pdf(id){
-    var data = document.getElementById(id);  
-    html2canvas(data).then(canvas => {  
-      var imgWidth = 208;   
-      var pageHeight = 295;    
-      var imgHeight = canvas.height * imgWidth / canvas.width;  
-      var heightLeft = imgHeight;  
-      const contentDataURL = canvas.toDataURL('image/png')  
-      let pdf = new jspdf('p', 'mm', 'a4'); 
-      var position = 0;  
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
-      pdf.save(id+'.pdf');  
-    });  
-  
+  pdf(id) {
+    var data = document.getElementById(id);
+    html2canvas(data).then(canvas => {
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jspdf('p', 'mm', 'a4');
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save(id + '.pdf');
+    });
+
   }
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUserDetails();
-    this.route.queryParams.subscribe(params=>{
+    this.route.queryParams.subscribe(params => {
       this.pageParam = params;
       this.utility.loaderShow();
       this.filters(params['ProgramId']);
       this.getUserSummary(params['ProgramId']);
-      if(Object.keys(params).length > 1 ){
-        this.filterApply('apply'); 
+      if (Object.keys(params).length > 1) {
+        this.filterApply('apply');
         this.expandedFilters = false;
         this.reportGenerate = true;
 
@@ -99,56 +99,56 @@ export class OpsReportComponent implements OnInit {
   setStep(index: number) {
     this.step = index;
   }
- 
+
   filterApply(condition) {
-    
-    if(condition === 'reset'){
+
+    if (condition === 'reset') {
       this.filterForm.reset();
-      this.router.navigate(['/operations/reports'],{ queryParams: {ProgramId: this.pageParam['ProgramId'] } });
-      this.reportGenerate =false;
+      this.router.navigate(['/operations/reports'], { queryParams: { ProgramId: this.pageParam['ProgramId'] } });
+      this.reportGenerate = false;
       this.filterArray = [];
     }
-    else{
-      this.filterPanel.closeAll();
+    else {
+      // this.filterPanel.closeAll();
       this.expandedFilters = !this.expandedFilters;
-    this.filterObject= this.filterForm.getRawValue();
-    for (let filter in this.filterObject) { 
-    if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
-      delete this.filterObject[filter];
+      this.filterObject = this.filterForm.getRawValue();
+      for (let filter in this.filterObject) {
+        if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN") {
+          delete this.filterObject[filter];
+        }
+      }
+      if (this.filterObject.toDate) {
+        // this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate)
+        this.filterObject['toDate'] = this.applyDate(this.filterObject.toDate);
+
+      }
+      if (this.filterObject.fromDate) {
+        this.filterObject['fromDate'] = this.applyDate(this.filterObject.fromDate);
+        // this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
+
+      }
+      this.applyFilter(this.filterObject)
+      this.filterArray = Object.entries(this.filterObject)
+      // this.filterArray = Object.keys(this.filterObject).map(i => this.filterObject[i])
+      // this.buildqueryParams();
     }
   }
- if(this.filterObject.toDate){
-  // this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate)
-  this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
-  
- }
- if(this.filterObject.fromDate){
-  this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate);
-  // this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
-  
- }
-  this.applyFilter(this.filterObject)
-  this.filterArray = Object.entries(this.filterObject)
-  // this.filterArray = Object.keys(this.filterObject).map(i => this.filterObject[i])
-  this.buildqueryParams();
-}
-  }
-  buildqueryParams(){
+  buildqueryParams() {
 
   }
   prevStep() {
     this.step--;
   }
-   visible = true;
+  visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   remove(filter): void {
-    let param ;
+    let param;
     const index = this.filterArray.indexOf(filter);
-    this.route.queryParams.subscribe(params =>{
+    this.route.queryParams.subscribe(params => {
       param = params;
       // delete param['ProgramId'];
       // this.generateReport(param);
@@ -160,79 +160,77 @@ export class OpsReportComponent implements OnInit {
 
   }
   mapGraphObject(data) {
-    data.forEach(( object , ind) =>{
-    for(let i = 0;i< object.graphData.length;i++)
-     {
-       
-       const dataArray = this.getData(object,i)
-      Object.assign(data[ind].graphData[i], {
-        data : dataArray 
-      })
-      Object.assign(data[ind].graphData[i].chartOptions,{legend: { position: 'top', alignment: 'end' }})
+    data.forEach((object, ind) => {
+      for (let i = 0; i < object.graphData.length; i++) {
 
-    }
-    object.graphData.forEach((item,index )=> {
-
-      if(object.graphData[index].data.length > 2 && object.graphData[index].chartType ==='ColumnChart'){
-        Object.assign(data[ind].graphData[index].chartOptions,{
-          isStack:true ,
+        const dataArray = this.getData(object, i)
+        Object.assign(data[ind].graphData[i], {
+          data: dataArray
         })
-      }
-     
-      if(data[ind].graphData[index].data.length > 10 ){
-        Object.assign(data[ind].graphData[index].chartOptions.hAxis,{textPosition: 'none'});
-      }
-      let colNameArray=[]
-      data[ind].graphData[index].columnNames.forEach(column => {
-        colNameArray.push(new CamelCasePipe().transform(column));
-      });
-      Object.assign(data[ind].graphData[index] ,{columnNames : colNameArray});
-      
-      
-    });
+        Object.assign(data[ind].graphData[i].chartOptions, { legend: { position: 'top', alignment: 'end' } })
 
-   new CamelCasePipe().transform('schoolList')
-    const headers= this.getTableHeader(object);
-    Object.assign(data[ind],{tableHeader:headers})
-  });
-  console.log(data)
+      }
+      object.graphData.forEach((item, index) => {
+
+        if (object.graphData[index].data.length > 2 && object.graphData[index].chartType === 'ColumnChart') {
+          Object.assign(data[ind].graphData[index].chartOptions, {
+            isStack: true,
+          })
+        }
+
+        if (data[ind].graphData[index].data.length > 10) {
+          Object.assign(data[ind].graphData[index].chartOptions.hAxis, { textPosition: 'none' });
+        }
+        let colNameArray = []
+        data[ind].graphData[index].columnNames.forEach(column => {
+          colNameArray.push(new CamelCasePipe().transform(column));
+        });
+        Object.assign(data[ind].graphData[index], { columnNames: colNameArray });
+
+
+      });
+
+      new CamelCasePipe().transform('schoolList')
+      const headers = this.getTableHeader(object);
+      Object.assign(data[ind], { tableHeader: headers })
+    });
+    console.log(data)
     return data;
-    
+
   }
-  getTableHeader(object){
+  getTableHeader(object) {
     let headingArray = []
-    object.tabularData.headers.forEach(header =>{
+    object.tabularData.headers.forEach(header => {
       headingArray.push(header.name);
     })
     return headingArray;
   }
-  getData(object , i){
-      let dataArray=[];
-      for(let j = 0 ; j <object.data.length;j++)
-    { 
-      let columnArray = this.getColumn(object,i,j);
-        dataArray.push( columnArray ); 
-      }
-      return dataArray;
+  getData(object, i) {
+    let dataArray = [];
+    for (let j = 0; j < object.data.length; j++) {
+      let columnArray = this.getColumn(object, i, j);
+      dataArray.push(columnArray);
+    }
+    return dataArray;
   }
-  getColumn(object,i,j){
-      let colArray = [];
-    object.graphData[i].columnNames.forEach((column,index) => {
+  getColumn(object, i, j) {
+    let colArray = [];
+    object.graphData[i].columnNames.forEach((column, index) => {
       column = column.trim();
-      if(index > 0){
-        if( object.data[j][column] === ""){
-        
+      if (index > 0) {
+        if (object.data[j][column] === "") {
+
           colArray.push(0);
         }
         else {
           colArray.push(object.data[j][column]);
         }
       }
-      else{
+      else {
         colArray.push(object.data[j][column]);
       }
-     
-      }
+
+    }
     );
     return colArray;
   }
@@ -243,11 +241,11 @@ export class OpsReportComponent implements OnInit {
     const val = [day, mnth, date.getFullYear()].join("-");
     return val;
   }
-  
+
   applyFilter(obj) {
-  
+
     this.router.navigate(['.'], {
-      relativeTo: this.route, queryParams: obj,queryParamsHandling: "merge",
+      relativeTo: this.route, queryParams: obj, queryParamsHandling: "merge",
       preserveFragment: true
     });
     let param;
@@ -259,7 +257,7 @@ export class OpsReportComponent implements OnInit {
 
   inputChange(key, event) {
     this.applyFilter({ [key]: event.target.value });
-    if(key == 'schoolId'){
+    if (key == 'schoolId') {
       this.searchSchoolId = event.target.value;
     }
   }
@@ -286,206 +284,203 @@ export class OpsReportComponent implements OnInit {
       }
       index++;
     })
-    this.queryParamsUrl+='&csv='+false;
-     
-      
+    this.queryParamsUrl += '&csv=' + false;
+
+
     this.reportsDataFetch();
     this.reportGenerate = true;
   }
-  downloadCsv(id){
-    if(id === 'school')
-    {
-      this.operationService.getSchoolReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
+  downloadCsv(id) {
+    if (id === 'school') {
+      this.operationService.getSchoolReport(this.pageParam['ProgramId'] + "?csv=" + true).subscribe(data => {
 
       },
-      error=>{
-        if(error.status==200){
-          const blob = new Blob([error.error.text], { type: 'csv' });
-          const url = window.URL.createObjectURL(blob);
-          let a = document.createElement('a');
-          a.href = url;
-          a.download = `${id}-Report.csv`;
-          document.body.appendChild(a);
-          a.click();        
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }else{
-        this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
-        }
-      });
+        error => {
+          if (error.status == 200) {
+            const blob = new Blob([error.error.text], { type: 'csv' });
+            const url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = `${id}-Report.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          } else {
+            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+          }
+        });
     }
-    else if(id === 'assessor') {
-      this.operationService.getAssessorReport(this.pageParam['ProgramId']+"?csv="+true).subscribe(data=>{
+    else if (id === 'assessor') {
+      this.operationService.getAssessorReport(this.pageParam['ProgramId'] + "?csv=" + true).subscribe(data => {
 
       },
-      error=>{ 
-        console.log(error.status)
-        if(error.status==200){
-          const blob = new Blob([error.error.text], { type: 'csv' });
-          const url = window.URL.createObjectURL(blob);
-          let a = document.createElement('a');
-          a.href = url;
-          a.download = `${id}-Report.csv`;
-          document.body.appendChild(a);
-          a.click();        
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }else{
-        this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
-        }
-      });
-      
+        error => {
+          console.log(error.status)
+          if (error.status == 200) {
+            const blob = new Blob([error.error.text], { type: 'csv' });
+            const url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = `${id}-Report.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          } else {
+            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+          }
+        });
+
     }
-    
+
   }
-  setSearchParam(index: number = 1 , size : number = this.itemsPerPage[0] ,label  ){
-    if(label === 'school'){
+  setSearchParam(index: number = 1, size: number = this.itemsPerPage[0], label) {
+    if (label === 'school') {
 
-      const  url ='&page='+index+'&limit='+size+'&schoolName='+this.searchSchoolValue;
-    return url;
+      const url = '&page=' + index + '&limit=' + size + '&schoolName=' + this.searchSchoolValue;
+      return url;
     }
-    else if(label === 'assessor'){
-      const  url ='&page='+index+'&limit='+size+'&assessorName='+this.searchAssessorName;
-    return url;
+    else if (label === 'assessor') {
+      const url = '&page=' + index + '&limit=' + size + '&assessorName=' + this.searchAssessorName;
+      return url;
     }
-    
+
   }
   pageResponse(event) {
-    if (event.label === 'school'){
-   this.schoolPageLimit = event.pageLimit;
-   this.schoolPageIndex = event.pageIndex;
-   this.searchParam= this.setSearchParam(this.schoolPageIndex +1,  this.schoolPageLimit , 'school');
-    this.getSchoolReport();
+    if (event.label === 'school') {
+      this.schoolPageLimit = event.pageLimit;
+      this.schoolPageIndex = event.pageIndex;
+      this.searchParam = this.setSearchParam(this.schoolPageIndex + 1, this.schoolPageLimit, 'school');
+      this.getSchoolReport();
     }
 
-    else if ( event.label === 'assessor' ){
-      this.assessorPageIndex = event.pageIndex ;
-      this.assessorPageLimit = event.pageLimit ;
-      this.searchParam= this.setSearchParam(this.assessorPageIndex +1 , this.assessorPageLimit , 'assessor');
+    else if (event.label === 'assessor') {
+      this.assessorPageIndex = event.pageIndex;
+      this.assessorPageLimit = event.pageLimit;
+      this.searchParam = this.setSearchParam(this.assessorPageIndex + 1, this.assessorPageLimit, 'assessor');
       this.getAssessorReport();
     }
 
-   
-   
+
+
   }
-  reportsDataFetch(){
+  reportsDataFetch() {
     this.getUserSummary(this.queryParamsUrl);
-    this.searchParam = this.setSearchParam(this.schoolPageIndex,this.schoolPageLimit,'school');
-   this.getSchoolReport();
-   this.searchParam = this.setSearchParam(this.assessorPageIndex,this.assessorPageLimit,'assessor');
+    this.searchParam = this.setSearchParam(this.schoolPageIndex, this.schoolPageLimit, 'school');
+    this.getSchoolReport();
+    this.searchParam = this.setSearchParam(this.assessorPageIndex, this.assessorPageLimit, 'assessor');
 
-   this.getAssessorReport();
+    this.getAssessorReport();
   }
 
-  filters(url){
-    
-    this.operationService.applyFilters(url).subscribe( data => {
+  filters(url) {
 
-    this.filterData = this.mapQueryParams(data['result']);
-     this.filterForm= this.utility.toGroup(this.filterData);
-     console.log(this.filterForm)
-     this.filterObject = this.filterForm.getRawValue()
-     for (let filter in this.filterObject) { 
-      if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN")  {
-        delete this.filterObject[filter];
+    this.operationService.applyFilters(url).subscribe(data => {
+
+      this.filterData = this.mapQueryParams(data['result']);
+      this.filterForm = this.utility.toGroup(this.filterData);
+      console.log(this.filterForm)
+      this.filterObject = this.filterForm.getRawValue()
+      for (let filter in this.filterObject) {
+        if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN") {
+          delete this.filterObject[filter];
+        }
       }
-    }
       this.filterArray = Object.entries(this.filterObject);
-    }, 
-    error =>{
-      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
-    });
+    },
+      error => {
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+      });
   }
-  mapQueryParams(data){
+  mapQueryParams(data) {
     let param;
-    this.route.queryParams.subscribe(params =>{
+    this.route.queryParams.subscribe(params => {
       param = params;
     })
     let paramKey = Object.keys(param);
-    paramKey.forEach( paramLabel => {
-      data.forEach((element,index) => {
+    paramKey.forEach(paramLabel => {
+      data.forEach((element, index) => {
         console.log(paramLabel)
-       if(element.field === paramLabel)
-       {
-         if(element.input === 'date'){
-        let date = [ param[paramLabel].substring(6) ,param[paramLabel].substring(3,5) ,param[paramLabel].substring(0,2) ] .join("-");
-        data[index].value = date + 'T00:00:00.000Z';
-         }
-         else{
-         data[index].value = param[paramLabel];
+        if (element.field === paramLabel) {
+          if (element.input === 'date') {
+            let date = [param[paramLabel].substring(6), param[paramLabel].substring(3, 5), param[paramLabel].substring(0, 2)].join("-");
+            data[index].value = date + 'T00:00:00.000Z';
+          }
+          else {
+            data[index].value = param[paramLabel];
 
-         }
-       }
+          }
+        }
       });
     });
     console.log(data)
     return data;
   }
-  getUserSummary(url){
-    this.operationService.getUserSummary(url).subscribe( data => {
-      this.summaryData=data['result'];
-     
+  getUserSummary(url) {
+    this.operationService.getUserSummary(url).subscribe(data => {
+      this.summaryData = data['result'];
+
       const arrayToObject = (array, keyField) =>
-      array.reduce((obj, item) => {
-      obj[item[keyField]] = item
-      return obj
-      }, {})
-    this.summaryData = arrayToObject(this.summaryData, "label")
-    
+        array.reduce((obj, item) => {
+          obj[item[keyField]] = item
+          return obj
+        }, {})
+      this.summaryData = arrayToObject(this.summaryData, "label")
+
       this.utility.loaderHide();
-},
-error =>{
-  this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
-}
-);
+    },
+      error => {
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+      }
+    );
   }
-  getSchoolReport(){
+  getSchoolReport() {
     this.schoolLoading = true;
-    this.operationService.getSchoolReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
-       this.schoolReport = this.mapGraphObject(data['result']['sections']);
+    this.operationService.getSchoolReport(this.queryParamsUrl + this.searchParam).subscribe(data => {
+      this.schoolReport = this.mapGraphObject(data['result']['sections']);
       //  this.schoolGraph=this.schoolReport['graphData'];
-    this.schoolLoading = false;
-        
-    },error =>{
-      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+      this.schoolLoading = false;
+
+    }, error => {
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
     }
     );
   }
 
-  getAssessorReport(){
+  getAssessorReport() {
     this.assessorLoading = true;
-    this.operationService.getAssessorReport(this.queryParamsUrl+this.searchParam).subscribe( data => {
+    this.operationService.getAssessorReport(this.queryParamsUrl + this.searchParam).subscribe(data => {
       this.assessorReport = this.mapGraphObject(data['result']['sections']);
       //  this.assessorGraph=this.assessorReport['graphData'];
-    this.assessorLoading = false;
+      this.assessorLoading = false;
 
-    },error =>{
-      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+    }, error => {
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
     }
     );
   }
-  searchSchoolIdInApi(searchId){
+  searchSchoolIdInApi(searchId) {
   }
-  searchVal(id,searchValue){
-    if(id == 'school')
-     { 
-       this.searchSchoolValue = searchValue;
-     }
-     else if(id == 'assessor'){
-       this.searchAssessorName = searchValue;
-     }
+  searchVal(id, searchValue) {
+    if (id == 'school') {
+      this.searchSchoolValue = searchValue;
+    }
+    else if (id == 'assessor') {
+      this.searchAssessorName = searchValue;
+    }
   }
-  searchInApi(label){
-    if (label ==='school'){
+  searchInApi(label) {
+    if (label === 'school') {
       this.schoolPageIndex = 1;
-      this.searchParam=this.setSearchParam(this.schoolPageIndex , this.schoolPageLimit , 'school');
+      this.searchParam = this.setSearchParam(this.schoolPageIndex, this.schoolPageLimit, 'school');
       this.getSchoolReport();
     }
-    else if ( label === 'assessor'){
+    else if (label === 'assessor') {
       this.assessorPageIndex = 1;
-      this.searchParam=this.setSearchParam(this.assessorPageIndex , this.assessorPageLimit , 'assessor');
+      this.searchParam = this.setSearchParam(this.assessorPageIndex, this.assessorPageLimit, 'assessor');
       this.getAssessorReport();
     }
-    
+
   }
 }

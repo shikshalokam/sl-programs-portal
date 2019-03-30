@@ -117,16 +117,16 @@
                 </span>
               </mat-expansion-panel-header>
               <div class="marginTop" *ngIf="filterArray">
-                <mat-chip-list #chipList>
+                <!-- <mat-chip-list #chipList> -->
                   <!-- <mat-chip *ngFor="let filter of filterArray" [selectable]="selectable"
                  >
                   {{filter[0]}} : {{filter[1]}} -->
-                  <mat-chip *ngFor="let filter of filterArray">
+                  <!-- <mat-chip *ngFor="let filter of filterArray">
                     <span *ngIf="filter[0] == 'toDate' || filter[0] == 'fromDate' ; else no_date"> {{filter[0] | camelcase}} : {{filter[1] | date: 'shortDate'}}</span>
                     <ng-template #no_date>{{filter[0] | camelcase}} : {{filter[1]}}</ng-template>
-                  </mat-chip>
+                  </mat-chip> -->
 
-                </mat-chip-list>
+                <!-- </mat-chip-list> -->
               </div>
               <app-dynamic-form [genericData]="filterData" [genericForm]="filterForm" [genericEdit]="true">
               </app-dynamic-form>
