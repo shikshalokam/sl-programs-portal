@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SchoolsComponent implements OnInit {
   headings = 'headings.schoolListHeading';
   programId;
-  displayedColumns: string[] = ['name', 'city', 'state', 'action'];
+  displayedColumns: string[] = ['externalId','name', 'city', 'state', 'action'];
   dataSource;
 
   constructor(private apiService: ReportService, private router: ActivatedRoute, private route: Router) {

@@ -2,7 +2,14 @@
   [title]="graphData.title" [data]="graphData.data" [type]="graphData.chartType" [columnNames]="graphData.columnNames">
 </google-chart> -->
 <div *ngIf="graphData">
+  <div class="_flex-box _justify-content-center">
+    <h4>{{configs?.title}}</h4>
+  </div >
+  <div class="_flex-box _justify-content-center subTitle"> {{configs?.subTitle}}</div>
+  <div class="_full-width">
     <google-chart class="marginChart" style="width : 100%; min-height: 500px;" [options]="graphData.options"
-    [title]="graphData.title" [data]="graphData.data" [type]="graphData.chartType"  [columnNames]="graphData.columnNames">
-  </google-chart> 
+      [title]="graphData.title" [data]="graphData.data" [type]="graphData.chartType"
+      [columnNames]="graphData.columnNames">
+    </google-chart>
+  </div>
 </div>

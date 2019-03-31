@@ -25,13 +25,31 @@
 
   <div class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
     <mat-card class="containerAdj">
-      <div>
-        <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data" *ngIf="section?.table">
-        </app-table-component>
-      </div>
-      <div class="marginTop">
-        <app-column-graph [datas]="section?.data" [configs]="section?.graphData" *ngIf="section?.graph"></app-column-graph>
-      </div>
+      <mat-card-title class="title">
+        {{section?.heading}}
+      </mat-card-title>
+      <!-- <mat-card-subtitle>
+        
+      </mat-card-subtitle> -->
+      <mat-divider></mat-divider>
+      <mat-card-content>
+          <div class="_flex-box _margin-top _margin-bottom textColor">
+              <span *ngFor="let header of section?.summary; let last = last" class="_flex-box">
+                  {{header?.label}} : {{header?.value}} 
+                  <i class="material-icons" *ngIf="!last">
+                    keyboard_arrow_right
+                  </i>
+                </span>
+          </div>
+        <div>
+          <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data" *ngIf="section?.table">
+          </app-table-component>
+        </div>
+        <div class="marginTop">
+          <app-column-graph [datas]="section?.data" [configs]="section?.graphData" *ngIf="section?.graph">
+          </app-column-graph>
+        </div>
+      </mat-card-content>
     </mat-card>
   </div>
 

@@ -62,6 +62,7 @@ export class EntityReportComponent implements OnInit {
   getEntityReport() {
     this.apiService.getSingleEntityReport(this.programId, this.schoolId).subscribe(data => {
       this.insightReport = data['result'];
+      // this.insightReport['sections'][0].summary = [{"title":"Theme","value":"Teaching and Learning"},{"title":"Area of Inquiry:","value":"Resources (Human and Material)"}, {"title":"Indicator","value":"Human resources"}];
       this.utility.loaderHide(); 
     })
   }

@@ -107,5 +107,14 @@
 }
 
 .containerAdj {
-    padding: 25px 15px !important;
+    padding: 15px !important;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.textColor {
+    color : var(--primary-color);
+    text-transform: capitalize;
 }

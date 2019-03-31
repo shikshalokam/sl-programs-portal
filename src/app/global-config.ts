@@ -63,7 +63,7 @@ export const GlobalConfig = {
     {
       icons: "done",
       tooltip: "headings.reportEntityReport",
-      anchorLink: "/report/entity-report",
+      anchorLink: "/report/schools",
       id: 'entityReport',
       icon: "description",
       disabled: true

@@ -4,11 +4,12 @@
     margin-top: 15px;
 }
 .container {
-    height: calc(100vh - 175px) !important;
+    height: calc(100vh - 158px) !important;
     margin-top: 15px;
     background: $white-color;
     margin-right: 10px;
     overflow: auto;
+    padding-bottom: 10px;
 }
 
 .errorMsg {

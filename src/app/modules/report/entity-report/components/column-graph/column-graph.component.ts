@@ -22,7 +22,7 @@ export class ColumnGraphComponent implements OnInit {
   createGraphObj() {
     this.graphData['chartType'] = this.configs.chartType;
     this.graphData["data"] = this.datas.map(data => Object.values(data));
-    this.graphData['title'] = this.configs.title;
+    // this.graphData['title'] = this.configs.title;
     this.graphData['options'] = this.configs.chartOptions;
   //   this.graphData['options'] ['titleTextStyle'] = {
   //     color: "red",    // any HTML string color ('red', '#cc00cc')
@@ -34,7 +34,8 @@ export class ColumnGraphComponent implements OnInit {
   // }
     let keys = Object.keys(this.datas[0]);
     this.graphData['columnNames'] = keys.map(key => new CamelCasePipe().transform(key));
-    this.graphData['options']["legend"] = { position: 'top', maxLines: 2 }
+    // position: 'top',
+    this.graphData['options']["legend"] = {  maxLines: 2 }
   }
 
 }
