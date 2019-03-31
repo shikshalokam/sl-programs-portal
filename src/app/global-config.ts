@@ -71,10 +71,10 @@ export const GlobalConfig = {
     },
     {
       icons: "done",
-      tooltip: "headings.schoolListHeading",
+      tooltip: "headings.ecmReportsHeading",
       anchorLink: "/report/school-list",
       id: 'schoolList',
-      icon: "school",
+      icon: "description",
       disabled: true
 
     }
