@@ -12,7 +12,7 @@ elementData: {
   styleUrls: ['./school-list.component.scss']
 })
 export class SchoolListComponent implements OnInit {
-  displayedColumns: string[] = ['externalId', 'name', 'city', 'state', 'isParentInterviewCompleted'];
+  displayedColumns: string[] = [ 'name','addressLine1', 'city', 'state',  'isParentInterviewCompleted'];
   dataSource;
   schoolList;
   result;

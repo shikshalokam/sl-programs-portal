@@ -44,7 +44,6 @@ export class AuthService {
   }
 
   getCurrentUserDetails() {
-    // console.log(jwt_decode(this.keycloakAuth.token).name)
     // this.userName = jwt_decode(this.keycloakAuth.token).name;
     // return jwt_decode(this.keycloakAuth.token);
     this.userName = this.jwtHelper.decodeToken(this.getToken()).name;

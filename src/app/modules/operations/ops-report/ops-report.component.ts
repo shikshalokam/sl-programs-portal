@@ -1,9 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../private-modules/auth-service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationsService } from '../operations-service/operations.service';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { UtilityService, CamelCasePipe } from 'shikshalokam';
+import { MatAccordion, MatSnackBar } from '@angular/material';
+import * as jspdf from 'jspdf';
 
+import html2canvas from 'html2canvas';
+import { GlobalConfig } from 'src/app/global-config';
 @Component({
   selector: 'app-ops-report',
   templateUrl: './ops-report.component.html',
@@ -11,432 +17,247 @@ import { OperationsService } from '../operations-service/operations.service';
 })
 export class OpsReportComponent implements OnInit {
   reportGenerate = false;
+  schoolPageIndex = 0;
+  assessorPageIndex = 0;
   schoolGraph;
   assessorGraph;
+
   headings = 'headings.opsReport'
   currentUser;
   dynamicResize;
   columnNames;
   searchSchoolId;
-  // options;
-  options = [{
-    id: 12345,
-    name: 'kumutha school'
-  },
-  {
-    id: 12346,
-    name: 'kumutha school'
-  },
-  {
-    id: 12347,
-    name: 'kumutha school'
-  },
-  {
-    id: 12348,
-    name: 'kumutha school'
-  },
-  {
-    id: 12349,
-    name: 'kumutha school'
-  },
-  {
-    id: 12325,
-    name: 'kumutha school'
-  },
-  {
-    id: 12335,
-    name: 'kumutha school'
-  },
-  {
-    id: 12345,
-    name: 'kumutha school'
-  },
-  {
-    id: 12355,
-    name: 'kumutha school'
-  },
-  {
-    id: 12365,
-    name: 'kumutha school'
-  },
-  {
-    id: 12375,
-    name: 'kumutha school'
-  }]
-  type = "PieChart";
-  data = [
-    ['Task', 'Hours per Day'],
-    ['Work', 11],
-    ['Eat', 2]
-  ];
-  width = "200%";
+  filterData;
   maxDate = new Date();
-  filterResult = {
-    type: [
-      {
-        key: "A1",
-        value: "A1"
-      },
-      {
-        key: "A2",
-        value: "A2"
-      },
-      {
-        key: "A3",
-        value: "A3"
-      },
-      {
-        key: "A4",
-        value: "A4"
-      },
-      {
-        key: "A5",
-        value: "A5"
-      },
-      {
-        key: "A6",
-        value: "A6"
-      },
-      {
-        key: "A7",
-        value: "A7"
-      },
-      {
-        key: "A8",
-        value: "A8"
-      },
-      {
-        key: "A9",
-        value: "A9"
-      },
-      {
-        key: "A10",
-        value: "A10"
-      }
-    ],
-
-    administration: [
-      {
-        key: "DOE",
-        value: "DOE"
-      },
-      {
-        key: "DoE_UnAided",
-        value: "DoE_UnAided"
-      },
-      {
-        key: "Aided",
-        value: "Aided"
-      }, {
-        key: "SDMC",
-        value: "SDMC"
-      }, {
-        key: "SDMC_Aided",
-        value: "SDMC_Aided"
-      },
-      {
-        key: "SDMC_Unaided",
-        value: "SDMC_Unaided"
-      },
-      {
-        key: "Government",
-        value: "Government"
-      },
-      {
-        key: "MCD",
-        value: "MCD"
-      },
-      {
-        key: "DCB",
-        value: "DCB"
-      },
-      {
-        key: "NDMC",
-        value: "NDMC"
-      },
-      {
-        key: "MCD_UnAided",
-        value: "MCD_UnAided"
-      },
-      {
-        key: "MCD_Unaided",
-        value: "MCD_Unaided"
-      },
-      {
-        key: "MCD_Aided",
-        value: "MCD_Aided"
-      }, {
-        key: "NDMC_Aided",
-        value: "NDMC_Aided"
-      },
-      {
-        key: "NDMC_UnAided",
-        value: "NDMC_UnAided"
-      }, {
-        key: "DoE_UnAided\r\n",
-        value: "DoE_UnAided\r\n"
-      },
-      {
-        key: "SSC",
-        value: "SSC"
-      }
-    ]
-  };
   filterForm: FormGroup;
   queryParamsUrl = '';
-  searchValue: any;
+  searchSchoolValue: string = '';
+  searchAssessorName: string = '';
+  filterObject: any;
+  filterArray;
+  schoolReport: Object;
+  itemsPerPage = [10, 15, 20];
+  searchParam: string = '';
+  assessorReport: any;
+  summaryData: any;
+  pageParam: any;
+  summaryGraph: object = {};
+  schoolPageLimit: any = 10;
+  assessorPageLimit: any = 10;
+  expandedFilters: boolean = true;
+  schoolLoading: boolean;
+  assessorLoading: boolean;
+  @ViewChild('myaccordion') filterPanel: MatAccordion;
   constructor(
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private _fb: FormBuilder,
-    private operationService:OperationsService
+    private operationService: OperationsService,
+    private utility: UtilityService,
+    private snackBar: MatSnackBar
   ) {
     this.filterForm = this._fb.group({
       formDate: ['', Validators.required],
       toDate: ['', Validators.required]
     });
-  }
 
+  }
+  pdf(id) {
+    var data = document.getElementById(id);
+    html2canvas(data).then(canvas => {
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jspdf('p', 'mm', 'a4');
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save(id + '.pdf');
+    });
+
+  }
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUserDetails();
-    console.log(this.currentUser)
-    this.mapGraphObject();
-  }
-  dummyObject = {
-    programName: "DCPCR School Development Index 2018-19",
-    userRole: "leadAssessors",
-    schoolsAssigned: 5538,
-    managerName: "Aman Jung",
-    reportGeneratedDate: "08-03-2019",
-    schoolsInporgress: 2123,
-    schoolsCompleted: 2112,
-    averageTimeTakenForSchools: "5 days",
-    assessorsReport: [
-      {
-        name: "Ajith",
-        schoolsAssigned: 50,
-        schoolsCompleted: 40,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Aman",
-        schoolsAssigned: 50,
-        schoolsCompleted: 30,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Akash",
-        schoolsAssigned: 50,
-        schoolsCompleted: 20,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Ajith",
-        schoolsAssigned: 50,
-        schoolsCompleted: 40,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Aman",
-        schoolsAssigned: 50,
-        schoolsCompleted: 30,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Akash",
-        schoolsAssigned: 50,
-        schoolsCompleted: 20,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Ajith",
-        schoolsAssigned: 50,
-        schoolsCompleted: 40,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Aman",
-        schoolsAssigned: null,
-        schoolsCompleted: 40,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Akash",
-        schoolsAssigned: 50,
-        schoolsCompleted: 20,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Ajith",
-        schoolsAssigned: 50,
-        schoolsCompleted: 40,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Aman",
-        schoolsAssigned: 50,
-        schoolsCompleted: 30,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      {
-        name: "Akash",
-        schoolsAssigned: 50,
-        schoolsCompleted: 20,
-        schoolCompletedInPercent: 60,
-        averageDaysTaken: 3
-      },
-      
-    ],
-    schoolsReport: [
-      {
-        schoolName: "Kamaraj  school",
-        status: "In Progress",
-        daysElapsed: 50,
-        completed: 30,
-        assessmentCompletedInPercent: 60
-      },
-      {
-        schoolName: "Government school",
-        schoolStatus: "In Progress",
-        daysElapsed: 50,
-        schoolsCompleted: 30,
-        assessmentCompletedInPercent: 20
-      },
-      {
-        schoolName: "Kumutha matric higher secondary school",
-        schoolStatus: "In Progress",
-        daysElapsed: 50,
-        schoolsCompleted: 30,
-        assessmentCompletedInPercent: 49
-      },
-      {
-        schoolName: "Kamaraj  school",
-        status: "In Progress",
-        daysElapsed: 50,
-        completed: 30,
-        assessmentCompletedInPercent: 75
-      },
-      {
-        schoolName: "Government school",
-        schoolStatus: "In Progress",
-        daysElapsed: 50,
-        schoolsCompleted: 30,
-        assessmentCompletedInPercent: 30
-      },
-      {
-        schoolName: "Kumutha matric higher secondary school",
-        schoolStatus: "In Progress",
-        daysElapsed: 50,
-        schoolsCompleted: 30,
-        assessmentCompletedInPercent: 50
+    this.route.queryParams.subscribe(params => {
+      this.pageParam = params;
+      this.utility.loaderShow();
+      this.filters(params['ProgramId']);
+      this.getUserSummary(params['ProgramId']);
+      if (Object.keys(params).length > 1) {
+        this.filterApply('apply');
+        this.expandedFilters = false;
+        this.reportGenerate = true;
+
       }
-    ]
-  }
-
-  
-
-  reportStatus = {};
-
-  mapGraphObject() {
-    const reportStatus = {};
-    const objSchool = {};
-    Object.assign(reportStatus, {
-      data: [
-        ["School Completed", this.dummyObject.schoolsCompleted],
-        ["School In Progress", this.dummyObject.schoolsInporgress]
-
-      ]
     })
-    Object.assign(reportStatus, {
-      columnNames: [
-        "School Completed", "School In Progress"
-      ]
-    });
-    Object.assign(reportStatus, {
-      options: {
-        colors: ['grey', 'green', 'yellow'],
-        is3D: true,
-      }
-    });
-    Object.assign(reportStatus, { type: 'PieChart' });
-    this.reportStatus = reportStatus;
-    Object.assign(objSchool, { schoolData: [] });
-    this.dummyObject.schoolsReport.forEach(schools => {
-      objSchool['schoolData'].push([schools.schoolName, schools.assessmentCompletedInPercent]);
-    });
-    Object.assign(objSchool, { schoolType: 'Line' });
-    Object.assign(objSchool, {
-      schoolOptions: {
-        colors: ['red', 'black', 'green', '#f3b49f', '#f6c7b6'],
-        // is3D: true,
-        isStacked:'percent',
-        vAxis:{"title":"# of movies","minValue":0},
-        hAxis:{"title":"Ratings",showTextEvery:1},
-      }
-    });
-    Object.assign(objSchool, { schoolColumnNames: ['School Name', '% Completion of Assessments'] });
-    this.schoolGraph = objSchool;
-    console.log(this.schoolGraph)
-    const objAssessor = {};
-    Object.assign(objAssessor, { assessorData: [] });
-
-    this.dummyObject.assessorsReport.forEach(assessor => {
-      objAssessor['assessorData'].push([assessor.name, assessor.schoolsAssigned, assessor.schoolsCompleted]);
-    });
-    Object.assign(objAssessor, { assessorType: 'ColumnChart' });
-
-    Object.assign(objAssessor, {
-      assessorOptions: {
-        colors: ['red', 'black', 'green', '#f3b49f', '#f6c7b6'],
-        is3D: true,
-        isStacked: true,
-        // isStacked: 'percent',
-        vAxis:{"title":"# of movies","minValue":0},
-      hAxis:{"title":"Ratings",showTextEvery:0},
-      }
-    });
-    Object.assign(objAssessor, { assessorColumnNames: ['Assessor Name', 'Assigned ', 'Completed'] });
-    this.assessorGraph = objAssessor;
-    console.log(this.assessorGraph)
   }
-  applyDate(label, value) {
+
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  filterApply(condition) {
+
+    if (condition === 'reset') {
+      this.filterForm.reset();
+      this.router.navigate(['/operations/reports'], { queryParams: { ProgramId: this.pageParam['ProgramId'] } });
+      this.reportGenerate = false;
+      this.filterArray = [];
+    }
+    else {
+      // this.filterPanel.closeAll();
+      this.expandedFilters = !this.expandedFilters;
+      this.filterObject = this.filterForm.getRawValue();
+      for (let filter in this.filterObject) {
+        if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN") {
+          delete this.filterObject[filter];
+        }
+      }
+      if (this.filterObject.toDate) {
+        // this.filterObject['fromDate']= this.applyDate(this.filterObject.fromDate)
+        this.filterObject['toDate'] = this.applyDate(this.filterObject.toDate);
+
+      }
+      if (this.filterObject.fromDate) {
+        this.filterObject['fromDate'] = this.applyDate(this.filterObject.fromDate);
+        // this.filterObject['toDate']= this.applyDate(this.filterObject.toDate);
+
+      }
+      this.applyFilter(this.filterObject)
+      this.filterArray = Object.entries(this.filterObject)
+      // this.filterArray = Object.keys(this.filterObject).map(i => this.filterObject[i])
+      // this.buildqueryParams();
+    }
+  }
+  buildqueryParams() {
+
+  }
+  prevStep() {
+    this.step--;
+  }
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  remove(filter): void {
+    let param;
+    const index = this.filterArray.indexOf(filter);
+    this.route.queryParams.subscribe(params => {
+      param = params;
+      // delete param['ProgramId'];
+      // this.generateReport(param);
+    })
+    if (index >= 0) {
+      this.filterArray.splice(index, 1);
+    }
+
+
+  }
+  mapGraphObject(data) {
+    data.forEach((object, ind) => {
+      for (let i = 0; i < object.graphData.length; i++) {
+
+        const dataArray = this.getData(object, i)
+        Object.assign(data[ind].graphData[i], {
+          data: dataArray
+        })
+        Object.assign(data[ind].graphData[i].chartOptions, { legend: { position: 'top', alignment: 'end' } })
+
+      }
+      object.graphData.forEach((item, index) => {
+
+        if (object.graphData[index].data.length > 2 && object.graphData[index].chartType === 'ColumnChart') {
+          Object.assign(data[ind].graphData[index].chartOptions, {
+            isStack: true,
+          })
+        }
+
+        if (data[ind].graphData[index].data.length > 10) {
+          Object.assign(data[ind].graphData[index].chartOptions.hAxis, { textPosition: 'none' });
+        }
+        let colNameArray = []
+        data[ind].graphData[index].columnNames.forEach(column => {
+          colNameArray.push(new CamelCasePipe().transform(column));
+        });
+        Object.assign(data[ind].graphData[index], { columnNames: colNameArray });
+
+
+      });
+
+      new CamelCasePipe().transform('schoolList')
+      const headers = this.getTableHeader(object);
+      Object.assign(data[ind], { tableHeader: headers })
+    });
+    console.log(data)
+    return data;
+
+  }
+  getTableHeader(object) {
+    let headingArray = []
+    object.tabularData.headers.forEach(header => {
+      headingArray.push(header.name);
+    })
+    return headingArray;
+  }
+  getData(object, i) {
+    let dataArray = [];
+    for (let j = 0; j < object.data.length; j++) {
+      let columnArray = this.getColumn(object, i, j);
+      dataArray.push(columnArray);
+    }
+    return dataArray;
+  }
+  getColumn(object, i, j) {
+    let colArray = [];
+    object.graphData[i].columnNames.forEach((column, index) => {
+      column = column.trim();
+      if (index > 0) {
+        if (object.data[j][column] === "") {
+
+          colArray.push(0);
+        }
+        else {
+          colArray.push(object.data[j][column]);
+        }
+      }
+      else {
+        colArray.push(object.data[j][column]);
+      }
+
+    }
+    );
+    return colArray;
+  }
+  applyDate(value) {
     var date = new Date(value),
       mnth = ("0" + (date.getMonth() + 1)).slice(-2),
       day = ("0" + date.getDate()).slice(-2);
     const val = [day, mnth, date.getFullYear()].join("-");
-    this.applyFilter({ [label]: val });
+    return val;
   }
+
   applyFilter(obj) {
 
     this.router.navigate(['.'], {
       relativeTo: this.route, queryParams: obj, queryParamsHandling: "merge",
       preserveFragment: true
     });
+    let param;
     this.route.queryParams.subscribe(params => {
+      param = params;
     });
-    // const urlTree = this.router.createUrlTree([], {
-    //   queryParams: { newParamKey: 'newValue' },
-    //   queryParamsHandling: "merge",
-    //   preserveFragment: true 
-    // });
-    // this.router.navigateByUrl(urlTree); 
+    this.generateReport(param);
   }
 
   inputChange(key, event) {
     this.applyFilter({ [key]: event.target.value });
-    if(key == 'schoolId'){
+    if (key == 'schoolId') {
       this.searchSchoolId = event.target.value;
     }
   }
@@ -444,14 +265,13 @@ export class OpsReportComponent implements OnInit {
     this.applyFilter({ [key]: value })
 
   }
-  generateReport() {
-    let param;
-    this.route.queryParams.subscribe(params => {
-      param = params
-    });
+  generateReport(param) {
+    // let param;
+    // this.route.queryParams.subscribe(params => {
+    //   param = params
+    // });
 
     this.queryParamsUrl = param['ProgramId'] + "?";
-
     let paramKey = Object.keys(param);
     paramKey = paramKey.slice(1)
     let index = 0;
@@ -464,48 +284,203 @@ export class OpsReportComponent implements OnInit {
       }
       index++;
     })
-    console.log(this.queryParamsUrl)
+    this.queryParamsUrl += '&csv=' + false;
+
+
     this.reportsDataFetch();
     this.reportGenerate = true;
   }
+  downloadCsv(id) {
+    if (id === 'school') {
+      this.operationService.getSchoolReport(this.pageParam['ProgramId'] + "?csv=" + true).subscribe(data => {
+
+      },
+        error => {
+          if (error.status == 200) {
+            const blob = new Blob([error.error.text], { type: 'csv' });
+            const url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = `${id}-Report.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          } else {
+            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+          }
+        });
+    }
+    else if (id === 'assessor') {
+      this.operationService.getAssessorReport(this.pageParam['ProgramId'] + "?csv=" + true).subscribe(data => {
+
+      },
+        error => {
+          console.log(error.status)
+          if (error.status == 200) {
+            const blob = new Blob([error.error.text], { type: 'csv' });
+            const url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = `${id}-Report.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          } else {
+            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+          }
+        });
+
+    }
+
+  }
+  setSearchParam(index: number = 1, size: number = this.itemsPerPage[0], label) {
+    if (label === 'school') {
+
+      const url = '&page=' + index + '&limit=' + size + '&schoolName=' + this.searchSchoolValue;
+      return url;
+    }
+    else if (label === 'assessor') {
+      const url = '&page=' + index + '&limit=' + size + '&assessorName=' + this.searchAssessorName;
+      return url;
+    }
+
+  }
   pageResponse(event) {
-    console.log(event)
+    if (event.label === 'school') {
+      this.schoolPageLimit = event.pageLimit;
+      this.schoolPageIndex = event.pageIndex;
+      this.searchParam = this.setSearchParam(this.schoolPageIndex + 1, this.schoolPageLimit, 'school');
+      this.getSchoolReport();
+    }
+
+    else if (event.label === 'assessor') {
+      this.assessorPageIndex = event.pageIndex;
+      this.assessorPageLimit = event.pageLimit;
+      this.searchParam = this.setSearchParam(this.assessorPageIndex + 1, this.assessorPageLimit, 'assessor');
+      this.getAssessorReport();
+    }
+
+
+
   }
-  reportsDataFetch(){
-   this.filters();
-   this.getUserSummary();
-   this.getSchoolReport();
-   this.getAssessorReport();
+  reportsDataFetch() {
+    this.getUserSummary(this.queryParamsUrl);
+    this.searchParam = this.setSearchParam(this.schoolPageIndex, this.schoolPageLimit, 'school');
+    this.getSchoolReport();
+    this.searchParam = this.setSearchParam(this.assessorPageIndex, this.assessorPageLimit, 'assessor');
+
+    this.getAssessorReport();
   }
 
-  filters(){
-    this.operationService.applyFilters(this.queryParamsUrl).subscribe( data => {
-      console.log(data);
+  filters(url) {
+
+    this.operationService.applyFilters(url).subscribe(data => {
+
+      this.filterData = this.mapQueryParams(data['result']);
+      this.filterForm = this.utility.toGroup(this.filterData);
+      console.log(this.filterForm)
+      this.filterObject = this.filterForm.getRawValue()
+      for (let filter in this.filterObject) {
+        if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN") {
+          delete this.filterObject[filter];
+        }
+      }
+      this.filterArray = Object.entries(this.filterObject);
+    },
+      error => {
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+      });
+  }
+  mapQueryParams(data) {
+    let param;
+    this.route.queryParams.subscribe(params => {
+      param = params;
+    })
+    let paramKey = Object.keys(param);
+    paramKey.forEach(paramLabel => {
+      data.forEach((element, index) => {
+        console.log(paramLabel)
+        if (element.field === paramLabel) {
+          if (element.input === 'date') {
+            let date = [param[paramLabel].substring(6), param[paramLabel].substring(3, 5), param[paramLabel].substring(0, 2)].join("-");
+            data[index].value = date + 'T00:00:00.000Z';
+          }
+          else {
+            data[index].value = param[paramLabel];
+
+          }
+        }
+      });
     });
+    console.log(data)
+    return data;
   }
-  getUserSummary(){
-    this.operationService.getUserSummary(this.queryParamsUrl).subscribe( data => {
-      console.log(data);
+  getUserSummary(url) {
+    this.operationService.getUserSummary(url).subscribe(data => {
+      this.summaryData = data['result'];
 
-    });
-  }
-  getSchoolReport(){
+      const arrayToObject = (array, keyField) =>
+        array.reduce((obj, item) => {
+          obj[item[keyField]] = item
+          return obj
+        }, {})
+      this.summaryData = arrayToObject(this.summaryData, "label")
 
-    this.operationService.getSchoolReport(this.queryParamsUrl).subscribe( data => {
-      console.log(data);
+      this.utility.loaderHide();
+    },
+      error => {
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+      }
+    );
+  }
+  getSchoolReport() {
+    this.schoolLoading = true;
+    this.operationService.getSchoolReport(this.queryParamsUrl + this.searchParam).subscribe(data => {
+      this.schoolReport = this.mapGraphObject(data['result']['sections']);
+      //  this.schoolGraph=this.schoolReport['graphData'];
+      this.schoolLoading = false;
 
-    });
+    }, error => {
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+    }
+    );
   }
-  getAssessorReport(){
-    this.operationService.getAssessorReport(this.queryParamsUrl).subscribe( data => {
-      console.log(data);
 
-    });
+  getAssessorReport() {
+    this.assessorLoading = true;
+    this.operationService.getAssessorReport(this.queryParamsUrl + this.searchParam).subscribe(data => {
+      this.assessorReport = this.mapGraphObject(data['result']['sections']);
+      //  this.assessorGraph=this.assessorReport['graphData'];
+      this.assessorLoading = false;
+
+    }, error => {
+      this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+    }
+    );
   }
-  searchSchoolIdInApi(searchId){
-    console.log(searchId)
+  searchSchoolIdInApi(searchId) {
   }
-  searchVal(searchValue){
-    this.searchValue = searchValue;
+  searchVal(id, searchValue) {
+    if (id == 'school') {
+      this.searchSchoolValue = searchValue;
+    }
+    else if (id == 'assessor') {
+      this.searchAssessorName = searchValue;
+    }
+  }
+  searchInApi(label) {
+    if (label === 'school') {
+      this.schoolPageIndex = 1;
+      this.searchParam = this.setSearchParam(this.schoolPageIndex, this.schoolPageLimit, 'school');
+      this.getSchoolReport();
+    }
+    else if (label === 'assessor') {
+      this.assessorPageIndex = 1;
+      this.searchParam = this.setSearchParam(this.assessorPageIndex, this.assessorPageLimit, 'assessor');
+      this.getAssessorReport();
+    }
+
   }
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../private-modules/auth-service/auth.service';
-import { UtilityService } from 'shikshalokam';
 import { ActivatedRoute } from '@angular/router';
 import { ReportService } from '../report-service/report.service';
 
+import { ApiService, UtilityService } from 'shikshalokam';
+import { MatSnackBar } from '@angular/material';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-entity-report',

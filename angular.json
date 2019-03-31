@@ -30,7 +30,6 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/scss/responsive.scss",
-              "src/assets/scss/varibles.scss",
               "src/styles.scss",
               "src/theme.scss"
 
