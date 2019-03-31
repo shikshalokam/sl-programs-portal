@@ -1,45 +1,56 @@
-.paddingTop{
-    padding:20px 0;
+.paddingTop {
+    padding: 20px 0;
 }
-.paddingBottom{
-    padding:0 0 20px 0;
+
+.paddingBottom {
+    padding: 0 0 20px 0;
 
 }
-.marginTop{
-    margin: 20px 0 ;
+
+.marginTop {
+    margin: 20px 0;
+    padding: 0;
 }
-.height{
+
+.height {
     height: 350px;
     overflow: hidden;
 }
-.profileHeight{
+
+.profileHeight {
     padding: 0px;
     display: flex;
     align-items: center;
 }
-.profileIcon{
+
+.profileIcon {
     font-size: 10vw;
 }
-.profileContent{
+
+.profileContent {
     padding-left: 20px;
 }
-.flex-box{
+
+.flex-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
-.reportDashboard{
+
+.reportDashboard {
     padding: 20px;
 }
-.wrapper{
-    padding:0px 20px;
+
+.wrapper {
+    padding: 0px 20px;
 }
 
-.userIcon{
-    height:200px;
+.userIcon {
+    height: 200px;
 }
+
 .userIcon:after {
     content: "";
     background: var(--light-grey-color);
@@ -49,59 +60,61 @@
     height: 60%;
     width: 1px;
 }
-.flexBox{
+
+.flexBox {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-.subHeading{
-    color : var(--grey-color);
-    overflow :hidden;
+
+.subHeading {
+    color: var(--grey-color);
+    overflow: hidden;
     text-overflow: ellipsis;
 
 }
-.dividerWidth{
+
+.dividerWidth {
     margin: 0 20px 0 20px;
     width: calc(100% - 40px) !important;
 }
-._flexbox{
+
+._flexbox {
     display: flex;
     align-items: baseline;
 }
 
 
-.horizontalLine{
+.horizontalLine {
     border-bottom: 1px solid var(--light-grey-color);
     width: calc(100% - 20px) !important;
     padding: 0 0 20px 0;
 
 }
-.flex-direction-column{
+
+.flex-direction-column {
     flex-direction: column;
     display: flex;
-    overflow-x:auto;
+    overflow-x: auto;
 }
-.flexWarp{
+
+.flexWarp {
     flex-wrap: wrap;
 }
-                
-                
-                
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 10px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2
-  }
-   .marginChart{
-    margin :50px 0 50px 0 ;
+
+.middle {
+    padding: 0 0;
+}
+
+.containerAdj {
+    padding: 15px !important;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.textColor {
+    color : var(--primary-color);
+    text-transform: capitalize;
 }

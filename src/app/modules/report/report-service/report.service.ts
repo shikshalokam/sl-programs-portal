@@ -20,4 +20,13 @@ export class ReportService {
   getSubmissionReport(submissionId) {
     return this.apiService.get(environment.apibaseurl + ReportConfig.GetSubmission + submissionId)
   }
+  getUserSchoolsInProgram(programId) {
+    return this.apiService.get(environment.apibaseurl + ReportConfig.userSchoolsInProgram+programId);
+  }
+
+  getSingleEntityReport(programId, schoolId) {
+    return this.apiService.get(environment.apibaseurl + ReportConfig.singleEntityReport+programId + '?school=' + schoolId);
+    // return this.apiService.get('/assests/insight.json');
+
+  }
 }

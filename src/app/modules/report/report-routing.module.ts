@@ -7,7 +7,7 @@ import { DownloadReportComponent } from './download-report/download-report.compo
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
 import { EntityReportComponent } from './entity-report/entity-report.component';
-
+import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
@@ -59,14 +59,22 @@ const routes: Routes = [
         redirectTo: 'report-dashboard'
       },
       {
-        path:'entity-report',
+        path:'entity-report/:schoolId',
         data:{
           id:"entityReport",
           breadcrumb:'headings.reportEntityReport'
         },
         component:EntityReportComponent,
       },
-      
+      {
+        path: 'schools',
+        data: {
+          id:'schools',
+          breadcrumb:'headings.schoolListHeading'
+        },
+        canActivateChild:[AuthGuard],
+        component: SchoolsComponent,
+      },
     ]
   },
   // {

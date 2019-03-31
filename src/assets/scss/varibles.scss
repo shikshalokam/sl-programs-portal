@@ -15,6 +15,7 @@ $dark-blue:var(--dark-blue-color);
 $app-blue-color:var(--app-blue-color);
 $app-darkBlue-color:var(--app-darkBlue-color);
 $faded-label-color:var(--faded-label-color);
+$dark-grey:var(--faded-label-color);
 
 :root{
 --primary-color:#A63936;
@@ -35,4 +36,5 @@ $faded-label-color:var(--faded-label-color);
 --app-blue-color:#c17472;
 --app-darkBlue-color:rgb(146, 54, 50);
 --faded-label-color:rgba(0,0,0,.5);
+--dark-grey:#C0C0C0
 }
