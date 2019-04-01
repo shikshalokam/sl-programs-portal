@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
-import { MatTableDataSource, MatPaginator, PageEvent } from '@angular/material';
-import { UtilityService } from 'src/app/core/services/utility-service/utility.service';
-import { OperationsService } from 'src/app/core';
-import { ActivatedRoute } from '@angular/router';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
+import { UtilityService } from 'shikshalokam';
+import { OperationsService } from '../operations-service/operations.service';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-view-schools',
@@ -10,69 +10,90 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-schools.component.scss']
 })
 export class ViewSchoolsComponent implements OnInit {
-  displayedColumns: string[] = ['externalId', 'name', '_id'];
+  displayedColumns: string[] = ['name','status','administration'];
   dataSource;
   schoolList;
   result;
   error: any;
   smallScreen = false;
-  programId ;
-  assessmentId ;
-  headings = 'headings.schoolListHeading';
-  
+  programId;
+  assessmentId;
+  headings = 'headings.viewSchools';
+  search = '';
+  pageIndex: number = 0;
+  pageSize: number = 50;
+  length: number;
+  searchValue = '';
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private operationsService: OperationsService,
-     private utility: UtilityService,
-     private route :ActivatedRoute
-    
-    ) {
-    this.showConfig();
-    this.route.parent.queryParams.subscribe(params => {
-      console.log(params);
-      this.programId = params['programId'];
-      this.assessmentId = params['assessmentId']
+    private snackBar: MatSnackBar,
+    private utility: UtilityService,
+  ) {
 
-    });
+    this.programId = JSON.parse(localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
+
+    console.log(JSON.parse(localStorage.getItem('currentAssessments'))['_id'])
+    this.programId = JSON.parse(localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
+    this.getViewSchool()
   }
-  showConfig() {
-    this.operationsService.getSchools(this.programId,this.assessmentId)
+  getViewSchool() {
+    this.utility.loaderShow();
+    this.operationsService.getSchools(this.programId, this.assessmentId, this.search, this.pageIndex, this.pageSize)
       .subscribe(data => {
-        this.schoolList = data['result'];
-        this.result = data['result']['length'];
-        this.dataSource = new MatTableDataSource(data['result']);
-        setTimeout(() => this.dataSource.paginator = this.paginator);
+        this.schoolList = data['result']['schoolInformation'];
+        this.result = data['result']['schoolInformation'].length;
+        this.length = data['result']['totalCount'];
+        this.dataSource = new MatTableDataSource(data['result']['schoolInformation']);
+        setTimeout(() => this.dataSource.sort = this.sort);
         this.utility.loaderHide()
       },
         (error) => {
           this.error = error;
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
           this.utility.loaderHide();
           ;
         }
       );
   }
   applyFilter(filterValue: string) {
-    console.log(filterValue)
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.searchValue = filterValue;
   }
   ngOnInit() {
     this.utility.loaderShow();
-    if (window.screen.width < 760) { // 768px portrait
+    if (window.innerWidth < 760) { // 768px portrait
       this.smallScreen = true;
-      console.log(this.smallScreen)
     }
+
   }
 
   objectKeys(obj) {
     return Object.keys(obj);
   }
-  onResize(event)
-  {
-    console.log(event);
-    if(event.target.innerWidth > 760)
-    {
-      console.log(true)
+  onResize(event) {
+
+    if (event.target.innerWidth < 760) {
       this.smallScreen = true;
     }
+    else {
+      this.smallScreen = false;
+    }
+  }
+  pageEvent(event) {
+
+    if (this.pageSize !== event.pageSize ? this.pageSize : event.pageSize)
+      {
+        this.pageSize = event.pageSize;
+      }
+      this.pageIndex = event.pageIndex;
+    this.getViewSchool();
+  }
+  searchInApi(event) {
+    this.search = event;
+    this.pageIndex = 0;
+    this.getViewSchool();
   }
 }

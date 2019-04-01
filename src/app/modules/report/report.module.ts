@@ -3,19 +3,26 @@ import { CommonModule } from '@angular/common';
 import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report-routing.module';
 import { SchoolListComponent } from './school-list/school-list.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { CoreModule } from 'src/app/core';
-import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule } from '@angular/material';
+import { CoreModule ,SharedModule } from 'shikshalokam';
+import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule,MatSortModule, MatListModule } from '@angular/material';
 import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { ImageModalComponent } from './ecm-report/image-modal/image-modal.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
+import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
+import { SelectProgramComponent } from './reports-dashboard/select-program/select-program.component';
+import { EntityReportComponent } from './entity-report/entity-report.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { SchoolsComponent } from './entity-report/components/schools/schools.component';
+import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
+
 @NgModule({
   declarations: [
     ReportComponent,
     SchoolListComponent,
     EcmReportComponent,
     ImageModalComponent,
-    DownloadReportComponent
+    DownloadReportComponent,
+    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent
   ],
   imports: [
     // CommonModule,
@@ -33,10 +40,14 @@ import { DownloadReportComponent } from './download-report/download-report.compo
     SharedModule,
     CoreModule,
     MatPaginatorModule,
-    ReportRoutingModule
+    ReportRoutingModule,
+    MatSortModule,
+    MatListModule,
+    GoogleChartsModule.forRoot(),
+
 
   ],
-  entryComponents: [ImageModalComponent],
+  entryComponents: [ImageModalComponent , SelectProgramComponent],
 
   providers: [
   ],

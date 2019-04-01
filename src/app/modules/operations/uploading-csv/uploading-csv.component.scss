@@ -13,6 +13,9 @@
     border-radius: 10px;
 
 }
+.marginTopBottom{
+    margin :10px 0px;
+}
 .wrapper{
     padding:0 20px
 }
@@ -30,4 +33,7 @@ input[type="file"] {
 }
 .paddingContent{
     padding: 0 10px
+}
+.fileList{
+    margin-top:60px;
 }

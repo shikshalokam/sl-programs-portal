@@ -1,27 +1,50 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
-import { OperationsDashboardComponent } from './modules/operations/operations-dashboard/operations-dashboard.component';
-   
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
-    // path: 'assesments/:programId/:assesmentId',
-    path: 'assessments',
-    // component: AssessmentDashboardComponent
-    
-    loadChildren: './modules/assessment-dashboard/assessment-dashboard.module#AssessmentDashboardModule'
-  },
-  {
-    path: 'programs',
-    component : ProgramsDashboardComponent
-  },
-  {
     path: '',
-    redirectTo: 'programs',
-    pathMatch: 'full'
-  }
-];
+    // component: AppComponent,
+    data:{breadcrumb : ""},
+    children: [
+      {
+        path: 'report',
+        data:{
+          id:'report',
+          // breadcrumb:'Reports'
 
+      },
+        loadChildren: './modules/report/report.module#ReportModule'
+      },
+     
+      {
+        path: 'operations',
+        data:{
+          id:'operations',
+          // breadcrumb:'Operations'
+      },
+        loadChildren: './modules/operations/operations.module#OperationsModule'
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: '**',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home', component: HomeComponent,
+        data:{
+          // breadcrumb :'Home'
+        }
+        
+      }
+    ]
+  }
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

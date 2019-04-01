@@ -1,14 +1,40 @@
-$primary-color: #46a9ff;
-$black-color: #4c4c4c;
-$blue-gradient: #1AC6FC;
-$grey-color: #bababa;
-$light-grey-color:#e0e0e0;
+$primary-color:var(--primary-color);
+$black-color:var(--black-color);
+$blue-gradient:var(--blue-gradient-color) ;
+$grey-color:var(--grey-color);
+$light-grey-color:var(--light-grey-color);
 $regular-font: 'SF-ui-text-regular';
 $light-font: 'SF-ui-text-light';
 $italic-font: 'SF-ui-text-italic';
-$border-color : #e5e5e5;
-$green-color: rgb(1, 116, 1);
-$white-color: #fff;
-$background-color :#f2f2f2;
-$button-background-color: #e5f2fe;
-$dark-blue:#1d73f0;
+$border-color:var(--border-color);
+$green-color:var(--green-color);
+$white-color: var(--white-color);
+$background-color :var(--background-color);
+$button-background-color:var(--button-background-color);
+$dark-blue:var(--dark-blue-color);
+$app-blue-color:var(--app-blue-color);
+$app-darkBlue-color:var(--app-darkBlue-color);
+$faded-label-color:var(--faded-label-color);
+$dark-grey:var(--faded-label-color);
+
+:root{
+--primary-color:#A63936;
+--black-color:#4c4c4c;
+--blue-gradient-color:#b35754;
+--grey-color:#3f3d3d;
+--light-grey-color:#e0e0e0;
+--regular-font:'SF-ui-text-regular';
+--light-font:'SF-ui-text-light';
+--italic-font:'SF-ui-text-italic';
+--border-color:#e5e5e5;
+--green-color:rgb(1, 116, 1);
+--white-color:#fff;
+--background-color:#f2f2f2;
+--button-background-color: #e5f2fe;
+--dark-blue-color:rgb(143, 56, 53);
+--darkBlack-color:#000;
+--app-blue-color:#c17472;
+--app-darkBlue-color:rgb(146, 54, 50);
+--faded-label-color:rgba(0,0,0,.5);
+--dark-grey:#C0C0C0
+}

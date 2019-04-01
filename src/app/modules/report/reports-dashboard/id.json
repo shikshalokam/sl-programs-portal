@@ -1,0 +1,129 @@
+{
+    "message": "Configurations fetched successfully.",
+    "status": 200,
+    "result": {
+        "tabActions": [
+            {
+                "name": "assessments",
+                "id": "assessments",
+                "accessibility": true,
+                "tabActions": [
+                    {
+                        "name": "Configuration",
+                        "id": "configuration",
+                        "accessibility": true,
+                        "tabActions": [
+                            {
+                                "name": "Criteria",
+                                "id": "criteria",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "Question",
+                                "id": "question",
+                                "accessibility": true,
+                                "tabActions": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Parent",
+                        "id": "parent",
+                        "accessibility": true,
+                        "tabActions": []
+                    },
+                    {
+                        "name": "Report",
+                        "id": "report",
+                        "accessibility": true,
+                        "tabActions": [
+                            {
+                                "name": "Download Evidience Report",
+                                "id": "downloadEvidienceReport",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "Ecm Report",
+                                "id": "ecmReport",
+                                "accessibility": true,
+                                "tabActions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Program",
+                "id": "program",
+                "accessibility": true,
+                "tabActions": [
+                    {
+                        "name": "Report",
+                        "id": "report",
+                        "accessibility": true,
+                        "tabActions": [
+                            {
+                                "name": "Download Evidience Report",
+                                "id": "downloadEvidienceReport",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "Ecm Report",
+                                "id": "ecmReport",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "School List",
+                                "id": "schoolList",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "Entity Report",
+                                "id": "entityReport",
+                                "accessibility": true,
+                                "tabActions": []
+                            }
+                        ]
+
+                    },
+                    {
+                        "name": "Operations",
+                        "id": "operations",
+                        "accessibility": true,
+                        "tabActions": [
+                            {
+                                "name": "View Schools",
+                                "id": "viewSchools",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "View Acessors",
+                                "id": "viewAcessor",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "Upload Csv",
+                                "id": "uploadcsv",
+                                "accessibility": true,
+                                "tabActions": []
+                            },
+                            {
+                                "name": "Operation Report",
+                                "id": "opsReport",
+                                "accessibility": true,
+                                "tabActions": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

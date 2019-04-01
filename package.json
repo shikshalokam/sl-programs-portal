@@ -1,5 +1,5 @@
 {
-  "name": "sl-assessments-portal",
+  "name": "sl-programs-portal",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -24,13 +24,17 @@
     "@angular/pwa": "^0.11.3",
     "@angular/router": "~7.0.0",
     "@angular/service-worker": "~7.0.0",
+    "@auth0/angular-jwt": "^2.1.0",
+    "angular-google-charts": "^0.1.3",
     "angular-material-fileupload": "^1.0.3",
     "angular-progress-bar": "^1.0.9",
     "bit-bin": "^13.0.4",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
+    "html2canvas": "^1.0.0-alpha.12",
     "http-server": "^0.11.1",
+    "jspdf": "^1.5.3",
     "jwt-decode": "^2.2.0",
     "keycloak-angular": "^4.0.2",
     "keycloak-js": "^4.6.0",
@@ -39,6 +43,7 @@
     "ngx-spinner": "^6.1.2",
     "node-sass": "^4.10.0",
     "rxjs": "^6.3.3",
+    "shikshalokam": "file:../sl-portal-library/dist/shikshalokam/shikshalokam-0.0.1.tgz",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

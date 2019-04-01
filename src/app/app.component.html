@@ -1,1 +1,33 @@
-<router-outlet></router-outlet>
+<div class="container-fluid" *ngIf="links">
+    <div class="row completeDiv">
+        <mat-toolbar class="toolBar noMarginPadding">
+            <div class="col-xs-12 ">
+                  <app-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" [isLoggedIn]="isLoggedIn" [url]="baseUrl" [portal]="portalName"></app-navbar>
+                  <app-responsive-navbar [currentUser]="currentUser" (Logout)="onLogout()" [logo]="logo" (openDrawer)="drawer.toggle()" [url]="baseUrl" [portal]="portalName"></app-responsive-navbar>
+            </div>
+        </mat-toolbar>
+        <mat-divider class="noMarginPadding"></mat-divider>
+        <mat-drawer-container class="example-container bodyDiv" autosize>
+              
+          <mat-drawer  #drawer class="example-sidenav sideDiv" [(mode)]="pushMode" [(opened)]="opened" (window:resize)="onResize($event)"> 
+             
+            <div *ngFor= "let link of links" > 
+                           <app-sidenav [link] = "link" ></app-sidenav>
+                      </div>
+              </mat-drawer>
+  
+             
+              <div class="example-sidenav-content ">
+                <!-- <breadcrumb></breadcrumb> -->
+                <router-outlet></router-outlet>
+              </div>
+            
+            </mat-drawer-container>
+         <app-footer></app-footer>
+    </div>
+  </div>
+  
+  
+  
+  
+  

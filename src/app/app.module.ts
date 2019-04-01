@@ -1,19 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { JwtModule } from '@auth0/angular-jwt';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { TranslateService } from './core/services/translate-service/translate.service';
-import { AuthService } from './core/services/auth/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CoreModule,TranslateService,SharedModule } from 'shikshalokam';
+import { AuthService } from './modules/private-modules/auth-service/auth.service';
 import { MatDividerModule } from '@angular/material/divider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
-import { MatToolbarModule } from '@angular/material';
+// import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
+import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
+import { HomeComponent } from './home/home.component';
+import { ApiInterceptor } from './modules/private-modules/interceptor-service/interceptor.service';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 
 export function authFactory(authService: AuthService) {
@@ -23,18 +27,27 @@ export function authFactory(authService: AuthService) {
 @NgModule({
   declarations: [
     AppComponent,
-    ProgramsDashboardComponent,
+    HomeComponent,
+   
   ],
   imports: [
     AppRoutingModule,
     SharedModule,
-    CoreModule,
+    // CoreModule,
     MatDividerModule,
     CoreModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
+    MatCardModule,
+    MatDividerModule,
     MatToolbarModule,
+    MatSidenavModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
@@ -44,6 +57,11 @@ export function authFactory(authService: AuthService) {
       useFactory: authFactory,
       multi: true,
       deps: [AuthService]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
     },
 
   ],

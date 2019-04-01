@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalConfig } from 'src/app/global-config';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { SelectProgramComponent } from './select-program/select-program.component';
 
 @Component({
   selector: 'app-operations-dashboard',
@@ -6,24 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./operations-dashboard.component.scss']
 })
 export class OperationsDashboardComponent implements OnInit {
-   headings= 'headings.dashboards'
+   headings= 'headings.operationDashboards'
    operation;
 
    dashboards;
-
-  constructor() { 
-      this.dashboards=[
-        {
-          icons:"done",
-          tooltip:"headings.operationDashboardUpload",
-          anchorLink:"/assessments/operations/upload-csv"
-        },
-        {
-          icons:"done",
-          tooltip:"headings.schoolListHeading",
-          anchorLink: "/assessments/operations/view-schools"
-        }
-      ]
+  canAcess = localStorage.getItem('canAcess');
+  constructor(private router :Router,private dialog :MatDialog) { 
+     this.dashboards = GlobalConfig.operationsDashBoardLinks;
   }
 
  
@@ -31,5 +24,24 @@ export class OperationsDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  navigateLink(event){
+
+    this.openProgramDialogBox(event);
+    // this.router.navigate([event]);
+
+  }
   
+  openProgramDialogBox(event): void {
+    const dialogRef = this.dialog.open(SelectProgramComponent, {
+      width: '700px',
+      height:'420px',
+      data : {event},
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+
 }

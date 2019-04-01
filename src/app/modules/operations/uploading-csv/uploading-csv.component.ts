@@ -1,9 +1,10 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { OperationsService } from 'src/app/core';
+import { HttpEventType } from '@angular/common/http';
+import { OperationsService } from '../operations-service/operations.service';
 import { MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalConfig } from 'src/app/global-config';
 
 @Component({
   selector: 'app-uploading-csv',
@@ -17,15 +18,21 @@ export class UploadingCsvComponent implements OnInit {
     { value: 'schools', viewValue: 'Upload Schools' },
     { value: 'assessors', viewValue: 'Upload Assessors' },
   ];
-  file = [];
+  schoolFile = [];
+  assessorFile =[];
   headings='headings.uploadingCsv'
   uploadtype = '';
-  percentDone: number;
+  percentDone: number = 0;
   uploadSuccess: boolean;
-  fileSelected = false;
+  assessorFileSelected = false;
+  schoolFileSelected = false;
+
   uploadTypeSelected = false;
   formData;
-  showStatus = false;
+  showSchoolStatus = false;
+  showAssessorStatus = false;
+  files = {value: ""};
+
   programId;
   assessmentId;
   ngOnInit() {
@@ -44,67 +51,73 @@ export class UploadingCsvComponent implements OnInit {
       name: [""],
       fileName: [""]
     });
-    this.route.parent.queryParams.subscribe(params => {
-      this.programId = params['programId'];
-      this.assessmentId = params['assessmentId']
-
-    });
-
+   
+    this.programId = JSON.parse( localStorage.getItem('currentProgram'))['_id'];
+    this.assessmentId = JSON.parse( localStorage.getItem('currentAssessments'))['_id'];
   }
 
   version = VERSION
-  updateUploadType(uploadType) {
-    if (uploadType != '')
-      this.uploadTypeSelected = true;
-    this.uploadtype = uploadType;
+
+  uploadAssessor(files:File[]) {
+    this.assessorFile = files;
+    this.assessorFileSelected = true;
+    this.showAssessorStatus = true;
 
   }
-  upload(files: File[]) {
-    this.file = files;
-    this.fileSelected = true;
-    this.uploadAndProgress();
+  uploadSchools(files:File[]) {
+    this.schoolFile = files;
+    this.schoolFileSelected = true;
+    this.showSchoolStatus = true;
+
   }
-  deleteFile(index, files) {
+  deleteSchoolFile(index, files) {
     files.value = null;
-    this.fileSelected = false;
-    this.showStatus = false;
-    this.file = []
+    this.schoolFileSelected = false;
+    this.showSchoolStatus = false;
+    this.schoolFile = []
   }
-  uploadAndProgress() {
-    var formData = new FormData();
-    if (this.uploadtype == 'schools') {
-      Array.from(this.file).forEach(f => {
-        formData.append('schools', f)
-      })
-    }
-    else if (this.uploadtype == 'assessors') {
-      Array.from(this.file).forEach(f => {
-        formData.append('assessors', f)
-      })
+  deleteAssessorFile(index, files) {
+    files.value = null;
+    this.assessorFileSelected = false;
+    this.showAssessorStatus = false;
+    this.assessorFile = []
+  }
 
+
+  csvUpload(uploadType) {
+    let file ;
+    if(uploadType == 'schools'){
+      file = this.schoolFile;
     }
-    this.formData = formData;
-    this.showStatus = true;
-  }
-  csvUpload() {
-    this.operationsService.uploadCsv(this.formData, this.uploadtype,this.programId,this.assessmentId)
+    else{
+      file = this.assessorFile;
+    }
+    this.operationsService.uploadCsv(file,uploadType,this.programId,this.assessmentId)
       .subscribe(event => {
         this.fileUpload = true;
-
         if (event.type === HttpEventType.UploadProgress) {
-
           this.percentDone = Math.round(100 * event.loaded / event.total);
           this.snackBar.open('Upload Sucessful', "Ok", { duration: 9000 });
         }
       },
         error => {
-          this.snackBar.open(error['message'], "Ok", { duration: 9000 });
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
         });
     setTimeout(() => {
-      this.CsvFileForm.reset();
-      this.showStatus = false;
-      this.fileSelected = false;
+      if(uploadType == 'schools'){
+      this.showSchoolStatus = false;
+      this.schoolFileSelected = false;
+      this.schoolFile = [];
+      }
+      if (uploadType == 'assessors'){
+      this.showAssessorStatus= false;
+      this.assessorFileSelected = false;
+      this.assessorFile = [];
+      }
+      
       this.uploadTypeSelected = false;
+      this.percentDone = 0;
+      this.fileUpload= false;
     }, 3000);
   }
 }

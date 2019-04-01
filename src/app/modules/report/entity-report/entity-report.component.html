@@ -1,0 +1,51 @@
+<app-loader></app-loader>
+
+<app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
+
+<div>
+  <h3 class="_text-center marginTop">{{insightReport?.Headings}}</h3>
+  <div>
+    <mat-card>
+      <mat-list class="middle">
+        <mat-list-item *ngFor="let item of insightReport?.summary;let last = last;">
+          <div class="_flex-box _full-width">
+            <div style="flex:1">
+              {{item?.title}}
+            </div>
+            <div style="flex:2">
+              <b>{{item?.value}}</b>
+            </div>
+          </div>
+          <mat-divider *ngIf="!last"></mat-divider>
+
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+
+  <div class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
+    <mat-card class="containerAdj">
+      <mat-card-title class="title _capitalize">
+        {{section?.heading}}
+      </mat-card-title>
+      <!-- <mat-card-subtitle>
+        
+      </mat-card-subtitle> -->
+      <mat-divider></mat-divider>
+      <mat-card-content>
+          <div class="_flex-box _margin-top _margin-bottom textColor">
+              <span *ngFor="let header of section?.summary; let last = last" class="_flex-box">
+                  {{header?.label}} : {{header?.value}} 
+                  <i class="material-icons" *ngIf="!last">
+                    keyboard_arrow_right
+                  </i>
+                </span>
+          </div>
+          <app-graph-table-chart [section]="section"></app-graph-table-chart>
+        
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>

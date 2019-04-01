@@ -1,16 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-@import "./assets//scss//varibles.scss";
-
-
+@import "./assets/scss/varibles.scss";
 @font-face {
     font-family: 'SF-ui-text-regular';
     font-style: normal;
     font-weight: normal;
     src: url('assets/fonts/sf-ui-text-regular.woff') format('woff');
 }
-
 @font-face {
     font-family: 'SF-ui-text-light';
     font-style: normal;
@@ -48,16 +45,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
-$primary-color: #46a9ff;
-$black-color: #4c4c4c;
-$blue-gradient: #1AC6FC;
-$grey-color: #bababa;
-$regular-font: 'SF-ui-text-regular';
-$light-font: 'SF-ui-text-light';
-$italic-font: 'SF-ui-text-italic';
-$border-color: #e5e5e5;
+
 body {
-    font-family: $regular-font
+    // font-family: $regular-font !important;
+    font-family: var(--regular-font) !important;
 }
 
 ._flex-box {
@@ -74,7 +65,30 @@ body {
 ._flex-direction-column {
     flex-direction: column;
 }
-
+._small-Bottom-Margin{
+    margin : 0 0 10px 0 !important;
+}
+._no-wrap{
+    white-space: nowrap;
+}
+._small-Top-Margin{
+    margin-top: 10px!important;
+}
+._border{
+    border :1px solid var(--light-grey-color);
+}
+._padding-left{
+    padding-left: 20px !important;
+}
+._padding-right{
+    padding-right: 20px !important;
+}
+._padding-top{
+    padding-top: 20px !important;
+}
+._padding-bottom{
+    padding-bottom: 20px !important;
+}
 ._justify-content-center {
     justify-content: center;
 }
@@ -95,16 +109,27 @@ body {
     width: 100%;
 }
 
+._half-width {
+    width: 40%;
+}
+._noMarginPadding{
+    padding: 0;
+    margin: 0;
+}
 ._cursor-pointer {
     cursor: pointer;
 }
 
 ._green-btn {
-    background: $green-color;
-    color: $white-color;
+    // background: $green-color;
+    // color: $white-color;
+    background: var(--green-color);
+    color: var( --white-color);
 }
 
 ._primary-btn {
+    // background: $primary-color;
+    // color: $white-color;
     background: $primary-color;
     color: $white-color;
 }
@@ -123,4 +148,23 @@ span:focus {
  }
 ._margin{
     margin: 20px 20px !important;
+}
+
+._text-center {
+    text-align: center;
+}
+._margin-left{
+    margin-left: 20px !important;
+}
+._margin-right{
+    margin-right: 20px !important;
+}
+._margin-top{
+    margin-top: 20px !important;
+}
+._margin-bottom{
+    margin-bottom: 20px !important;
+}
+._capitalize{
+    text-transform: capitalize !important;
 }
