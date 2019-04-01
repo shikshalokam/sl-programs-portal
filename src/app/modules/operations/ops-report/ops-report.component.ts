@@ -367,9 +367,9 @@ export class OpsReportComponent implements OnInit {
   }
   reportsDataFetch() {
     this.getUserSummary(this.queryParamsUrl);
-    this.searchParam = this.setSearchParam(this.schoolPageIndex, this.schoolPageLimit, 'school');
+    this.searchParam = this.setSearchParam(this.schoolPageIndex +1, this.schoolPageLimit, 'school');
     this.getSchoolReport();
-    this.searchParam = this.setSearchParam(this.assessorPageIndex, this.assessorPageLimit, 'assessor');
+    this.searchParam = this.setSearchParam(this.assessorPageIndex +1, this.assessorPageLimit, 'assessor');
 
     this.getAssessorReport();
   }
