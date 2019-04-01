@@ -12,7 +12,7 @@ import { GlobalConfig } from 'src/app/global-config';
   styleUrls: ['./block-list.component.scss']
 })
 export class BlockListComponent implements OnInit {
-  displayedColumns: string[]= ['name'];
+  displayedColumns: string[]= ['externalId','name','city'];
   blocks;
   result;
   dataSource;
@@ -68,22 +68,19 @@ export class BlockListComponent implements OnInit {
         ;
       }
     );
-
   }
-
 
   showSchool(){
     this.reportService.getListOfSchool(this.programId, this.blockId)
     .subscribe(data => {
-      console.log(data, "data2222222");
       this.result = data['result']['schools']['length'];
-      console.log(this.result);
       this.dataSource = new MatTableDataSource(data['result']['schools']);
       setTimeout(() => this.dataSource.sort = this.sort);
       this.utility.loaderHide()
     },
       (error) => {
         this.error = error;
+        this.snackBar.open(GlobalConfig.errorMessage, "OK", {duration: 9000})
         this.utility.loaderHide();
         ;
       }
