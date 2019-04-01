@@ -48,6 +48,7 @@ export class OpsReportComponent implements OnInit {
   schoolLoading: boolean;
   assessorLoading: boolean;
   @ViewChild('myaccordion') filterPanel: MatAccordion;
+  summaryProfileData: any;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -84,7 +85,8 @@ export class OpsReportComponent implements OnInit {
       this.pageParam = params;
       this.utility.loaderShow();
       this.filters(params['ProgramId']);
-      this.getUserSummary(params['ProgramId']);
+      this.getUserProfile(params['ProgramId']);
+      // this.getUserSummary(params['ProgramId']);
       if (Object.keys(params).length > 1) {
         this.filterApply('apply');
         this.expandedFilters = false;
@@ -212,6 +214,25 @@ export class OpsReportComponent implements OnInit {
       dataArray.push(columnArray);
     }
     return dataArray;
+  }
+  getUserProfile(ProgramId){
+    this.operationService.getUserProfileSummary(ProgramId).subscribe(data=>{
+      console.log(data);
+      this.summaryProfileData = data['result'];
+       const arrayToObject = (array, keyField) =>
+        array.reduce((obj, item) => {
+          obj[item[keyField]] = item
+          return obj
+        }, {})
+      this.summaryProfileData = arrayToObject(this.summaryProfileData, "label")
+      this.utility.loaderHide();
+    },
+      error =>{
+      this.utility.loaderHide();
+
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+
+      });
   }
   getColumn(object, i, j) {
     let colArray = [];
@@ -366,6 +387,7 @@ export class OpsReportComponent implements OnInit {
 
   }
   reportsDataFetch() {
+    this.utility.loaderShow();
     this.getUserSummary(this.queryParamsUrl);
     this.searchParam = this.setSearchParam(this.schoolPageIndex +1, this.schoolPageLimit, 'school');
     this.getSchoolReport();

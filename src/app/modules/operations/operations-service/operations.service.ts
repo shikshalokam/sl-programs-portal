@@ -76,4 +76,7 @@ export class OperationsService {
   //   return this.apiService.get("http://localhost:4201/" + OperationConfig.assessorReport+url);
   // }
 
+  getUserProfileSummary(programId){
+    return this.apiService.get(environment.apibaseurl + OperationConfig.profileSummary+programId);
+  }
 }

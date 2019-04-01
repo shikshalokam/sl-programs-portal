@@ -6,6 +6,6 @@ export const OperationConfig = {
    schoolReport:'programOperations/schoolReport/',
    assessorReport:'programOperations/assessorReport/',
     reportSummary:'programOperations/schoolSummary/',
-   reportFilter:'programOperations/reportFilters/'
-    
+   reportFilter:'programOperations/reportFilters/',
+    profileSummary:'programOperations/managerProfile/'
 }
