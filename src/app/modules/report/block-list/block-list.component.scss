@@ -1,0 +1,23 @@
+@import '../../../../assets/scss/varibles.scss';
+
+.example-container {
+    height: calc(100vh - 226px) !important;
+  }
+
+  .tableContainer{
+    height: calc(100vh - 282px) !important;
+    overflow: auto;
+}
+
+.margin{
+    margin:20px 0px;
+}
+
+.textOverflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title{
+    width:50%;
+}

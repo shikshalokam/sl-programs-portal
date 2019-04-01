@@ -15,6 +15,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { TableComponentComponent } from './entity-report/components/table-component/table-component.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 import { ColumnGraphComponent } from './entity-report/components/column-graph/column-graph.component';
+import { BlockListComponent } from './block-list/block-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ColumnGraphComponent } from './entity-report/components/column-graph/co
     EcmReportComponent,
     ImageModalComponent,
     DownloadReportComponent,
-    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, TableComponentComponent, SchoolsComponent, ColumnGraphComponent
+    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, TableComponentComponent, SchoolsComponent, ColumnGraphComponent, BlockListComponent
   ],
   imports: [
     // CommonModule,

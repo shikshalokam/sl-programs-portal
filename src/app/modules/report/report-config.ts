@@ -4,5 +4,8 @@ export const ReportConfig = {
    GetSubmission : 'submissions/status/',
    downloadReport :'reports/programsSubmissionStatus/DCPCR?evidenceId=',
    userSchoolsInProgram:"programs/userSchoolList?programId=",
-   singleEntityReport:"insights/singleEntityReport/"
+   singleEntityReport:"insights/singleEntityReport/",
+   listOfBlock: 'programs/schoolBlocks?programId=',
+   listOfSchool : 'programs/blockSchools?programId=',
+
 }

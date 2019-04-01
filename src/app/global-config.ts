@@ -76,8 +76,18 @@ export const GlobalConfig = {
       id: 'schoolList',
       icon: "description",
       disabled: true
+    },
+    {
+      icons: "done",
+      tooltip: "headings.blockListHeading",
+      anchorLink: "/report/block-list",
+      id: 'entityReport',
+      icon: "description",
+      disabled: true
 
     }
+
+    
   ]
 }
 

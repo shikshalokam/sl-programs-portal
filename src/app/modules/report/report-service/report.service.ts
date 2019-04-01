@@ -14,6 +14,17 @@ export class ReportService {
   getSchoolList() {
     return this.apiService.get(environment.apibaseurl + ReportConfig.schoolListFind);
   }
+
+  getListOfBlock(programId){
+    return this.apiService.get(environment.apibaseurl + ReportConfig.listOfBlock + programId);
+  }
+
+  getListOfSchool(programId, Id){
+    return this.apiService.get(environment.apibaseurl + ReportConfig.listOfSchool + programId + '&blockId=' + Id);
+  }
+ 
+
+
   getEcmReportGetSubmissionId(schoolId) {
     return this.apiService.get(environment.apibaseurl + ReportConfig.ecmReportGetSubmissionId + schoolId)
   }
