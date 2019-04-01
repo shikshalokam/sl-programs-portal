@@ -21,8 +21,9 @@ export class SchoolListComponent implements OnInit {
   smallScreen = false;
   programId;
     assessmentId;
-    @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  searchVal: string;
 
   constructor(private reportService: ReportService, private utility: UtilityService) {
     this.showConfig();
@@ -46,6 +47,7 @@ export class SchoolListComponent implements OnInit {
         this.result = data['result']['length'];
         this.dataSource = new MatTableDataSource(data['result']);
         setTimeout(() => this.dataSource.sort = this.sort);
+        setTimeout(() => this.dataSource.paginator = this.paginator);
         this.schoolList = data['result'];
         this.utility.loaderHide()
       },
@@ -57,7 +59,9 @@ export class SchoolListComponent implements OnInit {
       );
   }
   applyFilter(filterValue: string) {
+    this.searchVal = filterValue;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log(this.dataSource)
   }
   ngOnInit() {
     this.utility.loaderShow();

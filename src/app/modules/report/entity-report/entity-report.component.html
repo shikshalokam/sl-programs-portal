@@ -41,14 +41,8 @@
                   </i>
                 </span>
           </div>
-        <div>
-          <app-table-component [headers]="section?.tabularData?.headers" [datas]="section?.data" *ngIf="section?.table">
-          </app-table-component>
-        </div>
-        <div class="marginTop">
-          <app-column-graph [datas]="section?.data" [configs]="section?.graphData" *ngIf="section?.graph">
-          </app-column-graph>
-        </div>
+          <app-graph-table-chart [section]="section"></app-graph-table-chart>
+        
       </mat-card-content>
     </mat-card>
   </div>

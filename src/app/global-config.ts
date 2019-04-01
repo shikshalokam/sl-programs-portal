@@ -18,7 +18,7 @@ export const GlobalConfig = {
           value: "headings.reports",
           id: 'report',
           anchorLink: "report",
-          icon: "graphic_eq"
+          icon: "assessment"
         },
         {
           value: "headings.operations",

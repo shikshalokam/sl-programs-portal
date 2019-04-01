@@ -12,9 +12,7 @@ import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.c
 import { SelectProgramComponent } from './reports-dashboard/select-program/select-program.component';
 import { EntityReportComponent } from './entity-report/entity-report.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { TableComponentComponent } from './entity-report/components/table-component/table-component.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
-import { ColumnGraphComponent } from './entity-report/components/column-graph/column-graph.component';
 import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
 
 @NgModule({
@@ -24,7 +22,7 @@ import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-e
     EcmReportComponent,
     ImageModalComponent,
     DownloadReportComponent,
-    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, TableComponentComponent, SchoolsComponent, ColumnGraphComponent, MultipleEntityRportComponent
+    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent
   ],
   imports: [
     // CommonModule,

@@ -43,6 +43,9 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <div class="middle" *ngIf="dataSource.filterData?.length < 0 && searchVal">
+            {{'message.noData' | translate}}
+        </div>
       </div>
       <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[100,50,500]" showFirstLastButtons></mat-paginator>
 
@@ -69,11 +72,11 @@
                <div class="flexRight">
                <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,school.name,school._id ]">
                 {{'tableLabel.buttons.clickHere'| translate}}</div>
-                <ng-template #complete>
+                <!-- <ng-template #complete>
                     <div  class="complete">
                             {{'tableLabel.buttons.complete'| translate}}
                     </div>
-                </ng-template>
+                </ng-template> -->
               </div>
             </mat-expansion-panel>
       </div>
