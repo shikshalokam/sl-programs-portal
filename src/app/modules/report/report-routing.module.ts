@@ -8,6 +8,7 @@ import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
 import { EntityReportComponent } from './entity-report/entity-report.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
+import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
@@ -66,6 +67,15 @@ const routes: Routes = [
         },
         component:EntityReportComponent,
       },
+      {
+        path:'multiple-entity-report',
+        data:{
+          id:"multipleEntityReport",
+          breadcrumb:'headings.reportMultilpeEntityReport'
+        },
+        component:MultipleEntityRportComponent,
+      },
+
       {
         path: 'schools',
         data: {

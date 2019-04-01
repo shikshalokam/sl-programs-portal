@@ -35,6 +35,7 @@
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "reportMiltipleEntityReport":"Multiple Entity Report",
         "filters": "Filters",
         "homes": "Home",
         "assessments": "Assessments",
