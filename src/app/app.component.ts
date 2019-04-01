@@ -76,6 +76,7 @@ export class AppComponent implements OnInit {
             this.roleAcess.push('home');
             localStorage.setItem('canAcess',JSON.stringify(this.roleAcess));
             this.links = GlobalConfig.programPortalLinks;
+            console.log(this.roleAcess)
           },
             error => {
               this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });

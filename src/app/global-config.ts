@@ -71,6 +71,15 @@ export const GlobalConfig = {
     },
     {
       icons: "done",
+      tooltip: "headings.reportMiltipleEntityReport",
+      anchorLink: "/report/multiple-entity-report",
+      id: 'multipleEntityReport',
+      icon: "description",
+      disabled: true
+
+    },
+    {
+      icons: "done",
       tooltip: "headings.ecmReportsHeading",
       anchorLink: "/report/school-list",
       id: 'schoolList',
