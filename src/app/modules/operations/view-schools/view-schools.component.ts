@@ -85,9 +85,9 @@ export class ViewSchoolsComponent implements OnInit {
   pageEvent(event) {
 
     if (this.pageSize !== event.pageSize ? this.pageSize : event.pageSize)
-      // {
-      //   this.pageSize = event.pageSize;
-      // }
+      {
+        this.pageSize = event.pageSize;
+      }
       this.pageIndex = event.pageIndex;
     this.getViewSchool();
   }
