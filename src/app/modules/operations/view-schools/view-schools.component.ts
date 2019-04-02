@@ -31,7 +31,7 @@ export class ViewSchoolsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private utility: UtilityService,
   ) {
-
+    
     this.programId = JSON.parse(localStorage.getItem('currentProgram'))['_id'];
     this.assessmentId = JSON.parse(localStorage.getItem('currentAssessments'))['_id'];
 

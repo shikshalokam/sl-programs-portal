@@ -188,7 +188,7 @@
               <mat-form-field class=" _full-width">
                 <input class="filterInput" matInput appDebounceSearch [searchValue]="searchAssessorName"
                   [value]="searchAssessorName" (debounceSearch)="searchInApi('assessor',$event)"
-                  placeholder="{{'search'| translate}}" [debounceTime]="1000"
+                  placeholder="{{'search'| translate}}" [debounceTime]="200"
                   (keyup)="searchVal('assessor',$event.target.value)">
                 <button mat-button matPrefix mat-icon-button aria-label="Clear">
                   <i class="material-icons">
@@ -255,7 +255,7 @@
               <mat-form-field class=" _full-width">
                 <input class="filterInput" matInput appDebounceSearch [searchValue]="searchSchoolValue"
                   [value]="searchSchoolValue" (debounceSearch)="searchInApi('school',$event)"
-                  placeholder="{{'search'| translate}}" [debounceTime]="1000"
+                  placeholder="{{'search'| translate}}" [debounceTime]="100"
                   (keyup)="searchVal('school',$event.target.value)">
                 <button mat-button matPrefix mat-icon-button aria-label="Clear">
                   <i class="material-icons">
