@@ -26,7 +26,25 @@ export class HighlevelEntityReportComponent implements OnInit {
   getHighEntityReport() {
     this.apiService.getHighEntityReport(this.programId, this.schoolId).subscribe(data => {
       this.highLevelInsight = data['result'];
-      // this.insightReport['sections'][0].summary = [{"title":"Theme","value":"Teaching and Learning"},{"title":"Area of Inquiry:","value":"Resources (Human and Material)"}, {"title":"Indicator","value":"Human resources"}];
+      const newgraphData = []
+
+      for (const data of this.highLevelInsight['sections'][0]['subSections'][0].data) {
+        let newData = Object.assign({}, data) ;
+        let totalCountArray :Array<number> = Object.values(newData);
+        totalCountArray.splice(0,1);
+        let totalcount : number = 0;
+        for (let element of totalCountArray) {
+          totalcount =  element + totalcount;
+        }
+ 
+        const objKeys = Object.keys(newData);
+        objKeys.splice(0,1);
+        for (const key of objKeys) {
+          newData[key] = (data[key]/totalcount)*100;
+        }
+        newgraphData.push(newData);
+      }
+      this.highLevelInsight['sections'][0]['subSections'][0]['newGraphData'] = newgraphData;
       this.utility.loaderHide(); 
     })
   }

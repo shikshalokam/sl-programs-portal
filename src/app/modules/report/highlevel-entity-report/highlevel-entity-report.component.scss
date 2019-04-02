@@ -119,3 +119,13 @@
     text-transform: capitalize;
 }
 
+.halfContainer {
+    min-width : 350px;
+    width: 50%;
+    border: 1px solid var(--light-grey-color);
+}
+
+.smallFont {
+    font-size: 14px;
+}
+
