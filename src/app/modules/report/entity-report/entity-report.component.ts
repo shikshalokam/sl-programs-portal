@@ -23,7 +23,7 @@ export class EntityReportComponent implements OnInit {
   constructor(private apiService: ReportService, private utility: UtilityService, private router: ActivatedRoute) {
     this.programId = this.router.snapshot.queryParamMap.get('ProgramId');
     this.schoolId = this.router.snapshot.params.schoolId;
-    console.log(this.router.snapshot)
+    //console.log(this.router.snapshot)
   }
 
   ngOnInit() {
