@@ -4,7 +4,7 @@ import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report-routing.module';
 import { SchoolListComponent } from './school-list/school-list.component';
 import { CoreModule ,SharedModule } from 'shikshalokam';
-import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule,MatSortModule, MatListModule } from '@angular/material';
+import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule,MatSortModule, MatListModule, MatCheckboxModule } from '@angular/material';
 import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { ImageModalComponent } from './ecm-report/image-modal/image-modal.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
@@ -36,6 +36,7 @@ import { BlockListComponent } from './block-list/block-list.component';
     MatDialogModule,
     MatTableModule,
     MatTooltipModule,
+    MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,

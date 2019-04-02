@@ -4,7 +4,7 @@ import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalConfig } from 'src/app/global-config';
-
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-block-list',
@@ -12,7 +12,7 @@ import { GlobalConfig } from 'src/app/global-config';
   styleUrls: ['./block-list.component.scss']
 })
 export class BlockListComponent implements OnInit {
-  displayedColumns: string[]= ['externalId','name','city'];
+  displayedColumns: string[]= ['select','externalId','name','city'];
   blocks;
   result;
   dataSource;
@@ -22,6 +22,10 @@ export class BlockListComponent implements OnInit {
   programId;
   blockId;
   error: any;
+  selection: any;
+  numSelected;
+  numRows;
+  selected;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator : MatPaginator;
@@ -52,11 +56,8 @@ export class BlockListComponent implements OnInit {
   showConfig(){
     this.reportService.getListOfBlock(this.programId)
     .subscribe(data => {
-      console.log(data, "data");
       this.result = data['result']['zones']['length'];
-      console.log(this.result,"result");
       this.dataSource = new MatTableDataSource(data['result']['zones']);
-      console.log(this.dataSource, "data source in school list")
       setTimeout(() => this.dataSource.sort = this.sort);
       this.blockList = data['result']['zones'];
       this.utility.loaderHide()
@@ -75,6 +76,7 @@ export class BlockListComponent implements OnInit {
     .subscribe(data => {
       this.result = data['result']['schools']['length'];
       this.dataSource = new MatTableDataSource(data['result']['schools']);
+      this.selection = new SelectionModel(true, []);
       setTimeout(() => this.dataSource.sort = this.sort);
       this.utility.loaderHide()
     },
@@ -92,7 +94,29 @@ export class BlockListComponent implements OnInit {
     this.blockId = id;
     this.showSchool();
   }
+
+  isAllSelected() {
+     this.numSelected = this.selection.selected.length;
+     this.numRows = this.dataSource.data.length;
+    return this.numSelected === this.numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  checkboxLabel(row?): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  }
+}
+
+  
   
 
-}
+
 
