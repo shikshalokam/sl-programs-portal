@@ -28,21 +28,33 @@
       <mat-card-title class="title _capitalize">
         {{section?.heading}}
       </mat-card-title>
-      <!-- <mat-card-subtitle>
-        
-      </mat-card-subtitle> -->
-      <mat-divider></mat-divider>
+
+      <mat-divider *ngIf="section?.heading"></mat-divider>
       <mat-card-content>
-          <div class="_flex-box _margin-top _margin-bottom textColor">
-              <span *ngFor="let header of section?.summary; let last = last" class="_flex-box">
-                  {{header?.label}} : {{header?.value}} 
-                  <i class="material-icons" *ngIf="!last">
-                    keyboard_arrow_right
-                  </i>
-                </span>
-          </div>
-          <app-graph-table-chart [section]="section"></app-graph-table-chart>
-        
+        <!-- <h3 class="_full-width textColor" > Summary</h3> -->
+
+        <div class="_flex-box  _justify-content-center _margin-top _margin-bottom ">
+          <mat-list class="halfContainer" *ngIf="section?.summary?.length">
+            <mat-list-item role="listitem">
+              <h5>Summary</h5>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <mat-list-item *ngFor="let header of section?.summary; let last = last" class="_flex-box" role="listitem">
+
+              <div class="_flex-box _full-width">
+                <div style="flex:3" class="smallFont">
+                  {{header?.label}}
+                </div>
+                <div style="flex:1" class="_flex-box _justify-content-center">
+                  <b>{{header?.value}}</b>
+                </div>
+              </div>
+              <mat-divider *ngIf="!last"></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <app-graph-table-chart [section]="section"></app-graph-table-chart>
+
       </mat-card-content>
     </mat-card>
   </div>
