@@ -90,16 +90,15 @@ export class OpsReportComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUserDetails();
     this.route.queryParams.subscribe(params => {
       this.pageParam = params;
-      console.log(params)
+      //console.logparams)
       this.utility.loaderShow();
       this.filters(params['ProgramId']);
       this.getUserProfile(params['ProgramId']);
-      debugger
 
       if(this.pageReload) {
         //  this.getUserSummary(params['ProgramId']);
       if (Object.keys(params).length > 1) {
-        console.log("api twice")
+        //console.log"api twice")
         this.applyFilter(params);
         this.expandedFilters = false;
         this.reportGenerate = true;
@@ -118,7 +117,7 @@ export class OpsReportComponent implements OnInit {
   }
 
   filterApply(condition) {
-    console.log(condition)
+    //console.logcondition)
     if (condition === 'reset') {
       this.filterForm.reset();
       // this.router.navigate(['/operations/reports'], { queryParams: { ProgramId: this.pageParam['ProgramId'] } });
@@ -132,6 +131,7 @@ export class OpsReportComponent implements OnInit {
     }
     else {
       // this.filterPanel.closeAll();
+      this.pageReload = false;
       this.expandedFilters = !this.expandedFilters;
       this.filterObject = this.filterForm.getRawValue();
       for (let filter in this.filterObject) {
@@ -218,7 +218,7 @@ export class OpsReportComponent implements OnInit {
       const headers = this.getTableHeader(object);
       Object.assign(data[ind], { tableHeader: headers })
     });
-    //console.log(data)
+    ////console.logdata)
     return data;
 
   }
@@ -239,7 +239,7 @@ export class OpsReportComponent implements OnInit {
   }
   getUserProfile(ProgramId){
     this.operationService.getUserProfileSummary(ProgramId).subscribe(data=>{
-      //console.log(data);
+      ////console.logdata);
       this.summaryProfileData = data['result'];
        const arrayToObject = (array, keyField) =>
         array.reduce((obj, item) => {
@@ -284,38 +284,55 @@ export class OpsReportComponent implements OnInit {
   }
 
   applyFilter(obj) {
-    debugger
-
     // this.router.navigate([], {
     //   relativeTo: this.route, queryParams: obj, queryParamsHandling: "merge",
     //   preserveFragment: true
     // });
     let paramKey = Object.keys(obj);
-    
-    let index = 0;
+    let queryParamKey = Object.keys(this.pageParam);
+    let ifIndex = 0;
+    let elseIndex = 0;
+    this.queryParamsRouterUrl = '';
     paramKey.forEach(element => {
+      if(! this.pageReload){
       if(element  !== 'ProgramId'){
-      if (index == 0) {
+        //console.log);
+      if (ifIndex == 0) {
         this.queryParamsRouterUrl += element + '=' + obj[element]
       }
       else {
         this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
       }
+      ifIndex++;
     }
-    index++;
+  } else {
+    if(queryParamKey.includes(element) && element  !== 'ProgramId'){
+      
+          if (elseIndex == 0) {
+      this.queryParamsRouterUrl += element + '=' + obj[element]
+    }
+    else {
+      this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
+    }
+    elseIndex++
+  }
+  }
 
     })
 
-    console.log(this.queryParamsRouterUrl)
+    //console.logthis.queryParamsRouterUrl)
     let addQueryParamUlr = '/operations/reports?ProgramId='+this.pageParam['ProgramId']+"&"+this.queryParamsRouterUrl;
+    //console.logaddQueryParamUlr)
+
      window.history.pushState({path:addQueryParamUlr},'',addQueryParamUlr);
     let param;
     this.route.queryParams.subscribe(params => {
       param = params;
-      console.log(params)
+      //console.logparams)
     });
 
-    this.generateReport(param);
+
+    this.generateReport(obj);
 
   }
 
@@ -334,10 +351,10 @@ export class OpsReportComponent implements OnInit {
     // this.route.queryParams.subscribe(params => {
     //   param = params
     // });
-
+    //console.logparam)
     this.queryParamsUrl = this.pageParam['ProgramId'] + "?";
     let paramKey = Object.keys(param);
-    paramKey = paramKey.slice(1)
+    // paramKey = paramKey.slice(1)
     let index = 0;
     paramKey.forEach(element => {
       if (index == 0) {
@@ -349,7 +366,7 @@ export class OpsReportComponent implements OnInit {
       index++;
     })
     // this.queryParamsUrl += '&csv=' + false;
-    console.log(this.queryParamsUrl)
+    //console.logthis.queryParamsUrl)
     this.reportGenerate = true;
     this.reportsDataFetch();
 
@@ -380,7 +397,7 @@ export class OpsReportComponent implements OnInit {
 
       },
         error => {
-          //console.log(error.status)
+          ////console.logerror.status)
           if (error.status == 200) {
             const blob = new Blob([error.error.text], { type: 'csv' });
             const url = window.URL.createObjectURL(blob);
@@ -430,7 +447,7 @@ export class OpsReportComponent implements OnInit {
 
   }
   reportsDataFetch() {
-    console.log("api called")
+    //console.log"api called")
 
     this.utility.loaderShow();
     this.getUserSummary(this.queryParamsUrl);
@@ -447,7 +464,7 @@ export class OpsReportComponent implements OnInit {
 
       this.filterData = this.mapQueryParams(data['result']);
       this.filterForm = this.utility.toGroup(this.filterData);
-      //console.log(this.filterForm)
+      ////console.logthis.filterForm)
       this.filterObject = this.filterForm.getRawValue()
       for (let filter in this.filterObject) {
         if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN") {
@@ -469,7 +486,7 @@ export class OpsReportComponent implements OnInit {
     let paramKey = Object.keys(param);
     paramKey.forEach(paramLabel => {
       data.forEach((element, index) => {
-        //console.log(paramLabel)
+        ////console.logparamLabel)
         if (element.field === paramLabel) {
           if (element.input === 'date') {
             let date = [param[paramLabel].substring(6), param[paramLabel].substring(3, 5), param[paramLabel].substring(0, 2)].join("-");
@@ -482,7 +499,7 @@ export class OpsReportComponent implements OnInit {
         }
       });
     });
-    //console.log(data)
+    ////console.logdata)
     return data;
   }
   getUserSummary(url) {

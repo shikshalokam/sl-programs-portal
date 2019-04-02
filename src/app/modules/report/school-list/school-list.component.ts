@@ -61,7 +61,7 @@ export class SchoolListComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.searchVal = filterValue;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    //console.log(this.dataSource)
+    ////console.logthis.dataSource)
   }
   ngOnInit() {
     this.utility.loaderShow();
