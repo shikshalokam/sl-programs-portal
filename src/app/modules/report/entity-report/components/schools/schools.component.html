@@ -29,6 +29,12 @@
           <button mat-button color="primary" (click)="navigateToEntityReport(element?._id)"><div class="padding"> View Report</div></button>
         </td>
       </ng-container>
+      <ng-container matColumnDef="action1">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="navigateToHighEntityReport(element?._id)"><div class="padding"> High Level Report</div></button>
+          </td>
+        </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

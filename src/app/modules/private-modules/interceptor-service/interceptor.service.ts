@@ -34,7 +34,7 @@ constructor(private authService :AuthService,
         .pipe(
           catchError( (error: HttpErrorResponse) => { 
            
-             console.log(error)
+             ////console.logerror)
              if(error.message.includes( "unauthorized")){
                 this.snackBar.open("Session TimeOut , Login to continue" ,"ok" , { duration: 3000 });
                this.authService.getLogout();

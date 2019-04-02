@@ -10,6 +10,7 @@ import * as jspdf from 'jspdf';
 
 import html2canvas from 'html2canvas';
 import { GlobalConfig } from 'src/app/global-config';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-ops-report',
   templateUrl: './ops-report.component.html',
@@ -41,14 +42,18 @@ export class OpsReportComponent implements OnInit {
   assessorReport: any;
   summaryData: any;
   pageParam: any;
+  pageReload = true;
   summaryGraph: object = {};
   schoolPageLimit: any = 10;
   assessorPageLimit: any = 10;
   expandedFilters: boolean = true;
   schoolLoading: boolean;
   assessorLoading: boolean;
+  hostUrl;
   @ViewChild('myaccordion') filterPanel: MatAccordion;
-  summaryProfileData: any;
+  summaryProfileData: any ;
+  currentRouterUrl: string = '';
+  queryParamsRouterUrl: string ='';
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -80,19 +85,28 @@ export class OpsReportComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.currentRouterUrl = window.location.href;
+    this.hostUrl = environment.base_url;
     this.currentUser = this.authService.getCurrentUserDetails();
     this.route.queryParams.subscribe(params => {
       this.pageParam = params;
+      //console.logparams)
       this.utility.loaderShow();
       this.filters(params['ProgramId']);
       this.getUserProfile(params['ProgramId']);
-      // this.getUserSummary(params['ProgramId']);
+
+      if(this.pageReload) {
+        //  this.getUserSummary(params['ProgramId']);
       if (Object.keys(params).length > 1) {
-        this.filterApply('apply');
+        //console.log"api twice")
+        this.applyFilter(params);
         this.expandedFilters = false;
         this.reportGenerate = true;
+      }
+      this.pageReload = false;
 
       }
+     
     })
   }
 
@@ -103,15 +117,21 @@ export class OpsReportComponent implements OnInit {
   }
 
   filterApply(condition) {
-
+    //console.logcondition)
     if (condition === 'reset') {
       this.filterForm.reset();
-      this.router.navigate(['/operations/reports'], { queryParams: { ProgramId: this.pageParam['ProgramId'] } });
+      // this.router.navigate(['/operations/reports'], { queryParams: { ProgramId: this.pageParam['ProgramId'] } });
       this.reportGenerate = false;
       this.filterArray = [];
+      this.route.queryParams.subscribe(params =>{
+        let resetUrl = '/operations/reports?ProgramId=' + params['ProgramId'] 
+      window.history.pushState({path:resetUrl},'',resetUrl);
+
+      })
     }
     else {
       // this.filterPanel.closeAll();
+      this.pageReload = false;
       this.expandedFilters = !this.expandedFilters;
       this.filterObject = this.filterForm.getRawValue();
       for (let filter in this.filterObject) {
@@ -133,6 +153,8 @@ export class OpsReportComponent implements OnInit {
       this.filterArray = Object.entries(this.filterObject)
       // this.filterArray = Object.keys(this.filterObject).map(i => this.filterObject[i])
       // this.buildqueryParams();
+    // this.reportsDataFetch();
+
     }
   }
   buildqueryParams() {
@@ -196,7 +218,7 @@ export class OpsReportComponent implements OnInit {
       const headers = this.getTableHeader(object);
       Object.assign(data[ind], { tableHeader: headers })
     });
-    console.log(data)
+    ////console.logdata)
     return data;
 
   }
@@ -217,7 +239,7 @@ export class OpsReportComponent implements OnInit {
   }
   getUserProfile(ProgramId){
     this.operationService.getUserProfileSummary(ProgramId).subscribe(data=>{
-      console.log(data);
+      ////console.logdata);
       this.summaryProfileData = data['result'];
        const arrayToObject = (array, keyField) =>
         array.reduce((obj, item) => {
@@ -225,10 +247,8 @@ export class OpsReportComponent implements OnInit {
           return obj
         }, {})
       this.summaryProfileData = arrayToObject(this.summaryProfileData, "label")
-      this.utility.loaderHide();
     },
       error =>{
-      this.utility.loaderHide();
 
         this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
 
@@ -264,16 +284,56 @@ export class OpsReportComponent implements OnInit {
   }
 
   applyFilter(obj) {
+    // this.router.navigate([], {
+    //   relativeTo: this.route, queryParams: obj, queryParamsHandling: "merge",
+    //   preserveFragment: true
+    // });
+    let paramKey = Object.keys(obj);
+    let queryParamKey = Object.keys(this.pageParam);
+    let ifIndex = 0;
+    let elseIndex = 0;
+    this.queryParamsRouterUrl = '';
+    paramKey.forEach(element => {
+      if(! this.pageReload){
+      if(element  !== 'ProgramId'){
+        //console.log);
+      if (ifIndex == 0) {
+        this.queryParamsRouterUrl += element + '=' + obj[element]
+      }
+      else {
+        this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
+      }
+      ifIndex++;
+    }
+  } else {
+    if(queryParamKey.includes(element) && element  !== 'ProgramId'){
+      
+          if (elseIndex == 0) {
+      this.queryParamsRouterUrl += element + '=' + obj[element]
+    }
+    else {
+      this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
+    }
+    elseIndex++
+  }
+  }
 
-    this.router.navigate(['.'], {
-      relativeTo: this.route, queryParams: obj, queryParamsHandling: "merge",
-      preserveFragment: true
-    });
+    })
+
+    //console.logthis.queryParamsRouterUrl)
+    let addQueryParamUlr = '/operations/reports?ProgramId='+this.pageParam['ProgramId']+"&"+this.queryParamsRouterUrl;
+    //console.logaddQueryParamUlr)
+
+     window.history.pushState({path:addQueryParamUlr},'',addQueryParamUlr);
     let param;
     this.route.queryParams.subscribe(params => {
       param = params;
+      //console.logparams)
     });
-    this.generateReport(param);
+
+
+    this.generateReport(obj);
+
   }
 
   inputChange(key, event) {
@@ -291,10 +351,10 @@ export class OpsReportComponent implements OnInit {
     // this.route.queryParams.subscribe(params => {
     //   param = params
     // });
-
-    this.queryParamsUrl = param['ProgramId'] + "?";
+    //console.logparam)
+    this.queryParamsUrl = this.pageParam['ProgramId'] + "?";
     let paramKey = Object.keys(param);
-    paramKey = paramKey.slice(1)
+    // paramKey = paramKey.slice(1)
     let index = 0;
     paramKey.forEach(element => {
       if (index == 0) {
@@ -305,11 +365,11 @@ export class OpsReportComponent implements OnInit {
       }
       index++;
     })
-    this.queryParamsUrl += '&csv=' + false;
-
-
-    this.reportsDataFetch();
+    // this.queryParamsUrl += '&csv=' + false;
+    //console.logthis.queryParamsUrl)
     this.reportGenerate = true;
+    this.reportsDataFetch();
+
   }
   downloadCsv(id) {
     if (id === 'school') {
@@ -337,7 +397,7 @@ export class OpsReportComponent implements OnInit {
 
       },
         error => {
-          console.log(error.status)
+          ////console.logerror.status)
           if (error.status == 200) {
             const blob = new Blob([error.error.text], { type: 'csv' });
             const url = window.URL.createObjectURL(blob);
@@ -387,6 +447,8 @@ export class OpsReportComponent implements OnInit {
 
   }
   reportsDataFetch() {
+    //console.log"api called")
+
     this.utility.loaderShow();
     this.getUserSummary(this.queryParamsUrl);
     this.searchParam = this.setSearchParam(this.schoolPageIndex +1, this.schoolPageLimit, 'school');
@@ -402,7 +464,7 @@ export class OpsReportComponent implements OnInit {
 
       this.filterData = this.mapQueryParams(data['result']);
       this.filterForm = this.utility.toGroup(this.filterData);
-      console.log(this.filterForm)
+      ////console.logthis.filterForm)
       this.filterObject = this.filterForm.getRawValue()
       for (let filter in this.filterObject) {
         if (this.filterObject[filter] === null || this.filterObject[filter] === undefined || this.filterObject[filter] === "" || this.filterObject[filter] === "aN-aN-NaN") {
@@ -410,6 +472,7 @@ export class OpsReportComponent implements OnInit {
         }
       }
       this.filterArray = Object.entries(this.filterObject);
+      this.utility.loaderHide();
     },
       error => {
         this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
@@ -423,7 +486,7 @@ export class OpsReportComponent implements OnInit {
     let paramKey = Object.keys(param);
     paramKey.forEach(paramLabel => {
       data.forEach((element, index) => {
-        console.log(paramLabel)
+        ////console.logparamLabel)
         if (element.field === paramLabel) {
           if (element.input === 'date') {
             let date = [param[paramLabel].substring(6), param[paramLabel].substring(3, 5), param[paramLabel].substring(0, 2)].join("-");
@@ -436,7 +499,7 @@ export class OpsReportComponent implements OnInit {
         }
       });
     });
-    console.log(data)
+    ////console.logdata)
     return data;
   }
   getUserSummary(url) {

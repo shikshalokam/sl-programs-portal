@@ -101,8 +101,8 @@ export class DownloadReportComponent implements OnInit {
   }
   // moviePromiseService
   //         .getService('api/Movie/TestGetNo')
-  //         .then(result => console.log(result))
-  //         .catch(error => console.log(error));
+  //         .then(result => ////console.logresult))
+  //         .catch(error => ////console.logerror));
   objectKeys(obj) {
     return Object.keys(obj);
   }

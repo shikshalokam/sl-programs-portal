@@ -29,4 +29,9 @@ export class ReportService {
     // return this.apiService.get('/assests/insight.json');
 
   }
+  getHighEntityReport(programId, schoolId) {
+    return this.apiService.get(environment.apibaseurl + ReportConfig.highEntityReport+programId + '?school=' + schoolId);
+    // return this.apiService.get('/assests/insight.json');
+
+  }
 }
