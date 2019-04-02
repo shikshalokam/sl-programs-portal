@@ -9,6 +9,7 @@ import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.c
 import { EntityReportComponent } from './entity-report/entity-report.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
+import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
@@ -85,8 +86,18 @@ const routes: Routes = [
         canActivateChild:[AuthGuard],
         component: SchoolsComponent,
       },
+      {
+        path: 'highlevel-entity-report/:schoolId',
+        data: {
+          id:'highlevelEntityReport',
+          breadcrumb:'headings.highlevelEntityReport'
+        },
+        canActivateChild:[AuthGuard],
+        component: HighlevelEntityReportComponent,
+      },
     ]
   },
+  
   // {
   //   path: '**',
   //   redirectTo: 'report'

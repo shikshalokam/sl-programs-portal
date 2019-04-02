@@ -12,7 +12,7 @@ export class SchoolsComponent implements OnInit {
   headings = 'headings.schoolListHeading';
   programId;
   searchVal;
-  displayedColumns: string[] = ['externalId','name', 'city', 'state', 'action'];
+  displayedColumns: string[] = ['externalId','name', 'city', 'state', 'action', 'action1'];
   dataSource;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,6 +42,10 @@ export class SchoolsComponent implements OnInit {
   navigateToEntityReport(schoolId) {
     // this.route.n
     this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {ProgramId: this.programId} });
+  }
+  navigateToHighEntityReport(schoolId){
+    this.route.navigate(['/report/highlevel-entity-report/'+schoolId], { queryParams: {ProgramId: this.programId} });
+
   }
 
 }
