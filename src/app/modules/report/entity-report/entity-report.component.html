@@ -3,7 +3,12 @@
 <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
 
 <div>
-  <h3 class="_text-center marginTop">{{insightReport?.Headings}}</h3>
+  <div class="_flex-box _justify-content-space-between">
+    <h4 class="marginTop">{{'headings.performanceReport' | translate}}</h4>
+    <button mat-button color="primary"
+      (click)="naviagteToRubrics()">{{'headings.frameworkRubricView' | translate}}</button>
+
+  </div>
   <div>
     <mat-card>
       <mat-list class="middle">
@@ -33,16 +38,16 @@
       </mat-card-subtitle> -->
       <mat-divider></mat-divider>
       <mat-card-content>
-          <div class="_flex-box _margin-top _margin-bottom textColor">
-              <span *ngFor="let header of section?.summary; let last = last" class="_flex-box">
-                  {{header?.label}} : {{header?.value}} 
-                  <i class="material-icons" *ngIf="!last">
-                    keyboard_arrow_right
-                  </i>
-                </span>
-          </div>
-          <app-graph-table-chart [section]="section"></app-graph-table-chart>
-        
+        <div class="_flex-box _margin-top _margin-bottom textColor">
+          <span *ngFor="let header of section?.summary; let last = last" class="_flex-box">
+            {{header?.label}} : {{header?.value}}
+            <i class="material-icons" *ngIf="!last">
+              keyboard_arrow_right
+            </i>
+          </span>
+        </div>
+        <app-graph-table-chart [section]="section"></app-graph-table-chart>
+
       </mat-card-content>
     </mat-card>
   </div>
