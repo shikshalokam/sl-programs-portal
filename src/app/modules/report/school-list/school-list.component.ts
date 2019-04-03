@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator,MatSort, Sort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, Sort, MatSnackBar } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
+import { GlobalConfig } from 'src/app/global-config';
 
 elementData: {
 
@@ -12,7 +13,7 @@ elementData: {
   styleUrls: ['./school-list.component.scss']
 })
 export class SchoolListComponent implements OnInit {
-  displayedColumns: string[] = [ 'name','addressLine1', 'city', 'state',  'isParentInterviewCompleted'];
+  displayedColumns: string[] = ['name', 'addressLine1', 'city', 'state', 'isParentInterviewCompleted'];
   dataSource;
   schoolList;
   result;
@@ -20,24 +21,25 @@ export class SchoolListComponent implements OnInit {
   headings = 'headings.schoolListHeading';
   smallScreen = false;
   programId;
-    assessmentId;
+  assessmentId;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchVal: string;
 
-  constructor(private reportService: ReportService, private utility: UtilityService) {
+  constructor(private reportService: ReportService,
+    private utility: UtilityService,
+    private snackBar: MatSnackBar
+  ) {
     this.showConfig();
-    
-    
+
+
   }
-  
-  onResize(event)
-  {
-    if(event.target.innerWidth < 760)
-    {
+
+  onResize(event) {
+    if (event.target.innerWidth < 760) {
       this.smallScreen = true;
     }
-    else{
+    else {
       this.smallScreen = false;
     }
   }
@@ -53,6 +55,7 @@ export class SchoolListComponent implements OnInit {
       },
         (error) => {
           this.error = error;
+          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
           this.utility.loaderHide();
           ;
         }

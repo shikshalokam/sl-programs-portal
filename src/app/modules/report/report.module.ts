@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report-routing.module';
 import { SchoolListComponent } from './school-list/school-list.component';
-import { CoreModule ,SharedModule } from 'shikshalokam';
-import { MatSelectModule,MatTooltipModule,MatTableModule,MatDialogModule,MatExpansionModule,MatTabsModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule,MatSortModule, MatListModule } from '@angular/material';
+import { CoreModule, SharedModule } from 'shikshalokam';
+import { MatSelectModule, MatTooltipModule, MatTableModule, MatDialogModule, MatExpansionModule, MatTabsModule, MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule, MatSortModule, MatListModule } from '@angular/material';
 import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { ImageModalComponent } from './ecm-report/image-modal/image-modal.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
@@ -15,6 +15,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
 import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
+import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { HighlevelEntityReportComponent } from './highlevel-entity-report/highle
     EcmReportComponent,
     ImageModalComponent,
     DownloadReportComponent,
-    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent, HighlevelEntityReportComponent
+    ReportDashboardComponent, SelectProgramComponent, EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent, HighlevelEntityReportComponent, FrameworkStructureRubricDefintionComponent
   ],
   imports: [
     // CommonModule,
@@ -48,7 +49,7 @@ import { HighlevelEntityReportComponent } from './highlevel-entity-report/highle
 
 
   ],
-  entryComponents: [ImageModalComponent , SelectProgramComponent],
+  entryComponents: [ImageModalComponent, SelectProgramComponent],
 
   providers: [
   ],

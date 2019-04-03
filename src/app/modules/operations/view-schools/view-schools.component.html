@@ -4,15 +4,16 @@
 <div *ngIf="!error">
 
 
-  <div *ngIf=" result > 0  && !smallScreen" class="bigTabel" (window:resize)="onResize($event)">
+  <div *ngIf=" result > 0 " (window:resize)="onResize($event)">
     <mat-form-field [floatLabel]="'never'" class="_full-width">
       <button mat-button matPrefix mat-icon-button aria-label="Clear">
         <i class="material-icons">
           search
         </i>
       </button>
-      <input class="filterInput" matInput appDebounceSearch [searchValue]="searchValue" [debounceTime]="200" (debounceSearch)="searchInApi($event)"
-        placeholder="{{'search'| translate}}" (keyup)="applyFilter($event.target.value)">
+      <input class="filterInput" matInput appDebounceSearch [searchValue]="searchValue" [debounceTime]="200"
+        (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}"
+        (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
     <div class="example-container mat-elevation-z8 ">
       <div class="tableContainer">
@@ -43,14 +44,14 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
       </div>
-      <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[100,50]" showFirstLastButtons [pageIndex]="pageIndex"
-        [pageSize]="pageSize" [length]="length" (page)="pageEvent($event)"></mat-paginator>
+      <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[100,50]" showFirstLastButtons
+        [pageIndex]="pageIndex" [pageSize]="pageSize" [length]="length" (page)="pageEvent($event)"></mat-paginator>
     </div>
   </div>
 
   <!-- <app-pagination [length] = "113" [itemsPerPage]="[5,7,10]" (paginationResponse)="pageResponse($event)"></app-pagination> -->
 
-  <div *ngIf=" result > 0 && smallScreen" class="_responsiveTabel" (window:resize)="onResize($event)">
+  <!-- <div *ngIf=" result > 0 && smallScreen" class="_responsiveTabel" (window:resize)="onResize($event)">
     <div *ngFor="let school of schoolList" class=" margin">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -83,4 +84,4 @@
       {{'message.noData' | translate}}
     </div>
   </div>
-</div>
+</div> -->
