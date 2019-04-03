@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../report-service/report.service';
 import { UtilityService } from 'shikshalokam';
 import { MatSnackBar } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-multiple-entity-rport',
@@ -11,20 +11,26 @@ import { Router } from '@angular/router';
 })
 export class MultipleEntityRportComponent implements OnInit {
   mutipleEntity;
+  programId = 'PROGID01';
   schoolId = ['5bfe53ea1d0c350d61b78e54', '5bfe53ea1d0c350d61b78e50', '5c0bbab881bdbe330655dbb1']
   constructor(
     private reportService: ReportService,
     private utility: UtilityService,
     private snackBar: MatSnackBar,
-    private route: Router
+    private route: Router,
+    private router : ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.utility.loaderShow();
+    this.router.queryParams.subscribe( params =>{
+      this.schoolId = params['school'];
+      this.programId = params['ProgramId'];
+    })
     this.getMultiEntityReport();
   }
   getMultiEntityReport() {
-    this.reportService.getMultipleEntityReport('PROGID01', this.schoolId).subscribe(successData => {
+    this.reportService.getMultipleEntityReport(this.programId, this.schoolId).subscribe(successData => {
       this.mutipleEntity = successData['result'];
       this.createNewData();
       console.log(this.mutipleEntity);
