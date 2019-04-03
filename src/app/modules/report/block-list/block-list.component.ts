@@ -1,0 +1,130 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { UtilityService } from 'shikshalokam';
+import { ReportService } from '../report-service/report.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GlobalConfig } from 'src/app/global-config';
+import { SelectionModel } from '@angular/cdk/collections';
+@Component({
+  selector: 'app-block-list',
+  templateUrl: './block-list.component.html',
+  styleUrls: ['./block-list.component.scss']
+})
+export class BlockListComponent implements OnInit {
+  displayedColumns: string[]= ['select','externalId','name','city'];
+  blocks;
+  result;
+  dataSource;
+  blockList;
+  schoolList;
+  smallScreen = false;
+  programId;
+  blockId;
+  error: any;
+  selection;
+  numSelected;
+  numRows;
+  arr=[];
+
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator : MatPaginator;
+  snackBar: any;
+  data: any;
+
+  constructor(private route: ActivatedRoute ,private reportService: ReportService,private utility: UtilityService, private router: Router) { 
+    this.route.queryParams.subscribe(params => {
+      this.programId = params["ProgramId"];
+    });
+    this.showConfig();
+    this.blockClick(this.blockId);
+  }
+
+  ngOnInit() {
+  }
+
+  onResize(event){
+    if(event.target.innerWidth < 760){
+      this.smallScreen = true;
+    }
+    else{
+      this.smallScreen = false;
+    }
+  }
+
+
+  showConfig(){
+    this.reportService.getListOfBlock(this.programId)
+    .subscribe(data => {
+      this.result = data['result']['zones']['length'];
+      this.dataSource = new MatTableDataSource(data['result']['zones']);
+      setTimeout(() => this.dataSource.sort = this.sort);
+      this.blockList = data['result']['zones'];
+      this.utility.loaderHide()
+    },
+      (error) => {
+        this.error = error;
+        this.snackBar.open(GlobalConfig.errorMessage, "OK", {duration: 9000})
+        this.utility.loaderHide();
+        ;
+      }
+    );
+  }
+
+  showSchool(){
+    this.reportService.getListOfSchool(this.programId, this.blockId)
+    .subscribe(data => {
+      console.log(data, "data");
+      this.result = data['result']['schools']['length'];
+      this.dataSource = new MatTableDataSource(data['result']['schools']);
+      console.log(this.dataSource,"data source1111");
+      this.selection = new SelectionModel(true, []);
+      setTimeout(() => this.dataSource.sort = this.sort);
+      this.utility.loaderHide()
+    },
+      (error) => {
+        this.error = error;
+        // this.snackBar.open(GlobalConfig.errorMessage, "OK", {duration: 9000})
+        this.utility.loaderHide();
+        ;
+      }
+    );
+
+  }
+
+  blockClick(id){
+    this.blockId = id;
+    this.showSchool();
+    // this.schoolId(id)
+  }
+
+  isAllSelected() {
+     this.numSelected = this.selection.selected.length;
+     this.numRows = this.dataSource.data.length;
+    return this.numSelected === this.numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  checkboxLabel(row?): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  }
+
+
+  schoolId(id){
+    console.log("clicked", id);
+    this.router.navigate(['/report/block-list/'], { queryParams: {ProgramId: this.programId, Id: id} });
+  }
+}
+
+  
+  
+
+
+

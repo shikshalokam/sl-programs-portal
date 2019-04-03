@@ -7,7 +7,7 @@ export const ReportConfig = {
    singleEntityReport:"insights/singleEntityDrillDownReport/",
    highEntityReport:"insights/singleEntityHighLevelReport/",
    multiEntityHighLevelReport:"insights/multiEntityHighLevelReport",
-   multiEntityDrillDownLevelReport:"insights/multiEntityDrillDownReport"
-   
-   
+   multiEntityDrillDownLevelReport:"insights/multiEntityDrillDownReport",
+   listOfBlock: 'programs/schoolBlocks?programId=',
+   listOfSchool : 'programs/blockSchools?programId=',
 }
