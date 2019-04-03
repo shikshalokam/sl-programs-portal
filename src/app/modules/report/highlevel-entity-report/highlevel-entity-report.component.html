@@ -3,7 +3,11 @@
 <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
 
 <div>
-  <h3 class="_text-center marginTop">{{highLevelInsight?.Headings}}</h3>
+  <div class="_flex-box _justify-content-space-between">
+    <h4 class="marginTop">{{'headings.performanceReport' | translate}}</h4>
+    <button mat-button color="primary"
+      (click)="naviagteToRubrics()">{{'headings.frameworkRubricView' | translate}}</button>
+  </div>
   <div>
     <mat-card>
       <mat-list class="middle">

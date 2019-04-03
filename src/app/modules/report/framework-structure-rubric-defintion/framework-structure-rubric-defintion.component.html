@@ -1,0 +1,25 @@
+<app-loader></app-loader>
+<app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
+
+<div *ngIf="rubricData" class="_margin-top">
+  <h4 class="_noMarginPadding">{{rubricData.heading}}</h4>
+  <mat-card *ngFor="let section of rubricData?.sections" class="_margin-bottom">
+    <mat-card-title class="title _capitalize">
+      <span class="heading" *ngFor="let summary of section?.summary ;let last = last">
+        {{summary?.name}} <span *ngIf="! last "> > </span>
+      </span>
+    </mat-card-title>
+
+    <mat-divider *ngIf="section?.heading"></mat-divider>
+    <!-- <app-graph-table-chart [section]="section"></app-graph-table-chart> -->
+    <table class="customTable">
+      <tr>
+        <th class="capitalize" *ngFor="let header of section.tabularData.headers">{{header?.value}}</th>
+      </tr>
+      <tr *ngFor="let data of section.data">
+        <td *ngFor="let header of section.tabularData.headers">{{data[header?.name] | blank}}</td>
+      </tr>
+    </table>
+  </mat-card>
+
+</div>
