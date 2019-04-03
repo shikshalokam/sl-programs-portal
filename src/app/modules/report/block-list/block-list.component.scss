@@ -30,3 +30,13 @@
     margin-top:20px;
     float:right
 }
+
+.tableWrapper {
+    max-height: 55vh;
+    overflow: auto;
+}
+.blockExpansion {
+    .mat-expansion-panel-body {
+        padding: 0 !important;
+    }
+}

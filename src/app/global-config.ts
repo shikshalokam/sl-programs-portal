@@ -72,7 +72,7 @@ export const GlobalConfig = {
     {
       icons: "done",
       tooltip: "headings.reportMiltipleEntityReport",
-      anchorLink: "/report/multiple-entity-report",
+      anchorLink: "/report/block-list",
       id: 'multipleEntityReport',
       icon: "description",
       disabled: true
@@ -85,16 +85,16 @@ export const GlobalConfig = {
       id: 'schoolList',
       icon: "description",
       disabled: true
-    },
-    {
-      icons: "done",
-      tooltip: "headings.blockListHeading",
-      anchorLink: "/report/block-list",
-      id: 'entityReport',
-      icon: "description",
-      disabled: true
-
     }
+    // {
+    //   icons: "done",
+    //   tooltip: "headings.blockListHeading",
+    //   anchorLink: "/report/block-list",
+    //   id: 'entityReport',
+    //   icon: "description",
+    //   disabled: true
+
+    // }
 
     
   ]
