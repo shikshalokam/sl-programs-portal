@@ -17,6 +17,9 @@ import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-e
 import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
 // import { ColumnGraphComponent } from './entity-report/components/column-graph/column-graph.component';
 import { BlockListComponent } from './block-list/block-list.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { ActionSheetComponent } from './action-sheet/action-sheet.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import { BlockListComponent } from './block-list/block-list.component';
     EcmReportComponent,
     ImageModalComponent,
     DownloadReportComponent,
-    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent, HighlevelEntityReportComponent,BlockListComponent
+    ReportDashboardComponent,SelectProgramComponent, EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent, HighlevelEntityReportComponent,BlockListComponent, ActionSheetComponent
 
   ],
   imports: [
@@ -49,10 +52,11 @@ import { BlockListComponent } from './block-list/block-list.component';
     MatSortModule,
     MatListModule,
     GoogleChartsModule.forRoot(),
-
+    MatProgressSpinnerModule,
+    MatBottomSheetModule
 
   ],
-  entryComponents: [ImageModalComponent , SelectProgramComponent],
+  entryComponents: [ImageModalComponent , SelectProgramComponent, ActionSheetComponent],
 
   providers: [
   ],

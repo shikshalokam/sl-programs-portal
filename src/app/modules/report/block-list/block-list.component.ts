@@ -5,6 +5,8 @@ import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalConfig } from 'src/app/global-config';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatBottomSheet } from '@angular/material';
+import { ActionSheetComponent } from '../action-sheet/action-sheet.component';
 
 @Component({
   selector: 'app-block-list',
@@ -12,7 +14,8 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./block-list.component.scss']
 })
 export class BlockListComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'name', 'city'];
+  object = Object;
+  displayedColumns: string[] = ['select', 'name', 'city', 'actions'];
   blocks;
   dataSource;
   blockList;
@@ -24,6 +27,11 @@ export class BlockListComponent implements OnInit {
   numSelected;
   numRows;
   arr = [];
+  enableMultiSchool: boolean = false;
+
+  links = {};
+
+
 
   selectedZoneIndex = -1;
 
@@ -32,9 +40,51 @@ export class BlockListComponent implements OnInit {
   snackBar: any;
   data: any;
 
-  constructor(private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
+  constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["ProgramId"];
+      this.links = {
+        multiEntity: [
+          {
+            label: "Drilldown Report",
+            link: "/report/entity-report/",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              school:""
+            }
+          },
+          {
+            label: "Highlevel Report",
+            link: "/report/multiple-entity-report",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              school:""
+            }
+          }
+        ],
+        singleEntity: [
+          {
+            label: "Drilldown Report",
+            link: "/report/entity-report/",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              // school:""
+            }
+          },
+          {
+            label: "Highlevel Report",
+            link: "/report/highlevel-entity-report/",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              // school:""
+            }
+          }
+        ]
+      };
     });
     // this.blockClick(this.blockId);
   }
@@ -60,6 +110,14 @@ export class BlockListComponent implements OnInit {
       );
   }
 
+  toggleRow(row) {
+    // console.log("hiii")
+    this.selection.toggle(row);
+    this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
+    console.log(row)
+    console.log(this.selection.selected)
+  }
+
   getSchoolList(id) {
     // this.utility.loaderShow();
     this.dataSource = new MatTableDataSource();
@@ -82,7 +140,7 @@ export class BlockListComponent implements OnInit {
   }
 
   isAllSelected() {
-    const numSelected = this.selection ?this.selection.selected.length : 0;
+    const numSelected = this.selection ? this.selection.selected.length : 0;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
@@ -90,28 +148,11 @@ export class BlockListComponent implements OnInit {
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
+    this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
+
   }
-
-  blockClick(id) {
-    this.blockId = id;
-    // this.showSchool();
-    // this.schoolId(id)
-  }
-
-  // isAllSelected() {
-  //   // this.numSelected = this.selection.selected.length;
-  //   // this.numRows = this.dataSource.data.length;
-  //   // return this.numSelected === this.numRows;
-  //   return true
-  // }
-
-  // masterToggle() {
-  //   this.isAllSelected() ?
-  //     this.selection.clear() :
-  //     this.dataSource.data.forEach(row => this.selection.select(row));
-  // }
 
   checkboxLabel(row?): string {
     if (!row) {
@@ -121,10 +162,30 @@ export class BlockListComponent implements OnInit {
   }
 
 
-  schoolId(id) {
+  goToSingilEntityReport(id) {
     console.log("clicked", id);
     this.router.navigate(['/report/block-list/'], { queryParams: { ProgramId: this.programId, Id: id } });
   }
+
+  getAction(actionFor, schoolId?: any) {
+    if (actionFor === 'multiEntity') {
+      const schoolArray = []
+      for (const item of this.selection.selected) {
+        schoolArray.push(item._id);
+      }
+      for (const link of this.links[actionFor]) {
+        link.queryParams.school = Object.assign([], schoolArray) ;
+      }
+    } else {
+      for (const link of this.links[actionFor]) {
+        link.params = schoolId;
+      }
+    }
+
+    console.log(this.links[actionFor]);
+    this.bottomSheet.open(ActionSheetComponent, { data: this.links[actionFor] })
+  }
+
 }
 
 
