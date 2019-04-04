@@ -11,104 +11,114 @@ import { SchoolsComponent } from './entity-report/components/schools/schools.com
 import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
 import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
 import { BlockListComponent } from './block-list/block-list.component';
+import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
     canActivate: [AuthGuard],
     data: {
-      id:'report',
-      breadcrumb:'headings.reports'
-  },
+      id: 'report',
+      breadcrumb: 'headings.reports'
+    },
     children: [
       {
         path: 'school-list',
         data: {
-          id:'schoolList',
-          breadcrumb:'headings.schoolListHeading'
+          id: 'schoolList',
+          breadcrumb: 'headings.schoolListHeading'
         },
-        canActivateChild:[AuthGuard],
+        canActivateChild: [AuthGuard],
         component: SchoolListComponent,
       },
 
       {
         path: 'block-list',
         data: {
-          id:'blockList',
-          breadcrumb:'headings.blockListHeading'
+          id: 'blockList',
+          breadcrumb: 'headings.blockListHeading'
         },
-        canActivateChild:[AuthGuard],
+        canActivateChild: [AuthGuard],
         component: BlockListComponent,
       },
       {
         path: 'ecm-report/:name/:id',
         data: {
-          id:'ecmReport',
-          breadcrumb:'headings.ecmReportsHeading'
+          id: 'ecmReport',
+          breadcrumb: 'headings.ecmReportsHeading'
         },
-        canActivateChild:[AuthGuard],
+        canActivateChild: [AuthGuard],
         component: EcmReportComponent,
-       
+
       },
       {
         path: 'download-evedince-report',
         data: {
-          id:"downloadEvidienceReport",
-          breadcrumb:'headings.downloadReport'
+          id: "downloadEvidienceReport",
+          breadcrumb: 'headings.downloadReport'
         },
-        canActivateChild:[AuthGuard],
+        canActivateChild: [AuthGuard],
         component: DownloadReportComponent,
-       
+
       },
       {
-        path:'report-dashboard',
-        data:{
-          id:"reportDashBoard",
+        path: 'report-dashboard',
+        data: {
+          id: "reportDashBoard",
           // breadcrumb:'Report DashBoard'
         },
-        component:ReportDashboardComponent,
+        component: ReportDashboardComponent,
       },
       {
         path: '',
         redirectTo: 'report-dashboard'
       },
       {
-        path:'entity-report/:schoolId',
-        data:{
-          id:"entityReport",
-          breadcrumb:'headings.reportEntityReport'
+        path: 'entity-report/:schoolId',
+        data: {
+          id: "entityReport",
+          breadcrumb: 'headings.reportEntityReport'
         },
-        component:EntityReportComponent,
+        component: EntityReportComponent,
       },
       {
-        path:'multiple-entity-report',
-        data:{
-          id:"multipleEntityReport",
-          breadcrumb:'headings.reportMultilpeEntityReport'
+        path: 'multiple-entity-report',
+        data: {
+          id: "multipleEntityReport",
+          breadcrumb: 'headings.reportMultilpeEntityReport'
         },
-        component:MultipleEntityRportComponent,
+        component: MultipleEntityRportComponent,
       },
 
       {
         path: 'schools',
         data: {
-          id:'schools',
-          breadcrumb:'headings.schoolListHeading'
+          id: 'schools',
+          breadcrumb: 'headings.schoolListHeading'
         },
-        canActivateChild:[AuthGuard],
+        canActivateChild: [AuthGuard],
         component: SchoolsComponent,
       },
       {
         path: 'highlevel-entity-report/:schoolId',
         data: {
-          id:'highlevelEntityReport',
-          breadcrumb:'headings.highlevelEntityReport'
+          id: 'highlevelEntityReport',
+          breadcrumb: 'headings.highlevelEntityReport'
         },
-        canActivateChild:[AuthGuard],
+        canActivateChild: [AuthGuard],
         component: HighlevelEntityReportComponent,
+      },
+      {
+        path: 'framework-rubric',
+        data: {
+          id: 'frameWorkStructureRubricLevel',
+          breadcrumb: 'headings.frameWorkStructureRubricLevel'
+        },
+        canActivateChild: [AuthGuard],
+        component: FrameworkStructureRubricDefintionComponent,
       },
     ]
   },
-  
+
   // {
   //   path: '**',
   //   redirectTo: 'report'

@@ -51,9 +51,9 @@ export class OpsReportComponent implements OnInit {
   assessorLoading: boolean;
   hostUrl;
   @ViewChild('myaccordion') filterPanel: MatAccordion;
-  summaryProfileData: any ;
+  summaryProfileData: any;
   currentRouterUrl: string = '';
-  queryParamsRouterUrl: string ='';
+  queryParamsRouterUrl: string = '';
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -95,18 +95,24 @@ export class OpsReportComponent implements OnInit {
       this.filters(params['ProgramId']);
       this.getUserProfile(params['ProgramId']);
 
-      if(this.pageReload) {
+      if (this.pageReload) {
         //  this.getUserSummary(params['ProgramId']);
-      if (Object.keys(params).length > 1) {
-        //console.log"api twice")
-        this.applyFilter(params);
-        this.expandedFilters = false;
-        this.reportGenerate = true;
-      }
-      this.pageReload = false;
+        if (Object.keys(params).length > 1) {
+          //console.log"api twice")
+          let param = Object.assign({}, params);
+
+          console.log(param)
+          delete param['ProgramId'];
+          console.log(param)
+
+          this.applyFilter(param);
+          this.expandedFilters = false;
+          this.reportGenerate = true;
+        }
+        this.pageReload = false;
 
       }
-     
+
     })
   }
 
@@ -123,9 +129,9 @@ export class OpsReportComponent implements OnInit {
       // this.router.navigate(['/operations/reports'], { queryParams: { ProgramId: this.pageParam['ProgramId'] } });
       this.reportGenerate = false;
       this.filterArray = [];
-      this.route.queryParams.subscribe(params =>{
-        let resetUrl = '/operations/reports?ProgramId=' + params['ProgramId'] 
-      window.history.pushState({path:resetUrl},'',resetUrl);
+      this.route.queryParams.subscribe(params => {
+        let resetUrl = '/operations/reports?ProgramId=' + params['ProgramId']
+        window.history.pushState({ path: resetUrl }, '', resetUrl);
 
       })
     }
@@ -153,7 +159,7 @@ export class OpsReportComponent implements OnInit {
       this.filterArray = Object.entries(this.filterObject)
       // this.filterArray = Object.keys(this.filterObject).map(i => this.filterObject[i])
       // this.buildqueryParams();
-    // this.reportsDataFetch();
+      // this.reportsDataFetch();
 
     }
   }
@@ -237,18 +243,18 @@ export class OpsReportComponent implements OnInit {
     }
     return dataArray;
   }
-  getUserProfile(ProgramId){
-    this.operationService.getUserProfileSummary(ProgramId).subscribe(data=>{
+  getUserProfile(ProgramId) {
+    this.operationService.getUserProfileSummary(ProgramId).subscribe(data => {
       ////console.logdata);
       this.summaryProfileData = data['result'];
-       const arrayToObject = (array, keyField) =>
+      const arrayToObject = (array, keyField) =>
         array.reduce((obj, item) => {
           obj[item[keyField]] = item
           return obj
         }, {})
       this.summaryProfileData = arrayToObject(this.summaryProfileData, "label")
     },
-      error =>{
+      error => {
 
         this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
 
@@ -294,37 +300,38 @@ export class OpsReportComponent implements OnInit {
     let elseIndex = 0;
     this.queryParamsRouterUrl = '';
     paramKey.forEach(element => {
-      if(! this.pageReload){
-      if(element  !== 'ProgramId'){
-        //console.log);
-      if (ifIndex == 0) {
-        this.queryParamsRouterUrl += element + '=' + obj[element]
-      }
-      else {
-        this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
-      }
-      ifIndex++;
-    }
-  } else {
-    if(queryParamKey.includes(element) && element  !== 'ProgramId'){
-      
+      if (!this.pageReload) {
+        if (element !== 'ProgramId') {
+          //console.log);
+          if (ifIndex == 0) {
+            this.queryParamsRouterUrl += element + '=' + obj[element]
+          }
+          else {
+            this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
+          }
+          ifIndex++;
+        }
+      } else {
+        if (queryParamKey.includes(element) && element !== 'ProgramId') {
+
+          console.log("test")
           if (elseIndex == 0) {
-      this.queryParamsRouterUrl += element + '=' + obj[element]
-    }
-    else {
-      this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
-    }
-    elseIndex++
-  }
-  }
+            this.queryParamsRouterUrl += element + '=' + obj[element]
+          }
+          else {
+            this.queryParamsRouterUrl += '&' + element + '=' + obj[element]
+          }
+          elseIndex++
+        }
+      }
 
     })
 
     //console.logthis.queryParamsRouterUrl)
-    let addQueryParamUlr = '/operations/reports?ProgramId='+this.pageParam['ProgramId']+"&"+this.queryParamsRouterUrl;
+    let addQueryParamUlr = '/operations/reports?ProgramId=' + this.pageParam['ProgramId'] + "&" + this.queryParamsRouterUrl;
     //console.logaddQueryParamUlr)
 
-     window.history.pushState({path:addQueryParamUlr},'',addQueryParamUlr);
+    window.history.pushState({ path: addQueryParamUlr }, '', addQueryParamUlr);
     let param;
     this.route.queryParams.subscribe(params => {
       param = params;
@@ -451,9 +458,9 @@ export class OpsReportComponent implements OnInit {
 
     this.utility.loaderShow();
     this.getUserSummary(this.queryParamsUrl);
-    this.searchParam = this.setSearchParam(this.schoolPageIndex +1, this.schoolPageLimit, 'school');
+    this.searchParam = this.setSearchParam(this.schoolPageIndex + 1, this.schoolPageLimit, 'school');
     this.getSchoolReport();
-    this.searchParam = this.setSearchParam(this.assessorPageIndex +1, this.assessorPageLimit, 'assessor');
+    this.searchParam = this.setSearchParam(this.assessorPageIndex + 1, this.assessorPageLimit, 'assessor');
 
     this.getAssessorReport();
   }

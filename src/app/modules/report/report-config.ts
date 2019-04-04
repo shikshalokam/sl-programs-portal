@@ -6,8 +6,8 @@ export const ReportConfig = {
    userSchoolsInProgram:"programs/userSchoolList?programId=",
    singleEntityReport:"insights/singleEntityDrillDownReport/",
    highEntityReport:"insights/singleEntityHighLevelReport/",
-   multiEntityHighLevelReport:"insights/multiEntityHighLevelReport",
-   multiEntityDrillDownLevelReport:"insights/multiEntityDrillDownReport",
+   multiEntityHighLevelReport:"insights/multiEntityHighLevelReport/",
+   multiEntityDrillDownLevelReport:"insights/multiEntityDrillDownReport/",
    listOfBlock: 'programs/schoolBlocks?programId=',
    listOfSchool : 'programs/blockSchools?programId=',
 }

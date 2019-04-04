@@ -35,10 +35,13 @@
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
-        "reportMiltipleEntityReport":"Multiple Entity Report",
+        "frameworkRubricView": "Framework Hierarchy + Rubric",
+        "performanceReport": "Performance report",
+        "frameWorkStructureRubricLevel": "FrameWork Structure Rubric Level",
+        "reportMiltipleEntityReport": "Multiple Entity Report",
         "filters": "Filters",
         "homes": "Home",
-        "highlevelEntityReport":"High-Level Entity Report",
+        "highlevelEntityReport": "High-Level Entity Report",
         "assessments": "Assessments",
         "programs": "Programs",
         "addQuestions": "Add New Question",
@@ -92,8 +95,8 @@
         "signOut": "Sign Out"
     },
     "tableLabel": {
-        "status":"Status",
-        "administration":"Administration",
+        "status": "Status",
+        "administration": "Administration",
         "name": "Name",
         "studentName": "Student Name",
         "phone": "Phone",

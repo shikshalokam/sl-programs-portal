@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../private-modules/auth-service/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReportService } from '../report-service/report.service';
 
 import { ApiService, UtilityService } from 'shikshalokam';
@@ -20,7 +20,10 @@ export class EntityReportComponent implements OnInit {
   programId;
   schoolId;
 
-  constructor(private apiService: ReportService, private utility: UtilityService, private router: ActivatedRoute) {
+  constructor(private apiService: ReportService,
+    private snackBar: MatSnackBar,
+    private route: Router,
+    private utility: UtilityService, private router: ActivatedRoute) {
     this.programId = this.router.snapshot.queryParamMap.get('ProgramId');
     this.schoolId = this.router.snapshot.params.schoolId;
   }
@@ -62,13 +65,18 @@ export class EntityReportComponent implements OnInit {
     this.apiService.getSingleEntityReport(this.programId, this.schoolId).subscribe(data => {
       this.insightReport = data['result'];
       // this.insightReport['sections'][0].summary = [{"title":"Theme","value":"Teaching and Learning"},{"title":"Area of Inquiry:","value":"Resources (Human and Material)"}, {"title":"Indicator","value":"Human resources"}];
-      this.utility.loaderHide(); 
-    })
+      this.utility.loaderHide();
+    },
+      (error) => {
+
+        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+        this.utility.loaderHide();
+      })
   }
-    // this.apiService.getSingleEntityReport(this.programId, this.schoolId).subscribe(data => {
-    //   this.insightReport = data['result'];
-    //   this.utility.loaderHide(); 
-    // })
+  // this.apiService.getSingleEntityReport(this.programId, this.schoolId).subscribe(data => {
+  //   this.insightReport = data['result'];
+  //   this.utility.loaderHide(); 
+  // })
   //   this.insightReport = {
   //     "Headings": "Performance Report for Entity Name",
   //     "summary": [
@@ -145,5 +153,7 @@ export class EntityReportComponent implements OnInit {
   //   }
   // }
 
-
+  naviagteToRubrics() {
+    this.route.navigate(["/report/framework-rubric"], { queryParams: { link: this.insightReport.frameworkUrl.link } });
+  }
 }
