@@ -53,7 +53,8 @@ export class BlockListComponent implements OnInit {
             params: "",
             queryParams: {
               ProgramId: this.programId,
-              school: ""
+              school: "",
+              blockName:""
             }
           },
           {
@@ -62,7 +63,8 @@ export class BlockListComponent implements OnInit {
             params: "",
             queryParams: {
               ProgramId: this.programId,
-              school: ""
+              school: "",
+              blockName:""
             }
           }
         ],
@@ -169,7 +171,7 @@ export class BlockListComponent implements OnInit {
     this.router.navigate(['/report/block-list/'], { queryParams: { ProgramId: this.programId, Id: id } });
   }
 
-  getAction(actionFor, schoolId?: any) {
+  getAction(actionFor, blockName, schoolId?: any) {
     if (actionFor === 'multiEntity') {
       const schoolArray = []
       for (const item of this.selection.selected) {
@@ -177,6 +179,7 @@ export class BlockListComponent implements OnInit {
       }
       for (const link of this.links[actionFor]) {
         link.queryParams.school = Object.assign([], schoolArray);
+        link.queryParams.blockName = blockName;
       }
     } else {
       for (const link of this.links[actionFor]) {

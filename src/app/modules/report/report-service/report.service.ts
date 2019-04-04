@@ -62,7 +62,7 @@ export class ReportService {
     // return this.apiService.get('/assests/insight.json');
   }
 
-  getMultipleEntityDrilldownReport(programId, ...schoolId) {
+  getMultipleEntityDrilldownReport(programId,blockName, ...schoolId) {
     let url = '';
     schoolId.forEach((Id, index) => {
       if (index === 0) {
@@ -73,7 +73,7 @@ export class ReportService {
       }
 
     });
-    return this.apiService.get(environment.apibaseurl + ReportConfig.multiEntityDrillDownLevelReport + programId + '?school=' + url);
+    return this.apiService.get(environment.apibaseurl + ReportConfig.multiEntityDrillDownLevelReport + programId + '?school=' + url+'&blockName='+blockName);
     // return this.apiService.get('/assests/insight.json');
   }
 }
