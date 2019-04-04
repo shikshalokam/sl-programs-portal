@@ -88,6 +88,7 @@
                     <h6 class="subHeading"> - NA - </h6>
                   </span>
                 </div> -->
+
             <div class="flexBox  col-xs-12 col-md-4 col-lg-4 _justify-content-center">
               <span>
                 <h6 class="_no-wrap">{{summaryProfileData.dateOfReportGeneration.label | camelcase}} <span
@@ -140,6 +141,8 @@
           </mat-accordion>
         </div>
       </div>
+  <div class="col-xs-12 _flex-box _flex-end _small-Top-Margin" *ngIf="reportGenerate" ><app-share-link></app-share-link></div>
+
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 _noMarginPadding " *ngIf="reportGenerate && summaryData">
         <mat-card class="_flex-box _justify-content-center col-xs-12">
           <h4>{{'headings.summary' | translate}} </h4>
