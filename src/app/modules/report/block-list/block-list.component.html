@@ -1,0 +1,63 @@
+<app-loader></app-loader>
+<app-parent-heading [genericHeading]="headings" [showControl]="true"></app-parent-heading>
+
+
+<div *ngFor="let block of blockList;let index = index" class="margin">
+  <mat-expansion-panel [expanded]="selectedZoneIndex === index"
+    (opened)="getSchoolList(block.id)" class="blockExpansion" >
+    <mat-expansion-panel-header (click)="selectedZoneIndex=index">
+      <mat-panel-title class="textOverflow title">
+        {{block.label}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- Displaying of table inside the expansion panel -->
+    <div class="tableWrapper" *ngIf="dataSource">
+        <mat-spinner *ngIf="!dataSource"></mat-spinner>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 width">
+
+          <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef style="padding-right: 15px">
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                              [checked]="selection?.hasValue() && isAllSelected()"
+                              [indeterminate]="selection?.hasValue() && !isAllSelected()"
+                              [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row" style="padding-right: 15px">
+                <mat-checkbox (click)="$event?.stopPropagation()"
+                              (change)="$event ? selection?.toggle(row) : null"
+                              [checked]="selection?.isSelected(row)"
+                              [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+
+        <!-- <ng-container matColumnDef="externalId">
+          <th mat-header-cell *matHeaderCellDef> {{'tableLabel.externalId'| translate}} </th>
+          <td mat-cell *matCellDef="let element"> {{element.externalId}} </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> {{'tableLabel.name'| translate}} </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef> {{'tableLabel.city'| translate}} </th>
+          <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> <button mat-button [disabled]="!enableMultiSchool" (click)="getAction('multiEntity')">Multi entity report</button> </th>
+            <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="$event?.stopPropagation();getAction('singleEntity', element._id)">Single entity report</button> </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleRow(row)"></tr>
+      </table>
+    </div>
+
+    <!-- <div class="example-button-row">
+    <button mat-flat-button color="primary" class="genRepBtn">Generate Report</button>
+    </div> -->
+  </mat-expansion-panel>
+</div>

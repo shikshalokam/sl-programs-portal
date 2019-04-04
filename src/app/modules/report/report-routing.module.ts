@@ -10,6 +10,7 @@ import { EntityReportComponent } from './entity-report/entity-report.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
 import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
+import { BlockListComponent } from './block-list/block-list.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
 const routes: Routes = [
   {
@@ -28,6 +29,16 @@ const routes: Routes = [
         },
         canActivateChild: [AuthGuard],
         component: SchoolListComponent,
+      },
+
+      {
+        path: 'block-list',
+        data: {
+          id: 'blockList',
+          breadcrumb: 'headings.blockListHeading'
+        },
+        canActivateChild: [AuthGuard],
+        component: BlockListComponent,
       },
       {
         path: 'ecm-report/:name/:id',

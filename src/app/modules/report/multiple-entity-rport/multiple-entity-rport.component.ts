@@ -11,9 +11,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MultipleEntityRportComponent implements OnInit {
   mutipleEntity;
-  programId = 'PROGID01';
+  programId ;
   headings = "heading.reportMiltipleEntityReport";
-  schoolId = ['5bfe53ea1d0c350d61b78e54', '5bfe53ea1d0c350d61b78e50', '5c0bbab881bdbe330655dbb1']
+  schoolId ;
   constructor(
     private reportService: ReportService,
     private utility: UtilityService,
