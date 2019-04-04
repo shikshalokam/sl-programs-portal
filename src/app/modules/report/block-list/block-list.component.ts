@@ -41,6 +41,7 @@ export class BlockListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   snackBar: any;
   data: any;
+  headings:string = "headings.blockListHeading"
 
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
