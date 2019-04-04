@@ -8,10 +8,11 @@ import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
 import { EntityReportComponent } from './entity-report/entity-report.component';
 import { SchoolsComponent } from './entity-report/components/schools/schools.component';
-import { MultipleEntityRportComponent } from './multiple-entity-rport/multiple-entity-rport.component';
+import { MultipleEntityRportComponent } from './multiple-entity-report/multiple-entity-report.component';
 import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
 import { BlockListComponent } from './block-list/block-list.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
+import { MultipleEntityDrilldownReportComponent } from './multiple-entity-drilldown-report/multiple-entity-drilldown-report.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
@@ -87,6 +88,14 @@ const routes: Routes = [
           breadcrumb: 'headings.reportMultilpeEntityReport'
         },
         component: MultipleEntityRportComponent,
+      },
+      {
+        path: 'multiple-entity-drilldown-report',
+        data: {
+          id: "multipleEntityDrilldownReport",
+          breadcrumb: 'headings.reportMultilpeEntityDrillldownReport'
+        },
+        component: MultipleEntityDrilldownReportComponent,
       },
 
       {

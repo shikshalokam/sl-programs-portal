@@ -5,9 +5,9 @@ import { MatSnackBar } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-multiple-entity-rport',
-  templateUrl: './multiple-entity-rport.component.html',
-  styleUrls: ['./multiple-entity-rport.component.scss']
+  selector: 'app-multiple-entity-report',
+  templateUrl: './multiple-entity-report.component.html',
+  styleUrls: ['./multiple-entity-report.component.scss']
 })
 export class MultipleEntityRportComponent implements OnInit {
   mutipleEntity;
