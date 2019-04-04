@@ -47,7 +47,7 @@ export class BlockListComponent implements OnInit {
         multiEntity: [
           {
             label: "Drilldown Report",
-            link: "/report/entity-report/",
+            link: "/report/multiple-entity-drilldown-report/",
             params: "",
             queryParams: {
               ProgramId: this.programId,

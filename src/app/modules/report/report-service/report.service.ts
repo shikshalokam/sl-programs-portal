@@ -61,4 +61,19 @@ export class ReportService {
     return this.apiService.get(environment.apibaseurl + ReportConfig.multiEntityHighLevelReport + programId + '?school=' + url);
     // return this.apiService.get('/assests/insight.json');
   }
+
+  getMultipleEntityDrilldownReport(programId, ...schoolId) {
+    let url = '';
+    schoolId.forEach((Id, index) => {
+      if (index === 0) {
+        url += schoolId[index];
+      }
+      else {
+        url += "," + schoolId[index];
+      }
+
+    });
+    return this.apiService.get(environment.apibaseurl + ReportConfig.multiEntityDrillDownLevelReport + programId + '?school=' + url);
+    // return this.apiService.get('/assests/insight.json');
+  }
 }
