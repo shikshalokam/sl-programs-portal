@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MultipleEntityRportComponent } from './multiple-entity-rport.component';
+import { MultipleEntityRportComponent } from './multiple-entity-report.component';
 
 describe('MultipleEntityRportComponent', () => {
   let component: MultipleEntityRportComponent;

@@ -3,20 +3,19 @@
 <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
 
 <div>
-  <div class="_flex-box ">
-    <h4 class="marginTop" style="flex:1">{{'headings.performanceReport' | translate}}</h4>
-    <button mat-button color="primary"
-      (click)="naviagteToRubrics()">{{'headings.frameworkRubricView' | translate}}</button>
+  <div class="_flex-box _full-width">
+    <h4 class="marginTop" style="flex:1">{{mutipleEntity?.heading}}</h4>
+    <button mat-button color="primary" (click)="naviagteToRubrics()">{{'headings.frameworkRubricView' | translate}}
+    </button>
     <app-share-link></app-share-link>
-
   </div>
   <div>
     <mat-card>
       <mat-list class="middle">
-        <mat-list-item *ngFor="let item of insightReport?.summary;let last = last;">
+        <mat-list-item *ngFor="let item of mutipleEntity?.summary;let last = last;">
           <div class="_flex-box _full-width">
             <div style="flex:1">
-              {{item?.title}}
+              {{item?.label}}
             </div>
             <div style="flex:2">
               <b>{{item?.value}}</b>
@@ -28,9 +27,9 @@
       </mat-list>
     </mat-card>
   </div>
-  <!-- <div class="col-xs-12 _flex-box _flex-end _small-Top-Margin" ></div> -->
+  <!-- <div class="col-xs-12 _flex-box _flex-end _small-Top-Margin" ><app-share-link></app-share-link></div> -->
 
-  <div class="col-xs-12 marginTop" *ngFor="let section of insightReport?.sections">
+  <div class="col-xs-12 marginTop" *ngFor="let section of mutipleEntity?.sections">
     <mat-card class="containerAdj">
       <mat-card-title class="title _capitalize">
         {{section?.heading}}

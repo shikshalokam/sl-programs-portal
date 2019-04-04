@@ -1,0 +1,8 @@
+<h5>Report Type</h5>
+<mat-divider></mat-divider>
+<mat-nav-list>
+    <a  mat-list-item  *ngFor="let link of links"(click)="openLink(link)">
+      <span mat-line>{{link?.label}}</span>
+      <!-- <span mat-line>Add to a note</span> -->
+    </a>
+  </mat-nav-list>

@@ -5,15 +5,15 @@ import { MatSnackBar } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-multiple-entity-rport',
-  templateUrl: './multiple-entity-rport.component.html',
-  styleUrls: ['./multiple-entity-rport.component.scss']
+  selector: 'app-multiple-entity-report',
+  templateUrl: './multiple-entity-report.component.html',
+  styleUrls: ['./multiple-entity-report.component.scss']
 })
 export class MultipleEntityRportComponent implements OnInit {
   mutipleEntity;
-  programId = 'PROGID01';
+  programId ;
   headings = "heading.reportMiltipleEntityReport";
-  schoolId = ['5bfe53ea1d0c350d61b78e54', '5bfe53ea1d0c350d61b78e50', '5c0bbab881bdbe330655dbb1']
+  schoolId ;
   constructor(
     private reportService: ReportService,
     private utility: UtilityService,

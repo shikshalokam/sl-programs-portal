@@ -14,7 +14,7 @@ export class HighlevelEntityReportComponent implements OnInit {
   programId;
   schoolId;;
   highLevelInsight
-  headings = "headings.highlevelEntityReport"
+  headings = "headings.reportMiltipleEntityReport"
   constructor(private apiService: ReportService,
     private utility: UtilityService,
     private snackBar: MatSnackBar,
