@@ -4,9 +4,10 @@
 
 <div>
   <div class="_flex-box _justify-content-space-between">
-    <h4 class="marginTop">{{'headings.performanceReport' | translate}}</h4>
+    <h4 class="marginTop" style="flex:1">{{'headings.performanceReport' | translate}}</h4>
     <button mat-button color="primary"
       (click)="naviagteToRubrics()">{{'headings.frameworkRubricView' | translate}}</button>
+      <app-share-link></app-share-link>
   </div>
   <div>
     <mat-card>
@@ -26,7 +27,7 @@
       </mat-list>
     </mat-card>
   </div>
-  <div class="col-xs-12 _flex-box _flex-end _small-Top-Margin" ><app-share-link></app-share-link></div>
+  <div class="col-xs-12 _flex-box _flex-end _small-Top-Margin" ></div>
 
   <div class="col-xs-12 marginTop" *ngFor="let section of highLevelInsight?.sections">
     <mat-card class="containerAdj">

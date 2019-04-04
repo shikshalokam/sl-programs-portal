@@ -85,7 +85,7 @@ const routes: Routes = [
         path: 'multiple-entity-report',
         data: {
           id: "multipleEntityReport",
-          breadcrumb: 'headings.reportMultilpeEntityReport'
+          breadcrumb: 'headings.reportMiltipleEntityReport'
         },
         component: MultipleEntityRportComponent,
       },
