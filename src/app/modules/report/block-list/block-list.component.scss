@@ -2,41 +2,115 @@
 
 .example-container {
     height: calc(100vh - 226px) !important;
-  }
+}
 
-  .tableContainer{
+.tableContainer {
     height: calc(100vh - 282px) !important;
     overflow: auto;
 }
 
-.margin{
-    margin:20px 0px;
+.margin {
+    margin: 20px 0px;
 }
 
-.textOverflow{
+.textOverflow {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.title{
-    width:50%;
+.title {
+    width: 50%;
 }
 
-.width{
-    width:100%;
+.width {
+    width: 100%;
 }
 
-.genRepBtn{
-    margin-top:20px;
-    float:right
+.genRepBtn {
+    margin-top: 20px;
+    float: right
 }
 
 .tableWrapper {
-    max-height: 55vh;
+    // max-height: 55vh;
     overflow: auto;
 }
+
 // .blockExpansion {
-    // .mat-expansion-panel-body {
-    //     padding: 0 !important;
-    // }
+// .mat-expansion-panel-body {
+//     padding: 0 !important;
 // }
+// }
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: #f5f5f5;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: auto;
+    height: 400px;
+    background: var(--background-color);
+    margin: 10px 0;
+    // display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+.tableRow {
+    //   padding: 10px ;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--dark-grey)
+
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    background: var(--white-color);
+    padding: 3px 10px;
+    border: 1px solid var(--background-color);
+    border-radius: 2px 2px 0 0;
+    z-index: 1;
+}
+
+.spacing {
+    padding-right: 10px;
+}
+

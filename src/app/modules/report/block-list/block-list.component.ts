@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,11 +11,13 @@ import { ActionSheetComponent } from '../action-sheet/action-sheet.component';
 @Component({
   selector: 'app-block-list',
   templateUrl: './block-list.component.html',
-  styleUrls: ['./block-list.component.scss']
+  styleUrls: ['./block-list.component.scss'],
 })
 export class BlockListComponent implements OnInit {
   object = Object;
   displayedColumns: string[] = ['select', 'name', 'city', 'actions'];
+  columnsForBlockTable: string[] = ["labels", "action"];
+  expandedElement;
   blocks;
   dataSource;
   blockList;
@@ -28,14 +30,14 @@ export class BlockListComponent implements OnInit {
   numRows;
   arr = [];
   enableMultiSchool: boolean = false;
-
+  blockListDataSource;
   links = {};
 
 
 
   selectedZoneIndex = -1;
 
-  @ViewChild(MatSort) sort: MatSort;
+  // @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   snackBar: any;
   data: any;
@@ -51,7 +53,7 @@ export class BlockListComponent implements OnInit {
             params: "",
             queryParams: {
               ProgramId: this.programId,
-              school:""
+              school: ""
             }
           },
           {
@@ -60,7 +62,7 @@ export class BlockListComponent implements OnInit {
             params: "",
             queryParams: {
               ProgramId: this.programId,
-              school:""
+              school: ""
             }
           }
         ],
@@ -99,6 +101,7 @@ export class BlockListComponent implements OnInit {
     this.reportService.getListOfBlock(this.programId)
       .subscribe(data => {
         this.blockList = data['result']['zones'];
+        this.blockListDataSource = data['result']['zones']
         this.utility.loaderHide()
       },
         (error) => {
@@ -111,11 +114,8 @@ export class BlockListComponent implements OnInit {
   }
 
   toggleRow(row) {
-    // console.log("hiii")
     this.selection.toggle(row);
     this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
-    console.log(row)
-    console.log(this.selection.selected)
   }
 
   getSchoolList(id) {
@@ -123,11 +123,13 @@ export class BlockListComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
     this.reportService.getListOfSchool(this.programId, id)
       .subscribe(data => {
-        console.log(data)
         this.dataSource = new MatTableDataSource(data['result']['schools']);
+        this.paginator.pageSize = 5;
+        this.paginator.pageIndex = 0;
+        this.paginator.length = data['result']['schools'].length;
+        // console.log(this.paginator)
+        this.dataSource.paginator = this.paginator;
         this.selection = new SelectionModel(true, []);
-        // setTimeout(() => this.dataSource.sort = this.sort);
-        // this.utility.loaderHide()
       },
         (error) => {
           this.error = error;
@@ -174,7 +176,7 @@ export class BlockListComponent implements OnInit {
         schoolArray.push(item._id);
       }
       for (const link of this.links[actionFor]) {
-        link.queryParams.school = Object.assign([], schoolArray) ;
+        link.queryParams.school = Object.assign([], schoolArray);
       }
     } else {
       for (const link of this.links[actionFor]) {
@@ -184,6 +186,10 @@ export class BlockListComponent implements OnInit {
 
     console.log(this.links[actionFor]);
     this.bottomSheet.open(ActionSheetComponent, { data: this.links[actionFor] })
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
