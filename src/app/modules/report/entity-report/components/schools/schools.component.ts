@@ -12,7 +12,7 @@ export class SchoolsComponent implements OnInit {
   headings = 'headings.schoolListHeading';
   programId;
   searchVal;
-  displayedColumns: string[] = ['externalId','name', 'city', 'state', 'action', 'action1'];
+  displayedColumns: string[] = ['name', 'city', 'state', 'action', 'action1'];
   dataSource;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
