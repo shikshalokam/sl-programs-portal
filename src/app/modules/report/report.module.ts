@@ -22,7 +22,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ActionSheetComponent } from './action-sheet/action-sheet.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
 import { MultipleEntityDrilldownReportComponent } from './multiple-entity-drilldown-report/multiple-entity-drilldown-report.component';
-
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     ReportComponent,
@@ -33,7 +33,7 @@ import { MultipleEntityDrilldownReportComponent } from './multiple-entity-drilld
     ReportDashboardComponent, SelectProgramComponent,
     EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent,
     HighlevelEntityReportComponent, BlockListComponent, ActionSheetComponent
-    , FrameworkStructureRubricDefintionComponent, MultipleEntityDrilldownReportComponent
+    , FrameworkStructureRubricDefintionComponent, MultipleEntityDrilldownReportComponent, TableComponent
   ],
   imports: [
     // CommonModule,
