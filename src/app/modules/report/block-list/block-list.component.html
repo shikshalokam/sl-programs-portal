@@ -5,7 +5,7 @@
 <div *ngFor="let block of blockList;let index = index" class="margin">
   <mat-expansion-panel [expanded]="selectedZoneIndex === index"
     (opened)="getSchoolList(block.id)" class="blockExpansion" >
-    <mat-expansion-panel-header (click)="selectedZoneIndex=index">
+    <mat-expansion-panel-header (click)="selectedZoneIndex=index" class="_expansion-height">
       <mat-panel-title class="textOverflow title">
         {{block.label}}
       </mat-panel-title>
