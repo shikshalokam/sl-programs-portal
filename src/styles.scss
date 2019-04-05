@@ -173,3 +173,15 @@ span:focus {
 .mat-expansion-panel-body {
   padding: 0 10px !important;
 }
+._expansion-height{
+  height:48px !important;
+  line-height: 48px !important;
+}
+
+._fontSize{
+  font-size: .8em !important;
+}
+
+.mat-paginator-container{
+  flex-wrap: nowrap !important;
+}
