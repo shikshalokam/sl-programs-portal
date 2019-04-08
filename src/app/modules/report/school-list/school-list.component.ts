@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, Sort, MatSnackBar } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 elementData: {
 

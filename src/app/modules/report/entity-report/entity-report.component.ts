@@ -5,7 +5,7 @@ import { ReportService } from '../report-service/report.service';
 
 import { ApiService, UtilityService } from 'shikshalokam';
 import { MatSnackBar } from '@angular/material';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 @Component({
   selector: 'app-entity-report',

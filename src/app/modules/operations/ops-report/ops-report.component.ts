@@ -9,7 +9,7 @@ import { MatAccordion, MatSnackBar } from '@angular/material';
 import * as jspdf from 'jspdf';
 
 import html2canvas from 'html2canvas';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-ops-report',

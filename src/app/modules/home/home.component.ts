@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AuthService } from '../modules/private-modules/auth-service/auth.service';
+import { AuthService } from '../private-modules/auth-service/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

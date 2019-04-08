@@ -47,6 +47,7 @@ export class MultipleEntityDrilldownReportComponent implements OnInit {
     this.mutipleEntity.sections.forEach((element, sectionIndex) => {
       element.subSections.forEach((subSections, subSectionsIndex) => {
         this.mutipleEntity.sections[sectionIndex].subSections[subSectionsIndex]['tableScroll']= true;
+        this.mutipleEntity.sections[sectionIndex].subSections[subSectionsIndex]['graphData'].chartType = 'LineChart';
         // let newgraphData = [];
         // for (const data of this.mutipleEntity['sections'][sectionIndex]['subSections'][subSectionsIndex].data) {
         //   let newData = Object.assign({}, data);

@@ -1,49 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './modules/home/home.component';
+import { PrivateModule } from './modules/private-modules/private.module';
+import { PrivateComponent } from './modules/private.component';
+import { PublicModulesComponent } from './public-modules/public.component';
 const routes: Routes = [
   {
     path: '',
-    // component: AppComponent,
-    data:{breadcrumb : ""},
-    children: [
-      {
-        path: 'report',
-        data:{
-          id:'report',
-          // breadcrumb:'Reports'
+    data: {
+      id: 'private',
+    },
+    loadChildren: './modules/private.module#PrivateModule'
+    // component:PrivateComponent
+   },
+  {
+    path: 'public',
+    loadChildren: './public-modules/public.module#PublicModule'
 
-      },
-        loadChildren: './modules/report/report.module#ReportModule'
-      },
-     
-      {
-        path: 'operations',
-        data:{
-          id:'operations',
-          // breadcrumb:'Operations'
-      },
-        loadChildren: './modules/operations/operations.module#OperationsModule'
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      },
-      {
-        path: '**',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      },
-      {
-        path: 'home', component: HomeComponent,
-        data:{
-          // breadcrumb :'Home'
-        }
-        
-      }
-    ]
-  }
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+ 
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

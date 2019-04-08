@@ -57,7 +57,7 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
   checkProgarmId(url){
     if(url.includes('/assessments') ){
       if(localStorage.getItem('currentProgram') === null){
-        this.router.navigate(['/programs']);
+        // this.router.navigate(['/programs']);
         return false;
       }
       return true;

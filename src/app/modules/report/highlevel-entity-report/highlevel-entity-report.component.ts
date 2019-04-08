@@ -3,7 +3,7 @@ import { ReportService } from '../report-service/report.service';
 import { UtilityService } from 'shikshalokam';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 @Component({
   selector: 'app-highlevel-entity-report',

@@ -3,7 +3,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatBottomSheet } from '@angular/material';
 import { ActionSheetComponent } from '../action-sheet/action-sheet.component';

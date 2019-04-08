@@ -10,20 +10,20 @@ export const GlobalConfig = {
         {
           value: "headings.homes",
           id: 'home',
-          anchorLink: "home",
+          anchorLink: "/home",
           icon: "home"
 
         },
         {
           value: "headings.reports",
           id: 'report',
-          anchorLink: "report",
+          anchorLink: "/report",
           icon: "assessment"
         },
         {
           value: "headings.operations",
           id: 'operations',
-          anchorLink: "operations",
+          anchorLink: "/operations",
           icon: "build"
         },
       ]

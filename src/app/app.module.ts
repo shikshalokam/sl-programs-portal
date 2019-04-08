@@ -12,31 +12,36 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
 import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './modules/home/home.component';
 import { ApiInterceptor } from './modules/private-modules/interceptor-service/interceptor.service';
+import { PrivateModule } from './modules/private.module';
+import { PrivateComponent } from './modules/private.component';
+import { PublicModulesComponent } from './public-modules/public.component';
+import { PublicModule } from './public-modules/public.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
 
 
-export function authFactory(authService: AuthService) {
-  return () => authService.init();
-}
+// export function authFactory(authService: AuthService) {
+//   return () => authService.init();
+// }
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-   
   ],
   imports: [
     AppRoutingModule,
+    PrivateModule,
+    PublicModule,
     SharedModule,
+    // PrivateModule,
     // CoreModule,
-    MatDividerModule,
+    // MatDividerModule,
     CoreModule.forRoot(),
-    HttpClientModule,
+    // HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
     MatCardModule,
@@ -51,18 +56,18 @@ export function authFactory(authService: AuthService) {
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    TranslateService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: authFactory,
-      multi: true,
-      deps: [AuthService]
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiInterceptor,
-      multi: true
-    },
+    // TranslateService,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: authFactory,
+    //   multi: true,
+    //   deps: [AuthService]
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: ApiInterceptor,
+    //   multi: true
+    // },
 
   ],
   bootstrap: [AppComponent]
