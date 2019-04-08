@@ -23,6 +23,13 @@ export class TableComponent implements OnInit {
   numRows;
   enableMultiSchool: boolean = false;
   links = {};
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
+
+
+
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["ProgramId"];
@@ -75,6 +82,13 @@ export class TableComponent implements OnInit {
  
 ngOnInit(){
   this.selection = new SelectionModel(true, []);
+
+
+  this.paginator.pageSize = 5;
+        this.paginator.pageIndex = 0;
+        this.paginator.length = this.dataSource['result']['schools'].length;
+        console.log(this.paginator)
+        this.dataSource.paginator = this.paginator;
 }
 
 

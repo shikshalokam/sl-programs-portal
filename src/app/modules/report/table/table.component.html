@@ -33,3 +33,11 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true" style="height: 36px"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleRow(row)"></tr>
 </table> 
+
+
+<ng-container *ngTemplateOutlet="paginator"></ng-container>
+
+
+<ng-template #paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</ng-template>
