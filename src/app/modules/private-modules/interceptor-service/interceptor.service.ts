@@ -24,8 +24,8 @@ constructor(private authService :AuthService,
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     
     const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
-    const authToken = localStorage.getItem('auth-token');
-    debugger;
+    const authToken = this.authService.getToken();
+   
     if(req.url.includes(downloadReportUrl))
       {
         const authReq = req.clone({setHeaders:{"internal-access-token" : localStorage.getItem('downloadReport-token')}});

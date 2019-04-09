@@ -34,7 +34,6 @@ export class PrivateComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // if(! localStorage.getItem('currentUser')){ 
 
     // this.authService.init();
@@ -42,9 +41,9 @@ export class PrivateComponent implements OnInit {
     //   console.log(success);
     //   debugger;
     //   if (success.keyClockSuccess) {
-    //     this.currentUser = this.authService.getCurrentUserDetails();
+        this.currentUser = this.authService.getCurrentUserDetails();
     //     localStorage.setItem('currentUser', this.currentUser)
-
+      this.links = GlobalConfig.programPortalLinks;
         this.translate.use('en').then(() => {
 
         });
@@ -62,7 +61,7 @@ export class PrivateComponent implements OnInit {
         } else {
           this.isLoggedIn = false;
         }
-        this.getRoleAcess();
+        // this.getRoleAcess();
       // }
     // }
     // )
@@ -88,21 +87,21 @@ export class PrivateComponent implements OnInit {
     }
   }
   links;
-  getRoleAcess() {
-    this.globalConfigService.getRolePermission(environment.apibaseurl + GlobalConfig.acessAccordingRole)
-      .subscribe(data => {
-        this.roleAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
-        this.roleAcess.push('home');
-        localStorage.setItem('canAcess', JSON.stringify(this.roleAcess));
-        this.links = GlobalConfig.programPortalLinks;
-        //console.logthis.roleAcess)
-      },
-        error => {
-          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
-        }
-      )
+  // getRoleAcess() {
+  //   this.globalConfigService.getRolePermission(environment.apibaseurl + GlobalConfig.acessAccordingRole)
+  //     .subscribe(data => {
+  //       this.roleAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
+  //       this.roleAcess.push('home');
+  //       localStorage.setItem('canAcess', JSON.stringify(this.roleAcess));
+  //       this.links = GlobalConfig.programPortalLinks;
+  //       //console.logthis.roleAcess)
+  //     },
+  //       error => {
+  //         this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+  //       }
+  //     )
 
-  }
+  // }
 }
 
 

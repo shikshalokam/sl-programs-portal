@@ -64,8 +64,11 @@ export class AuthService {
 //     return this.loginUserDetail.asObservable();
 // }
   getLogout(){
-    localStorage.clear();
+    // localStorage.clear();
    return this.keycloakAuth.logout();
+  }
+  getLogin(){
+    return this.keycloakAuth.login();
   }
 
 

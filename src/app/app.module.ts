@@ -63,11 +63,11 @@ export function authFactory(authService: AuthService) {
       multi: true,
       deps: [AuthService]
     },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ApiInterceptor,
-    //   multi: true
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    },
 
   ],
   bootstrap: [AppComponent]
