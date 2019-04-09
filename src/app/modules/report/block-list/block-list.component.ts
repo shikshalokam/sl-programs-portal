@@ -128,7 +128,7 @@ export class BlockListComponent implements OnInit {
     this.reportService.getListOfSchool(this.programId, id)
       .subscribe(data => {
         this.apidata = data;
-        this.dataSource = new MatTableDataSource(data['result']['schools']);
+        this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
 
 
         // this.paginator.pageSize = 5;
