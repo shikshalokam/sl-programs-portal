@@ -3,7 +3,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SelectionModel } from '@angular/cdk/collections';
+import { SelectionModel, DataSource } from '@angular/cdk/collections';
 import { MatBottomSheet } from '@angular/material';
 
 @Component({
@@ -25,6 +25,10 @@ export class BlockListComponent implements OnInit {
   arr = [];
   enableMultiSchool: boolean = false;
   blockListDataSource;
+  links = {};
+  apidata;
+  blockData;
+
 
 
 
@@ -39,6 +43,51 @@ export class BlockListComponent implements OnInit {
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["ProgramId"];
+
+      this.links = {
+        multiEntity: [
+          {
+            label: "Drilldown Report",
+            link: "/report/multiple-entity-drilldown-report/",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              school: "",
+              blockName:""
+            }
+          },
+          {
+            label: "Highlevel Report",
+            link: "/report/multiple-entity-report",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              school: "",
+              blockName:""
+            }
+          }
+        ],
+        singleEntity: [
+          {
+            label: "Drilldown Report",
+            link: "/report/entity-report/",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              // school:""
+            }
+          },
+          {
+            label: "Highlevel Report",
+            link: "/report/highlevel-entity-report/",
+            params: "",
+            queryParams: {
+              ProgramId: this.programId,
+              // school:""
+            }
+          }
+        ]
+      };
     });
   }
 
@@ -51,8 +100,11 @@ export class BlockListComponent implements OnInit {
     this.utility.loaderShow();
     this.reportService.getListOfBlock(this.programId)
       .subscribe(data => {
+        // this.blockData = data;
         this.blockList = data['result']['zones'];
         this.blockListDataSource = data['result']['zones']
+        this.blockData = this.blockListDataSource;
+
         this.utility.loaderHide()
       },
         (error) => {
@@ -62,6 +114,10 @@ export class BlockListComponent implements OnInit {
           ;
         }
       );
+
+
+
+
   }
 
   
@@ -71,12 +127,14 @@ export class BlockListComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
     this.reportService.getListOfSchool(this.programId, id)
       .subscribe(data => {
+        this.apidata = data;
         this.dataSource = new MatTableDataSource(data['result']['schools']);
-        this.paginator.pageSize = 5;
-        this.paginator.pageIndex = 0;
-        this.paginator.length = data['result']['schools'].length;
-        console.log(this.paginator)
-        this.dataSource.paginator = this.paginator;
+
+
+        // this.paginator.pageSize = 5;
+        // this.paginator.pageIndex = 0;
+        // this.paginator.length = data['result']['schools'].length;
+        // this.dataSource.paginator = this.paginator;
         this.selection = new SelectionModel(true, []);
       },
         (error) => {
@@ -88,7 +146,6 @@ export class BlockListComponent implements OnInit {
       );
 
   }
-
 }
 
 

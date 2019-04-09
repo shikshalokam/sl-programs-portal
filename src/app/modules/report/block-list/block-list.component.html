@@ -21,13 +21,12 @@
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
         </mat-form-field>
 
+       <div *ngIf="apidata">
+        <app-table [dataSource]="dataSource" [apidata]="apidata"  [link]="links"></app-table>
+        <!-- <app-table [dataSource]="dataSource"  [link]="links"></app-table> -->
 
-        <app-table [dataSource]="dataSource"></app-table>
-
-
+      </div>
         <!-- <ng-container *ngTemplateOutlet="paginator"></ng-container> -->
-
-
       </div>
 
     </mat-expansion-panel>

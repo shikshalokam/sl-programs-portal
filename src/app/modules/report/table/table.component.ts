@@ -14,81 +14,34 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-@Input() dataSource;
+  @Input() dataSource;
   displayedColumns: string[] = ['select','name', 'city','actions'];
   columnsForBlockTable: string[] = ["labels", "action"];
   programId;
   selection;
   numSelected;
   numRows;
-  enableMultiSchool: boolean = false;
-  links = {};
+  blockId;
+  @Input() link;
+  @Input() apidata;
+  @Input() blockData;
+  enableMultiSchool: boolean;
+
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
-
-
 
 
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["ProgramId"];
-      this.links = {
-        multiEntity: [
-          {
-            label: "Drilldown Report",
-            link: "/report/multiple-entity-drilldown-report/",
-            params: "",
-            queryParams: {
-              ProgramId: this.programId,
-              school: "",
-              blockName:""
-            }
-          },
-          {
-            label: "Highlevel Report",
-            link: "/report/multiple-entity-report",
-            params: "",
-            queryParams: {
-              ProgramId: this.programId,
-              school: "",
-              blockName:""
-            }
-          }
-        ],
-        singleEntity: [
-          {
-            label: "Drilldown Report",
-            link: "/report/entity-report/",
-            params: "",
-            queryParams: {
-              ProgramId: this.programId,
-              // school:""
-            }
-          },
-          {
-            label: "Highlevel Report",
-            link: "/report/highlevel-entity-report/",
-            params: "",
-            queryParams: {
-              ProgramId: this.programId,
-              // school:""
-            }
-          }
-        ]
-      };
     });
+
+
   }
  
 ngOnInit(){
-  this.selection = new SelectionModel(true, []);
-
-
-  this.paginator.pageSize = 5;
-        this.paginator.pageIndex = 0;
-        this.paginator.length = this.dataSource['result']['schools'].length;
-        console.log(this.paginator)
-        this.dataSource.paginator = this.paginator;
+  this.page();
 }
 
 
@@ -96,6 +49,7 @@ isAllSelected() {
   const numSelected = this.selection ? this.selection.selected.length : 0;
   const numRows = this.dataSource.data.length;
   return numSelected === numRows;
+
 }
 
 /** Selects all rows if they are not all selected; otherwise clear selection. */
@@ -125,18 +79,18 @@ getAction(actionFor, blockName, schoolId?: any) {
     for (const item of this.selection.selected) {
       schoolArray.push(item._id);
     }
-    for (const link of this.links[actionFor]) {
+    for (const link of this.link[actionFor]) {
       link.queryParams.school = Object.assign([], schoolArray);
       link.queryParams.blockName = blockName;
     }
   } else {
-    for (const link of this.links[actionFor]) {
+    for (const link of this.link[actionFor]) {
       link.params = schoolId;
     }
   }
 
-  console.log(this.links[actionFor]);
-  this.bottomSheet.open(ActionSheetComponent, { data: this.links[actionFor] })
+  console.log(this.link[actionFor]);
+  this.bottomSheet.open(ActionSheetComponent, { data: this.link[actionFor] })
 }
 
 
@@ -145,6 +99,32 @@ toggleRow(row) {
   this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
 }
 
+
+page(){
+
+  console.log(this.apidata, "api data");
+
+  this.selection = new SelectionModel(true, []);
+
+
+  // this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
+  // this.paginator.pageSize = 5;
+  // this.paginator.pageIndex = 0;
+  // this.paginator.length = this.apidata['result']['schools'].length;
+  // this.dataSource.paginator = this.paginator;
+  // this.selection = new SelectionModel(true, []);
+
   
 
+
+
 }
+
+
+
+}
+
+
+  
+
+
