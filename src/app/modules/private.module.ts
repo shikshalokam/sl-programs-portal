@@ -20,9 +20,9 @@ import { ApiInterceptor } from './private-modules/interceptor-service/intercepto
 // }
 
 
-export function authFactory(authService: AuthService) {
-  return () => authService.init();
-}
+// export function authFactory(authService: AuthService) {
+//   return () => authService.init();
+// }
 
 @NgModule({
   declarations: [
@@ -50,12 +50,12 @@ export function authFactory(authService: AuthService) {
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: authFactory,
-      multi: true,
-      deps: [AuthService]
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: authFactory,
+    //   multi: true,
+    //   deps: [AuthService]
+    // },
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: ApiInterceptor,

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PublicModulesComponent } from './public.component';
 const routes: Routes = [
   {
-    path:'public',
+    path:'',
     component : PublicModulesComponent
     
   }

@@ -24,9 +24,9 @@ export function tokenGetter() {
 }
 
 
-// export function authFactory(authService: AuthService) {
-//   return () => authService.init();
-// }
+export function authFactory(authService: AuthService) {
+  return () => authService.init();
+}
 
 @NgModule({
   declarations: [
@@ -57,12 +57,12 @@ export function tokenGetter() {
   ],
   providers: [
     // TranslateService,
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: authFactory,
-    //   multi: true,
-    //   deps: [AuthService]
-    // },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: authFactory,
+      multi: true,
+      deps: [AuthService]
+    },
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: ApiInterceptor,

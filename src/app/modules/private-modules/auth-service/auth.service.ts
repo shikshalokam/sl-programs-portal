@@ -16,7 +16,8 @@ export class AuthService {
   public loginUserDetail = new Subject<any>();
   constructor( private jwtHelper :JwtHelperService) { }
 
-  private keycloakAuth: any;
+   keycloakAuth: any;
+  
 
   init(): Promise<any> {
     console.log("called auth")
@@ -27,13 +28,14 @@ export class AuthService {
         'clientId': environment.keycloak.clientId
       };
       this.keycloakAuth = new Keycloak(config);
-      this.keycloakAuth.init({ onLoad: 'login-required' })
+      this.keycloakAuth.init()
         .success(() => {
           ////console.log"seting")
           localStorage.setItem('auth-token',this.keycloakAuth.token)
           localStorage.setItem('downloadReport-token',environment.downloadReportHeaderValue)
           console.log(" key clock success")
           this.loginUserDetail.next({keyClockSuccess : true });
+          console.log(this.keycloakAuth)
           resolve();
         })
         .error(() => {
@@ -46,6 +48,10 @@ export class AuthService {
   
   getToken(): string {
     return this.keycloakAuth ? this.keycloakAuth.token : null;
+  }
+
+  checkForLogin() {
+    this.keycloakAuth.token ? this.keycloakAuth.login() : null;
   }
 
   getCurrentUserDetails() {

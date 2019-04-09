@@ -23,22 +23,24 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
     let url: string = state.url;
     this.url = state.url;
     this.canAcess = JSON.parse(localStorage.getItem('canAcess'));
-    return ( this.roleAecss(route.data.id ) && this.checkLogin() )
+    return (  this.checkLogin() )
   }
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     let url: string = state.url;
     this.url = state.url;
     this.canAcess = JSON.parse(localStorage.getItem('canAcess'));
-    return ( this.roleAecss(route.data.id ) && this.checkLogin() )
+    return ( this.checkLogin() )
   }
 
   
   checkLogin(){
+    console.log("auth")
     if(this.authService.getCurrentUserDetails()){
       return true;
     }
     else{
-      return false;
+      this.authService.keycloakAuth.login();
+      // return false;
     }
   }
   roleAecss(url){
