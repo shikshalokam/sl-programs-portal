@@ -28,9 +28,7 @@ export class BlockListComponent implements OnInit {
   links = {};
   apidata;
   blockData;
-
-
-
+  searchVal;
 
   selectedZoneIndex = -1;
 
@@ -95,6 +93,11 @@ export class BlockListComponent implements OnInit {
     this.getAllBlocks();
   }
 
+  applyFilter(filterValue: string) {
+    this.searchVal = filterValue;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 
   getAllBlocks() {
     this.utility.loaderShow();
@@ -104,7 +107,6 @@ export class BlockListComponent implements OnInit {
         this.blockList = data['result']['zones'];
         this.blockListDataSource = data['result']['zones']
         this.blockData = this.blockListDataSource;
-
         this.utility.loaderHide()
       },
         (error) => {
@@ -114,10 +116,6 @@ export class BlockListComponent implements OnInit {
           ;
         }
       );
-
-
-
-
   }
 
   
@@ -129,12 +127,6 @@ export class BlockListComponent implements OnInit {
       .subscribe(data => {
         this.apidata = data;
         this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
-
-
-        // this.paginator.pageSize = 5;
-        // this.paginator.pageIndex = 0;
-        // this.paginator.length = data['result']['schools'].length;
-        // this.dataSource.paginator = this.paginator;
         this.selection = new SelectionModel(true, []);
       },
         (error) => {

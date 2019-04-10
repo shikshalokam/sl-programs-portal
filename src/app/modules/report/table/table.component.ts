@@ -5,7 +5,6 @@ import { ActionSheetComponent } from '../action-sheet/action-sheet.component';
 import { ReportService } from '../report-service/report.service';
 import { UtilityService } from 'shikshalokam';
 import { SelectionModel } from '@angular/cdk/collections';
-import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 
 
 
@@ -30,17 +29,10 @@ export class TableComponent implements OnInit {
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  
-
-
-
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["ProgramId"];
     });
-
-
   }
  
 ngOnInit(){
@@ -48,6 +40,7 @@ ngOnInit(){
   // console.log(this.test, "test in ts")
   // console.log(this.test,"page index")
 }
+
 
 
 isAllSelected() {
@@ -106,27 +99,13 @@ toggleRow(row) {
 
 
 page(){
-
-  // console.log(this.apidata, "api data");
-
-  // this.selection = new SelectionModel(true, []);
-
-
   this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
-  // this.paginator.pageSize = 5;
-  // this.paginator.pageIndex = 0;
-  // this.paginator.length = this.apidata['result']['schools'].length;
+  this.paginator.pageSize =  5;
+  this.paginator.pageIndex = 0;
+  this.paginator.length = this.apidata['result']['schools'].length;  
   this.dataSource.paginator = this.paginator;
   this.selection = new SelectionModel(true, []);
-
-  
-
-
-
 }
-
-
-
 }
 
 
