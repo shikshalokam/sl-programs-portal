@@ -28,7 +28,6 @@ export class BlockListComponent implements OnInit {
   links = {};
   apidata;
   blockData;
-  searchVal;
 
   selectedZoneIndex = -1;
 
@@ -92,12 +91,6 @@ export class BlockListComponent implements OnInit {
   ngOnInit() {
     this.getAllBlocks();
   }
-
-  applyFilter(filterValue: string) {
-    this.searchVal = filterValue;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
 
   getAllBlocks() {
     this.utility.loaderShow();

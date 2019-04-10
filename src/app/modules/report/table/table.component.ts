@@ -14,7 +14,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input() dataSource;
+  dataSource;
   displayedColumns: string[] = ['select','name', 'city','actions'];
   columnsForBlockTable: string[] = ["labels", "action"];
   programId;
@@ -26,6 +26,7 @@ export class TableComponent implements OnInit {
   @Input() apidata;
   @Input() blockData;
   enableMultiSchool: boolean;
+  searchVal;
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,10 +38,12 @@ export class TableComponent implements OnInit {
  
 ngOnInit(){
   this.page();
-  // console.log(this.test, "test in ts")
-  // console.log(this.test,"page index")
 }
 
+applyFilter(filterValue: string) {
+  this.searchVal = filterValue;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+}
 
 
 isAllSelected() {
@@ -53,8 +56,8 @@ isAllSelected() {
 /** Selects all rows if they are not all selected; otherwise clear selection. */
 masterToggle() {
   this.isAllSelected() ?
-    this.selection.clear() :
-    this.dataSource.data.forEach(row => this.selection.select(row));
+  this.selection.clear() :
+  this.dataSource.data.forEach(row => this.selection.select(row));
   this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
 
 }
