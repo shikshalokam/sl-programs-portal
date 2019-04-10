@@ -20,7 +20,7 @@ export class AuthService {
   
 
   init(): Promise<any> {
-    console.log("called auth")
+   // console.log("called auth")
     return new Promise((resolve, reject) => {
       const config = {
         'url': environment.keycloak.url,
@@ -33,9 +33,9 @@ export class AuthService {
           ////console.log"seting")
           localStorage.setItem('auth-token',this.keycloakAuth.token)
           localStorage.setItem('downloadReport-token',environment.downloadReportHeaderValue)
-          console.log(" key clock success")
+          // console.log(" key clock success")
           this.loginUserDetail.next({keyClockSuccess : true });
-          console.log(this.keycloakAuth)
+          // console.log(this.keycloakAuth)
           resolve();
         })
         .error(() => {
@@ -64,7 +64,8 @@ export class AuthService {
 //     return this.loginUserDetail.asObservable();
 // }
   getLogout(){
-    // localStorage.clear();
+    localStorage.clear();
+    // this.ro
    return this.keycloakAuth.logout();
   }
   getLogin(){

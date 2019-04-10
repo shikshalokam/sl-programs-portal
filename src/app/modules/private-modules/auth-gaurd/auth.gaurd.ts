@@ -28,18 +28,17 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
   canAcess ;
   // canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      debugger;
     if(! this.authService.keycloakAuth.authenticated){
-      console.log(this.authService.keycloakAuth.authenticated + "before login");
+      //console.log(this.authService.keycloakAuth.authenticated + "before login");
       this.authService.getLogin();
     }
     if(this.authService.keycloakAuth.authenticated){
-      console.log(this.authService.keycloakAuth.authenticated +  "after login");
+      //console.log(this.authService.keycloakAuth.authenticated +  "after login");
 
     if(! JSON.parse(localStorage.getItem('canAcess'))){
-      console.log(! JSON.parse(localStorage.getItem('canAcess')))
-         this.getRoleAcess().then( () => {
-          console.log(localStorage.getItem('canAcess'))
+      // console.log(! JSON.parse(localStorage.getItem('canAcess')))
+        return this.getRoleAcess().then( () => {
+          //console.log(localStorage.getItem('canAcess'))
           let url: string = state.url;
         this.url = state.url;
         this.canAcess = JSON.parse(localStorage.getItem('canAcess'));
@@ -61,7 +60,7 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
       //   this.authService.keycloakAuth.login();
       // }
       // if(! JSON.parse(localStorage.getItem('canAcess'))){
-      //   console.log(! JSON.parse(localStorage.getItem('canAcess')))
+      //   //console.log(! JSON.parse(localStorage.getItem('canAcess')))
   
       //   this.getRoleAcess();
       // }
@@ -75,7 +74,7 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
 
   
   // checkLogin(){
-  //   console.log("auth")
+  //   //console.log("auth")
   //   if(this.authService.getCurrentUserDetails()){
   //     return true;
   //   }
@@ -125,17 +124,31 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
 
   }
   getRoleAcess () {
+
+    
+    this.canAcess = [];
+
     const myPromise = new Promise((resolve, reject) => {
+      // console.log(JSON.parse(localStorage.getItem('canAcess')));
+      // if(!JSON.parse(localStorage.getItem('canAcess'))) { 
       this.utiity.loaderShow();
+
       this.globalConfigService.getRolePermission(environment.apibaseurl + GlobalConfig.acessAccordingRole)
         .subscribe(data => {
+          //console.log(this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal))
+          console.log(data);
           this.canAcess = this.globalConfigService.getUniqueRoleAcessObject(data['result'], GlobalConfig.currentPortal);
           this.canAcess.push('home');
+          localStorage.removeItem('canAcess');
+          //console.log(this.canAcess);
+          //console.log(localStorage.getItem('canAcess'))
           localStorage.setItem('canAcess', JSON.stringify(this.canAcess));
-          //console.logthis.roleAcess)
-          console.log(this.canAcess)
+          ////console.logthis.roleAcess)
+          //console.log(this.canAcess)
       this.utiity.loaderHide();
+        
           return resolve();
+
         },
           error => {
       this.utiity.loaderHide();
@@ -144,6 +157,8 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
             return reject();
           }
         )
+      // }
+      //  return resolve();
   }); 
  return myPromise;
 

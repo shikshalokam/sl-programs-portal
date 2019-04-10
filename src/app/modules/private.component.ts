@@ -73,6 +73,10 @@ export class PrivateComponent implements OnInit {
   }
 
   onLogout() {
+  setTimeout(()=>{
+    this.router.navigate(['/home']);
+
+  },2000 );
     this.authService.getLogout();
   }
   onResize(event) {

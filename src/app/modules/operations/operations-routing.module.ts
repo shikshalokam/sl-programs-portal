@@ -9,6 +9,7 @@ import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { OpsReportComponent } from 'shikshalokam';
 import { environment } from 'src/environments/environment';
 import { OperationConfig } from './operations.config';
+import { GlobalConfig } from '../global-config';
 // import { OpsReportComponent } from './ops-report/ops-report.component';
 
 const routes: Routes = [
@@ -58,6 +59,8 @@ const routes: Routes = [
           id: 'opsReport',
           apibaseUrl: environment.apibaseurl,
           reportConfig: OperationConfig,
+          shareLinkApi: GlobalConfig.shareLinkApi, 
+          publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.opsReport'
         },
         canActivate: [AuthGuard],

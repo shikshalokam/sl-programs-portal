@@ -1,8 +1,11 @@
+import { environment } from "src/environments/environment";
 
 export const GlobalConfig = {
   acessAccordingRole: 'configurations/navigation',
   currentPortal: 'program',
   errorMessage: "Some thing went Wrong..",
+  shareLinkApi:  environment.apibaseurl+"sharedLinks/generate",  
+  publicSharedBaseUrl: "http://localhost:4200/public/" ,
   programPortalLinks: [
     {
       linkHeading: "headings.features",
