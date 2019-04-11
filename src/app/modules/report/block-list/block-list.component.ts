@@ -3,7 +3,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SelectionModel, DataSource } from '@angular/cdk/collections';
+import { SelectionModel } from '@angular/cdk/collections';
 import { MatBottomSheet } from '@angular/material';
 
 @Component({
@@ -96,7 +96,6 @@ export class BlockListComponent implements OnInit {
     this.utility.loaderShow();
     this.reportService.getListOfBlock(this.programId)
       .subscribe(data => {
-        // this.blockData = data;
         this.blockList = data['result']['zones'];
         this.blockListDataSource = data['result']['zones']
         this.blockData = this.blockListDataSource;

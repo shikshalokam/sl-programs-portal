@@ -1,3 +1,4 @@
+<!-- Search, table n pagination -->
 <mat-form-field class="_full-width">
   <button mat-button matPrefix mat-icon-button aria-label="Clear">
       <i class="material-icons">
@@ -7,7 +8,7 @@
 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
 </mat-form-field>
   
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 width">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 _full-width">
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef style="padding-right: 15px">
         <mat-checkbox (change)="$event ? masterToggle() : null"
@@ -43,7 +44,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleRow(row)"></tr>
 </table> 
 
-<mat-paginator #paginator 
+<mat-paginator  
     [length]="length"
     [pageSize]="pageSize"
     [pageSizeOptions]="[5, 10, 20]"

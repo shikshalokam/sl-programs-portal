@@ -14,9 +14,8 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  dataSource;
+  // dataSource;
   displayedColumns: string[] = ['select','name', 'city','actions'];
-  columnsForBlockTable: string[] = ["labels", "action"];
   programId;
   selection;
   numSelected;
@@ -25,6 +24,7 @@ export class TableComponent implements OnInit {
   @Input() link;
   @Input() apidata;
   @Input() blockData;
+  @Input() dataSource;
   enableMultiSchool: boolean;
   searchVal;
 
@@ -37,7 +37,7 @@ export class TableComponent implements OnInit {
   }
  
 ngOnInit(){
-  this.page();
+  this.tablePagination();
 }
 
 applyFilter(filterValue: string) {
@@ -101,7 +101,7 @@ toggleRow(row) {
 }
 
 
-page(){
+tablePagination(){
   this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
   this.paginator.pageSize =  5;
   this.paginator.pageIndex = 0;

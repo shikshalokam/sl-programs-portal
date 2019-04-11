@@ -12,8 +12,10 @@
       </mat-expansion-panel-header>
       <mat-spinner *ngIf="!dataSource"></mat-spinner>
       <div class="tableWrapper" *ngIf="dataSource">
+        <!-- Table component -->
       <div *ngIf="apidata">
-        <app-table [apidata]="apidata" [link]="links"></app-table>
+        <!-- <app-table [apidata]="apidata" [link]="links"></app-table> -->
+        <app-table [apidata]="apidata" [dataSource]="dataSource" [link]="links"></app-table>
       </div>
       </div>
     </mat-expansion-panel>
