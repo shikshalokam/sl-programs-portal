@@ -4,7 +4,7 @@ import {  UtilityService } from 'shikshalokam';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { ImageModalComponent } from '../ecm-report/image-modal/image-modal.component';
 import { ReportService } from '../report-service/report.service';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 export interface DialogData {
   fileName: any;
 }

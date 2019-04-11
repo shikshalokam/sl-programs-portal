@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TransitionCheckState, MatTableDataSource, MatSort, MatSnackBar } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 @Component({
   selector: 'app-view-assessors',

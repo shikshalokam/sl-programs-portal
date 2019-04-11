@@ -1,8 +1,13 @@
+import { environment } from "src/environments/environment";
 
 export const GlobalConfig = {
   acessAccordingRole: 'configurations/navigation',
   currentPortal: 'program',
   errorMessage: "Some thing went Wrong..",
+  shareLinkApi:  environment.apibaseurl+"sharedLinks/generate",  
+  publicSharedBaseUrl: "/public/" ,
+  // publicSharedBaseUrl: environment.base_url+"/programs/public/" ,
+
   programPortalLinks: [
     {
       linkHeading: "headings.features",
@@ -10,20 +15,20 @@ export const GlobalConfig = {
         {
           value: "headings.homes",
           id: 'home',
-          anchorLink: "home",
+          anchorLink: "/home",
           icon: "home"
 
         },
         {
           value: "headings.reports",
           id: 'report',
-          anchorLink: "report",
+          anchorLink: "/report",
           icon: "assessment"
         },
         {
           value: "headings.operations",
           id: 'operations',
-          anchorLink: "operations",
+          anchorLink: "/operations",
           icon: "build"
         },
       ]
@@ -54,7 +59,7 @@ export const GlobalConfig = {
     {
       icon: "description",
       tooltip: "headings.opsReport",
-      anchorLink: "/operations/reports",
+      anchorLink: "/operations/ops-reports",
       id: 'opsReport',
       disabled: true
     }

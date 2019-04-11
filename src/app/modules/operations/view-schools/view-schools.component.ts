@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { OperationsService } from '../operations-service/operations.service';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 @Component({
   selector: 'app-view-schools',

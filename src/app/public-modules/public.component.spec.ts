@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpsReportComponent } from './ops-report.component';
+import { PublicModulesComponent } from './public.component';
 
-describe('OpsReportComponent', () => {
-  let component: OpsReportComponent;
-  let fixture: ComponentFixture<OpsReportComponent>;
+describe('PublicModulesComponent', () => {
+  let component: PublicModulesComponent;
+  let fixture: ComponentFixture<PublicModulesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpsReportComponent ]
+      declarations: [ PublicModulesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OpsReportComponent);
+    fixture = TestBed.createComponent(PublicModulesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

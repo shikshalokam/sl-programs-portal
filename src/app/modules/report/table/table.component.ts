@@ -5,7 +5,7 @@ import { ActionSheetComponent } from '../action-sheet/action-sheet.component';
 import { ReportService } from '../report-service/report.service';
 import { UtilityService } from 'shikshalokam';
 import { SelectionModel } from '@angular/cdk/collections';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from '../../global-config';
 
 
 

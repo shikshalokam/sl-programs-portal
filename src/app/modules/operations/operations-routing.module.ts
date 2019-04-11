@@ -6,74 +6,85 @@ import { OperationsDashboardComponent } from './operations-dashboard/operations-
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
 import { OperationsComponent } from './operations.component';
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
-import { OpsReportComponent } from './ops-report/ops-report.component';
+import { OpsReportComponent } from 'shikshalokam';
+import { environment } from 'src/environments/environment';
+import { OperationConfig } from './operations.config';
+import { GlobalConfig } from '../global-config';
+// import { OpsReportComponent } from './ops-report/ops-report.component';
 
 const routes: Routes = [
 
-  {  path: '', 
-      data :{
-        id :'operations',
-        breadcrumb:'headings.operations'
+  {
+    path: '',
+    data: {
+      id: 'operations',
+      breadcrumb: 'headings.operations'
     },
-      component : OperationsComponent,
-      canActivate : [AuthGuard],
-      children: [
+    component: OperationsComponent,
+    canActivate: [AuthGuard],
+    children: [
       {
-          path:'upload-csv',
-          data:{
-            id : 'uploadcsv',
-            breadcrumb:'headings.uploadingCsv'
+        path: 'upload-csv',
+        data: {
+          id: 'uploadcsv',
+          breadcrumb: 'headings.uploadingCsv'
 
-          },
-          canActivate : [AuthGuard],
-          component : UploadingCsvComponent
-      },
-      { 
-        path:'view-schools',
-        data:{
-          id:'viewSchools',
-          breadcrumb:'headings.viewSchools'
-      },
-        canActivate : [AuthGuard],
-        component:ViewSchoolsComponent
-
-      },
-      { 
-        path:'view-assessors',
-        data:{
-          id:'viewAcessor',
-          breadcrumb:'headings.assessorListHeading'
-      },
+        },
         canActivate: [AuthGuard],
-
-        component:ViewAssessorsComponent
+        component: UploadingCsvComponent
       },
-      { 
-        path:'reports',
-        data:{
-          id:'opsReport',
-          breadcrumb:'headings.opsReport'
+      {
+        path: 'view-schools',
+        data: {
+          id: 'viewSchools',
+          breadcrumb: 'headings.viewSchools'
+        },
+        canActivate: [AuthGuard],
+        component: ViewSchoolsComponent
+
+      },
+      {
+        path: 'view-assessors',
+        data: {
+          id: 'viewAcessor',
+          breadcrumb: 'headings.assessorListHeading'
         },
         canActivate: [AuthGuard],
 
-        component:OpsReportComponent
+        component: ViewAssessorsComponent
       },
-     {
-        path:'operations-dashboard',
-        data:{
+      {
+        path: 'ops-reports',
+        data: {
+          id: 'opsReport',
+          apibaseUrl: environment.apibaseurl,
+          reportConfig: OperationConfig,
+          globalConfig: GlobalConfig, 
+          shareLinkApi: GlobalConfig.shareLinkApi,
+          noAssess : false,
+          publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
+          breadcrumb: 'headings.opsReport'
+        },
+        canActivate: [AuthGuard],
+
+        component: OpsReportComponent
+      },
+      {
+        path: 'operations-dashboard',
+        data: {
           // breadcrumb:'Operations Dashboard'
         },
         component: OperationsDashboardComponent
       },
 
       {
-        path:'',
-        redirectTo : 'operations-dashboard',
+        path: '',
+        redirectTo: 'operations-dashboard',
         pathMatch: 'full'
-        
+
       },
     ]
-}
+  }
 ];
 
 @NgModule({

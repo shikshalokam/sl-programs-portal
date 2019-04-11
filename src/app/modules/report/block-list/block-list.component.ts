@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GlobalConfig } from 'src/app/modules/global-config';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatBottomSheet } from '@angular/material';
 
@@ -121,7 +122,7 @@ export class BlockListComponent implements OnInit {
       },
         (error) => {
           this.error = error;
-          // this.snackBar.open(GlobalConfig.errorMessage, "OK", {duration: 9000})
+           this.snackBar.open(GlobalConfig.errorMessage, "OK", {duration: 9000})
           this.utility.loaderHide();
           ;
         }
@@ -129,9 +130,4 @@ export class BlockListComponent implements OnInit {
 
   }
 }
-
-
-
-
-
 

@@ -5,15 +5,19 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CoreModule,TranslateService,SharedModule } from 'shikshalokam';
+import { CoreModule,TranslateService,SharedModule, HighlevelEntityReportComponent, EntityReportComponent, MultipleEntityRportComponent, MultipleEntityDrilldownReportComponent, ReportModule } from 'shikshalokam';
 import { AuthService } from './modules/private-modules/auth-service/auth.service';
 import { MatDividerModule } from '@angular/material/divider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
-import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
-import { HomeComponent } from './home/home.component';
+import { MatToolbarModule, MatCardModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { HomeComponent } from './modules/home/home.component';
 import { ApiInterceptor } from './modules/private-modules/interceptor-service/interceptor.service';
+import { PrivateModule } from './modules/private.module';
+import { PrivateComponent } from './modules/private.component';
+import { PublicModulesComponent } from './public-modules/public.component';
+import { PublicModule } from './public-modules/public.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -27,21 +31,25 @@ export function authFactory(authService: AuthService) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-   
+    // EntityReportComponent, 
+    // MultipleEntityRportComponent,
+    // HighlevelEntityReportComponent, MultipleEntityDrilldownReportComponent
   ],
   imports: [
     AppRoutingModule,
     SharedModule,
+    // ReportModule.forRoot(),
+    // PrivateModule,
     // CoreModule,
-    MatDividerModule,
+    // MatDividerModule,
     CoreModule.forRoot(),
-    HttpClientModule,
+    // HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
     MatCardModule,
     MatDividerModule,
     MatToolbarModule,
+    MatListModule,
     MatSidenavModule,
     JwtModule.forRoot({
       config: {
@@ -51,7 +59,7 @@ export function authFactory(authService: AuthService) {
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    TranslateService,
+    // TranslateService,
     {
       provide: APP_INITIALIZER,
       useFactory: authFactory,
@@ -63,7 +71,8 @@ export function authFactory(authService: AuthService) {
       useClass: ApiInterceptor,
       multi: true
     },
-
+  
+    
   ],
   bootstrap: [AppComponent]
 })

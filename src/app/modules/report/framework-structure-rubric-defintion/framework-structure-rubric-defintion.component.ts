@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService, ApiService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { MatSnackBar } from '@angular/material';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

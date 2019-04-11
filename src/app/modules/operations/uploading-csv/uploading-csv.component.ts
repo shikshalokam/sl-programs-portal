@@ -4,7 +4,7 @@ import { OperationsService } from '../operations-service/operations.service';
 import { MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 @Component({
   selector: 'app-uploading-csv',
