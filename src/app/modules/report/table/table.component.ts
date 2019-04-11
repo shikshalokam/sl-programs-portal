@@ -23,12 +23,11 @@ export class TableComponent implements OnInit {
   numRows;
   blockId;
   @Input() link;
-  @Input() apidata;
+  @Input() data;
   @Input() blockData;
   @Input() zoneId;
   enableMultiSchool: boolean;
   searchVal;
-
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private bottomSheet: MatBottomSheet,
@@ -106,13 +105,12 @@ export class TableComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
     this.reportService.getListOfSchool(this.programId, id)
       .subscribe(data => {
-        this.apidata = data;
         this.paginator.pageIndex = 0;
-        this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
+        this.dataSource = new MatTableDataSource(data['result']['schools']);
         this.selection = new SelectionModel(true, []);
         this.paginator.pageSize = 5;
         this.paginator.pageIndex = 0;
-        this.paginator.length = this.apidata['result']['schools'].length;
+        this.paginator.length = data['result']['schools'].length;
         this.dataSource.paginator = this.paginator;
       },
         (error) => {

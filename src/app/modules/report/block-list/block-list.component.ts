@@ -26,7 +26,6 @@ export class BlockListComponent implements OnInit {
   enableMultiSchool: boolean = false;
   blockListDataSource;
   links = {};
-  apidata;
   blockData;
 
   selectedZoneIndex = -1;
@@ -117,8 +116,7 @@ export class BlockListComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
     this.reportService.getListOfSchool(this.programId, id)
       .subscribe(data => {
-        this.apidata = data;
-        this.dataSource = new MatTableDataSource(this.apidata['result']['schools']);
+        this.dataSource = new MatTableDataSource(data['result']['schools']);
         this.selection = new SelectionModel(true, []);
       },
         (error) => {
