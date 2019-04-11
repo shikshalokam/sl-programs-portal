@@ -4,7 +4,7 @@ import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report-routing.module';
 import { SchoolListComponent } from './school-list/school-list.component';
 import { MatSelectModule, MatTooltipModule, MatTableModule, MatDialogModule, MatExpansionModule, MatTabsModule, MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatDividerModule, MatSortModule, MatListModule, MatCheckboxModule } from '@angular/material';
-import { CoreModule, SharedModule, HighlevelEntityReportComponent, EntityReportComponent, MultipleEntityRportComponent, MultipleEntityDrilldownReportComponent } from 'shikshalokam';
+import { CoreModule, SharedModule } from 'shikshalokam';
 import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { ImageModalComponent } from './ecm-report/image-modal/image-modal.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
@@ -17,8 +17,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ActionSheetComponent } from './action-sheet/action-sheet.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
- import {ReportModule} from 'shikshalokam';
+import {ReportModule} from 'shikshalokam';
 import { SchoolsComponent } from './schools/schools.component';
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     ReportComponent,
@@ -31,10 +32,11 @@ import { SchoolsComponent } from './schools/schools.component';
     FrameworkStructureRubricDefintionComponent,
     // HighlevelEntityReportComponent, EntityReportComponent
     // , MultipleEntityDrilldownReportComponent,MultipleEntityRportComponent
+     TableComponent
   ],
   imports: [
     // CommonModule,
-    ReportModule.forRoot(),
+    ReportModule,
     MatDividerModule,
     MatSelectModule,
     MatCardModule,
