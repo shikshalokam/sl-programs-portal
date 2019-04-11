@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, Sort } from '@angular/material';
-import { ReportService } from '../../../report-service/report.service';
+import { ReportService } from '../report-service/report.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

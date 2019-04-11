@@ -6,13 +6,13 @@ import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
-import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 import { BlockListComponent } from './block-list/block-list.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
 import { environment } from 'src/environments/environment';
 import { ReportConfig } from './report-config';
 import { EntityReportComponent, MultipleEntityRportComponent, MultipleEntityDrilldownReportComponent, HighlevelEntityReportComponent } from 'shikshalokam';
 import { GlobalConfig } from '../global-config';
+import { SchoolsComponent } from './schools/schools.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
@@ -79,6 +79,8 @@ const routes: Routes = [
           id: "entityReport",
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
+          globalConfig: GlobalConfig, 
+
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportEntityReport'
@@ -91,6 +93,8 @@ const routes: Routes = [
           id: "multipleEntityReport",
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
+          globalConfig: GlobalConfig, 
+
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportMiltipleEntityReport'
@@ -103,6 +107,8 @@ const routes: Routes = [
           id: "multipleEntityDrilldownReport",
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
+          globalConfig: GlobalConfig, 
+
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportMultilpeEntityDrillldownReport'
@@ -127,6 +133,8 @@ const routes: Routes = [
           id: 'highlevelEntityReport',
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
+          globalConfig: GlobalConfig, 
+
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.highlevelEntityReport'

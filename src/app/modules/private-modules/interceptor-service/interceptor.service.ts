@@ -22,10 +22,13 @@ constructor(private authService :AuthService,
     private snackBar: MatSnackBar
   ){}
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    
+    console.log(req.url)
+  if(req.url.includes('linkId=')){
+    return next.handle(req) ;
+  }
     const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
     const authToken = this.authService.getToken();
-   
+   console.log("private module interceptor")
     if(req.url.includes(downloadReportUrl))
       {
         const authReq = req.clone({setHeaders:{"internal-access-token" : localStorage.getItem('downloadReport-token')}});
@@ -36,7 +39,6 @@ constructor(private authService :AuthService,
         .pipe(
           catchError( (error: HttpErrorResponse) => { 
            
-             ////console.logerror)
              if(error.message.includes( "unauthorized")){
                 this.snackBar.open("Session TimeOut , Login to continue" ,"ok" , { duration: 3000 });
                this.authService.getLogout();

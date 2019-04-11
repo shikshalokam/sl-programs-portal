@@ -1,3 +1,28 @@
-<p>
-  public-modules works!
-</p>
+<div class="container-fluid col-xs-12">
+  <div class="row completeDiv">
+      <mat-toolbar class="toolBar noMarginPadding">
+          <div class="col-xs-12">
+                <app-navbar [logo]="logo" [url]="url"[noAssess]="true" ></app-navbar>
+                <app-responsive-navbar  [url]="url" [logo]="logo" [noAssess]="true" ></app-responsive-navbar>
+          </div>
+      </mat-toolbar>
+      <mat-divider class="noMarginPadding"></mat-divider>
+      <mat-drawer-container class="example-container bodyDiv" autosize>
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+    <router-outlet></router-outlet>
+</div>
+        
+         
+<div class="col-xs-2"></div>
+
+          </mat-drawer-container>
+       <app-footer></app-footer>
+  </div>
+</div>
+
+
+
+
+
+ 

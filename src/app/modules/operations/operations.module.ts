@@ -6,7 +6,7 @@ import { UploadingCsvComponent } from './uploading-csv/uploading-csv.component';
 import { MatInputModule,MatSelectModule, MatButtonModule, MatPaginatorModule, MatExpansionModule, MatTableModule, MatDialogModule, MatCardModule, MatDividerModule,MatSortModule, MatDatepickerModule, MatNativeDateModule, MatAutocompleteModule, MatChipsModule, MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgressBarModule} from "angular-progress-bar"
-import { SharedModule,CoreModule, OpsReportComponent } from 'shikshalokam';
+import { SharedModule,CoreModule, OpsReportComponent, ReportModule } from 'shikshalokam';
 import { ViewSchoolsComponent } from './view-schools/view-schools.component';
 import { OperationsDashboardComponent } from './operations-dashboard/operations-dashboard.component';
 import { ViewAssessorsComponent } from './view-assessors/view-assessors.component';
@@ -14,7 +14,7 @@ import { SelectProgramComponent } from './operations-dashboard/select-program/se
 import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
-  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent, OpsReportComponent],
+  declarations: [OperationsComponent, UploadingCsvComponent, ViewSchoolsComponent, OperationsDashboardComponent, ViewAssessorsComponent, SelectProgramComponent],
   imports: [
     CommonModule,
     OperationsRoutingModule,
@@ -38,6 +38,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatAutocompleteModule,
     MatChipsModule,
     MatIconModule,
+    ReportModule,
+    
     GoogleChartsModule.forRoot(),
   ]
 ,

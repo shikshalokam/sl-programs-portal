@@ -54,12 +54,14 @@ const routes: Routes = [
         component: ViewAssessorsComponent
       },
       {
-        path: 'reports',
+        path: 'ops-reports',
         data: {
           id: 'opsReport',
           apibaseUrl: environment.apibaseurl,
           reportConfig: OperationConfig,
-          shareLinkApi: GlobalConfig.shareLinkApi, 
+          globalConfig: GlobalConfig, 
+          shareLinkApi: GlobalConfig.shareLinkApi,
+          noAssess : false,
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.opsReport'
         },

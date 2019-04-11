@@ -5,7 +5,9 @@ export const GlobalConfig = {
   currentPortal: 'program',
   errorMessage: "Some thing went Wrong..",
   shareLinkApi:  environment.apibaseurl+"sharedLinks/generate",  
-  publicSharedBaseUrl: "http://localhost:4200/public/" ,
+  publicSharedBaseUrl: "/public/" ,
+  // publicSharedBaseUrl: environment.base_url+"/programs/public/" ,
+
   programPortalLinks: [
     {
       linkHeading: "headings.features",
@@ -57,7 +59,7 @@ export const GlobalConfig = {
     {
       icon: "description",
       tooltip: "headings.opsReport",
-      anchorLink: "/operations/reports",
+      anchorLink: "/operations/ops-reports",
       id: 'opsReport',
       disabled: true
     }

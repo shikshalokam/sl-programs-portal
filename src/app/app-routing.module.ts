@@ -21,11 +21,11 @@ const routes: Routes = [
     loadChildren: './public-modules/public.module#PublicModule'
 
   },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: '',
+  //   pathMatch: 'full'
+  // },
  
 
 ]

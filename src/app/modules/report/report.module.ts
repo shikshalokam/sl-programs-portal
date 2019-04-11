@@ -11,31 +11,34 @@ import { DownloadReportComponent } from './download-report/download-report.compo
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
 import { SelectProgramComponent } from './reports-dashboard/select-program/select-program.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { SchoolsComponent } from './entity-report/components/schools/schools.component';
 // import { ColumnGraphComponent } from './entity-report/components/column-graph/column-graph.component';
 import { BlockListComponent } from './block-list/block-list.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ActionSheetComponent } from './action-sheet/action-sheet.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
-
+ import {ReportModule} from 'shikshalokam';
+import { SchoolsComponent } from './schools/schools.component';
 @NgModule({
   declarations: [
     ReportComponent,
     SchoolListComponent,
     EcmReportComponent,
+    SchoolsComponent,
     ImageModalComponent,
     DownloadReportComponent,
-    ReportDashboardComponent, SelectProgramComponent,
-    EntityReportComponent, SchoolsComponent, MultipleEntityRportComponent,
-    HighlevelEntityReportComponent, BlockListComponent, ActionSheetComponent
-    , FrameworkStructureRubricDefintionComponent, MultipleEntityDrilldownReportComponent
+    ReportDashboardComponent, SelectProgramComponent,BlockListComponent,ActionSheetComponent,
+    FrameworkStructureRubricDefintionComponent,
+    // HighlevelEntityReportComponent, EntityReportComponent
+    // , MultipleEntityDrilldownReportComponent,MultipleEntityRportComponent
   ],
   imports: [
     // CommonModule,
+    ReportModule.forRoot(),
     MatDividerModule,
     MatSelectModule,
     MatCardModule,
+    MatButtonModule,
     MatTabsModule,
     MatExpansionModule,
     MatDialogModule,
@@ -60,4 +63,4 @@ import { FrameworkStructureRubricDefintionComponent } from './framework-structur
   providers: [
   ],
 })
-export class ReportModule { }
+export class ReportsModule { }

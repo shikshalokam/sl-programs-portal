@@ -13,7 +13,7 @@ const routes: Routes = [
         data: {
           id: 'report',
         },
-        loadChildren: './report/report.module#ReportModule'
+        loadChildren: './report/report.module#ReportsModule'
       },
       {
         path: 'home', component: HomeComponent,

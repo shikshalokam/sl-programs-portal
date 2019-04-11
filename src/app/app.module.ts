@@ -5,13 +5,13 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CoreModule,TranslateService,SharedModule } from 'shikshalokam';
+import { CoreModule,TranslateService,SharedModule, HighlevelEntityReportComponent, EntityReportComponent, MultipleEntityRportComponent, MultipleEntityDrilldownReportComponent, ReportModule } from 'shikshalokam';
 import { AuthService } from './modules/private-modules/auth-service/auth.service';
 import { MatDividerModule } from '@angular/material/divider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
-import { MatToolbarModule, MatCardModule, MatSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatSidenavModule, MatListModule } from '@angular/material';
 import { HomeComponent } from './modules/home/home.component';
 import { ApiInterceptor } from './modules/private-modules/interceptor-service/interceptor.service';
 import { PrivateModule } from './modules/private.module';
@@ -31,12 +31,14 @@ export function authFactory(authService: AuthService) {
 @NgModule({
   declarations: [
     AppComponent,
+    // EntityReportComponent, 
+    // MultipleEntityRportComponent,
+    // HighlevelEntityReportComponent, MultipleEntityDrilldownReportComponent
   ],
   imports: [
     AppRoutingModule,
-    PrivateModule,
-    PublicModule,
     SharedModule,
+    // ReportModule.forRoot(),
     // PrivateModule,
     // CoreModule,
     // MatDividerModule,
@@ -47,6 +49,7 @@ export function authFactory(authService: AuthService) {
     MatCardModule,
     MatDividerModule,
     MatToolbarModule,
+    MatListModule,
     MatSidenavModule,
     JwtModule.forRoot({
       config: {
@@ -68,7 +71,8 @@ export function authFactory(authService: AuthService) {
       useClass: ApiInterceptor,
       multi: true
     },
-
+  
+    
   ],
   bootstrap: [AppComponent]
 })
