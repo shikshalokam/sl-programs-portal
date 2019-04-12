@@ -1,6 +1,6 @@
 <app-loader></app-loader>
 
-<app-parent-heading [genericHeading]="headings" [schoolName]="schoolName"></app-parent-heading>
+<app-parent-heading  [startIndex]="3" [genericHeading]="headings" [schoolName]="schoolName"></app-parent-heading>
 <mat-tab-group *ngIf="ecmData" (selectedTabChange)="getIndex($event)">
   <span *ngFor=" let evidences of ecmData ">
     <mat-tab *ngIf="evidences.isSubmitted " label="{{evidences.name}}">

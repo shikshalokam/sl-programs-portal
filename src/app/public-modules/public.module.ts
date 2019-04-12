@@ -49,11 +49,11 @@ import { BaseComponent } from './base/base.component';
     MatBottomSheetModule
   ],
   providers:[
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: PublicInterceptor,
-    //   multi: true
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PublicInterceptor,
+      multi: true
+    },
   ]
 })
 export class PublicModule { }

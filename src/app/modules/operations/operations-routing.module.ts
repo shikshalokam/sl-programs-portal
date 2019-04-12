@@ -56,7 +56,7 @@ const routes: Routes = [
       {
         path: 'ops-reports',
         data: {
-          id: 'opsReport',
+          id: 'programOperations',
           apibaseUrl: environment.apibaseurl,
           reportConfig: OperationConfig,
           globalConfig: GlobalConfig, 

@@ -1,5 +1,5 @@
 <app-loader></app-loader>
-<app-parent-heading [genericHeading]="headings" [showControl]="true"></app-parent-heading>
+<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="false"></app-parent-heading>
 
 <div class="margin" *ngIf="blockList">
   <div *ngFor="let block of blockList;let index = index" class="margin">
@@ -12,7 +12,7 @@
       </mat-expansion-panel-header>
       <div class="tableWrapper">
         <div *ngIf="selectedZoneIndex === index">
-          <app-table [data]="data" [link]="links" [zoneId]="block.id"></app-table>
+          <app-table [data]="data" [link]="links" [zoneId]="block.id" [blockData]="block"></app-table>
         </div>
       </div>
     </mat-expansion-panel>

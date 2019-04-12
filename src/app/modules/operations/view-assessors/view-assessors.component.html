@@ -1,5 +1,5 @@
     <app-loader></app-loader>
-    <app-parent-heading [genericHeading]="headings"></app-parent-heading>
+    <app-parent-heading [genericHeading]="headings" [startIndex]="3"></app-parent-heading>
 
     <div *ngIf="!error">
       <div *ngIf=" result > 0  && !smallScreen" class="bigTabel" (window:resize)="onResize($event)">

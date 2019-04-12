@@ -10,6 +10,7 @@ import { catchError } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { AuthService } from "../auth-service/auth.service";
 import { MatSnackBar } from "@angular/material";
+import { ActivatedRoute } from "@angular/router";
 
 @Injectable(
   {
@@ -19,11 +20,25 @@ import { MatSnackBar } from "@angular/material";
 export class ApiInterceptor implements HttpInterceptor {
 
 constructor(private authService :AuthService,
-    private snackBar: MatSnackBar
-  ){}
+    private snackBar: MatSnackBar,
+    private route : ActivatedRoute
+  ){
+    
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     console.log(req.url)
+    let linkId ;
+    let name;
   if(req.url.includes('linkId=')){
+    console.log(req.url)
+    this.route.queryParams.subscribe( params => {
+      linkId = params['linkId'];
+      name = params['componentName']
+    })
+
+    
+    req = req.clone({setHeaders:{"linkId": localStorage.getItem('linkId') }}).clone({setHeaders:{"reportName":localStorage.getItem('reportName')}});
     return next.handle(req) ;
   }
     const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
