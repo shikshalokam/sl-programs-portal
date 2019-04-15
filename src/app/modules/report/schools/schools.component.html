@@ -1,5 +1,5 @@
 <div>
-  <app-parent-heading [genericHeading]="headings" [showControl]="false"></app-parent-heading>
+  <app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="false"></app-parent-heading>
   <mat-form-field [floatLabel]="'never'" class=" _full-width">
       <input class="filterInput" matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'search'| translate}}">
     </mat-form-field>

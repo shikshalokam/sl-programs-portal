@@ -79,8 +79,11 @@ const routes: Routes = [
           id: "entityReport",
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
-          globalConfig: GlobalConfig, 
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
 
+          globalConfig: GlobalConfig, 
+          componentId: 'insights',
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportEntityReport'
@@ -93,8 +96,11 @@ const routes: Routes = [
           id: "multipleEntityReport",
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
-          globalConfig: GlobalConfig, 
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
 
+          globalConfig: GlobalConfig, 
+          componentId: 'insights',
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportMiltipleEntityReport'
@@ -106,9 +112,12 @@ const routes: Routes = [
         data: {
           id: "multipleEntityDrilldownReport",
           apibaseUrl: environment.apibaseurl,
+          baseUrl : environment.shareBase_url,
           reportConfig: ReportConfig,
           globalConfig: GlobalConfig, 
+          portalName:environment.portal_name,
 
+          componentId: 'insights',
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportMultilpeEntityDrillldownReport'
@@ -133,8 +142,11 @@ const routes: Routes = [
           id: 'highlevelEntityReport',
           apibaseUrl: environment.apibaseurl,
           reportConfig: ReportConfig,
-          globalConfig: GlobalConfig, 
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
 
+          globalConfig: GlobalConfig, 
+          componentId: 'insights',
           shareLinkApi: GlobalConfig.shareLinkApi, 
           publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.highlevelEntityReport'

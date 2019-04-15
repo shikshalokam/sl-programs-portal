@@ -60,7 +60,7 @@ export const GlobalConfig = {
       icon: "description",
       tooltip: "headings.opsReport",
       anchorLink: "/operations/ops-reports",
-      id: 'opsReport',
+      id: 'programOperations',
       disabled: true
     }
   ],

@@ -2,7 +2,7 @@
 
 
 <div *ngIf="!error">
-  <app-parent-heading [genericHeading]="headings" [showControl]="false" ></app-parent-heading>
+  <app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="false" ></app-parent-heading>
 
   <div *ngIf=" result > 0 && !smallScreen" class="bigTabel"  (window:resize)="onResize($event)">
     <mat-form-field [floatLabel]="'never'" class=" _full-width">

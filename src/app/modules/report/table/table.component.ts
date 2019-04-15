@@ -85,7 +85,8 @@ export class TableComponent implements OnInit {
       }
       for (const link of this.link[actionFor]) {
         link.queryParams.school = Object.assign([], schoolArray);
-        link.queryParams.blockName = blockName;
+        link.queryParams.blockName = this.blockData.label;
+        // console.log(blockName)
       }
     } else {
       for (const link of this.link[actionFor]) {

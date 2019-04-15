@@ -15,6 +15,7 @@ export class PublicModulesComponent implements OnInit {
   logo = " ./assets/shikshalokam.png";
   url = environment.base_url;
   linkId: any;
+  componentName:any;
   constructor(private authService :AuthService,
     private route : ActivatedRoute,
     private utility : UtilityService,
@@ -23,22 +24,35 @@ export class PublicModulesComponent implements OnInit {
     private translate : TranslateService,
     ) { 
     this.translate.use('en').then(() => {
-
+      console.log("language set")
     });
     this.route.queryParams.subscribe(params =>{
       this.linkId = params['linkId'] ;
+      this.componentName = params['componentName'];
+      // localStorage.clear();
+      if(!localStorage.getItem('reportName')){
+        localStorage.setItem('linkId', this.linkId);
+        // console.log(this.componentName)
+        localStorage.setItem('reportName', this.componentName);
+        // console.log(localStorage.getItem('reportName'))
+  
+      }
+     
+      console.log(params)
+    this.getVerifyLinkId();
+
     })
   }
 
   ngOnInit() {
-    this.getVerifyLinkId();
   }
   getVerifyLinkId(){
     this.utility.loaderShow();
-    this.apiService.get(PublicConfig.verifyLinkId+"?linkId="+this.linkId ).subscribe(
+    this.apiService.get(PublicConfig.verifyLinkId).subscribe(
       successData=>{
         console.log(successData)
-        this.router.navigateByUrl(successData['result'].publicURL+"&linkId="+this.linkId)
+        this.router.navigateByUrl(successData['result'].publicURL)
+
         // this.router.navigateByUrl("/public?linkId=2a4618c0-5c65-11e9-ab60-bdbd8252e502")
 
       //  window.open( successData['result'].privateURL);

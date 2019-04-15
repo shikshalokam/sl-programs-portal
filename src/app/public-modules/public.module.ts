@@ -6,8 +6,9 @@ import { HighlevelEntityReportComponent, EntityReportComponent, MultipleEntityRp
 import { MatCardModule, MatDividerModule, MatToolbarModule, MatSidenavModule, MatListModule, MatSelectModule, MatTabsModule, MatExpansionModule, MatDialogModule, MatTableModule, MatTooltipModule, MatCheckboxModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule, MatBottomSheetModule } from '@angular/material';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { PublicInterceptor } from './interceptor-service/interceptor.service';
+// import { PublicInterceptor } from './interceptor-service/interceptor.service';
 import { BaseComponent } from './base/base.component';
+import { ApiInterceptor } from '../modules/private-modules/interceptor-service/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -49,11 +50,11 @@ import { BaseComponent } from './base/base.component';
     MatBottomSheetModule
   ],
   providers:[
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: PublicInterceptor,
-    //   multi: true
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    },
   ]
 })
 export class PublicModule { }
