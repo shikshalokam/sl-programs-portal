@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { SelectProgramComponent } from './select-program/select-program.component';

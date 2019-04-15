@@ -4,7 +4,7 @@ import { DialogData } from 'src/app/modules/report/ecm-report/ecm-report.compone
 import { UtilityService } from 'shikshalokam';
 import { ProgramsDashboardService } from 'src/app/modules/programs-dashboard/programs-dashboard-service/programs-dashboard.service';
 import { Router } from '@angular/router';
-import { GlobalConfig } from 'src/app/global-config';
+import { GlobalConfig } from 'src/app/modules/global-config';
 
 @Component({
   selector: 'app-select-program',

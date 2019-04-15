@@ -6,13 +6,13 @@ import { EcmReportComponent } from './ecm-report/ecm-report.component';
 import { DownloadReportComponent } from './download-report/download-report.component';
 import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { ReportDashboardComponent } from './reports-dashboard/report-dashboard.component';
-import { EntityReportComponent } from './entity-report/entity-report.component';
-import { SchoolsComponent } from './entity-report/components/schools/schools.component';
-import { MultipleEntityRportComponent } from './multiple-entity-report/multiple-entity-report.component';
-import { HighlevelEntityReportComponent } from './highlevel-entity-report/highlevel-entity-report.component';
 import { BlockListComponent } from './block-list/block-list.component';
 import { FrameworkStructureRubricDefintionComponent } from './framework-structure-rubric-defintion/framework-structure-rubric-defintion.component';
-import { MultipleEntityDrilldownReportComponent } from './multiple-entity-drilldown-report/multiple-entity-drilldown-report.component';
+import { environment } from 'src/environments/environment';
+import { ReportConfig } from './report-config';
+import { EntityReportComponent, MultipleEntityRportComponent, MultipleEntityDrilldownReportComponent, HighlevelEntityReportComponent } from 'shikshalokam';
+import { GlobalConfig } from '../global-config';
+import { SchoolsComponent } from './schools/schools.component';
 const routes: Routes = [
   {
     path: '', component: ReportComponent,
@@ -77,6 +77,15 @@ const routes: Routes = [
         path: 'entity-report/:schoolId',
         data: {
           id: "entityReport",
+          apibaseUrl: environment.apibaseurl,
+          reportConfig: ReportConfig,
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
+
+          globalConfig: GlobalConfig, 
+          componentId: 'insights',
+          shareLinkApi: GlobalConfig.shareLinkApi, 
+          publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportEntityReport'
         },
         component: EntityReportComponent,
@@ -85,6 +94,15 @@ const routes: Routes = [
         path: 'multiple-entity-report',
         data: {
           id: "multipleEntityReport",
+          apibaseUrl: environment.apibaseurl,
+          reportConfig: ReportConfig,
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
+
+          globalConfig: GlobalConfig, 
+          componentId: 'insights',
+          shareLinkApi: GlobalConfig.shareLinkApi, 
+          publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportMiltipleEntityReport'
         },
         component: MultipleEntityRportComponent,
@@ -93,6 +111,15 @@ const routes: Routes = [
         path: 'multiple-entity-drilldown-report',
         data: {
           id: "multipleEntityDrilldownReport",
+          apibaseUrl: environment.apibaseurl,
+          baseUrl : environment.shareBase_url,
+          reportConfig: ReportConfig,
+          globalConfig: GlobalConfig, 
+          portalName:environment.portal_name,
+
+          componentId: 'insights',
+          shareLinkApi: GlobalConfig.shareLinkApi, 
+          publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.reportMultilpeEntityDrillldownReport'
         },
         component: MultipleEntityDrilldownReportComponent,
@@ -102,6 +129,8 @@ const routes: Routes = [
         path: 'schools',
         data: {
           id: 'schools',
+          apibaseUrl: environment.apibaseurl,
+          reportConfig: ReportConfig,
           breadcrumb: 'headings.schoolListHeading'
         },
         canActivateChild: [AuthGuard],
@@ -111,6 +140,15 @@ const routes: Routes = [
         path: 'highlevel-entity-report/:schoolId',
         data: {
           id: 'highlevelEntityReport',
+          apibaseUrl: environment.apibaseurl,
+          reportConfig: ReportConfig,
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
+
+          globalConfig: GlobalConfig, 
+          componentId: 'insights',
+          shareLinkApi: GlobalConfig.shareLinkApi, 
+          publicSharedBaseUrl:GlobalConfig.publicSharedBaseUrl ,
           breadcrumb: 'headings.highlevelEntityReport'
         },
         canActivateChild: [AuthGuard],

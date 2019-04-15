@@ -1,5 +1,5 @@
 <app-loader></app-loader>
-<app-parent-heading [genericHeading]="headings" [showControl]="true"></app-parent-heading>
+<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="false"></app-parent-heading>
 
 <div class="margin" *ngIf="blockList">
   <div *ngFor="let block of blockList;let index = index" class="margin">
@@ -10,53 +10,11 @@
           {{block.label}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-spinner *ngIf="!dataSource"></mat-spinner>
-      <div class="tableWrapper" *ngIf="dataSource">
-        <mat-form-field class="_full-width">
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-        </mat-form-field>
-
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 width">
-          <ng-container matColumnDef="select">
-            <th mat-header-cell *matHeaderCellDef style="padding-right: 15px">
-              <mat-checkbox (change)="$event ? masterToggle() : null"
-                [checked]="selection?.hasValue() && isAllSelected()"
-                [indeterminate]="selection?.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
-              </mat-checkbox>
-            </th>
-            <td mat-cell *matCellDef="let row" style="padding-right: 15px">
-              <mat-checkbox (click)="$event?.stopPropagation()" (change)="$event ? toggleRow(row) : null"
-                [checked]="selection?.isSelected(row)" [aria-label]="checkboxLabel(row)">
-              </mat-checkbox>
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef class="spacing" style="flex:1; text-align: left"> {{'tableLabel.name'| translate}} </th>
-            <td mat-cell *matCellDef="let element" class="spacing" style="flex:1 ;text-align: left"> {{element.name}} </td>
-          </ng-container>
-          <ng-container matColumnDef="city">
-            <th mat-header-cell *matHeaderCellDef class="spacing"> {{'tableLabel.city'| translate}} </th>
-            <td mat-cell *matCellDef="let element"  class="spacing" > {{element.city}} </td>
-          </ng-container>
-          <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> 
-              <button mat-button [disabled]="!enableMultiSchool"
-                (click)="getAction('multiEntity', block?.label)" style="width: 140px">Multi entity report</button> 
-              </th>
-            <td mat-cell *matCellDef="let element" style="width: 140px"> 
-              <button mat-button color="primary"
-                (click)="$event?.stopPropagation();getAction('singleEntity', block?.label,element._id)">Single entity report</button>
-            </td>
-          </ng-container>
-          <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true" style="height: 36px"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleRow(row)"></tr>
-        </table>
-        <ng-container *ngTemplateOutlet="paginator"></ng-container>
+      <div class="tableWrapper">
+        <div *ngIf="selectedZoneIndex === index">
+          <app-table [data]="data" [link]="links" [zoneId]="block.id" [blockData]="block"></app-table>
+        </div>
       </div>
-
     </mat-expansion-panel>
   </div>
 </div>
-<ng-template #paginator>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</ng-template>
