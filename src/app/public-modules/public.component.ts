@@ -50,7 +50,7 @@ export class PublicModulesComponent implements OnInit {
     this.utility.loaderShow();
     this.apiService.get(PublicConfig.verifyLinkId).subscribe(
       successData=>{
-        // console.log(successData)
+        console.log(successData)
         this.router.navigateByUrl(successData['result'].publicURL)
 
         // this.router.navigateByUrl("/public?linkId=2a4618c0-5c65-11e9-ab60-bdbd8252e502")

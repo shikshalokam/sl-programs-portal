@@ -57,8 +57,11 @@ const routes: Routes = [
         path: 'ops-reports',
         data: {
           id: 'programOperations',
+          componentId: 'programOperations',
           apibaseUrl: environment.apibaseurl,
           reportConfig: OperationConfig,
+          baseUrl : environment.shareBase_url,
+          portalName:environment.portal_name,
           globalConfig: GlobalConfig, 
           shareLinkApi: GlobalConfig.shareLinkApi,
           noAssess : false,

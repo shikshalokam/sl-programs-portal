@@ -20,7 +20,7 @@ const routes: Routes = [
       {
         path: 'entity-report/:schoolId',
         data: {
-          id: "insights",
+          componentId: "insights",
           apibaseUrl: environment.apibaseurl,
           reportConfig: PublicConfig,
           globalConfig: PublicConfig, 
@@ -33,7 +33,7 @@ const routes: Routes = [
       {
         path: 'multiple-entity-report',
         data: {
-          id: "insights",
+          componentId: "insights",
           apibaseUrl: environment.apibaseurl,
           reportConfig: PublicConfig,
           globalConfig: PublicConfig, 
@@ -46,7 +46,7 @@ const routes: Routes = [
       {
         path: 'multiple-entity-drilldown-report',
         data: {
-          id: "insights",
+          componentId: "insights",
           apibaseUrl: environment.apibaseurl,
           reportConfig: PublicConfig,
           globalConfig: PublicConfig, 
@@ -59,7 +59,7 @@ const routes: Routes = [
       {
         path: 'highlevel-entity-report/:schoolId',
         data: {
-          id: 'insights',
+          componentId: 'insights',
           apibaseUrl: environment.apibaseurl,
           reportConfig: PublicConfig,
           globalConfig: PublicConfig, 
@@ -72,7 +72,7 @@ const routes: Routes = [
       {
         path: 'ops-reports',
         data: {
-          id: 'programsReports',
+          componentId: 'programsOperations',
           apibaseUrl: environment.apibaseurl,
           reportConfig: PublicConfig,
           globalConfig: PublicConfig, 

@@ -27,18 +27,25 @@ constructor(private authService :AuthService,
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log(req.url)
     let linkId ;
     let name;
-  if(req.url.includes('linkId=')){
-    console.log(req.url)
     this.route.queryParams.subscribe( params => {
       linkId = params['linkId'];
       name = params['componentName']
     })
+    if(linkId && ! name){
+      req = req.clone({setHeaders:{"linkId":linkId }});
+      return next.handle(req) ;
+    }
+  if(linkId && name){
+    // console.log(req.url)
+    // this.route.queryParams.subscribe( params => {
+    //   linkId = params['linkId'];
+    //   name = params['componentName']
+    // })
 
     
-    req = req.clone({setHeaders:{"linkId": localStorage.getItem('linkId') }}).clone({setHeaders:{"reportName":localStorage.getItem('reportName')}});
+    req = req.clone({setHeaders:{"linkId":linkId }}).clone({setHeaders:{"reportName":name}});
     return next.handle(req) ;
   }
     const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
