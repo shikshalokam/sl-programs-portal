@@ -26,13 +26,13 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button color="primary" (click)="navigateToEntityReport(element?._id)"><div class="padding"> Drilldown  Report</div></button>
+          <button mat-button color="primary" [disabled]="!element.isSingleEntityDrillDown" (click)="navigateToEntityReport(element?._id)"><div class="padding"> Drilldown  Report</div></button>
         </td>
       </ng-container>
       <ng-container matColumnDef="action1">
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let element">
-            <button mat-button color="primary" (click)="navigateToHighEntityReport(element?._id)"><div class="padding"> High Level Report</div></button>
+            <button mat-button color="primary" [disabled]="!element.isSingleEntityHighLevel" (click)="navigateToHighEntityReport(element?._id)"><div class="padding"> High Level Report</div></button>
           </td>
         </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
