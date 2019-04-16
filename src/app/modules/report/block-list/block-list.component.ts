@@ -39,7 +39,7 @@ export class BlockListComponent implements OnInit {
 
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
-      this.programId = params["ProgramId"];
+      this.programId = params["programId"];
 
       this.links = {
         multiEntity: [
@@ -48,7 +48,7 @@ export class BlockListComponent implements OnInit {
             link: "/report/multiple-entity-drilldown-report/",
             params: "",
             queryParams: {
-              ProgramId: this.programId,
+              programId: this.programId,
               school: "",
               blockName:""
             }
@@ -58,7 +58,7 @@ export class BlockListComponent implements OnInit {
             link: "/report/multiple-entity-report",
             params: "",
             queryParams: {
-              ProgramId: this.programId,
+              programId: this.programId,
               school: "",
               blockName:""
             }
@@ -70,7 +70,7 @@ export class BlockListComponent implements OnInit {
             link: "/report/entity-report/",
             params: "",
             queryParams: {
-              ProgramId: this.programId,
+              programId: this.programId,
               // school:""
             }
           },
@@ -79,7 +79,7 @@ export class BlockListComponent implements OnInit {
             link: "/report/highlevel-entity-report/",
             params: "",
             queryParams: {
-              ProgramId: this.programId,
+              programId: this.programId,
               // school:""
             }
           }

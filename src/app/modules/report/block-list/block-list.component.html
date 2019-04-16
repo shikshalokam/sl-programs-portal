@@ -3,7 +3,7 @@
 
 <div class="margin" *ngIf="blockList">
   <div *ngFor="let block of blockList;let index = index" class="margin">
-    <mat-expansion-panel [expanded]="selectedZoneIndex === index" (opened)="getSchoolList(block.id)"
+    <mat-expansion-panel [expanded]="selectedZoneIndex === index" 
       class="blockExpansion">
       <mat-expansion-panel-header (click)="selectedZoneIndex=index">
         <mat-panel-title class="textOverflow title">
