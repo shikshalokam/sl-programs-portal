@@ -38,7 +38,7 @@ export class TableComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar) {
     this.route.queryParams.subscribe(params => {
-      this.programId = params["ProgramId"];
+      this.programId = params["programId"];
     });
   }
 
@@ -80,7 +80,7 @@ export class TableComponent implements OnInit {
 
   goToSingilEntityReport(id) {
     console.log("clicked", id);
-    this.router.navigate(['/report/block-list/'], { queryParams: { ProgramId: this.programId, Id: id } });
+    this.router.navigate(['/report/block-list/'], { queryParams: { programId: this.programId, Id: id } });
   }
 
   getAction(actionFor, blockName, schoolId?: any) {
