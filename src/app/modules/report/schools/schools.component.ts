@@ -17,7 +17,7 @@ export class SchoolsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private apiService: ReportService, private router: ActivatedRoute, private route: Router) {
-    this.programId = this.router.snapshot.queryParamMap.get('ProgramId');
+    this.programId = this.router.snapshot.queryParamMap.get('programId');
   }
 
   ngOnInit() {
@@ -41,10 +41,10 @@ export class SchoolsComponent implements OnInit {
 
   navigateToEntityReport(schoolId) {
     // this.route.n
-    this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {ProgramId: this.programId} });
+    this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {programId: this.programId} });
   }
   navigateToHighEntityReport(schoolId){
-    this.route.navigate(['/report/highlevel-entity-report/'+schoolId], { queryParams: {ProgramId: this.programId} });
+    this.route.navigate(['/report/highlevel-entity-report/'+schoolId], { queryParams: {programId: this.programId} });
 
   }
 

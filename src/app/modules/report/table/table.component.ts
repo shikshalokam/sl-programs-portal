@@ -30,6 +30,7 @@ export class TableComponent implements OnInit {
   searchVal;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  limitSelection: any = 2;
   constructor(private bottomSheet: MatBottomSheet,
     private route: ActivatedRoute,
     private reportService: ReportService,
@@ -37,7 +38,7 @@ export class TableComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar) {
     this.route.queryParams.subscribe(params => {
-      this.programId = params["ProgramId"];
+      this.programId = params["programId"];
     });
   }
 
@@ -52,12 +53,15 @@ export class TableComponent implements OnInit {
 
 
   isAllSelected() {
+    // console.log("isselected all called");
     const numSelected = this.selection ? this.selection.selected.length : 0;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
   masterToggle() {
+    // console.log("master toggle");
+
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
@@ -66,6 +70,8 @@ export class TableComponent implements OnInit {
   }
 
   checkboxLabel(row?): string {
+    // console.log("check label box");
+
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
@@ -74,7 +80,7 @@ export class TableComponent implements OnInit {
 
   goToSingilEntityReport(id) {
     console.log("clicked", id);
-    this.router.navigate(['/report/block-list/'], { queryParams: { ProgramId: this.programId, Id: id } });
+    this.router.navigate(['/report/block-list/'], { queryParams: { programId: this.programId, Id: id } });
   }
 
   getAction(actionFor, blockName, schoolId?: any) {
@@ -87,6 +93,7 @@ export class TableComponent implements OnInit {
         link.queryParams.school = Object.assign([], schoolArray);
         link.queryParams.blockName = this.blockData.label;
         // console.log(blockName)
+
       }
     } else {
       for (const link of this.link[actionFor]) {
@@ -98,7 +105,24 @@ export class TableComponent implements OnInit {
 
 
   toggleRow(row) {
-    this.selection.toggle(row);
+    let flag = false;
+    if(this.selection.selected.length > 0){
+      this.selection.selected.forEach(selectedRow => {
+        if( row.externalId === selectedRow.externalId){
+          flag = true;
+        }
+      });
+      if (this.selection.selected.length < this.limitSelection+1 || flag) {
+        this.selection.toggle(row);
+      }
+      else{
+        this.showMessage();
+      }
+    }
+    
+    else{
+      this.selection.toggle(row);
+    }
     this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
   }
 
@@ -121,6 +145,10 @@ export class TableComponent implements OnInit {
         }
       );
 
+  }
+  showMessage() {
+    let limit = this.limitSelection+1;
+    this.snackBar.open("Maximum "+limit + " can be selected.", "OK", { duration: 2000 })
   }
 }
 
