@@ -14,6 +14,7 @@ import { AuthService } from './private-modules/auth-service/auth.service';
 import { PrivateComponent } from './private.component';
 import { environment } from 'src/environments/environment';
 import { ApiInterceptor } from './private-modules/interceptor-service/interceptor.service';
+import { WorkspaceComponent } from './workspace/workspace.component';
 
 
 

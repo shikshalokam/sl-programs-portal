@@ -1,0 +1,21 @@
+<app-loader></app-loader>
+<div class="flex-start  box">
+        <div class="_flex-box _justify-content-space-between">
+            <div>
+               <h4>{{headings | translate}}</h4>
+            </div>
+            <div>
+                <button mat-icon-button (click)="onChoose()" >
+                    <i class="material-icons">
+                        close
+                    </i>
+                </button>
+            </div>
+        </div>
+       <app-dynamic-form [genericData]="programMetaData" [genericForm]="programsForm" (editnewquestion)="customizeForm($event)"></app-dynamic-form>
+       
+    <div class="positionBottom _flex-box  _flex-end col-xs-12">
+       <button  mat-raised-button (click)="onSubmit()" color="primary" [disabled]="!programsForm.valid">Submit</button>
+    </div>
+
+</div>

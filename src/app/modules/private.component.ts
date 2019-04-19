@@ -67,7 +67,6 @@ export class PrivateComponent implements OnInit {
     // )
     // // }
 
-    console.log("private component")
     // this.authService.init();
 
   }

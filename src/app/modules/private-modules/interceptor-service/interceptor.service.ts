@@ -50,7 +50,6 @@ constructor(private authService :AuthService,
   }
     const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
     const authToken = this.authService.getToken();
-   console.log("private module interceptor")
     if(req.url.includes(downloadReportUrl))
       {
         const authReq = req.clone({setHeaders:{"internal-access-token" : localStorage.getItem('downloadReport-token')}});

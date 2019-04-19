@@ -1,0 +1,19 @@
+.full-height{
+    // height: -webkit-fill-available;
+    height: calc(100vh - 93px) !important;
+}
+.bottomRight{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.sideTab {
+    width: 50px;
+    // float: right;
+    // display: block;
+    // height: calc(100vh - 52px);
+}
+.innerContainer{
+ display: flex !important;
+ justify-content: center !important;
+}
