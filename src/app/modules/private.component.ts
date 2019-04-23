@@ -100,7 +100,7 @@ export class PrivateComponent implements OnInit {
   //       //console.logthis.roleAcess)
   //     },
   //       error => {
-  //         this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+  //         //this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
   //       }
   //     )
 

@@ -38,7 +38,7 @@ export class FrameworkStructureRubricDefintionComponent implements OnInit {
     },
       error => {
         this.utility.loaderHide();
-        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 2000 });
+        //this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 2000 });
       }
     )
   }

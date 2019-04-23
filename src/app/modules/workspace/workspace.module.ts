@@ -6,7 +6,7 @@ import { WorkspaceComponent } from './workspace.component';
 import { SharedModule, CoreModule } from 'shikshalokam';
 import { AddProgramMetaDataComponent } from './add-program-meta-data/add-program-meta-data.component';
 import { AddProgramComponent } from './add-program/add-program.component';
-import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule } from '@angular/material';
 import { ProgramActionSheetComponent } from './add-program/action-sheet/program-action-sheet.component';
 
 @NgModule({
@@ -21,7 +21,8 @@ import { ProgramActionSheetComponent } from './add-program/action-sheet/program-
     MatNativeDateModule ,
     MatSidenavModule,
     MatBottomSheetModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers:[MatDatepickerModule],
   entryComponents:[AddProgramMetaDataComponent,ProgramActionSheetComponent]

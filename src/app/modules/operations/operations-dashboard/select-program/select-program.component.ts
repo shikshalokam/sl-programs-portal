@@ -31,7 +31,7 @@ export class SelectProgramComponent implements OnInit {
         this.utilityService.loaderHide();
       }, error => {
       this.utilityService.loaderHide();
-      this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
+      //this.snackBar.open(GlobalConfig.errorMessage, "Ok", {duration: 9000});
       })
   }
   

@@ -8,13 +8,17 @@ import { MatBottomSheetRef } from '@angular/material';
 })
 export class ProgramActionSheetComponent implements OnInit {
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<ProgramActionSheetComponent>) { }
+  constructor(private bottomSheetRef: MatBottomSheetRef<ProgramActionSheetComponent>) {
+    bottomSheetRef.disableClose = true;
+   }
 
   ngOnInit() {
   }
 
   openLink(event: MouseEvent): void {
-    this.bottomSheetRef.dismiss();
+    this.bottomSheetRef.dismiss({
+      data:'hello'
+    });
     event.preventDefault();
   }
 }

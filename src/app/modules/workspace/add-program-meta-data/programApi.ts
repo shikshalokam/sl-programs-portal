@@ -2,21 +2,23 @@ export var newProgram = [
   {
     editable: true,
     field: "language",
-    input: "array",
+    input: "multiselect",
     label: "Language",
     validation: { required: false },
     value: ['english'],
+    options:[
+      {
+        label: 'english',
+        value :'english'
+      },
+      {
+        label: 'hindi',
+        value :'hindi'
+      }
+    ],
     visible: true
   },
-  {
-    editable: true,
-    field: "keyWords",
-    input: "array",
-    label: "KeyWords",
-    validation: { required: false },
-    value: ['englhhish'],
-    visible: true
-  },
+ 
   {
     editable: true,
     field: "externalId",
@@ -62,11 +64,46 @@ export var newProgram = [
   {
     editable: true,
     field: "description",
-    input: "textarea",
+    input: "text",
     label: "Description",
     validation: { required: false },
     value: "",
     visible: true
   },
-  
+  {
+    editable: true,
+    field: "description",
+    input: "dropdown",
+    label: "Description",
+    validation: { required: false },
+    value: "",
+    options:[
+      {
+        label:1,
+        value:1
+      },
+      {
+        label:1,
+        value:1
+      },
+      {
+        label:1,
+        value:1
+      },
+      {
+        label:1,
+        value:1
+      }
+    ],
+    visible: true
+  },
+  {
+    editable: true,
+    field: "keyWords",
+    input: "textarea",
+    label: "KeyWords",
+    validation: { required: false },
+    value: ['englhhish'],
+    visible: true
+  },
 ];

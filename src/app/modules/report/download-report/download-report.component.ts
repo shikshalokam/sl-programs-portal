@@ -88,7 +88,7 @@ export class DownloadReportComponent implements OnInit {
           document.body.removeChild(a);
           window.URL.revokeObjectURL(url);
         }else{
-          this.snackBar.open(error, "Ok", { duration: 3000 });
+          //this.snackBar.open(error, "Ok", { duration: 3000 });
         }
         
         
