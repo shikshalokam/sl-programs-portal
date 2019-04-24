@@ -15,7 +15,7 @@
        <app-dynamic-form [genericData]="programMetaData" [genericForm]="programsForm" (editnewquestion)="customizeForm($event)"></app-dynamic-form>
        
     <div class="positionBottom _flex-box  _flex-end col-xs-12">
-       <button  mat-raised-button (click)="onSubmit()" color="primary" [disabled]="!programsForm.valid">Submit</button>
+       <button  mat-raised-button (click)="onSubmit()" color="primary" [disabled]="!programsForm?.valid">Submit</button>
     </div>
 
 </div>

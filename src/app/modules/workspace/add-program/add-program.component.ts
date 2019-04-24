@@ -4,6 +4,7 @@ import { ProgramActionSheetComponent } from './action-sheet/program-action-sheet
 import { ActivatedRoute, Router } from '@angular/router';
 import { newProgram } from '../add-program-meta-data/programApi';
 import { FormArray, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { UtilityService } from 'shikshalokam';
 
 @Component({
   selector: 'app-add-program',
@@ -20,9 +21,9 @@ export class AddProgramComponent implements OnInit {
     private bottomSheet :MatBottomSheet,
     private route : ActivatedRoute,
     private router :Router,
-    private _formBuilder : FormBuilder
-  
-    ) { }
+    private _formBuilder : FormBuilder,
+    private utilityService : UtilityService
+    ) { } 
 
     ngOnInit() {
       this.programData = newProgram;
@@ -32,45 +33,9 @@ export class AddProgramComponent implements OnInit {
   
     
     createForm(objectArray) {
-      this.programsForm = this.createControl(objectArray);
+      this.programsForm = this.utilityService.createControl(objectArray);
       
     }
-  
-    
-  
-    createControl(field) {
-      let control;
-      field.forEach(field => {
-        let controlLabel = field.field;
-        if (field.input === "array") {
-          control = new FormArray([])
-          field.value.forEach(level => {
-            control.push(this._formBuilder.group({
-              [controlLabel]: [level ? level : '', Validators.required]
-            })
-            )
-          })
-  
-        }
-        else {
-          control = new FormControl(field.value ? field.value : "", field.validation.required? Validators.required :null);  }
-        this.group.addControl(field.field, control);
-      });
-  
-      return this.group;
-    }
-  
-    customizeForm(control) {
-      let controls = control.controlName ;
-      if (control.mode == 'add') {
-        this.programsForm.controls[control.controlName].push(
-          this._formBuilder.group({ [controls]: ['', Validators.required] }) );
-      }
-      else if (control.mode == 'delete') {
-        this.programsForm.controls[controls].removeAt(control.index);
-      }
-    }
-  
   openBottomSheet(){
     this.bottomSheet.open(ProgramActionSheetComponent);
     this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe( data =>{
