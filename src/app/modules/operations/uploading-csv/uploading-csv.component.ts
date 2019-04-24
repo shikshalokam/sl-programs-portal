@@ -97,11 +97,11 @@ export class UploadingCsvComponent implements OnInit {
         this.fileUpload = true;
         if (event.type === HttpEventType.UploadProgress) {
           this.percentDone = Math.round(100 * event.loaded / event.total);
-          this.snackBar.open('Upload Sucessful', "Ok", { duration: 9000 });
+          //this.snackBar.open('Upload Sucessful', "Ok", { duration: 9000 });
         }
       },
         error => {
-          this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+          //this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
         });
     setTimeout(() => {
       if(uploadType == 'schools'){

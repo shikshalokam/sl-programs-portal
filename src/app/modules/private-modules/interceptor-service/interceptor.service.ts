@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from "@angular/common/http";
-import { catchError } from "rxjs/operators";
+import { catchError, retry } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { AuthService } from "../auth-service/auth.service";
 import { MatSnackBar } from "@angular/material";
@@ -19,55 +19,71 @@ import { ActivatedRoute } from "@angular/router";
 )
 export class ApiInterceptor implements HttpInterceptor {
 
-constructor(private authService :AuthService,
+  constructor(private authService: AuthService,
     private snackBar: MatSnackBar,
-    private route : ActivatedRoute
-  ){
-    
+    private route: ActivatedRoute
+  ) {
+
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    let linkId ;
+    let linkId;
     let name;
-    this.route.queryParams.subscribe( params => {
+    this.route.queryParams.subscribe(params => {
       linkId = params['linkId'];
       name = params['componentName']
     })
-    if(linkId && ! name){
-      req = req.clone({setHeaders:{"linkId":linkId }});
-      return next.handle(req) ;
+    if (linkId && !name) {
+      req = req.clone({ setHeaders: { "linkId": linkId } });
     }
-  if(linkId && name){
-    // console.log(req.url)
-    // this.route.queryParams.subscribe( params => {
-    //   linkId = params['linkId'];
-    //   name = params['componentName']
-    // })
+    if (linkId && name) {
 
-    
-    req = req.clone({setHeaders:{"linkId":linkId }}).clone({setHeaders:{"reportName":name}});
-    return next.handle(req) ;
-  }
-    const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
-    const authToken = this.authService.getToken();
-   console.log("private module interceptor")
-    if(req.url.includes(downloadReportUrl))
-      {
-        const authReq = req.clone({setHeaders:{"internal-access-token" : localStorage.getItem('downloadReport-token')}});
-        return next.handle(authReq);
+      req = req.clone({ setHeaders: { "linkId": linkId } }).clone({ setHeaders: { "reportName": name } });
+    }
+    else {
+      const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
+      const authToken = this.authService.getToken();
+      if (req.url.includes(downloadReportUrl)) {
+        req = req.clone({ setHeaders: { "internal-access-token": localStorage.getItem('downloadReport-token') } });
+        // return next.handle(authReq);
       }
-      const authReq = req.clone({ setHeaders: { "X-authenticated-user-token": authToken } })
-        return next.handle(authReq) 
-        .pipe(
-          catchError( (error: HttpErrorResponse) => { 
-           
-             if(error.message.includes( "unauthorized")){
-                this.snackBar.open("Session TimeOut , Login to continue" ,"ok" , { duration: 3000 });
-               this.authService.getLogout();
-             }
-             return throwError(error);
-           })
-        )
-  } 
-  
+      else {
+        req = req.clone({ setHeaders: { "X-authenticated-user-token": authToken } })
+
+      }
+    }
+    return next.handle(req)
+      // .pipe(
+      //   catchError( (error: HttpErrorResponse) => { 
+
+      //      if(error.message.includes( "unauthorized")){
+      //         //this.snackBar.open("Session TimeOut , Login to continue" ,"ok" , { duration: 3000 });
+      //        this.authService.getLogout();
+      //      }
+      //      return throwError(error);
+      //    })
+      // )
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          let errorMessage = '';
+          if(error.status == 200){
+            return throwError(error)
+          }
+          else{
+          if (error.error instanceof ErrorEvent) {
+            // client-side error
+            errorMessage = `Error: ${error.error.message}`;
+          } else {
+            // server-side error
+            // errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+            errorMessage =  `${error.status}  ${error.statusText}`
+          }
+          // window.alert(errorMessage);
+          this.snackBar.open(errorMessage ,"ok" , { duration: 6000 });
+          return throwError(error);
+        }})
+      )
+
+  }
+
 }

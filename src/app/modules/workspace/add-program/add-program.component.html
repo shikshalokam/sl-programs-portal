@@ -1,0 +1,42 @@
+<!-- <mat-sidenav-container class="full-height">
+
+
+
+  <mat-sidenav #left position="end" mode="side">
+     End Sidenav.
+  </mat-sidenav>
+
+
+</mat-sidenav-container> -->
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" #left position="end" mode="side" class="sideTab _flex-box _justify-content-center"  [opened]="opened">
+      <div class="mat-drawer-inner-container innerContainer">
+          <button mat-icon-button (click)="openBottomSheet()" >
+              <i class="material-icons" *ngIf="opened">
+                  add
+              </i>
+          </button>
+      </div>
+    
+  </mat-drawer>
+  <mat-drawer-content class="full-height">
+
+
+
+    <button mat-icon-button (click)="left.toggle(); opened = !opened" class="bottomRight">
+        <i class="material-icons" *ngIf="!opened">
+            keyboard_arrow_left
+        </i>
+        <i class="material-icons" *ngIf="opened">
+            keyboard_arrow_right
+        </i>
+    </button>
+
+    <div class="col-sx-12 wrapper">
+    <mat-card *ngIf="showProgram" class="col-xs-12 ">
+       <app-dynamic-form [genericData]="programData" [genericForm]="programsForm" ></app-dynamic-form>
+    </mat-card>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -36,6 +36,8 @@
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "workSpace":"Workspace",
+        "addProgram":"Add Program",
         "frameworkRubricView": "Framework Hierarchy + Rubric",
         "performanceReport": "Performance report",
         "frameWorkStructureRubricLevel": "FrameWork Structure Rubric Level",
