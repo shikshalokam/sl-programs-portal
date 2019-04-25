@@ -4,6 +4,7 @@ import { AuthGuard } from '../private-modules/auth-gaurd/auth.gaurd';
 import { WorkspaceComponent } from './workspace.component';
 import { WorkspaceDashboardComponent } from './workspace-dashboard/workspace-dashboard.component';
 import { AddProgramComponent } from './add-program/add-program.component';
+import { SelectSolutionComponent } from './add-program/select-solution/select-solution.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,16 @@ const routes: Routes = [
         },
         canActivate: [AuthGuard],
         component: AddProgramComponent
+      },
+      {
+        path: 'select-solution',
+        data: {
+          id: 'selectSolution',
+          breadcrumb: 'headings.selectSolution'
+
+        },
+        // canActivate: [AuthGuard],
+        component: SelectSolutionComponent
       },
       
       {

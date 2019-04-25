@@ -1,29 +1,9 @@
 export var newProgram = [
   {
     editable: true,
-    field: "language",
-    input: "multiselect",
-    label: "Language",
-    validation: { required: false },
-    value: ['english'],
-    options:[
-      {
-        label: 'english',
-        value :'english'
-      },
-      {
-        label: 'hindi',
-        value :'hindi'
-      }
-    ],
-    visible: true
-  },
- 
-  {
-    editable: true,
-    field: "externalId",
+    field: "programTitle",
     input: "text",
-    label: "Exterenal Id",
+    label: "program title",
     validation: { required: false },
     value: "",
     visible: true
@@ -38,10 +18,21 @@ export var newProgram = [
     visible: true
   },
  
+  {
+    editable: true,
+    field: "externalId",
+    input: "text",
+    label: "Exterenal Id",
+    validation: { required: false },
+    value: "",
+    visible: true
+  },
+  
+ 
   
   {
     editable: true,
-    field: "startTime",
+    field: "fromDate",
     input: "date",
     label: "start date",
     max: "2019-04-17T07:55:43.230Z",
@@ -52,9 +43,9 @@ export var newProgram = [
   },
   {
     editable: true,
-    field: "endTime",
+    field: "toDate",
     input: "date",
-    label: "start date",
+    label: "end date",
     max: "2019-04-17T07:55:43.230Z",
     min: "1970-01-01T00:00:00.000Z",
     validation: { required: false },
@@ -97,13 +88,32 @@ export var newProgram = [
     ],
     visible: true
   },
+  // {
+  //   editable: true,
+  //   field: "keyWords",
+  //   input: "textarea",
+  //   label: "KeyWords",
+  //   validation: { required: false },
+  //   value: ['englhhish'],
+  //   visible: true
+  // },
   {
     editable: true,
-    field: "keyWords",
-    input: "textarea",
-    label: "KeyWords",
+    field: "language",
+    input: "multiselect",
+    label: "Language",
     validation: { required: false },
-    value: ['englhhish'],
+    value: ['english'],
+    options:[
+      {
+        label: 'english',
+        value :'english'
+      },
+      {
+        label: 'hindi',
+        value :'hindi'
+      }
+    ],
     visible: true
   },
 ];

@@ -17,6 +17,8 @@ export class AddProgramComponent implements OnInit {
   programData;
   group;
   showProgram: boolean = false;
+  headings:"headings.addProgram";
+
   constructor( 
     private bottomSheet :MatBottomSheet,
     private route : ActivatedRoute,
@@ -35,6 +37,9 @@ export class AddProgramComponent implements OnInit {
     createForm(objectArray) {
       this.programsForm = this.utilityService.createControl(objectArray);
       
+    }
+    selectSolution(){
+      this.router.navigate(['/workspace/select-solution'])
     }
   openBottomSheet(){
     this.bottomSheet.open(ProgramActionSheetComponent);
