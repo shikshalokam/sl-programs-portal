@@ -12,17 +12,32 @@
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" #left position="end" mode="side" class="sideTab _flex-box _justify-content-center"  [opened]="opened">
       <div class="mat-drawer-inner-container innerContainer">
-          <button mat-icon-button (click)="openBottomSheet()" >
+            <button mat-icon-button class="_small-Top-Margin "  >
+                    <i class="material-icons" *ngIf="opened">
+                            dashboard
+                    </i>
+                </button> 
+                <button mat-icon-button class="_small-Top-Margin "    >
+                        <i class="material-icons" *ngIf="opened">
+                                assignment_turned_in 
+                        </i>
+                    </button>
+          <!-- <button mat-icon-button  class="_small-Top-Margin "   (click)="selectSolution()" >
               <i class="material-icons" *ngIf="opened">
                   add
               </i>
-          </button>
+          </button> -->
+          
       </div>
     
   </mat-drawer>
   <mat-drawer-content class="full-height">
 
-
+<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="true"></app-parent-heading>
+<button mat-raised-button color="primary"  class="topRight" (click)="selectSolution()" >
+        Add Solutions
+</button>
+    
 
     <button mat-icon-button (click)="left.toggle(); opened = !opened" class="bottomRight">
         <i class="material-icons" *ngIf="!opened">

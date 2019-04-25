@@ -6,11 +6,12 @@ import { WorkspaceComponent } from './workspace.component';
 import { SharedModule, CoreModule } from 'shikshalokam';
 import { AddProgramMetaDataComponent } from './add-program-meta-data/add-program-meta-data.component';
 import { AddProgramComponent } from './add-program/add-program.component';
-import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
 import { ProgramActionSheetComponent } from './add-program/action-sheet/program-action-sheet.component';
+import { SelectSolutionComponent } from './add-program/select-solution/select-solution.component';
 
 @NgModule({
-  declarations: [WorkspaceDashboardComponent,WorkspaceComponent, AddProgramMetaDataComponent, AddProgramComponent, ProgramActionSheetComponent],
+  declarations: [WorkspaceDashboardComponent,WorkspaceComponent, AddProgramMetaDataComponent, AddProgramComponent, ProgramActionSheetComponent, SelectSolutionComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -22,7 +23,12 @@ import { ProgramActionSheetComponent } from './add-program/action-sheet/program-
     MatSidenavModule,
     MatBottomSheetModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule,
+    MatCheckboxModule
   ],
   providers:[MatDatepickerModule],
   entryComponents:[AddProgramMetaDataComponent,ProgramActionSheetComponent]

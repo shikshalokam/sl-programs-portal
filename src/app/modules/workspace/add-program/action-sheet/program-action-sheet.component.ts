@@ -21,4 +21,8 @@ export class ProgramActionSheetComponent implements OnInit {
     });
     event.preventDefault();
   }
+
+  onCancel(){
+    this.bottomSheetRef.dismiss();
+  }
 }

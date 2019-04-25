@@ -1,8 +1,39 @@
-<h4>FrameWork List</h4>
+
+<h4 class="_flex-box _justify-content-space-between">
+  Components 
+    <i class="material-icons" (click)="onCancel()">
+        clear
+        </i>
+</h4>
 <mat-nav-list>
 
-    <a href="https://hangouts.google.com/" mat-list-item (click)="openLink($event)">
-      <span mat-line>FrameWork - 1</span>
-      <span mat-line>Assessments</span>
+    <a href="" mat-list-item (click)="openLink($event)">
+      <!-- <span mat-line>FrameWork - 1</span> -->
+      <span mat-line class="flexbox">
+        <span>
+            <i class="material-icons">
+                assignment_turned_in 
+             </i>
+        </span>
+        <span class="_margin-left">
+            Assessments
+        </span>
+        
+      </span>
     </a>
+    <a href="" mat-list-item (click)="openLink($event)">
+        <!-- <span mat-line>FrameWork - 1</span> -->
+        <span mat-line class="flexbox">
+            <span>
+                <i class="material-icons">
+                    create
+                 </i>
+            </span>
+            <span class="_margin-left">
+          Workshop
+            </span>
+            
+          </span>
+        </a>
+        
   </mat-nav-list>
