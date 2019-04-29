@@ -35,7 +35,6 @@ export class AddProgramMetaDataComponent implements OnInit {
   }
   onSubmit() {
     let rawValue = this.programsForm.getRawValue();
-    console.log(rawValue)
     this.router.navigate(['/workspace/add-program']);
     this.onChoose();
   }

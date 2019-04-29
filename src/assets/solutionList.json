@@ -1,0 +1,655 @@
+{
+    "_id": "5beaaaa6af0065f0e0a10605",
+    "externalId": "APPLE-ASSESSMENT-PROGRAM",
+    "name": "Apple",
+    "description": "Apple Program 2018",
+    "owner": "a082787f-8f8f-42f2-a706-35457ca6f1fd",
+    "createdBy": "a082787f-8f8f-42f2-a706-35457ca6f1fd",
+    "updatedBy": "a082787f-8f8f-42f2-a706-35457ca6f1fd",
+    "isDeleted": false,
+    "status": "active",
+    "resourceType": [
+        "Program"
+    ],
+    "language": [
+        "English"
+    ],
+    "keywords": [
+        "Keyword 1",
+        "Keyword 2"
+    ],
+    "concepts": [
+        {
+            "identifier": "LPD20100",
+            "name": "Teacher_Performance",
+            "objectType": "Concept",
+            "relation": "associatedTo",
+            "description": null,
+            "index": null,
+            "status": null,
+            "depth": null,
+            "mimeType": null,
+            "visibility": null,
+            "compatibilityLevel": null
+        },
+        {
+            "identifier": "LPD20400",
+            "name": "Instructional_Programme",
+            "objectType": "Concept",
+            "relation": "associatedTo",
+            "description": null,
+            "index": null,
+            "status": null,
+            "depth": null,
+            "mimeType": null,
+            "visibility": null,
+            "compatibilityLevel": null
+        },
+        {
+            "identifier": "LPD20200",
+            "name": "Teacher_Empowerment",
+            "objectType": "Concept",
+            "relation": "associatedTo",
+            "description": null,
+            "index": null,
+            "status": null,
+            "depth": null,
+            "mimeType": null,
+            "visibility": null,
+            "compatibilityLevel": null
+        }
+    ],
+    "createdFor": [
+        "0125747659358699520",
+        "0125748495625912324"
+    ],
+    "imageCompression": {
+        "required": true,
+        "height": 640,
+        "width": 640,
+        "quality": 90,
+        "maximumSize": "5MB",
+        "minimumSize": "0.5MB"
+    },
+    "components": [
+        {
+            "type": "evaluationFramework",
+            "id": "5beaaa2baf0065f0e0a105c7",
+            "solutionNumber": 1,
+            "schools": [
+                "5beaa888af0065f0e0a10515"
+            ],
+            "roles": {
+                "assessors": {
+                    "acl": {
+                        "schoolProfile": {
+                            "editable": [
+                                "gpsLocation"
+                            ],
+                            "visible": [
+                                "externalId",
+                                "emailId",
+                                "addressLine1",
+                                "addressLine2",
+                                "city",
+                                "name",
+                                "phone",
+                                "principalName",
+                                "pincode",
+                                "administration",
+                                "gender",
+                                "shift",
+                                "schoolType",
+                                "totalStudents",
+                                "totalBoys",
+                                "totalGirls",
+                                "lowestGrade",
+                                "highestGrade",
+                                "gpsLocation",
+                                "totalSection",
+                                "totalTeachersPresentInTheSchool",
+                                "totalEnglishTeachers",
+                                "totalHindiTeachers",
+                                "totalMathsTeachers",
+                                "totalScienceTeachers",
+                                "totalSocialTeachers",
+                                "totalSocialScienceTeachers",
+                                "totalComputerTeachers",
+                                "totalStudentsInGrade9",
+                                "totalStudentsInGrade10",
+                                "totalStudentsInGrade11",
+                                "totalStudentsInGrade12",
+                                "mediumOfInstruction",
+                                "totalSanctionedTeachingPosts",
+                                "totalFilledTeachingPosts",
+                                "totalPermanentTeachers",
+                                "totalGuestTeachers",
+                                "totalPrimaryTeachersHavingDiploma",
+                                "totalTeachersTeaching6to10",
+                                "totalCTETQualifiedTeachers",
+                                "totalStudentsAdmittedIn2018-19InLowestClass",
+                                "totalEWS/DGStudentsStudyingIn2018-19InLowestClass",
+                                "totalStudentsAdmittedLastYearInLowestClass",
+                                "totalEWS/DGStudentsAdmittedLastYearInLowestClass",
+                                "totalEWS/DGStudentsCurrentlyStudyingInSecondLowestClass",
+                                "totalPhysicsTeachers",
+                                "totalChemistryTeachers",
+                                "totalBiologyTeachers",
+                                "totalEconomicsTeachers",
+                                "totalPoliticalScienceTeachers",
+                                "totalAccountsTeachers",
+                                "totalBusinessStudiesTeachers",
+                                "totalHistoryTeachers",
+                                "totalGeographyTeachers",
+                                "streamOffered"
+                            ]
+                        }
+                    },
+                    "users": [
+                        "838e9a11-b150-4cef-941d-760b5fbd7927"
+                    ]
+                }
+            },
+            "schoolProfileFieldsPerSchoolTypes": {
+                "A1": [
+                    "externalId",
+                    "emailId",
+                    "addressLine1",
+                    "addressLine2",
+                    "city",
+                    "name",
+                    "phone",
+                    "principalName",
+                    "pincode",
+                    "administration",
+                    "gender",
+                    "shift",
+                    "schoolType",
+                    "totalStudents",
+                    "totalBoys",
+                    "totalGirls",
+                    "lowestGrade",
+                    "highestGrade",
+                    "gpsLocation",
+                    "totalSection",
+                    "totalTeachersPresentInTheSchool",
+                    "totalEnglishTeachers",
+                    "totalHindiTeachers",
+                    "totalMathsTeachers",
+                    "totalScienceTeachers",
+                    "totalSocialTeachers",
+                    "totalSocialScienceTeachers",
+                    "totalComputerTeachers",
+                    "totalStudentsInGrade9",
+                    "totalStudentsInGrade10",
+                    "totalStudentsInGrade11",
+                    "totalStudentsInGrade12",
+                    "mediumOfInstruction"
+                ],
+                "A3": [
+                    "totalSanctionedTeachingPosts",
+                    "totalFilledTeachingPosts",
+                    "totalPermanentTeachers",
+                    "totalGuestTeachers"
+                ],
+                "A4": [
+                    "totalPrimaryTeachersHavingDiploma",
+                    "totalTeachersTeaching6to10",
+                    "totalCTETQualifiedTeachers",
+                    "totalStudentsAdmittedIn2018-19InLowestClass",
+                    "totalEWS/DGStudentsStudyingIn2018-19InLowestClass",
+                    "totalStudentsAdmittedLastYearInLowestClass",
+                    "totalEWS/DGStudentsAdmittedLastYearInLowestClass",
+                    "totalEWS/DGStudentsCurrentlyStudyingInSecondLowestClass"
+                ],
+                "A5": [
+                    "totalPhysicsTeachers",
+                    "totalChemistryTeachers",
+                    "totalBiologyTeachers",
+                    "totalEconomicsTeachers",
+                    "totalPoliticalScienceTeachers",
+                    "totalAccountsTeachers",
+                    "totalBusinessStudiesTeachers",
+                    "totalHistoryTeachers",
+                    "totalGeographyTeachers",
+                    "streamOffered"
+                ]
+            },
+            "form": [
+                {
+                    "editable": true,
+                    "field": "solutionName",
+                    "input": "text",
+                    "label": "Solution Name",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": "improvement Project solution 1",
+                    "visible": true
+                },
+                {
+                    "editable": true,
+                    "field": "solutionId",
+                    "input": "text",
+                    "label": "Solution Id",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": " asdasdasd",
+                    "visible": true
+                },
+                {
+                    "editable": true,
+                    "field": "solutionType",
+                    "input": "dropdown",
+                    "label": "Solution Type",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": "improvementProject",
+                    "options": [
+                        {
+                            "label": "Assessment",
+                            "value": "assessment"
+                        },
+                        {
+                            "label": "Work Shop",
+                            "value": "workShop"
+                        },
+                        {
+                            "label": "Improvement Project",
+                            "value": "improvementProject"
+                        }
+                    ],
+                    "visible": true
+                }
+            ]
+        },
+        {
+            "type": "evaluationFramework",
+            "id": "5beaaa2baf0065f0e0a105c7",
+            "solutionNumber": 2,
+            "schools": [
+                "5beaa888af0065f0e0a10515"
+            ],
+            "roles": {
+                "assessors": {
+                    "acl": {
+                        "schoolProfile": {
+                            "editable": [
+                                "gpsLocation"
+                            ],
+                            "visible": [
+                                "externalId",
+                                "emailId",
+                                "addressLine1",
+                                "addressLine2",
+                                "city",
+                                "name",
+                                "phone",
+                                "principalName",
+                                "pincode",
+                                "administration",
+                                "gender",
+                                "shift",
+                                "schoolType",
+                                "totalStudents",
+                                "totalBoys",
+                                "totalGirls",
+                                "lowestGrade",
+                                "highestGrade",
+                                "gpsLocation",
+                                "totalSection",
+                                "totalTeachersPresentInTheSchool",
+                                "totalEnglishTeachers",
+                                "totalHindiTeachers",
+                                "totalMathsTeachers",
+                                "totalScienceTeachers",
+                                "totalSocialTeachers",
+                                "totalSocialScienceTeachers",
+                                "totalComputerTeachers",
+                                "totalStudentsInGrade9",
+                                "totalStudentsInGrade10",
+                                "totalStudentsInGrade11",
+                                "totalStudentsInGrade12",
+                                "mediumOfInstruction",
+                                "totalSanctionedTeachingPosts",
+                                "totalFilledTeachingPosts",
+                                "totalPermanentTeachers",
+                                "totalGuestTeachers",
+                                "totalPrimaryTeachersHavingDiploma",
+                                "totalTeachersTeaching6to10",
+                                "totalCTETQualifiedTeachers",
+                                "totalStudentsAdmittedIn2018-19InLowestClass",
+                                "totalEWS/DGStudentsStudyingIn2018-19InLowestClass",
+                                "totalStudentsAdmittedLastYearInLowestClass",
+                                "totalEWS/DGStudentsAdmittedLastYearInLowestClass",
+                                "totalEWS/DGStudentsCurrentlyStudyingInSecondLowestClass",
+                                "totalPhysicsTeachers",
+                                "totalChemistryTeachers",
+                                "totalBiologyTeachers",
+                                "totalEconomicsTeachers",
+                                "totalPoliticalScienceTeachers",
+                                "totalAccountsTeachers",
+                                "totalBusinessStudiesTeachers",
+                                "totalHistoryTeachers",
+                                "totalGeographyTeachers",
+                                "streamOffered"
+                            ]
+                        }
+                    },
+                    "users": [
+                        "838e9a11-b150-4cef-941d-760b5fbd7927"
+                    ]
+                }
+            },
+            "schoolProfileFieldsPerSchoolTypes": {
+                "A1": [
+                    "externalId",
+                    "emailId",
+                    "addressLine1",
+                    "addressLine2",
+                    "city",
+                    "name",
+                    "phone",
+                    "principalName",
+                    "pincode",
+                    "administration",
+                    "gender",
+                    "shift",
+                    "schoolType",
+                    "totalStudents",
+                    "totalBoys",
+                    "totalGirls",
+                    "lowestGrade",
+                    "highestGrade",
+                    "gpsLocation",
+                    "totalSection",
+                    "totalTeachersPresentInTheSchool",
+                    "totalEnglishTeachers",
+                    "totalHindiTeachers",
+                    "totalMathsTeachers",
+                    "totalScienceTeachers",
+                    "totalSocialTeachers",
+                    "totalSocialScienceTeachers",
+                    "totalComputerTeachers",
+                    "totalStudentsInGrade9",
+                    "totalStudentsInGrade10",
+                    "totalStudentsInGrade11",
+                    "totalStudentsInGrade12",
+                    "mediumOfInstruction"
+                ],
+                "A3": [
+                    "totalSanctionedTeachingPosts",
+                    "totalFilledTeachingPosts",
+                    "totalPermanentTeachers",
+                    "totalGuestTeachers"
+                ],
+                "A4": [
+                    "totalPrimaryTeachersHavingDiploma",
+                    "totalTeachersTeaching6to10",
+                    "totalCTETQualifiedTeachers",
+                    "totalStudentsAdmittedIn2018-19InLowestClass",
+                    "totalEWS/DGStudentsStudyingIn2018-19InLowestClass",
+                    "totalStudentsAdmittedLastYearInLowestClass",
+                    "totalEWS/DGStudentsAdmittedLastYearInLowestClass",
+                    "totalEWS/DGStudentsCurrentlyStudyingInSecondLowestClass"
+                ],
+                "A5": [
+                    "totalPhysicsTeachers",
+                    "totalChemistryTeachers",
+                    "totalBiologyTeachers",
+                    "totalEconomicsTeachers",
+                    "totalPoliticalScienceTeachers",
+                    "totalAccountsTeachers",
+                    "totalBusinessStudiesTeachers",
+                    "totalHistoryTeachers",
+                    "totalGeographyTeachers",
+                    "streamOffered"
+                ]
+            },
+            "form": [
+                {
+                    "editable": true,
+                    "field": "solutionName",
+                    "input": "text",
+                    "label": "Solution Name",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": "assessment solution 2",
+                    "visible": true
+                },
+                {
+                    "editable": true,
+                    "field": "solutionId",
+                    "input": "text",
+                    "label": "Solution Id",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": " asdasdasd12123n123",
+                    "visible": true
+                },
+                {
+                    "editable": true,
+                    "field": "solutionType",
+                    "input": "dropdown",
+                    "label": "Solution Type",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": "assessment",
+                    "options": [
+                        {
+                            "label": "Assessment",
+                            "value": "assessment"
+                        },
+                        {
+                            "label": "Work Shop",
+                            "value": "workShop"
+                        },
+                        {
+                            "label": "Improvement Project",
+                            "value": "improvementProject"
+                        }
+                    ],
+                    "visible": true
+                }
+            ]
+        },
+        {
+            "type": "evaluationFramework",
+            "id": "5beaaa2baf0065f0e0a105c7",
+            "solutionNumber": 3,
+            "schools": [
+                "5beaa888af0065f0e0a10515"
+            ],
+            "roles": {
+                "assessors": {
+                    "acl": {
+                        "schoolProfile": {
+                            "editable": [
+                                "gpsLocation"
+                            ],
+                            "visible": [
+                                "externalId",
+                                "emailId",
+                                "addressLine1",
+                                "addressLine2",
+                                "city",
+                                "name",
+                                "phone",
+                                "principalName",
+                                "pincode",
+                                "administration",
+                                "gender",
+                                "shift",
+                                "schoolType",
+                                "totalStudents",
+                                "totalBoys",
+                                "totalGirls",
+                                "lowestGrade",
+                                "highestGrade",
+                                "gpsLocation",
+                                "totalSection",
+                                "totalTeachersPresentInTheSchool",
+                                "totalEnglishTeachers",
+                                "totalHindiTeachers",
+                                "totalMathsTeachers",
+                                "totalScienceTeachers",
+                                "totalSocialTeachers",
+                                "totalSocialScienceTeachers",
+                                "totalComputerTeachers",
+                                "totalStudentsInGrade9",
+                                "totalStudentsInGrade10",
+                                "totalStudentsInGrade11",
+                                "totalStudentsInGrade12",
+                                "mediumOfInstruction",
+                                "totalSanctionedTeachingPosts",
+                                "totalFilledTeachingPosts",
+                                "totalPermanentTeachers",
+                                "totalGuestTeachers",
+                                "totalPrimaryTeachersHavingDiploma",
+                                "totalTeachersTeaching6to10",
+                                "totalCTETQualifiedTeachers",
+                                "totalStudentsAdmittedIn2018-19InLowestClass",
+                                "totalEWS/DGStudentsStudyingIn2018-19InLowestClass",
+                                "totalStudentsAdmittedLastYearInLowestClass",
+                                "totalEWS/DGStudentsAdmittedLastYearInLowestClass",
+                                "totalEWS/DGStudentsCurrentlyStudyingInSecondLowestClass",
+                                "totalPhysicsTeachers",
+                                "totalChemistryTeachers",
+                                "totalBiologyTeachers",
+                                "totalEconomicsTeachers",
+                                "totalPoliticalScienceTeachers",
+                                "totalAccountsTeachers",
+                                "totalBusinessStudiesTeachers",
+                                "totalHistoryTeachers",
+                                "totalGeographyTeachers",
+                                "streamOffered"
+                            ]
+                        }
+                    },
+                    "users": [
+                        "838e9a11-b150-4cef-941d-760b5fbd7927"
+                    ]
+                }
+            },
+            "schoolProfileFieldsPerSchoolTypes": {
+                "A1": [
+                    "externalId",
+                    "emailId",
+                    "addressLine1",
+                    "addressLine2",
+                    "city",
+                    "name",
+                    "phone",
+                    "principalName",
+                    "pincode",
+                    "administration",
+                    "gender",
+                    "shift",
+                    "schoolType",
+                    "totalStudents",
+                    "totalBoys",
+                    "totalGirls",
+                    "lowestGrade",
+                    "highestGrade",
+                    "gpsLocation",
+                    "totalSection",
+                    "totalTeachersPresentInTheSchool",
+                    "totalEnglishTeachers",
+                    "totalHindiTeachers",
+                    "totalMathsTeachers",
+                    "totalScienceTeachers",
+                    "totalSocialTeachers",
+                    "totalSocialScienceTeachers",
+                    "totalComputerTeachers",
+                    "totalStudentsInGrade9",
+                    "totalStudentsInGrade10",
+                    "totalStudentsInGrade11",
+                    "totalStudentsInGrade12",
+                    "mediumOfInstruction"
+                ],
+                "A3": [
+                    "totalSanctionedTeachingPosts",
+                    "totalFilledTeachingPosts",
+                    "totalPermanentTeachers",
+                    "totalGuestTeachers"
+                ],
+                "A4": [
+                    "totalPrimaryTeachersHavingDiploma",
+                    "totalTeachersTeaching6to10",
+                    "totalCTETQualifiedTeachers",
+                    "totalStudentsAdmittedIn2018-19InLowestClass",
+                    "totalEWS/DGStudentsStudyingIn2018-19InLowestClass",
+                    "totalStudentsAdmittedLastYearInLowestClass",
+                    "totalEWS/DGStudentsAdmittedLastYearInLowestClass",
+                    "totalEWS/DGStudentsCurrentlyStudyingInSecondLowestClass"
+                ],
+                "A5": [
+                    "totalPhysicsTeachers",
+                    "totalChemistryTeachers",
+                    "totalBiologyTeachers",
+                    "totalEconomicsTeachers",
+                    "totalPoliticalScienceTeachers",
+                    "totalAccountsTeachers",
+                    "totalBusinessStudiesTeachers",
+                    "totalHistoryTeachers",
+                    "totalGeographyTeachers",
+                    "streamOffered"
+                ]
+            },
+            "form": [
+                {
+                    "editable": true,
+                    "field": "solutionName",
+                    "input": "text",
+                    "label": "Solution Name",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": " workShop Solution 3",
+                    "visible": true
+                },
+                {
+                    "editable": true,
+                    "field": "solutionId",
+                    "input": "text",
+                    "label": "Solution Id",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": " asdasdasd23n123",
+                    "visible": true
+                },
+                {
+                    "editable": true,
+                    "field": "solutionType",
+                    "input": "dropdown",
+                    "label": "Solution Type",
+                    "validation": {
+                        "required": true
+                    },
+                    "value": "workShop",
+                    "options": [
+                        {
+                            "label": "Assessment",
+                            "value": "assessment"
+                        },
+                        {
+                            "label": "Work Shop",
+                            "value": "workShop"
+                        },
+                        {
+                            "label": "Improvement Project",
+                            "value": "improvementProject"
+                        }
+                    ],
+                    "visible": true
+                }
+            ]
+        }
+    ]
+}

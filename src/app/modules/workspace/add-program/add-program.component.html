@@ -9,49 +9,179 @@
 
 </mat-sidenav-container> -->
 
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" #left position="end" mode="side" class="sideTab _flex-box _justify-content-center"  [opened]="opened">
-      <div class="mat-drawer-inner-container innerContainer">
-            <button mat-icon-button class="_small-Top-Margin "  >
-                    <i class="material-icons" *ngIf="opened">
-                            dashboard
-                    </i>
-                </button> 
-                <button mat-icon-button class="_small-Top-Margin "    >
-                        <i class="material-icons" *ngIf="opened">
-                                assignment_turned_in 
-                        </i>
-                    </button>
-          <!-- <button mat-icon-button  class="_small-Top-Margin "   (click)="selectSolution()" >
-              <i class="material-icons" *ngIf="opened">
-                  add
-              </i>
-          </button> -->
-          
+
+
+<mat-drawer-container class="example-container" *ngIf="solutionList">
+  <mat-drawer mode="side" #left position="end" mode="side" class="sideTab _flex-box _justify-content-center"
+    [opened]="opened">
+    <div class="mat-drawer-inner-container columnFlex">
+      <div class="innerContainer ">
+        <button mat-icon-button class="_small-Top-Margin " (click)="showPrograms = true ; showSolution = false"
+          matTooltip="program">
+          <i class="material-icons" *ngIf="opened">
+            dashboard
+          </i>
+        </button>
+
+        <button mat-icon-button class="_small-Top-Margin "
+          (click)="showPrograms = false ; showSolution = true ; showSolutions(solution)" matTooltip="Assessments"
+          *ngFor="let solution of solutionList">
+          <i class="material-icons" *ngIf="opened">
+            assignment_turned_in
+          </i>
+        </button>
       </div>
-    
+
+      <button mat-icon-button (click)="left.toggle(); opened = !opened" class="_small-bottom-Margin">
+        <i class="material-icons" *ngIf="opened">
+          keyboard_arrow_right
+        </i>
+      </button>
+
+    </div>
+
   </mat-drawer>
   <mat-drawer-content class="full-height">
 
-<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="true"></app-parent-heading>
-<button mat-raised-button color="primary"  class="topRight" (click)="selectSolution()" >
-        Add Solutions
-</button>
-    
-
-    <button mat-icon-button (click)="left.toggle(); opened = !opened" class="bottomRight">
-        <i class="material-icons" *ngIf="!opened">
-            keyboard_arrow_left
-        </i>
-        <i class="material-icons" *ngIf="opened">
-            keyboard_arrow_right
-        </i>
+    <app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="true"></app-parent-heading>
+    <button mat-raised-button color="primary" class="topRight" (click)="selectSolution()">
+      Add Solutions
     </button>
 
-    <div class="col-sx-12 wrapper">
-    <mat-card *ngIf="showProgram" class="col-xs-12 ">
-       <app-dynamic-form [genericData]="programData" [genericForm]="programsForm" ></app-dynamic-form>
-    </mat-card>
+    <div class="bottomRight">
+
+      <!-- <button mat-raised-button color="primary" [disabled]="!programsForm.valid" >
+        {{'buttons.submit' | translate}}       
+    </button> -->
+      <button mat-raised-button color="primary">
+        {{'buttons.saveDraft' | translate}}
+      </button>
+
+      <button mat-icon-button (click)="left.toggle(); opened = !opened" *ngIf="!opened">
+        <i class="material-icons">
+          keyboard_arrow_left
+        </i>
+      </button>
     </div>
+
+
+    <mat-horizontal-stepper [linear]="!programsForm.valid" #stepper class="stepperHorizontal" *ngIf="showPrograms">
+      <mat-step [stepControl]="programsForm">
+        <ng-template matStepLabel>Program Meta Data</ng-template>
+
+        <div class="col-sx-12 wrapper">
+          <mat-card class="col-xs-12 _margin-top ">
+            <app-dynamic-form [genericData]="programData" [genericForm]="programsForm"></app-dynamic-form>
+
+            <mat-card-actions class="col-xs-12 flexEnd">
+              <button mat-button color="primary">{{'buttons.update' | translate}}</button>
+              <button mat-button color="primary" matStepperNext
+                [disabled]="!programsForm.valid">{{'buttons.next' | translate}}</button>
+            </mat-card-actions>
+
+          </mat-card>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Personnel Management</ng-template>
+        <div class="col-xs-12 col-md-6 col-lg-6 col-sm-12 marginTopBottom">
+          <mat-card class="col-xs-12 ">
+            <h4>{{'labels.addUsers'| translate}}</h4>
+            <div class="_flex-box _justify-content-center _justify-content-space-between  col-sm-6">
+              <label for="assessor-file-upload" class="custom-file-upload _flexbox ">
+                <div>
+                  <i class="material-icons paddingContent">
+                    cloud_upload
+                  </i>
+                </div>
+                <div class="paddingContent">
+                  {{'labels.addUsers'| translate}}
+                </div>
+              </label>
+              <input id="assessor-file-upload" (change)="uploadAssessor($event.target.files)" type="file"
+                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                #assessorfiles />
+            </div>
+            <div class="_flex-box  _flex-end col-sm-6">
+              <button mat-raised-button color="primary" [disabled]="!(assessorFileSelected)"
+                (click)="csvUpload('assessors'); files.value=null">{{'buttons.upload' | translate}}</button>
+            </div>
+            <div class="fileList" *ngIf="showAssessorStatus">
+              <h5>Selected File List</h5>
+              <div *ngFor="let fileitem of assessorFile ; let i = index">
+                <div class="_flex-box _justify-content-center _justify-content-space-between ">
+                  <div>
+                    {{i+1}}. &nbsp;&nbsp; {{fileitem.name}}
+                  </div>
+                  <div>
+                    <i class="material-icons _cursor-pointer" (click)="deleteAssessorFile(i , assessorFile)">
+                      delete
+                    </i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <progress-bar *ngIf="fileUpload && showAssessorStatus " [progress]="percentDone" [color]="'#008000'">
+            </progress-bar>
+          </mat-card>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 col-sm-12 marginTopBottom">
+          <mat-card class="col-xs-12 ">
+            <h4>{{'labels.addHierarchy'| translate}}</h4>
+
+            <div class="_flex-box _justify-content-center _justify-content-space-between  col-sm-6">
+              <label for="school-file-upload" class="custom-file-upload _flexbox ">
+                <div>
+                  <i class="material-icons paddingContent">
+                    cloud_upload
+                  </i>
+                </div>
+                <div class="paddingContent">
+                  {{'labels.addHierarchy'| translate}}
+                </div>
+              </label>
+              <input id="school-file-upload" (change)="uploadSchools($event.target.files)" type="file"
+                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                #schoolfiles />
+            </div>
+            <div class="_flex-box  _flex-end  col-sm-6">
+              <button mat-raised-button color="primary" [disabled]="!(schoolFileSelected)"
+                (click)="csvUpload('schools'); files.value=null">{{'buttons.upload' | translate}}</button>
+            </div>
+            <div class="fileList" *ngIf="showSchoolStatus">
+              <h5>Selected File List</h5>
+              <div *ngFor="let fileitem of schoolFile ; let i = index">
+                <div class="_flex-box _justify-content-center _justify-content-space-between ">
+                  <div>
+                    {{i+1}}. &nbsp;&nbsp; {{fileitem.name}}
+                  </div>
+                  <div>
+                    <i class="material-icons _cursor-pointer" (click)="deleteSchoolFile(i , schoolFile)">
+                      delete
+                    </i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <progress-bar *ngIf="fileUpload && showSchoolStatus " [progress]="percentDone" [color]="'#008000'">
+            </progress-bar>
+          </mat-card>
+
+        </div>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+    <div *ngIf="showSolution && solutionForm" class="_margin-top wrapper">
+      <mat-card class="col-xs-12">
+        <!-- {{currentSolution.solutionNumber}} -->
+        <app-dynamic-form [genericData]="currentSolution.form" [genericForm]="solutionForm"></app-dynamic-form>
+
+      </mat-card>
+
+    </div>
+
+
   </mat-drawer-content>
 </mat-drawer-container>
