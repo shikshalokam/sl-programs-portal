@@ -31,6 +31,12 @@ export const GlobalConfig = {
           anchorLink: "/operations",
           icon: "build"
         },
+        // {
+        //   value: "headings.workSpace",
+        //   id: 'workspace',
+        //   anchorLink: "/workspace",
+        //   icon: "settings"
+        // }
       ]
     }
   ],
@@ -102,6 +108,15 @@ export const GlobalConfig = {
     // }
 
     
+  ],
+  workSpaceDashBoardLinks: [
+    {
+      tooltip: "headings.addProgram",
+      anchorLink: "add-program",
+      id: 'addProgram',
+      icon: "settings",
+      disabled: true
+    },
   ]
 }
 

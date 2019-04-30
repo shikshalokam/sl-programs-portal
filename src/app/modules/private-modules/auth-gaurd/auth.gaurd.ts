@@ -110,14 +110,14 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
       if (this.authService.userName == 'Sandeep') {
         return true;
       }
-      this.snackBar.open("Unauthorized Access", "Ok", {duration: 3000});
+      //this.snackBar.open("Unauthorized Access", "Ok", {duration: 3000});
       return false;
     }
     else {
       if (this.authService.userName == 'Mouneesh') {
         return true;
       }
-      this.snackBar.open("Unauthorized Access", "Ok", {duration: 3000});
+      //this.snackBar.open("Unauthorized Access", "Ok", {duration: 3000});
       return false;
 
     }
@@ -153,7 +153,7 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
           error => {
       this.utiity.loaderHide();
   
-            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+            //this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
             return reject();
           }
         )

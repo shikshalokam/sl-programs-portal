@@ -1,0 +1,60 @@
+<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="true"></app-parent-heading>
+
+<div class="col-xs-12 _margin-top ">
+  <!-- <div > -->
+  <!-- {{ 'headings.selectSolution' | translate}} -->
+  <!-- </div> -->
+  <!-- <mat-divider></mat-divider> -->
+  <div class="_flex-box col-xs-12 col-lg-offset-3 col-lg-6 col-md-8 col-md-offset-2 col-sm-12">
+    <div class="filterDropdown" [matMenuTriggerFor]="menu">
+      <span class="noWrap paddingLeft">
+        {{selectSolutionType}}
+      </span>
+      <i class="material-icons">
+        arrow_drop_down
+      </i>
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let type of solutionType" (click)="changeSolutionType(type)"><span
+          [ngClass]="{'active':  selectSolutionType === type }">{{type}}</span></button>
+    </mat-menu>
+    <div class="searchBox">
+      <input id="searchSolution" type="text" appDebounceSearch [searchValue]="searchSolution" [debounceTime]="200"
+        (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}"
+        (keyup)="applyFilter($event.target.value)">
+      <div class="iconOnInput">
+        <i class="material-icons ">
+          search
+        </i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 solutionBox">
+    <div class="col-xs-12  ">
+      {{selectSolutionType }} solutions
+    </div>
+    <div class="col-xs-12 col-lg-4 col-md-4 col-sm-6 _margin-top" *ngFor="let solution of solutions">
+      <mat-card class="solutionCard">
+        <div class=" flex _justify-content-space-between">
+          <div class="cardheader">
+            <i class="material-icons cardIcon">
+              {{solution.icon}}
+            </i>
+            <h4>{{solution.title}}</h4>
+          </div>
+          <mat-checkbox class="floatRight" (click)="insertSolution()"></mat-checkbox>
+
+        </div>
+        <div class="col-xs-8 col-xs-offset-2">
+          {{solution.description}}
+        </div>
+
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 _flex-box _flex-end">
+    <button mat-raised-button (click)="onAddSolution()" color="primary">Add Solutions</button>
+  </div>
+
+</div>

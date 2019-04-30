@@ -53,7 +53,7 @@ export class EcmReportComponent implements OnInit {
           },
           (error) => {
             this.error = error;
-            this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+            //this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
             this.utility.loaderHide();
           }
         )
@@ -61,7 +61,7 @@ export class EcmReportComponent implements OnInit {
       },
       (error) => {
         this.error = error;
-        this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
+        //this.snackBar.open(GlobalConfig.errorMessage, "Ok", { duration: 9000 });
         this.utility.loaderHide();
       }
     );

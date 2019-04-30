@@ -73,6 +73,9 @@ body {
 ._small-Top-Margin {
   margin-top: 10px !important;
 }
+._small-bottom-Margin {
+  margin-bottom: 10px !important;
+}
 ._border {
   border: 1px solid var(--light-grey-color);
 }
@@ -137,6 +140,9 @@ body {
 span:focus {
   outline: none;
   border: 0;
+}
+._primary-color{
+  color: var(--primary-color);
 }
 ._contentMiddle {
   padding: 5px !important;

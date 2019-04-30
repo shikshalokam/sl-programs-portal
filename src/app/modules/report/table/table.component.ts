@@ -139,7 +139,7 @@ export class TableComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
       },
         (error) => {
-          this.snackBar.open(GlobalConfig.errorMessage, "OK", { duration: 9000 })
+          //this.snackBar.open(GlobalConfig.errorMessage, "OK", { duration: 9000 })
           this.utility.loaderHide();
           ;
         }

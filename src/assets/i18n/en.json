@@ -2,6 +2,7 @@
     "brand": "School Development Index",
     "brandResponsive": "SDI",
     "message": {
+        "unAuthorised":"Invalid access to the page  ",
         "downloadCsv": "Download as CSV",
         "downloadChart": "Download Chart as PDF",
         "alertHeading": "ALERT !!",
@@ -23,8 +24,9 @@
         "back": "Back",
         "submit": "Submit",
         "save": "Save",
+        "saveDraft": "Save Draft",
         "ok": "Ok",
-        "shareLink":"share link",
+        "shareLink": "share link",
         "reset": "Reset",
         "saveSurvey": "Save Survey",
         "cancelSurvey": "Cancel Survey",
@@ -36,13 +38,16 @@
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "selectSolution": "Select Solution",
+        "workSpace": "Workspace",
+        "addProgram": "Add Program",
         "frameworkRubricView": "Framework Hierarchy + Rubric",
         "performanceReport": "Performance report",
         "frameWorkStructureRubricLevel": "FrameWork Structure Rubric Level",
         "reportMiltipleEntityReport": "Multiple Entity Report",
         "filters": "Filters",
         "homes": "Home",
-        "reportMultilpeEntityDrillldownReport":"Multilpe Entity Drill-Down Report",
+        "reportMultilpeEntityDrillldownReport": "Multilpe Entity Drill-Down Report",
         "highlevelEntityReport": "High-Level Entity Report",
         "assessments": "Assessments",
         "programs": "Programs",
@@ -50,7 +55,7 @@
         "parentInfoHeading": "Parent Information",
         "parentListHeading": "Parent List",
         "schoolListHeading": "Schools",
-        "blockListHeading":"Blocks",
+        "blockListHeading": "Blocks",
         "assessorListHeading": "Assessors",
         "ecmReportsHeading": "ECM Reports",
         "parentInterview": "Parent Interview",
@@ -85,7 +90,9 @@
         "uploadSchoolCsv": "Add Schools"
     },
     "labels": {
-        "uploadCsv": "Configurations"
+        "uploadCsv": "Configurations",
+        "addUsers": "Add Users",
+        "addHierarchy": "Add Hierarchy"
     },
     "descriptions": {
         "questionFrameWorkDescription": "list of questions.",

@@ -29,10 +29,21 @@ const routes: Routes = [
         loadChildren: './operations/operations.module#OperationsModule'
       },
       {
+        path: 'workspace',
+        data: {
+          id: 'workspace',
+        },
+        loadChildren: './workspace/workspace.module#WorkspaceModule'
+      },
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
       },
+      // {
+      //   path:"**",
+      //   component:HomeComponent
+      // }
      
     ]
   }
