@@ -141,6 +141,9 @@ span:focus {
   outline: none;
   border: 0;
 }
+._primary-color{
+  color: var(--primary-color);
+}
 ._contentMiddle {
   padding: 5px !important;
 }
