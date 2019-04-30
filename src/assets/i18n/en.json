@@ -15,6 +15,7 @@
         "selectPrograms": "Select a program to continue"
     },
     "buttons": {
+        "createPrograms":"Create Programs",
         "download": "Download",
         "update": "Update",
         "markasComplete": "Mark As Complete",
@@ -76,6 +77,7 @@
         "panelEditHeading": "Click on panel to Edit",
         "general": "General",
         "choices": "Choices",
+        "programTemplate":"Program Template",
         "type": "Type",
         "uploadingCsv": "Uploading Csv",
         "operationDashboardUpload": "Manage",

@@ -6,3 +6,51 @@
     position: absolute;
     bottom:0;
 }
+.selectedProgram{
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+// .mat-tab-body-wrapper{
+//     height: 100% !important;
+//     width: 100%;
+// }
+// .tabGroup{
+//     height: 90%;
+// }
+// .tab{
+//     height: 100%;
+// }
+// mat-tab-body{
+//     height: 100%;
+// }
+.formDiv{
+    overflow: auto;
+    height: 400px;
+}
+.noWrap {
+    white-space: nowrap;
+  }
+  .solutionCard {
+    height: 150px;
+  }
+  .floatRight {
+    float: right;
+  }
+  
+  .solutionBox {
+    height: calc(100vh - 260px);
+  }
+  .cardheader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .cardIcon {
+    font-size: 40px;
+    color: var(--grey-color);
+    margin-right: 30px;
+  }
+  .flex {
+    display: flex;
+  }
+  

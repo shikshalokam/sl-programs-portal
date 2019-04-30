@@ -1,21 +1,62 @@
 <app-loader></app-loader>
-<div class="flex-start  box">
-        <div class="_flex-box _justify-content-space-between">
-            <div>
-               <h4>{{headings | translate}}</h4>
-            </div>
-            <div>
-                <button mat-icon-button (click)="onChoose()" >
-                    <i class="material-icons">
-                        close
-                    </i>
-                </button>
-            </div>
+<div class="flex-start  box ">
+    <div class="_flex-box _justify-content-space-between">
+        <div>
+            <!-- <h4>{{headings | translate}}</h4> -->
         </div>
-       <app-dynamic-form [genericData]="programMetaData" [genericForm]="programsForm"></app-dynamic-form>
-       
-    <div class="positionBottom _flex-box  _flex-end col-xs-12">
-       <button  mat-raised-button (click)="onSubmit()" color="primary" [disabled]="!programsForm?.valid">Submit</button>
+        <div>
+            <button mat-icon-button (click)="onChoose()">
+                <i class="material-icons">
+                    close
+                </i>
+            </button>
+        </div>
     </div>
+    <mat-tab-group class="tabGroup">
 
+        <mat-tab label="{{'headings.addProgram' | translate}}" class="flex-start  box ">
+
+            <div class="_margin-top formDiv">
+
+                <app-dynamic-form [genericData]="programMetaData" [genericForm]="programsForm"></app-dynamic-form>
+
+            </div>
+
+
+        </mat-tab>
+        <mat-tab label="{{ 'headings.programTemplate' | translate}}" class="flex-start  box ">
+
+            <!-- <div class="_margin-top">
+       
+           <app-dynamic-form [genericData]="programMetaData" [genericForm]="programsForm"></app-dynamic-form>
+   
+        </div> -->
+            <div class="formDiv">
+                <div class="col-xs-12 col-lg-4 col-md-4 col-sm-6 _margin-top" *ngFor="let program of programs">
+                    <mat-card class="solutionCard" [ngClass]="{'selectedProgram': selectedProgramTemplate?.title == program.title}" (click)="selectProgram(program)">
+                        <div class=" flex _justify-content-space-between">
+                            <div class="cardheader">
+                                <i class="material-icons cardIcon">
+                                    {{program.icon}}
+                                </i>
+                                <h4>{{program.title}}</h4>
+                            </div>
+                            <!-- <mat-checkbox class="floatRight" (click)="insertSolution()"></mat-checkbox> -->
+
+                        </div>
+                        <div class="col-xs-8 col-xs-offset-2">
+                            {{program.description}}
+                        </div>
+
+                    </mat-card>
+                </div>
+            </div>
+
+        </mat-tab>
+
+    </mat-tab-group>
+    <div class="positionBottom _flex-box  _flex-end col-xs-12">
+        <button mat-raised-button (click)="onSubmit()" color="primary"
+            [disabled]="!programsForm?.valid">{{'buttons.createPrograms' | translate}}</button>
+    </div>
 </div>

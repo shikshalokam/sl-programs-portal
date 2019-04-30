@@ -18,6 +18,31 @@ export class AddProgramMetaDataComponent implements OnInit {
   programsForm;
   group;
 
+  programs = [
+    {
+      title: "DCPCR",
+      description:"Dcpcr is a  programs",
+      icon: 'assignment_turned_in ',
+    },
+    {
+      title: "MYANTRA",
+      description:"Myantra is a  programs",
+      icon: 'assignment_turned_in ',
+    },
+    {
+      title: "TUNERLABS",
+      description:"Tunerlabs is a  programs",
+      icon: 'assignment_turned_in ',
+
+    },
+    {
+      title: "Tibel",
+      description:"Tibel is a  programs",
+      icon: 'assignment_turned_in ',
+
+    }
+  ]
+  selectedProgramTemplate: any;
   constructor(private router: Router, public dialogRef: MatDialogRef<AddProgramMetaDataComponent>,
     @Inject(MAT_DIALOG_DATA) public data, private _formBuilder: FormBuilder, private utilityService: UtilityService) { }
 
@@ -37,5 +62,8 @@ export class AddProgramMetaDataComponent implements OnInit {
     let rawValue = this.programsForm.getRawValue();
     this.router.navigate(['/workspace/add-program']);
     this.onChoose();
+  }
+  selectProgram(program){
+    this.selectedProgramTemplate = program;
   }
 }
