@@ -113,14 +113,8 @@ export class TableComponent implements OnInit {
       });
       if (this.selection.selected.length < this.limitSelection+1 || flag) {
         this.selection.toggle(row);
-        if(flag ){
-        row.selected = false
+           row.selected =  flag ? false : true;
 
-        }
-        else{
-        row.selected = true
-
-        }
       }
       else{
         this.showMessage();
