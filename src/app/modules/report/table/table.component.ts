@@ -148,7 +148,7 @@ export class TableComponent implements OnInit {
   }
   showMessage() {
     let limit = this.limitSelection+1;
-    //this.snackBar.open("Maximum "+limit + " can be selected.", "OK", { duration: 2000 })
+    this.snackBar.open("Maximum "+limit + " can be selected.", "OK", { duration: 2000 })
   }
 }
 
