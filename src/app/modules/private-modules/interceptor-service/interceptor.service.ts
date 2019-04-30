@@ -40,7 +40,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
       req = req.clone({ setHeaders: { "linkId": linkId } }).clone({ setHeaders: { "reportName": name } });
     }
-    else {
+    else if(this.authService.getToken()) {
       const downloadReportUrl = 'programsSubmissionStatus/DCPCR?evidenceId='
       const authToken = this.authService.getToken();
       if (req.url.includes(downloadReportUrl)) {
@@ -52,6 +52,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
       }
     }
+    
     return next.handle(req)
       // .pipe(
       //   catchError( (error: HttpErrorResponse) => { 

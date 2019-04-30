@@ -2,6 +2,7 @@
     "brand": "School Development Index",
     "brandResponsive": "SDI",
     "message": {
+        "unAuthorised":"Invalid access to the page  ",
         "downloadCsv": "Download as CSV",
         "downloadChart": "Download Chart as PDF",
         "alertHeading": "ALERT !!",
