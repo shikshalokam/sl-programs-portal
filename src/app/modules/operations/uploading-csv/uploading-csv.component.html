@@ -22,7 +22,7 @@
       </div>
       <div class="_flex-box  _flex-end col-sm-6">
         <button mat-raised-button color="primary" [disabled]="!(assessorFileSelected)"
-          (click)="csvUpload('assessors'); files.value=null">{{'buttons.upload' | translate}}</button>
+          (click)="csvUpload('assessors'); assessorfiles.value=null">{{'buttons.upload' | translate}}</button>
       </div>
       <div class="fileList" *ngIf="showAssessorStatus">
         <h5>Selected File List</h5>
@@ -32,7 +32,7 @@
               {{i+1}}. &nbsp;&nbsp; {{fileitem.name}}
             </div>
             <div>
-              <i class="material-icons _cursor-pointer" (click)="deleteAssessorFile(i , assessorFile)">
+              <i class="material-icons _cursor-pointer" (click)="deleteAssessorFile(i , assessorFile);assessorfiles.value=null">
                 delete
               </i>
             </div>
@@ -65,7 +65,7 @@
       </div>
       <div class="_flex-box  _flex-end  col-sm-6">
         <button mat-raised-button color="primary" [disabled]="!(schoolFileSelected)"
-          (click)="csvUpload('schools'); files.value=null">{{'buttons.upload' | translate}}</button>
+          (click)="csvUpload('schools'); schoolfiles.value=null">{{'buttons.upload' | translate}}</button>
       </div>
       <div class="fileList" *ngIf="showSchoolStatus">
         <h5>Selected File List</h5>
@@ -75,7 +75,7 @@
               {{i+1}}. &nbsp;&nbsp; {{fileitem.name}}
             </div>
             <div>
-              <i class="material-icons _cursor-pointer" (click)="deleteSchoolFile(i , schoolFile)">
+              <i class="material-icons _cursor-pointer" (click)="deleteSchoolFile(i , schoolFile);schoolfiles.value=null">
                 delete
               </i>
             </div>

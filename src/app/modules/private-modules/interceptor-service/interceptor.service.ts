@@ -36,7 +36,7 @@ export class ApiInterceptor implements HttpInterceptor {
     if (linkId && !name) {
       req = req.clone({ setHeaders: { "linkId": linkId } });
     }
-    if (linkId && name) {
+    else if (linkId && name) {
 
       req = req.clone({ setHeaders: { "linkId": linkId } }).clone({ setHeaders: { "reportName": name } });
     }

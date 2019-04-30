@@ -88,7 +88,7 @@
           <mat-card class="col-xs-12 ">
             <h4>{{'labels.addUsers'| translate}}</h4>
             <div class="_flex-box _justify-content-center _justify-content-space-between  col-sm-6">
-              <label for="assessor-file-upload" class="custom-file-upload _flexbox ">
+              <label for="addUser-file-upload" class="custom-file-upload _flexbox ">
                 <div>
                   <i class="material-icons paddingContent">
                     cloud_upload
@@ -98,23 +98,24 @@
                   {{'labels.addUsers'| translate}}
                 </div>
               </label>
-              <input id="assessor-file-upload" (change)="uploadAssessor($event.target.files)" type="file"
+              <input id="addUser-file-upload" (change)="uploadAddUser($event.target.files , $event)" type="file"
                 accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                #assessorfiles />
+                #addUserfiles />
             </div>
             <div class="_flex-box  _flex-end col-sm-6">
-              <button mat-raised-button color="primary" [disabled]="!(assessorFileSelected)"
-                (click)="csvUpload('assessors'); files.value=null">{{'buttons.upload' | translate}}</button>
+              <button mat-raised-button color="primary" [disabled]="!(addUserFileSelected)"
+                (click)="csvUpload('addUser'); addUserfiles.value=null">{{'buttons.upload' | translate}}</button>
             </div>
-            <div class="fileList" *ngIf="showAssessorStatus">
+            
+            <div class="fileList" *ngIf="showAddUserStatus">
               <h5>Selected File List</h5>
-              <div *ngFor="let fileitem of assessorFile ; let i = index">
+              <div *ngFor="let fileitem of addUserFile ; let i = index">
                 <div class="_flex-box _justify-content-center _justify-content-space-between ">
                   <div>
                     {{i+1}}. &nbsp;&nbsp; {{fileitem.name}}
                   </div>
                   <div>
-                    <i class="material-icons _cursor-pointer" (click)="deleteAssessorFile(i , assessorFile)">
+                    <i class="material-icons _cursor-pointer" (click)="deleteAddUserFile(i , addUserFile);addUserfiles.value=null">
                       delete
                     </i>
                   </div>
@@ -122,7 +123,7 @@
                 </div>
               </div>
             </div>
-            <progress-bar *ngIf="fileUpload && showAssessorStatus " [progress]="percentDone" [color]="'#008000'">
+            <progress-bar *ngIf="fileUpload && showAddUserStatus " [progress]="percentDone" [color]="'#008000'">
             </progress-bar>
           </mat-card>
         </div>
@@ -131,7 +132,7 @@
             <h4>{{'labels.addHierarchy'| translate}}</h4>
 
             <div class="_flex-box _justify-content-center _justify-content-space-between  col-sm-6">
-              <label for="school-file-upload" class="custom-file-upload _flexbox ">
+              <label for="addHierarchy-file-upload" class="custom-file-upload _flexbox ">
                 <div>
                   <i class="material-icons paddingContent">
                     cloud_upload
@@ -141,23 +142,23 @@
                   {{'labels.addHierarchy'| translate}}
                 </div>
               </label>
-              <input id="school-file-upload" (change)="uploadSchools($event.target.files)" type="file"
+              <input id="addHierarchy-file-upload" (change)="uploadAddHierarchy($event.target.files)" type="file"
                 accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                #schoolfiles />
+                #addHierarchyfiles />
             </div>
             <div class="_flex-box  _flex-end  col-sm-6">
-              <button mat-raised-button color="primary" [disabled]="!(schoolFileSelected)"
-                (click)="csvUpload('schools'); files.value=null">{{'buttons.upload' | translate}}</button>
+              <button mat-raised-button color="primary" [disabled]="!(addHierarchyFileSelected)"
+                (click)="csvUpload('addHierarchy'); addHierarchyfiles.value=null">{{'buttons.upload' | translate}}</button>
             </div>
-            <div class="fileList" *ngIf="showSchoolStatus">
+            <div class="fileList" *ngIf="showAddHierarchyStatus">
               <h5>Selected File List</h5>
-              <div *ngFor="let fileitem of schoolFile ; let i = index">
+              <div *ngFor="let fileitem of addHierarchyFile ; let i = index">
                 <div class="_flex-box _justify-content-center _justify-content-space-between ">
                   <div>
                     {{i+1}}. &nbsp;&nbsp; {{fileitem.name}}
                   </div>
                   <div>
-                    <i class="material-icons _cursor-pointer" (click)="deleteSchoolFile(i , schoolFile)">
+                    <i class="material-icons _cursor-pointer" (click)="deleteAddHierarchyFile(i , addHierarchyFile);addHierarchyfiles.value=null">
                       delete
                     </i>
                   </div>
@@ -165,7 +166,7 @@
                 </div>
               </div>
             </div>
-            <progress-bar *ngIf="fileUpload && showSchoolStatus " [progress]="percentDone" [color]="'#008000'">
+            <progress-bar *ngIf="fileUpload && showAddHierarchyStatus " [progress]="percentDone" [color]="'#008000'">
             </progress-bar>
           </mat-card>
 
