@@ -41,7 +41,6 @@ export class TableComponent implements OnInit {
       this.programId = params["programId"];
     });
   }
-
   ngOnInit() {
     this.getSchoolList(this.zoneId);
   }
@@ -114,23 +113,36 @@ export class TableComponent implements OnInit {
       });
       if (this.selection.selected.length < this.limitSelection+1 || flag) {
         this.selection.toggle(row);
+        if(flag ){
+        row.selected = false
+
+        }
+        else{
+        row.selected = true
+
+        }
       }
       else{
         this.showMessage();
       }
+      
     }
     
     else{
       this.selection.toggle(row);
+      row.selected = true
     }
     this.enableMultiSchool = this.selection.selected.length > 1 ? true : false;
   }
-
+ 
   getSchoolList(id) {
     this.dataSource = new MatTableDataSource();
     this.reportService.getListOfSchool(this.programId, id)
       .subscribe(data => {
         this.paginator.pageIndex = 0;
+        data['result']['schools'].forEach((element,index) => {
+        Object.assign(data['result']['schools'][index], {'selected' : false} )
+        });
         this.dataSource = new MatTableDataSource(data['result']['schools']);
         this.selection = new SelectionModel(true, []);
         this.paginator.pageSize = 5;
