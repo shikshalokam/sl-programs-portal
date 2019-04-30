@@ -6,31 +6,35 @@ import { WorkspaceComponent } from './workspace.component';
 import { SharedModule, CoreModule } from 'shikshalokam';
 import { AddProgramMetaDataComponent } from './add-program-meta-data/add-program-meta-data.component';
 import { AddProgramComponent } from './add-program/add-program.component';
-import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatCheckboxModule, MatTooltipModule, MatStepperModule } from '@angular/material';
 import { ProgramActionSheetComponent } from './add-program/action-sheet/program-action-sheet.component';
 import { SelectSolutionComponent } from './add-program/select-solution/select-solution.component';
+import { ProgressBarModule } from "angular-progress-bar"
 
 @NgModule({
-  declarations: [WorkspaceDashboardComponent,WorkspaceComponent, AddProgramMetaDataComponent, AddProgramComponent, ProgramActionSheetComponent, SelectSolutionComponent],
+  declarations: [WorkspaceDashboardComponent, WorkspaceComponent, AddProgramMetaDataComponent, AddProgramComponent, ProgramActionSheetComponent, SelectSolutionComponent],
   imports: [
     CommonModule,
     SharedModule,
     CoreModule,
     WorkspaceRoutingModule,
     MatButtonModule,
-    MatDatepickerModule, 
-    MatNativeDateModule ,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatSidenavModule,
     MatBottomSheetModule,
     MatListModule,
     MatCardModule,
     MatDividerModule,
     MatFormFieldModule,
+    MatStepperModule,
     MatInputModule,
+    ProgressBarModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule
   ],
-  providers:[MatDatepickerModule],
-  entryComponents:[AddProgramMetaDataComponent,ProgramActionSheetComponent]
+  providers: [MatDatepickerModule],
+  entryComponents: [AddProgramMetaDataComponent, ProgramActionSheetComponent]
 })
 export class WorkspaceModule { }

@@ -36,7 +36,7 @@ export class ApiInterceptor implements HttpInterceptor {
     if (linkId && !name) {
       req = req.clone({ setHeaders: { "linkId": linkId } });
     }
-    if (linkId && name) {
+    else if (linkId && name) {
 
       req = req.clone({ setHeaders: { "linkId": linkId } }).clone({ setHeaders: { "reportName": name } });
     }
@@ -52,7 +52,6 @@ export class ApiInterceptor implements HttpInterceptor {
 
       }
     }
-    console.log(req)
     return next.handle(req)
       // .pipe(
       //   catchError( (error: HttpErrorResponse) => { 
@@ -67,22 +66,23 @@ export class ApiInterceptor implements HttpInterceptor {
       .pipe(
         catchError((error: HttpErrorResponse) => {
           let errorMessage = '';
-          if(error.status == 200){
+          if (error.status == 200) {
             return throwError(error)
           }
-          else{
-          if (error.error instanceof ErrorEvent) {
-            // client-side error
-            errorMessage = `Error: ${error.error.message}`;
-          } else {
-            // server-side error
-            // errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-            errorMessage =  `${error.status}  ${error.statusText}`
+          else {
+            if (error.error instanceof ErrorEvent) {
+              // client-side error
+              errorMessage = `Error: ${error.error.message}`;
+            } else {
+              // server-side error
+              // errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+              errorMessage = `${error.status}  ${error.statusText}`
+            }
+            // window.alert(errorMessage);
+            this.snackBar.open(errorMessage, "ok", { duration: 6000 });
+            return throwError(error);
           }
-          // window.alert(errorMessage);
-          this.snackBar.open(errorMessage ,"ok" , { duration: 6000 });
-          return throwError(error);
-        }})
+        })
       )
 
   }

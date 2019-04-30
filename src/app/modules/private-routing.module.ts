@@ -40,10 +40,10 @@ const routes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
       },
-      {
-        path:"**",
-        component:HomeComponent
-      }
+      // {
+      //   path:"**",
+      //   component:HomeComponent
+      // }
      
     ]
   }

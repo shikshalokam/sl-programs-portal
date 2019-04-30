@@ -4,8 +4,8 @@ export var newProgram = [
     field: "programTitle",
     input: "text",
     label: "program title",
-    validation: { required: false },
-    value: "",
+    validation: { required: true },
+    value: "Program Title",
     visible: true
   },
   {
@@ -13,23 +13,23 @@ export var newProgram = [
     field: "programName",
     input: "text",
     label: "Program Name",
-    validation: { required: false },
-    value: "",
+    validation: { required: true },
+    value: "Program Name",
     visible: true
   },
- 
+
   {
     editable: true,
     field: "externalId",
     input: "text",
     label: "Exterenal Id",
-    validation: { required: false },
-    value: "",
+    validation: { required: true },
+    value: "Exterenal Id",
     visible: true
   },
-  
- 
-  
+
+
+
   {
     editable: true,
     field: "fromDate",
@@ -57,8 +57,8 @@ export var newProgram = [
     field: "description",
     input: "text",
     label: "Description",
-    validation: { required: false },
-    value: "",
+    validation: { required: true },
+    value: "Description",
     visible: true
   },
   {
@@ -66,24 +66,24 @@ export var newProgram = [
     field: "description",
     input: "dropdown",
     label: "Description",
-    validation: { required: false },
-    value: "",
-    options:[
+    validation: { required: true },
+    value: "1",
+    options: [
       {
-        label:1,
-        value:1
+        label: 1,
+        value: 1
       },
       {
-        label:1,
-        value:1
+        label: 1,
+        value: 1
       },
       {
-        label:1,
-        value:1
+        label: 1,
+        value: 1
       },
       {
-        label:1,
-        value:1
+        label: 1,
+        value: 1
       }
     ],
     visible: true
@@ -93,7 +93,7 @@ export var newProgram = [
   //   field: "keyWords",
   //   input: "textarea",
   //   label: "KeyWords",
-  //   validation: { required: false },
+  //   validation: { required: true },
   //   value: ['englhhish'],
   //   visible: true
   // },
@@ -102,16 +102,16 @@ export var newProgram = [
     field: "language",
     input: "multiselect",
     label: "Language",
-    validation: { required: false },
+    validation: { required: true },
     value: ['english'],
-    options:[
+    options: [
       {
         label: 'english',
-        value :'english'
+        value: 'english'
       },
       {
         label: 'hindi',
-        value :'hindi'
+        value: 'hindi'
       }
     ],
     visible: true
