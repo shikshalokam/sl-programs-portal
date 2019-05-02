@@ -69,7 +69,7 @@ export class AddProgramMetaDataComponent implements OnInit {
   }
   programDetails(program){
     console.log(program)
-    let link ='/workspace/solution-details';
+    let link ='/workspace/program-details';
     this.router.navigate([]).then(result => {  window.open(link, '_blank'); });
     // this.router.navigate(['/workspace/program-details']);
     // this.onChoose();

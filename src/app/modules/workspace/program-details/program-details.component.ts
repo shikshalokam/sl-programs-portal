@@ -40,7 +40,7 @@ export class ProgramDetailsComponent implements OnInit {
       }
     ]
       }
-      
+      columnsToDisplay=['title','description'];
   headings="headings.programDetails";
   constructor( private router : Router) { }
 
