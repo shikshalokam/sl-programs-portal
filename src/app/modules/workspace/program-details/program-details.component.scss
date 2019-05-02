@@ -1,0 +1,31 @@
+.flexBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.noWrap {
+    white-space: nowrap;
+  }
+  .solutionCard {
+    min-height: 150px;
+  }
+  .floatRight {
+    float: right;
+  }
+  
+  .solutionBox {
+    height: calc(100vh - 260px);
+  }
+  .cardheader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .cardIcon {
+    font-size: 40px;
+    color: var(--grey-color);
+    margin-right: 30px;
+  }
+  .flex {
+    display: flex;
+  }

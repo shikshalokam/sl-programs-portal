@@ -35,7 +35,7 @@
       {{selectSolutionType }} solutions
     </div>
     <div class="col-xs-12 col-lg-4 col-md-4 col-sm-6 _margin-top" *ngFor="let solution of solutions">
-      <mat-card class="solutionCard">
+      <mat-card class="solutionCard col-xs-12 ">
         <div class=" flex _justify-content-space-between">
           <div class="cardheader">
             <i class="material-icons cardIcon">
@@ -49,11 +49,18 @@
         <div class="col-xs-8 col-xs-offset-2">
           {{solution.description}}
         </div>
-
+        <div class="col-xs-12 _noMarginPadding">
+          <button color="primary" mat-button class="floatRight" (click)="$event?.stopPropagation();solutionDetails(solution) ">
+            <!-- <i class="material-icons cardIcon">
+                info
+            </i> -->
+            more...
+          </button>
+        </div>
       </mat-card>
     </div>
   </div>
-  <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 _flex-box _flex-end">
+  <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 _flex-box _flex-end _margin-top _margin-bottom">
     <button mat-raised-button (click)="onAddSolution()" color="primary">Add Solutions</button>
   </div>
 

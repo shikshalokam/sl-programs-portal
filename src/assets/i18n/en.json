@@ -39,6 +39,9 @@
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
+        "workspaceDashboard":"Workspace Dashboard",
+        "programDetails":"Program Details",
+        "solutionDetails":"Solution Details",
         "selectSolution": "Select Solution",
         "workSpace": "Workspace",
         "addProgram": "Add Program",

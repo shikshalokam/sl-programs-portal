@@ -60,10 +60,24 @@ export class AddProgramMetaDataComponent implements OnInit {
   }
   onSubmit() {
     let rawValue = this.programsForm.getRawValue();
+    // console.log(rawValue)
     this.router.navigate(['/workspace/add-program']);
     this.onChoose();
   }
   selectProgram(program){
     this.selectedProgramTemplate = program;
   }
+  programDetails(program){
+    console.log(program)
+    let link ='/workspace/solution-details';
+    this.router.navigate([]).then(result => {  window.open(link, '_blank'); });
+    // this.router.navigate(['/workspace/program-details']);
+    // this.onChoose();
+
+
+  }
+
+
+
+ 
 }

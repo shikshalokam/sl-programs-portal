@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { link } from 'fs';
 
 @Component({
   selector: 'app-select-solution',
@@ -53,6 +54,12 @@ export class SelectSolutionComponent implements OnInit {
     this.router.navigate(['/workspace/add-program']);
   }
   insertSolution(){
+
+  }
+
+  solutionDetails(solution){
+    let link ='/workspace/solution-details';
+    this.router.navigate([]).then(result => {  window.open(link, '_blank'); });
 
   }
 }

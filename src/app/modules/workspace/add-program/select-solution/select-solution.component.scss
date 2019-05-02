@@ -43,14 +43,14 @@ select {
   white-space: nowrap;
 }
 .solutionCard {
-  height: 150px;
+  min-height: 150px;
 }
 .floatRight {
   float: right;
 }
 
 .solutionBox {
-  height: calc(100vh - 260px);
+  min-height: calc(100vh - 260px);
 }
 .cardheader {
   display: flex;
