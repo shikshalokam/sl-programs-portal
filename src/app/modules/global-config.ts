@@ -31,12 +31,12 @@ export const GlobalConfig = {
           anchorLink: "/operations",
           icon: "build"
         },
-        // {
-        //   value: "headings.workSpace",
-        //   id: 'workspace',
-        //   anchorLink: "/workspace",
-        //   icon: "settings"
-        // }
+        {
+          value: "headings.workSpace",
+          id: 'workspace',
+          anchorLink: "/workspace",
+          icon: "settings"
+        }
       ]
     }
   ],
