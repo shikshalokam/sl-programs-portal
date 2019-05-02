@@ -52,6 +52,16 @@ export var newProgram = [
     value: "",
     visible: true
   },
+    {
+    editable: true,
+    field: "KeyWords",
+    input: "text",
+    label: "Keywords",
+    validation: { required: true },
+    value: "Exterenal Id",
+    visible: true
+  },
+
   {
     editable: true,
     field: "description",
@@ -63,9 +73,9 @@ export var newProgram = [
   },
   {
     editable: true,
-    field: "Type",
+    field: "Concepts",
     input: "dropdown",
-    label: "Description",
+    label: "Concepts",
     validation: { required: true },
     value: "1",
     options: [
