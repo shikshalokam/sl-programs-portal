@@ -18,15 +18,15 @@ export var newProgram = [
     visible: true
   },
 
-  {
-    editable: true,
-    field: "externalId",
-    input: "text",
-    label: "Exterenal Id",
-    validation: { required: true },
-    value: "Exterenal Id",
-    visible: true
-  },
+  // {
+  //   editable: true,
+  //   field: "externalId",
+  //   input: "text",
+  //   label: "Exterenal Id",
+  //   validation: { required: true },
+  //   value: "Exterenal Id",
+  //   visible: true
+  // },
 
 
 
@@ -63,7 +63,7 @@ export var newProgram = [
   },
   {
     editable: true,
-    field: "description",
+    field: "Type",
     input: "dropdown",
     label: "Description",
     validation: { required: true },
