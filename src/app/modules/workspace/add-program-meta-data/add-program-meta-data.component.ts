@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { newProgram } from './programApi';
+import { newProgram, imageUpload } from './programApi';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SelectProgramComponent } from '../../operations/operations-dashboard/select-program/select-program.component';
 import { UtilityService } from 'shikshalokam';
@@ -17,7 +17,7 @@ export class AddProgramMetaDataComponent implements OnInit {
   headings = "headings.addProgram"
   programsForm;
   group;
-
+  buttonFunction = "meta"
   programs = [
     {
       title: "DCPCR",
@@ -43,12 +43,17 @@ export class AddProgramMetaDataComponent implements OnInit {
     }
   ]
   selectedProgramTemplate: any;
+  templateSelected: boolean = false;
+  fileUpload: any;
+  fileUploadForm: any;
   constructor(private router: Router, public dialogRef: MatDialogRef<AddProgramMetaDataComponent>,
     @Inject(MAT_DIALOG_DATA) public data, private _formBuilder: FormBuilder, private utilityService: UtilityService) { }
 
   ngOnInit() {
     this.programMetaData = newProgram;
+    this.fileUpload = imageUpload;
     this.createForm(this.programMetaData);
+    this.fileUploadForm = this.utilityService.uploadFile(this.fileUpload);
   }
 
   onChoose() {
@@ -60,7 +65,8 @@ export class AddProgramMetaDataComponent implements OnInit {
   }
   onSubmit() {
     let rawValue = this.programsForm.getRawValue();
-    // console.log(rawValue)
+    let imageForm = this.fileUploadForm.getRawValue();
+    console.log(imageForm);
     this.router.navigate(['/workspace/add-program']);
     this.onChoose();
   }
@@ -77,7 +83,11 @@ export class AddProgramMetaDataComponent implements OnInit {
 
   }
 
-
-
+  tabIndex(tabType){
+    this.buttonFunction = tabType;
+  }
+  onCopy(){
+    this.templateSelected = true;
+  }
  
 }

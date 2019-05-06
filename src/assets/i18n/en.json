@@ -15,6 +15,7 @@
         "selectPrograms": "Select a program to continue"
     },
     "buttons": {
+        "copyProgram":"Copy Program",
         "createPrograms":"Create Programs",
         "download": "Download",
         "update": "Update",
@@ -97,7 +98,9 @@
     "labels": {
         "uploadCsv": "Configurations",
         "addUsers": "Add Users",
-        "addHierarchy": "Add Hierarchy"
+        "addHierarchy": "Add Hierarchy",
+        "addImage":"Add Logo",
+        "update":"Update"
     },
     "descriptions": {
         "questionFrameWorkDescription": "list of questions.",

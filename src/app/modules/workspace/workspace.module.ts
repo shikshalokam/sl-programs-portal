@@ -37,7 +37,9 @@ import { SolutionDetailsComponent } from './solution-details/solution-details.co
     MatTooltipModule,
     MatTabsModule,
     MatChipsModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [MatDatepickerModule],
   entryComponents: [AddProgramMetaDataComponent, ProgramActionSheetComponent]

@@ -121,7 +121,7 @@ expandedElement;
     this.selectSolutionType = type;
   }
   onAddSolution(){
-    // this.router.navigate(['/workspace/add-program']);
+    this.router.navigate(['/workspace/add-program']);
     console.log(this.selection.selected)
   }
   insertSolution(){

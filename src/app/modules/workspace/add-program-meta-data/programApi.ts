@@ -98,15 +98,7 @@ export var newProgram = [
     ],
     visible: true
   },
-  // {
-  //   editable: true,
-  //   field: "keyWords",
-  //   input: "textarea",
-  //   label: "KeyWords",
-  //   validation: { required: true },
-  //   value: ['englhhish'],
-  //   visible: true
-  // },
+  
   {
     editable: true,
     field: "language",
@@ -127,3 +119,15 @@ export var newProgram = [
     visible: true
   },
 ];
+export var imageUpload = [
+  {
+    editable: true,
+    field: "logo",
+    input: "file",
+    requiredType:"image/*",
+    label: "Logo",
+    validation: { required: true },
+    value:null,
+    visible: true
+  },
+]
