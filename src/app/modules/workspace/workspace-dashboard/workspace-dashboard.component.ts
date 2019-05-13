@@ -22,21 +22,26 @@ export class WorkspaceDashboardComponent implements OnInit {
   }
 
   navigateLink(event){
-    if(event == 'add-program'){
-      this.openProgramMetaDataBox();
-    }
+    console.log(event)
+    this.router.navigate([event]);
+
+    // if(event == 'add-program'){
+    //   this.openProgramMetaDataBox();
+    // }
   }
   openProgramMetaDataBox(){
-    const dialogRef = this.dialog.open(AddProgramMetaDataComponent, {
-      width: '90%',
-      height:'90%',
-      // data : {event},
-      disableClose: true
-    });
+    // this.router.navigate['/workspace/program-define'];
 
-    dialogRef.afterClosed().subscribe(result => {
-      // console.log(result)
-      // this.router.navigate['/workspace/add-program'];
-    });
+    // const dialogRef = this.dialog.open(AddProgramMetaDataComponent, {
+    //   width: '90%',
+    //   height:'90%',
+    //   // data : {event},
+    //   disableClose: true
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   // console.log(result)
+    //   // this.router.navigate['/workspace/add-program'];
+    // });
   }
 }

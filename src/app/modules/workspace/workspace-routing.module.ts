@@ -7,6 +7,8 @@ import { AddProgramComponent } from './add-program/add-program.component';
 import { SelectSolutionComponent } from './add-program/select-solution/select-solution.component';
 import { ProgramDetailsComponent } from './program-details/program-details.component';
 import { SolutionDetailsComponent } from './solution-details/solution-details.component';
+import { ProgramDefineComponent } from './program-define/program-define.component';
+import { CopyTemplateComponent } from './copy-template/copy-template.component';
 
 const routes: Routes = [
 
@@ -55,11 +57,25 @@ const routes: Routes = [
         component: ProgramDetailsComponent
       },
       {
+        path: 'program-define',
+        data: {
+          breadcrumb:'headings.programDetails'
+        },
+        component: ProgramDefineComponent
+      },
+      {
         path: 'solution-details',
         data: {
           breadcrumb:'headings.solutionDetails'
         },
         component: SolutionDetailsComponent
+      },
+      {
+        path: 'copy-template',
+        data: {
+          breadcrumb:'headings.copyProgram'
+        },
+        component: CopyTemplateComponent
       },
 
       {

@@ -20,7 +20,7 @@
 
                 <app-dynamic-form [genericData]="programMetaData" [genericForm]="programsForm"></app-dynamic-form>
                 <app-file-upload-field [genericData]="fileUpload[0]" [genericForm]="fileUploadForm" *ngIf="fileUploadForm" ></app-file-upload-field>
-                {{fileUploadForm?.valid}}
+                <!-- {{fileUploadForm?.valid}} -->
                 <div class="positionBottom _flex-box  _flex-end col-xs-12  _noMarginPadding">
                     <button mat-raised-button (click)="onSubmit()" color="primary"
                         [disabled]="!programsForm?.valid">{{'buttons.createPrograms' | translate}}</button>
