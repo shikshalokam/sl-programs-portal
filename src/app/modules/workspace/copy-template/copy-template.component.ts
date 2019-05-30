@@ -11,6 +11,7 @@ export class CopyTemplateComponent implements OnInit {
   programList;
   programTabListOpened = true
   currentProgram: any;
+  searchSolution="";
   constructor(
     private apiService :ApiService,
     private router :Router
@@ -30,5 +31,11 @@ export class CopyTemplateComponent implements OnInit {
 
   copyProgram(){
     this.router.navigate(['/workspace/add-program']);
+  }
+  applyFilter(searchValue){
+    this.searchSolution = searchValue
+  }
+  searchInApi(solution){
+    
   }
 }

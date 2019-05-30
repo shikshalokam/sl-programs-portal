@@ -86,7 +86,7 @@
                   {{'labels.addUsers'| translate}}
                 </div>
               </label>
-              <input id="addUser-file-upload" (change)="uploadAddUser($event.target.files , $event)" type="file"
+              <input id="addUser-file-upload" (change)="uploadAddUser($event.target.files )" type="file"
                 accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                 #addUserfiles />
             </div>
