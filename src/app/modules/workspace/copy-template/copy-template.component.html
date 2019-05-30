@@ -1,0 +1,63 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" position="end" [opened]="true">
+    <h4>Program List </h4>
+    <div class="searchBox">
+      <input id="searchSolution" type="text" appDebounceSearch [searchValue]="searchSolution" [debounceTime]="200"
+        (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}"
+        (keyup)="applyFilter($event.target.value)">
+      <div class="iconOnInput">
+        <i class="material-icons ">
+          search
+        </i>
+      </div>
+    </div>
+    <div class="programListBox" *ngIf="programList">
+      <div class="_margin-top " *ngFor="let program of programList;let i = index">
+        <button mat-raised-button class="programButton" (click)="changeCurrerntProgram(i)"
+          [ngClass]="{'active' : currentProgram.externalId == program.externalId}">
+          {{program.description}}
+        </button>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <app-parent-heading [startIndex]="3" [showControl]="true"></app-parent-heading>
+
+    <mat-card class=" _margin ">
+      <div> <span class="label">Name :</span>{{currentProgram?.name}}</div>
+      <div> <span class="label">Description :</span>{{currentProgram?.description}}</div>
+      <div> <span class="label">Keywords :</span>{{currentProgram?.keywords}}</div>
+      <div> <span class="label">Language :</span>{{currentProgram?.language}}</div>
+      <div> <span class="label">External Id :</span>{{currentProgram?.externalId}}</div>
+
+      <mat-accordion>
+        <mat-expansion-panel class="_margin-top" *ngFor="let solution of currentProgram?.components">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{solution.type | camelcase}}
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          {{solution.id | camelcase}}
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </mat-card>
+    <div class="col-xs-12 _flex-box _flex-end positionBottom">
+      <button mat-raised-button color="primary" (click)="copyProgram()" class="_margin-small-right">{{'buttons.copyProgram' | translate}}</button>
+      <button type="button" mat-icon-button (click)="drawer.toggle() ;programTabListOpened = !programTabListOpened">
+        <i class="material-icons" *ngIf="!programTabListOpened">
+          keyboard_arrow_left
+        </i>
+        <i class="material-icons" *ngIf="programTabListOpened">
+          keyboard_arrow_right
+        </i>
+      </button>
+    </div>
+
+  </div>
+
+</mat-drawer-container>

@@ -11,7 +11,7 @@
 
 
 
-<mat-drawer-container class="example-container" *ngIf="solutionList">
+<!-- <mat-drawer-container class="example-container" *ngIf="solutionList">
   <mat-drawer mode="side" #left position="end" mode="side" class="sideTab _flex-box _justify-content-center"
     [opened]="opened">
     <div class="mat-drawer-inner-container columnFlex">
@@ -40,50 +40,38 @@
 
     </div>
 
-  </mat-drawer>
-  <mat-drawer-content class="full-height">
+  </mat-drawer> -->
+  <!-- <mat-drawer-content class="full-height"> -->
 
     <app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="true"></app-parent-heading>
-    <button mat-raised-button color="primary" class="topRight" (click)="selectSolution()">
+    <!-- <button mat-raised-button color="primary" class="topRight" (click)="selectSolution()">
       Add Solutions
-    </button>
-
-    <div class="bottomRight">
-
-      <!-- <button mat-raised-button color="primary" [disabled]="!programsForm.valid" >
-        {{'buttons.submit' | translate}}       
     </button> -->
-      <button mat-raised-button color="primary">
-        {{'buttons.saveDraft' | translate}}
-      </button>
-
-      <button mat-icon-button (click)="left.toggle(); opened = !opened" *ngIf="!opened">
-        <i class="material-icons">
-          keyboard_arrow_left
-        </i>
-      </button>
-    </div>
 
 
-    <mat-horizontal-stepper [linear]="!programsForm.valid" #stepper class="stepperHorizontal" *ngIf="showPrograms">
-      <mat-step [stepControl]="programsForm">
-        <ng-template matStepLabel>Program Meta Data</ng-template>
-
+    <!-- <mat-horizontal-stepper [linear]="!programsForm.valid" #stepper class="stepperHorizontal" *ngIf="showPrograms">
+      <mat-step [stepControl]="programsForm"> -->
+        <!-- <ng-template matStepLabel>Program Meta Data</ng-template> -->
+<mat-tab-group class="full-height col-xs-12 _noMarginPadding">
+    <mat-tab label="Program Meta">
         <div class="col-sx-12 wrapper">
           <mat-card class="col-xs-12 _margin-top ">
             <app-dynamic-form [genericData]="programData" [genericForm]="programsForm"></app-dynamic-form>
 
-            <mat-card-actions class="col-xs-12 flexEnd">
+            <!-- <mat-card-actions class="col-xs-12 flexEnd">
               <button mat-button color="primary">{{'buttons.update' | translate}}</button>
               <button mat-button color="primary" matStepperNext
                 [disabled]="!programsForm.valid">{{'buttons.next' | translate}}</button>
-            </mat-card-actions>
+            </mat-card-actions> -->
 
           </mat-card>
         </div>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Personnel Management</ng-template>
+      </mat-tab>
+      <mat-tab label="Personnel Management">
+
+      <!-- </mat-step>
+      <mat-step> -->
+        <!-- <ng-template matStepLabel>Personnel Management</ng-template> -->
         <div class="col-xs-12 col-md-6 col-lg-6 col-sm-12 marginTopBottom">
           <mat-card class="col-xs-12 ">
             <h4>{{'labels.addUsers'| translate}}</h4>
@@ -171,12 +159,68 @@
           </mat-card>
 
         </div>
+      </mat-tab>
+      <mat-tab label="Add Solutions">
+        <div class="col-xs-12 _margin-top _margin-bottom">
 
+            <div class="col-xs-12 _flex-box _flex-end _noMarginPadding _margin-bottom " >
+                <button mat-raised-button color="primary" (click)="selectSolution()">
+                    Add Solutions
+                  </button>
+            </div>
+            <table mat-table 
+            [dataSource]="solutionList" multiTemplateDataRows
+            class="mat-elevation-z8">
+       <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay" >
+         <th mat-header-cell *matHeaderCellDef> {{column | camelcase}} </th>
+         <td mat-cell *matCellDef="let element" (click)="showSolutions(element)"> {{element[column]}} </td>
+       </ng-container>
+     
+       <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+       <ng-container matColumnDef="expandedDetail" >
+         <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+           <div class="example-element-detail"
+                [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <!-- <div *ngIf="showSolution && solutionForm" class="_margin-top wrapper"> -->
+                    <div class="col-xs-12 expandedDetails">
+                      <!-- {{currentSolution.solutionNumber}} -->
+                      <app-dynamic-form [genericData]="element.form" [genericForm]="solutionForm"></app-dynamic-form>
+              
+                    </div>
+              
+                <!-- </div> -->
+           </div>
+         </td>
+       </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+       <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+           class="example-element-row"
+           [class.example-expanded-row]="expandedElement === element"
+           (click)="expandedElement = expandedElement === element ? null : element">
+       </tr>
+       <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+     </table>
+
+        </div>
+   
+   
+   
+   <!-- Copyright 2019 Google Inc. All Rights Reserved.
+       Use of this source code is governed by an MIT-style license that
+       can be found in the LICENSE file at http://angular.io/license -->
+          
+          
+         
+      </mat-tab>
+
+      </mat-tab-group>
+<!-- 
       </mat-step>
-    </mat-horizontal-stepper>
-    <div *ngIf="showSolution && solutionForm" class="_margin-top wrapper">
+    </mat-horizontal-stepper> -->
+    <!-- <div *ngIf="showSolution && solutionForm" class="_margin-top wrapper">
       <mat-card class="col-xs-12">
-        <!-- {{currentSolution.solutionNumber}} -->
+        {{currentSolution.solutionNumber}}
         <app-dynamic-form [genericData]="currentSolution.form" [genericForm]="solutionForm"></app-dynamic-form>
 
       </mat-card>
@@ -185,4 +229,23 @@
 
 
   </mat-drawer-content>
-</mat-drawer-container>
+</mat-drawer-container> -->
+
+
+
+<div class="col-xs-12 _flex-box _flex-end _margin-top _margin-bottom">
+
+    <!-- <button mat-raised-button color="primary" [disabled]="!programsForm.valid" >
+      {{'buttons.submit' | translate}}       
+  </button> -->
+    <button mat-raised-button color="primary">
+      {{'buttons.saveDraft' | translate}}
+    </button>
+
+    <!-- <button mat-icon-button (click)="left.toggle(); opened = !opened" *ngIf="!opened">
+      <i class="material-icons">
+        keyboard_arrow_left
+      </i>
+    </button> -->
+  </div>
+

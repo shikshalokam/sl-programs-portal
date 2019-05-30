@@ -91,6 +91,7 @@ export class AuthGuard implements CanActivate ,CanActivateChild {
         flag =true;
       }
     });
+    console.log(flag)
     return flag;
   }
 

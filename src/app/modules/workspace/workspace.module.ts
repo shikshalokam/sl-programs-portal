@@ -6,13 +6,17 @@ import { WorkspaceComponent } from './workspace.component';
 import { SharedModule, CoreModule } from 'shikshalokam';
 import { AddProgramMetaDataComponent } from './add-program-meta-data/add-program-meta-data.component';
 import { AddProgramComponent } from './add-program/add-program.component';
-import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatCheckboxModule, MatTooltipModule, MatStepperModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatBottomSheetModule, MatListModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatCheckboxModule, MatTooltipModule, MatStepperModule, MatTabsModule, MatChipsModule, MatTableModule, MatExpansionModule } from '@angular/material';
 import { ProgramActionSheetComponent } from './add-program/action-sheet/program-action-sheet.component';
 import { SelectSolutionComponent } from './add-program/select-solution/select-solution.component';
-import { ProgressBarModule } from "angular-progress-bar"
+import { ProgressBarModule } from "angular-progress-bar";
+import { ProgramDetailsComponent } from './program-details/program-details.component';
+import { SolutionDetailsComponent } from './solution-details/solution-details.component';
+import { ProgramDefineComponent } from './program-define/program-define.component';
+import { CopyTemplateComponent } from './copy-template/copy-template.component';
 
 @NgModule({
-  declarations: [WorkspaceDashboardComponent, WorkspaceComponent, AddProgramMetaDataComponent, AddProgramComponent, ProgramActionSheetComponent, SelectSolutionComponent],
+  declarations: [WorkspaceDashboardComponent, WorkspaceComponent, AddProgramMetaDataComponent, AddProgramComponent, ProgramActionSheetComponent, SelectSolutionComponent, ProgramDetailsComponent, SolutionDetailsComponent, ProgramDefineComponent , CopyTemplateComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -33,7 +37,12 @@ import { ProgressBarModule } from "angular-progress-bar"
     MatMenuModule,
     MatCheckboxModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [MatDatepickerModule],
   entryComponents: [AddProgramMetaDataComponent, ProgramActionSheetComponent]

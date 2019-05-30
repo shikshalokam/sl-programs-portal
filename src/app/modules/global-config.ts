@@ -112,7 +112,7 @@ export const GlobalConfig = {
   workSpaceDashBoardLinks: [
     {
       tooltip: "headings.addProgram",
-      anchorLink: "add-program",
+      anchorLink: "/workspace/program-define",
       id: 'addProgram',
       icon: "settings",
       disabled: true
