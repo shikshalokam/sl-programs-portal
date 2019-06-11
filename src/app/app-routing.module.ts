@@ -1,27 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProgramsDashboardComponent } from './modules/programs-dashboard/programs-dashboard.component';
-import { OperationsDashboardComponent } from './modules/operations/operations-dashboard/operations-dashboard.component';
-   
+import { HomeComponent } from './modules/home/home.component';
+import { PrivateModule } from './modules/private-modules/private.module';
+import { PrivateComponent } from './modules/private.component';
+import { PublicModulesComponent } from './public-modules/public.component';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { AuthGuard } from './modules/private-modules/auth-gaurd/auth.gaurd';
 const routes: Routes = [
   {
-    // path: 'assesments/:programId/:assesmentId',
-    path: 'assessments',
-    // component: AssessmentDashboardComponent
-    
-    loadChildren: './modules/assessment-dashboard/assessment-dashboard.module#AssessmentDashboardModule'
-  },
-  {
-    path: 'programs',
-    component : ProgramsDashboardComponent
-  },
-  {
     path: '',
-    redirectTo: 'programs',
-    pathMatch: 'full'
-  }
-];
+    data: {
+      id: 'private',
+    },
+    loadChildren: './modules/private.module#PrivateModule',
+    canActivate: [AuthGuard],
+    // component:PrivateComponent
+   },
+  {
+    path: 'public',
+    loadChildren: './public-modules/public.module#PublicModule'
 
+  },
+  // {
+  //   path: '**',
+  //   redirectTo: '',
+  //   pathMatch: 'full'
+  // },
+ 
+
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

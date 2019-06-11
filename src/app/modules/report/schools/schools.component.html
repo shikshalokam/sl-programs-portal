@@ -1,0 +1,52 @@
+<div>
+  <app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="false"></app-parent-heading>
+  <mat-form-field [floatLabel]="'never'" class=" _full-width">
+      <input class="filterInput" matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'search'| translate}}">
+    </mat-form-field>
+  <div class="example-container mat-elevation-z8 " *ngIf="dataSource">
+      
+      <div class="tableContainer">
+    <table mat-table [dataSource]="dataSource" matSort class="_full-width ">
+      <!-- <ng-container matColumnDef="externalId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><div class="padding"> External id </div></th>
+        <td mat-cell *matCellDef="let element"><div class="padding">{{element.externalId}}</div>  </td>
+      </ng-container> -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <div class="padding">School</div> </th>
+        <td mat-cell *matCellDef="let element"><div class="padding">{{element.name}} </div> </td>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><div class="padding"> City</div> </th>
+        <td mat-cell *matCellDef="let element"><div class="padding"> {{element.city}}</div>  </td>
+      </ng-container>
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <div class="padding">State</div> </th>
+        <td mat-cell *matCellDef="let element"><div class="padding">  {{element.state}}</div> </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" [disabled]="!element.isSingleEntityDrillDown" (click)="navigateToEntityReport(element?._id)"><div class="padding"> Drilldown  Report</div></button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action1">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" [disabled]="!element.isSingleEntityHighLevel" (click)="navigateToHighEntityReport(element?._id)"><div class="padding"> High Level Report</div></button>
+          </td>
+        </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="middle" *ngIf="dataSource.filterData?.length < 0 && searchVal">
+        {{'message.noData' | translate}}
+    </div>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[100,50,500]" showFirstLastButtons></mat-paginator>
+
+  </div>
+  <div *ngIf="!dataSource" class="errorMsg _flex-box">
+    No record found
+  </div>
+
+</div>

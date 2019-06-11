@@ -1,0 +1,20 @@
+<app-loader></app-loader>
+<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="false"></app-parent-heading>
+
+<div class="margin" *ngIf="blockList">
+  <div *ngFor="let block of blockList;let index = index" class="margin">
+    <mat-expansion-panel [expanded]="selectedZoneIndex === index" 
+      class="blockExpansion">
+      <mat-expansion-panel-header (click)="selectedZoneIndex=index">
+        <mat-panel-title class="textOverflow title">
+          {{block.label}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="tableWrapper">
+        <div *ngIf="selectedZoneIndex === index">
+          <app-table [data]="data" [link]="links" [zoneId]="block.id" [blockData]="block"></app-table>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</div>
