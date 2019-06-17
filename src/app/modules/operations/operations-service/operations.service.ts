@@ -24,12 +24,12 @@ export class OperationsService {
   }
   // getSchools(programId,componentId,search,pageIndex,pageSize){
   getSchools(...args){
-    if(args[3] === undefined){
-      args[3] = 0;
-      args[4] = 50;
+    if(args[2] === undefined){
+      args[2] = 0;
+      args[3] = 50;
     }
     args[3]++;
-    return this.apiService.get(environment.apibaseurl + OperationConfig.viewSchools+"programId="+args[0]+"&componentId="+args[1]+"&search="+args[2]+"&page="+args[3]+"&limit="+args[4]);
+    return this.apiService.get(environment.apibaseurl + OperationConfig.viewSchools+"solutionId="+args[0]+"&search="+args[1]+"&page="+args[2]+"&limit="+args[3]);
   }
 
   getAssessors(...args){

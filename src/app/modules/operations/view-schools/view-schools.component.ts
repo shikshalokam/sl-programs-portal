@@ -42,12 +42,12 @@ export class ViewSchoolsComponent implements OnInit {
   }
   getViewSchool() {
     this.utility.loaderShow();
-    this.operationsService.getSchools(this.programId, this.assessmentId, this.search, this.pageIndex, this.pageSize)
+    this.operationsService.getSchools(this.assessmentId, this.search, this.pageIndex, this.pageSize)
       .subscribe(data => {
-        this.schoolList = data['result']['schoolInformation'];
-        this.result = data['result']['schoolInformation'].length;
+        this.schoolList = data['result']['entityInformation'];
+        this.result = data['result']['entityInformation'].length;
         this.length = data['result']['totalCount'];
-        this.dataSource = new MatTableDataSource(data['result']['schoolInformation']);
+        this.dataSource = new MatTableDataSource(data['result']['entityInformation']);
         setTimeout(() => this.dataSource.sort = this.sort);
         this.utility.loaderHide()
       },

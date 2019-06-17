@@ -36,10 +36,13 @@ export class BlockListComponent implements OnInit {
   snackBar: any;
   data: any;
   headings:string = "headings.blockListHeading"
+  solutionId: any;
 
   constructor(private bottomSheet: MatBottomSheet, private route: ActivatedRoute, private reportService: ReportService, private utility: UtilityService, private router: Router) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["programId"];
+      this.solutionId = params["solutionId"];
+
 
       this.links = {
         multiEntity: [
@@ -94,7 +97,7 @@ export class BlockListComponent implements OnInit {
 
   getAllBlocks() {
     this.utility.loaderShow();
-    this.reportService.getListOfBlock(this.programId)
+    this.reportService.getListOfBlock(this.solutionId)
       .subscribe(data => {
         this.blockList = data['result']['zones'];
         this.blockListDataSource = data['result']['zones']

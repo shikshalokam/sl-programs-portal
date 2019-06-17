@@ -31,6 +31,7 @@ export class TableComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   limitSelection: any = 2;
+  solutionId: any;
   constructor(private bottomSheet: MatBottomSheet,
     private route: ActivatedRoute,
     private reportService: ReportService,
@@ -39,6 +40,8 @@ export class TableComponent implements OnInit {
     private snackBar: MatSnackBar) {
     this.route.queryParams.subscribe(params => {
       this.programId = params["programId"];
+      this.solutionId = params["solutionId"];
+
     });
   }
   ngOnInit() {
@@ -79,7 +82,7 @@ export class TableComponent implements OnInit {
 
   goToSingilEntityReport(id) {
     console.log("clicked", id);
-    this.router.navigate(['/report/block-list/'], { queryParams: { programId: this.programId, Id: id } });
+    this.router.navigate(['/report/block-list/'], { queryParams: { programId: this.programId, Id: id  , solutionId : this.solutionId} });
   }
 
   getAction(actionFor, blockName, schoolId?: any) {
@@ -91,12 +94,15 @@ export class TableComponent implements OnInit {
       for (const link of this.link[actionFor]) {
         link.queryParams.school = Object.assign([], schoolArray);
         link.queryParams.blockName = this.blockData.label;
+        link.queryParams.solutionId = this.solutionId;
         // console.log(blockName)
 
       }
     } else {
       for (const link of this.link[actionFor]) {
         link.params = schoolId;
+        link.queryParams.solutionId = this.solutionId;
+
       }
     }
     this.bottomSheet.open(ActionSheetComponent, { data: this.link[actionFor] })
@@ -131,17 +137,17 @@ export class TableComponent implements OnInit {
  
   getSchoolList(id) {
     this.dataSource = new MatTableDataSource();
-    this.reportService.getListOfSchool(this.programId, id)
+    this.reportService.getListOfSchool(this.solutionId, id)
       .subscribe(data => {
         this.paginator.pageIndex = 0;
-        data['result']['schools'].forEach((element,index) => {
-        Object.assign(data['result']['schools'][index], {'selected' : false} )
+        data['result']['entities'].forEach((element,index) => {
+        Object.assign(data['result']['entities'][index], {'selected' : false} )
         });
-        this.dataSource = new MatTableDataSource(data['result']['schools']);
+        this.dataSource = new MatTableDataSource(data['result']['entities']);
         this.selection = new SelectionModel(true, []);
         this.paginator.pageSize = 5;
         this.paginator.pageIndex = 0;
-        this.paginator.length = data['result']['schools'].length;
+        this.paginator.length = data['result']['entities'].length;
         this.dataSource.paginator = this.paginator;
       },
         (error) => {
