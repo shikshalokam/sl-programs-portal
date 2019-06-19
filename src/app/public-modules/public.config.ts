@@ -4,7 +4,7 @@ export const PublicConfig = {
     userSchoolsInProgram: "programs/userSchoolList?programId=",
     singleEntityReport: "insights/singleEntityDrillDownReport/",
     highEntityReport: "insights/singleEntityHighLevelReport/",
-    schoolReport:'programOperations/entityReport/',
+    entityReport:'programOperations/entityReport/',
    assessorReport:'programOperations/assessorReport/',
     reportSummary:'programOperations/entitySummary/',
    reportFilter:'programOperations/reportFilters/',

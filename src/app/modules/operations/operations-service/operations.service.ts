@@ -53,7 +53,7 @@ export class OperationsService {
   }
   getSchoolReport(url){
 
-    return this.apiService.get(environment.apibaseurl + OperationConfig.schoolReport+url);
+    return this.apiService.get(environment.apibaseurl + OperationConfig.entityReport+url);
   }
   getAssessorReport(url){
 

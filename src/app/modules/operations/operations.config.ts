@@ -3,7 +3,7 @@ export const OperationConfig = {
    uploadAcessors : 'assessors/uploadForPortal?',
    viewSchools: 'programs/entityList?',
    viewAssessors:'programs/userList?',
-   schoolReport:'programOperations/entityReport/',
+   entityReport:'programOperations/entityReport/',
    assessorReport:'programOperations/assessorReport/',
     reportSummary:'programOperations/entitySummary/',
    reportFilter:'programOperations/reportFilters/',
