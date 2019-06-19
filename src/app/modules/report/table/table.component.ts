@@ -85,14 +85,14 @@ export class TableComponent implements OnInit {
     this.router.navigate(['/report/block-list/'], { queryParams: { programId: this.programId, Id: id  , solutionId : this.solutionId} });
   }
 
-  getAction(actionFor, blockName, schoolId?: any) {
+  getAction(actionFor, blockName, entityId?: any) {
     if (actionFor === 'multiEntity') {
-      const schoolArray = []
+      const entityArray = []
       for (const item of this.selection.selected) {
-        schoolArray.push(item._id);
+        entityArray.push(item._id);
       }
       for (const link of this.link[actionFor]) {
-        link.queryParams.school = Object.assign([], schoolArray);
+        link.queryParams.entity = Object.assign([], entityArray);
         link.queryParams.blockName = this.blockData.label;
         link.queryParams.solutionId = this.solutionId;
         // console.log(blockName)
@@ -100,9 +100,9 @@ export class TableComponent implements OnInit {
       }
     } else {
       for (const link of this.link[actionFor]) {
-        link.params = schoolId;
         link.queryParams.solutionId = this.solutionId;
 
+        link.params = entityId;
       }
     }
     this.bottomSheet.open(ActionSheetComponent, { data: this.link[actionFor] })

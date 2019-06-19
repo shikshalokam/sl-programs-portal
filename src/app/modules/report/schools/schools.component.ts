@@ -42,12 +42,15 @@ export class SchoolsComponent implements OnInit {
     })
   }
 
-  navigateToEntityReport(schoolId) {
+  navigateToEntityReport(entityId) {
     // this.route.n
-    this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {programId: this.programId , solutionId: this.solutionId} });
+    console.log(entityId)
+    this.route.navigate(['/report/entity-report/'+entityId], { queryParams: {programId: this.programId , solutionId:this.solutionId} });
   }
-  navigateToHighEntityReport(schoolId){
-    this.route.navigate(['/report/highlevel-entity-report/'+schoolId], { queryParams: { programId: this.programId ,solutionId: this.solutionId} });
+  navigateToHighEntityReport(entityId){
+    console.log(entityId)
+
+    this.route.navigate(['/report/highlevel-entity-report/'+entityId], { queryParams: {programId: this.programId , solutionId:this.solutionId} });
 
   }
 
