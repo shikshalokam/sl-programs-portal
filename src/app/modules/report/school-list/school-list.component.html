@@ -70,7 +70,7 @@
                  </div>
                </div>
                <div class="flexRight">
-               <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,school.name,school._id ]">
+               <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" (click)="goToEcmReport(school)">
                 {{'tableLabel.buttons.clickHere'| translate}}</div>
                 <!-- <ng-template #complete>
                     <div  class="complete">
