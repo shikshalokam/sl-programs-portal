@@ -3,18 +3,18 @@
 
 <div *ngIf="!error">
 
-
+  <mat-form-field [floatLabel]="'never'" class="_full-width">
+    <button mat-button matPrefix mat-icon-button aria-label="Clear">
+      <i class="material-icons">
+        search
+      </i>
+    </button>
+    <input class="filterInput" matInput appDebounceSearch [searchValue]="searchValue" [debounceTime]="200"
+      (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}"
+      (keyup)="applyFilter($event.target.value)">
+  </mat-form-field>
   <div *ngIf=" result > 0 " (window:resize)="onResize($event)">
-    <mat-form-field [floatLabel]="'never'" class="_full-width">
-      <button mat-button matPrefix mat-icon-button aria-label="Clear">
-        <i class="material-icons">
-          search
-        </i>
-      </button>
-      <input class="filterInput" matInput appDebounceSearch [searchValue]="searchValue" [debounceTime]="200"
-        (debounceSearch)="searchInApi($event)" placeholder="{{'search'| translate}}"
-        (keyup)="applyFilter($event.target.value)">
-    </mat-form-field>
+   
     <div class="example-container mat-elevation-z8 ">
       <div class="tableContainer">
         <table mat-table [dataSource]="dataSource" matSort class="_contentMiddle ">
@@ -78,10 +78,10 @@
         </div>
       </mat-expansion-panel>
     </div>
-  </div>
+  </div> -->
   <div *ngIf="!result">
     <div class="middle">
       {{'message.noData' | translate}}
     </div>
   </div>
-</div> -->
+</div> 

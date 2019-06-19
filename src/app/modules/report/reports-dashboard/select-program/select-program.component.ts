@@ -39,7 +39,7 @@ export class SelectProgramComponent implements OnInit {
     localStorage.setItem('currentProgram',JSON.stringify(currentProgram));
     // localStorage.setItem('currentAssessments',JSON.stringify(currentProgram.assessments[0]));
     ////console.logcurrentProgram)
-    this.router.navigate([this.data.event] ,{ queryParams: {programId: currentProgram.externalId} })
+    this.router.navigate([this.data.event] ,{ queryParams: {programId: currentProgram.externalId,solutionId:currentProgram.assessments[0]._id} })
     this.onChoose();
   }
 }

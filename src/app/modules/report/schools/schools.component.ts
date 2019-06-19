@@ -16,8 +16,11 @@ export class SchoolsComponent implements OnInit {
   dataSource;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  solutionId: string;
   constructor(private apiService: ReportService, private router: ActivatedRoute, private route: Router) {
     this.programId = this.router.snapshot.queryParamMap.get('programId');
+    this.solutionId = this.router.snapshot.queryParamMap.get('solutionId');
+
   }
 
   ngOnInit() {
@@ -29,8 +32,8 @@ export class SchoolsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   getSchoolList() {
-    this.apiService.getUserSchoolsInProgram(this.programId).subscribe(successData => {
-      this.dataSource =  new MatTableDataSource(successData['result'].schools);
+    this.apiService.getUserSchoolsInProgram(this.solutionId).subscribe(successData => {
+      this.dataSource =  new MatTableDataSource(successData['result'].entities);
       setTimeout(() => this.dataSource.sort = this.sort);
       setTimeout(() => this.dataSource.paginator = this.paginator);
       
@@ -41,10 +44,10 @@ export class SchoolsComponent implements OnInit {
 
   navigateToEntityReport(schoolId) {
     // this.route.n
-    this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {programId: this.programId} });
+    this.route.navigate(['/report/entity-report/'+schoolId], { queryParams: {programId: this.programId , solutionId: this.solutionId} });
   }
   navigateToHighEntityReport(schoolId){
-    this.route.navigate(['/report/highlevel-entity-report/'+schoolId], { queryParams: {programId: this.programId} });
+    this.route.navigate(['/report/highlevel-entity-report/'+schoolId], { queryParams: { programId: this.programId ,solutionId: this.solutionId} });
 
   }
 
