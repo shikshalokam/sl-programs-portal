@@ -1,18 +1,7 @@
-.box{
-    height: 100%;
-    position: relative;
-}
-.positionBottom{
-    position: absolute;
-    bottom:0;
-}
-.selectedProgram{
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-.formDiv{
-    overflow: auto;
-    min-height: 450px;
+.flexBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .noWrap {
     white-space: nowrap;
@@ -40,4 +29,6 @@
   .flex {
     display: flex;
   }
-  
+  table{
+    width: 100%;
+  }

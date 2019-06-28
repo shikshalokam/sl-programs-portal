@@ -1,13 +1,13 @@
 export const ReportConfig = {
-   schoolListFind : 'assessors/schools',
-   ecmReportGetSubmissionId : 'schools/assessments/',
+   schoolListFind : 'entityAssessors/entities',
+   ecmReportGetSubmissionId : 'assessments/details/',
    GetSubmission : 'submissions/status/',
    downloadReport :'reports/programsSubmissionStatus/DCPCR?evidenceId=',
-   userSchoolsInProgram:"programs/userSchoolList?programId=",
+   userSchoolsInProgram:"programs/userEntityList?solutionId=",
    singleEntityReport:"insights/singleEntityDrillDownReport/",
    highEntityReport:"insights/singleEntityHighLevelReport/",
    multiEntityHighLevelReport:"insights/multiEntityHighLevelReport/",
    multiEntityDrillDownLevelReport:"insights/multiEntityDrillDownReport/",
-   listOfBlock: 'programs/schoolBlocks?programId=',
-   listOfSchool : 'programs/blockSchools?programId=',
+   listOfBlock: 'programs/entityBlocks?solutionId=',
+   listOfSchool : 'programs/blockEntity?solutionId=',
 }

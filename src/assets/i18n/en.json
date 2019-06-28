@@ -15,6 +15,8 @@
         "selectPrograms": "Select a program to continue"
     },
     "buttons": {
+        "copyProgram":"Copy Program",
+        "createPrograms":"Create Programs",
         "download": "Download",
         "update": "Update",
         "markasComplete": "Mark As Complete",
@@ -38,7 +40,11 @@
     "downloadReport": "Select a Evendince Method to Download",
     "search": "Search",
     "headings": {
-        "selectSolution": "Select Solution",
+        "workspaceDashboard":"Workspace Dashboard",
+        "copyProgram":"Copy Program",
+        "programDetails":"Program Details",
+        "solutionDetails":"Solution Details",
+        "selectSolution": "Solution",
         "workSpace": "Workspace",
         "addProgram": "Add Program",
         "frameworkRubricView": "Framework Hierarchy + Rubric",
@@ -76,6 +82,7 @@
         "panelEditHeading": "Click on panel to Edit",
         "general": "General",
         "choices": "Choices",
+        "programTemplate":"Program Template",
         "type": "Type",
         "uploadingCsv": "Uploading Csv",
         "operationDashboardUpload": "Manage",
@@ -92,7 +99,9 @@
     "labels": {
         "uploadCsv": "Configurations",
         "addUsers": "Add Users",
-        "addHierarchy": "Add Hierarchy"
+        "addHierarchy": "Add Hierarchy",
+        "addImage":"Add Logo",
+        "update":"Update"
     },
     "descriptions": {
         "questionFrameWorkDescription": "list of questions.",

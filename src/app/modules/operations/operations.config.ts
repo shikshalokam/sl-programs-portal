@@ -1,11 +1,13 @@
 export const OperationConfig = {
    uploadSchool : 'schools/uploadForPortal?',
    uploadAcessors : 'assessors/uploadForPortal?',
-   viewSchools: 'programs/schoolList?',
+   viewSchools: 'programs/entityList?',
    viewAssessors:'programs/userList?',
-   schoolReport:'programOperations/schoolReport/',
+   entityReport:'programOperations/entityReport/',
    assessorReport:'programOperations/assessorReport/',
-    reportSummary:'programOperations/schoolSummary/',
+    reportSummary:'programOperations/entitySummary/',
    reportFilter:'programOperations/reportFilters/',
-    profileSummary:'programOperations/managerProfile/'
+    // profileSummary:'programOperations/managerProfile/'
+
+    profileSummary:'programOperations/userProfile/'
 }

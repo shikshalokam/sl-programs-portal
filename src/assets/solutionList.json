@@ -73,7 +73,7 @@
     },
     "components": [
         {
-            "type": "evaluationFramework",
+            "type": "evaluation Framework 1",
             "id": "5beaaa2baf0065f0e0a105c7",
             "solutionNumber": 1,
             "schools": [
@@ -266,7 +266,7 @@
             ]
         },
         {
-            "type": "evaluationFramework",
+            "type": "Evaluation Framework 2",
             "id": "5beaaa2baf0065f0e0a105c7",
             "solutionNumber": 2,
             "schools": [
@@ -459,7 +459,7 @@
             ]
         },
         {
-            "type": "evaluationFramework",
+            "type": "Evaluation Framework 3 ",
             "id": "5beaaa2baf0065f0e0a105c7",
             "solutionNumber": 3,
             "schools": [

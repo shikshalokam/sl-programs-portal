@@ -18,7 +18,7 @@ const routes: Routes = [
         component:BaseComponent
       },
       {
-        path: 'entity-report/:schoolId',
+        path: 'entity-report/:entityId',
         data: {
           componentId: "insights",
           apibaseUrl: environment.apibaseurl,
@@ -57,7 +57,7 @@ const routes: Routes = [
         component: MultipleEntityDrilldownReportComponent,
       },
       {
-        path: 'highlevel-entity-report/:schoolId',
+        path: 'highlevel-entity-report/:entityId',
         data: {
           componentId: 'insights',
           apibaseUrl: environment.apibaseurl,

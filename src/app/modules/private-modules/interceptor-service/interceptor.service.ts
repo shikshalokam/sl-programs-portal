@@ -71,6 +71,14 @@ export class ApiInterceptor implements HttpInterceptor {
             return throwError(error)
           }
           else {
+            console.log(error)
+            if(error.statusText.includes( "Unauthorized")){
+                    this.snackBar.open("Session TimeOut , Login to continue" ,"ok" , { duration: 3000 });
+                    this.authService.getLogout();
+            return ;
+
+              }
+                
             if (error.error instanceof ErrorEvent) {
               // client-side error
               errorMessage = `Error: ${error.error.message}`;

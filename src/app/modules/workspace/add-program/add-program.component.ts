@@ -7,11 +7,19 @@ import { FormArray, Validators, FormControl, FormBuilder, FormGroup } from '@ang
 import { UtilityService, ApiService } from 'shikshalokam';
 import { HttpEventType } from '@angular/common/http';
 import { WorkspaceService } from '../workspace-service/workspace.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-add-program',
   templateUrl: './add-program.component.html',
-  styleUrls: ['./add-program.component.scss']
+  styleUrls: ['./add-program.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class AddProgramComponent implements OnInit {
   opened = true;
@@ -24,6 +32,8 @@ export class AddProgramComponent implements OnInit {
   solutionList;
   currentSolution;
   solutionForm;
+  columnsToDisplay=[];
+  dataSource: any;
   constructor(
     private bottomSheet: MatBottomSheet,
     private route: ActivatedRoute,
@@ -46,6 +56,8 @@ export class AddProgramComponent implements OnInit {
     this.apiService.get('/assets/solutionList.json').subscribe(solutionList => {
       // console.log(solutionList);
       this.solutionList = solutionList['components'];
+      this.columnsToDisplay = ['type','solutionNumber']
+      this.dataSource = this.solutionList;
     })
     this.group = this._formBuilder.group({});
     this.createForm(this.programData);
@@ -70,7 +82,9 @@ export class AddProgramComponent implements OnInit {
   }
   showSolutions(solution) {
     this.currentSolution = solution;
+
     this.solutionForm = this.utilityService.createControl(this.currentSolution['form']);
+    // console.log(solution)
   }
 
   fileUpload = false;
