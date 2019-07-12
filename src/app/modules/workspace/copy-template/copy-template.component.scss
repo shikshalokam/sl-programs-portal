@@ -1,0 +1,69 @@
+.example-container {
+    width: 100%;
+    min-height:calc(100vh - 115px) ;
+    // border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .programListBox{
+    min-height:calc(100vh - 240px) ;
+    overflow: auto;
+
+  }
+  
+  .example-sidenav-content {
+    // display: flex;
+    position: relative;
+    min-height: calc(100vh - 115px);
+    // align-items: center;
+    // justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 100%;
+    height: 40px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px ;
+    box-sizing: border-box;
+  }
+ 
+  
+  
+  .paddingLeft {
+    padding-left: 7px;
+  }
+
+  .searchBox {
+    position: relative;
+    width: 100%;
+  }
+  .iconOnInput {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    color: var(--light-grey-color);
+  }
+  .active{
+    color: var(--primary-color);
+    border : 1px solid var(--primary-color)
+  }
+  .programButton{
+    width:98%;
+    margin: 0 1%  ;
+    height: 50px;
+  }
+  .label{
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--grey-color)
+  }
+  .positionBottom{
+    position: absolute;
+    bottom: 0;
+  }

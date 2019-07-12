@@ -1,0 +1,58 @@
+<app-parent-heading  [startIndex]="3" [showControl]="true"></app-parent-heading>
+
+
+<div class="col-xs-12 _margin-top">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <mat-card class="example-card  col-xs-12 _noMarginPadding">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <i class="material-icons cardIcon">
+            file_copy
+            </i>
+        </div>
+        <mat-card-title>Copy Template</mat-card-title>
+        <mat-card-subtitle>from Existing program</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="flexBox _flex-end ">
+        <!-- <button mat-button>LIKE</button> -->
+        <button mat-raised-button (click)="addProgram('copy')" color="primary">{{'buttons.copyProgram' | translate}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+   <mat-card class="example-card col-xs-12 _noMarginPadding">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <i class="material-icons cardIcon">
+        create_new_folder
+        </i>
+    </div>
+    <mat-card-title>Create Program</mat-card-title>
+    <mat-card-subtitle>form scratch</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="flexBox _flex-end col-xs-12 _noMarginPadding">
+    <!-- <button mat-button>LIKE</button> -->
+    <!-- <button mat-button>SHARE</button> -->
+    <button mat-raised-button (click)="addProgram('add')" color="primary">{{'buttons.createPrograms' | translate}}</button>
+
+  </mat-card-actions>
+</mat-card>
+  </div>
+</div>

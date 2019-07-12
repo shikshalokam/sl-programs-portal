@@ -11,8 +11,8 @@ export class ReportService {
   downloadReport(evedinceId) {
     return this.apiService.get(environment.apibaseurl + ReportConfig.downloadReport + evedinceId);
   }
-  getSchoolList() {
-    return this.apiService.get(environment.apibaseurl + ReportConfig.schoolListFind);
+  getSchoolList(programId,solutionId) {
+    return this.apiService.get(environment.apibaseurl + ReportConfig.schoolListFind+"?type=assessment&subType=institutional&programId="+programId+"&solutionId="+solutionId);
   }
 
   getListOfBlock(programId){
@@ -25,8 +25,8 @@ export class ReportService {
  
 
 
-  getEcmReportGetSubmissionId(schoolId) {
-    return this.apiService.get(environment.apibaseurl + ReportConfig.ecmReportGetSubmissionId + schoolId)
+  getEcmReportGetSubmissionId(programId,solutionId,schoolId) {
+    return this.apiService.get(environment.apibaseurl + ReportConfig.ecmReportGetSubmissionId + programId+"?solutionId="+solutionId+"&entityId="+ schoolId)
   }
   getSubmissionReport(submissionId) {
     return this.apiService.get(environment.apibaseurl + ReportConfig.GetSubmission + submissionId)

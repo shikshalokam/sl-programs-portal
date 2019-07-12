@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort, Sort, MatSnackBar } from '@a
 import { UtilityService } from 'shikshalokam';
 import { ReportService } from '../report-service/report.service';
 import { GlobalConfig } from 'src/app/modules/global-config';
+import {  ActivatedRoute, Router } from '@angular/router';
 
 elementData: {
 
@@ -25,11 +26,18 @@ export class SchoolListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchVal: string;
+  solutionId: any;
 
   constructor(private reportService: ReportService,
     private utility: UtilityService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private route : ActivatedRoute,
+    private router : Router
   ) {
+    this.route.queryParams.subscribe( params => {
+     this.programId = params['programId'];
+     this.solutionId = params['solutionId']
+          })
     this.showConfig();
 
 
@@ -44,14 +52,16 @@ export class SchoolListComponent implements OnInit {
     }
   }
   showConfig() {
-    this.reportService.getSchoolList()
+    let progId =  JSON.parse(localStorage.getItem('currentProgram'))._id;
+    this.reportService.getSchoolList(progId,this.solutionId)
       .subscribe(data => {
-        this.result = data['result']['length'];
-        this.dataSource = new MatTableDataSource(data['result']);
+        this.result = data['result'][0].solutions[0].entities.length;
+        this.dataSource = new MatTableDataSource(data['result'][0].solutions[0].entities);
         setTimeout(() => this.dataSource.sort = this.sort);
         setTimeout(() => this.dataSource.paginator = this.paginator);
-        this.schoolList = data['result'];
+        this.schoolList = data['result'][0].solutions[0].entities;
         this.utility.loaderHide()
+        console.log(this.schoolList)
       },
         (error) => {
           this.error = error;
@@ -80,6 +90,9 @@ export class SchoolListComponent implements OnInit {
   objectKeys(obj) {
     return Object.keys(obj);
   }
+  goToEcmReport(element){
+    this.router.navigate(['/report/ecm-report' ,element.name,element._id] , { queryParams: { solutionId: this.solutionId}} );
 
+  }
 
 }

@@ -74,7 +74,7 @@ const routes: Routes = [
         redirectTo: 'report-dashboard'
       },
       {
-        path: 'entity-report/:schoolId',
+        path: 'entity-report/:entityId',
         data: {
           id: "entityReport",
           apibaseUrl: environment.apibaseurl,
@@ -137,7 +137,7 @@ const routes: Routes = [
         component: SchoolsComponent,
       },
       {
-        path: 'highlevel-entity-report/:schoolId',
+        path: 'highlevel-entity-report/:entityId',
         data: {
           id: 'highlevelEntityReport',
           apibaseUrl: environment.apibaseurl,

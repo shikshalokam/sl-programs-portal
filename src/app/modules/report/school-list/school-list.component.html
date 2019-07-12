@@ -31,7 +31,7 @@
           <ng-container matColumnDef="isParentInterviewCompleted">
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
-                  <div class="active" *ngIf="!(element.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,element.name,element._id ]">
+                  <div class="active" *ngIf="!(element.isParentInterviewCompleted) ; else complete" (click)="goToEcmReport(element)">
                     {{'tableLabel.buttons.clickHere'| translate}}</div>
                     <ng-template #complete>
                         <div  class="complete">
@@ -70,7 +70,7 @@
                  </div>
                </div>
                <div class="flexRight">
-               <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" [routerLink]="['/report/ecm-report' ,school.name,school._id ]">
+               <div class="active " *ngIf="!(school.isParentInterviewCompleted) ; else complete" (click)="goToEcmReport(school)">
                 {{'tableLabel.buttons.clickHere'| translate}}</div>
                 <!-- <ng-template #complete>
                     <div  class="complete">

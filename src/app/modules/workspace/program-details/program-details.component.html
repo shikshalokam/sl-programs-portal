@@ -1,0 +1,73 @@
+<app-parent-heading [genericHeading]="headings" [startIndex]="3" [showControl]="true"></app-parent-heading>
+<div class="col-xs-12  _margin-top _margin-bottom">
+  <mat-card class="col-xs-12">
+    <h4>{{metaData.programName}}</h4>
+    <h6>{{metaData.description}}</h6>
+    <!-- <h5>Program Title <h4>{{metaData.programTitle}}</h4></h5> -->
+
+    <div class="col-xs-12 _flex-box _noMarginPadding">
+      <div class="flexBox col-xs-12 col-sm-6 col-md-6 col-lg-6 _noMarginPadding">
+        <h5>From Date</h5>
+        <h6>{{metaData.fromDate}}</h6>
+      </div>
+      <div class="flexBox col-xs-12 col-sm-6 col-md-6 col-lg-6 _noMarginPadding">
+        <h5>To Date</h5>
+        <h6>{{metaData.toDate}}</h6>
+      </div>
+    </div>
+    <h5>Language</h5>
+    <mat-chip-list>
+    <mat-chip *ngFor="let chip of metaData.language">
+      {{chip}}
+    </mat-chip>
+    </mat-chip-list>
+    <h5>keyWords</h5>
+    <mat-chip-list>
+    <mat-chip *ngFor="let chip of metaData.keyWords">
+      {{chip}}
+    </mat-chip>
+    </mat-chip-list>
+
+    <h5 class="_margin-top">Solutions for Programs</h5>
+    <div class="col-xs-12">
+        <table mat-table 
+        [dataSource]="metaData.solutions" multiTemplateDataRows
+        class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay" >
+     <th mat-header-cell *matHeaderCellDef> {{column | camelcase}} </th>
+     <td mat-cell *matCellDef="let element" > {{element[column]}} </td>
+    </ng-container>
+    
+   
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+       class="example-element-row"
+      >
+    </tr>
+    </table>
+    </div>
+   
+    <!-- <div class="col-xs-12 col-lg-4 col-md-4 col-sm-6 _margin-top" *ngFor="let solution of metaData.solutions">
+      <mat-card class="solutionCard col-xs-12">
+        <div class=" flex _justify-content-space-between">
+          <div class="cardheader">
+            <i class="material-icons cardIcon">
+              {{solution.icon}}
+            </i>
+            <h4>{{solution.title}}</h4>
+          </div>
+          <mat-checkbox class="floatRight" (click)="insertSolution()"></mat-checkbox>
+          <button mat-icon-button class="floatRight" (click)="$event?.stopPropagation();solutionDetails(solution) ">
+            <i class="material-icons cardIcon">
+                info
+            </i>
+        </button>
+        </div>
+        <div class="col-xs-8 col-xs-offset-2">
+          {{solution.description}}
+        </div>
+
+      </mat-card>
+    </div> -->
+  </mat-card>
+</div>
